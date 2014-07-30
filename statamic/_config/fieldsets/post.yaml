@@ -1,0 +1,23 @@
+fields:
+  categories:
+    display: Categories
+    required: false
+    default:
+    type: tags
+  excerpt:
+    display: Blog Entry Excerpt
+    required: true
+    default:
+    type: redactor
+
+  content:
+    display: Blog Entry
+    required: true
+    default:
+    type: redactor
+  icon: 
+    type: file
+    display: Icon
+    destination: assets/img
+
+hide: true

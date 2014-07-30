@@ -1,0 +1,105 @@
+
+// Breakpoints -----------------------------
+
+
+
+// Content ---------------------------------
+
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+
+}
+.row:after {
+  clear: both;
+}
+
+.flex  {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	&.row {
+		flex-flow: row wrap;
+	}
+}
+
+section, .flex {
+	position: relative;
+}
+
+.sub-section {
+  min-height: 100vh;
+  
+}
+
+.flex-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+	flex: 1 1 auto;
+}
+.wrapper {
+	position: relative;
+	display: block;
+  min-height: 100vh;
+  * {
+    @include vertical-align;
+  }
+	@include container();
+	@include breakpoint($small) {
+		max-width: 700px;
+	}
+	@include breakpoint($medium) {
+		max-width: 900px;
+	}
+	@include breakpoint($large) {
+		max-width: 1070px;
+	}
+	&.content {
+    // min-height: 100vh;
+		// justify-content: center;
+		&.left {
+			text-align: left;
+		}
+		&.center {
+			#{headings()} {
+				text-align: center;
+			}
+			margin-right: auto;
+			margin-left: auto;
+			text-align: center;
+		}
+		&.right {
+			text-align: right;
+		}
+	}
+  .content-pack {
+    // @include vertical-align
+  }
+}
+
+#connect {
+	h1 {
+		margin-bottom: 40px;
+	}
+}
+.connect {
+
+	img {
+		display: block;
+		margin: 0 auto 6px;
+	}
+	li {
+		margin-bottom: 20px;
+	}
+}

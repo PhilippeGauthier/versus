@@ -1,0 +1,28 @@
+
+fields:
+
+  gif1: 
+    type: file
+    display: Gif Number 1
+    destination: assets/img
+
+  gif2: 
+    type: file
+    display: Gif Number 2
+    destination: assets/img
+
+  mainTitle:
+    display: Main Title
+    default:
+    type: text
+
+  subTitle:
+    display: Sub Title
+    default:
+    type: text
+
+  content:
+    display: Intro Text
+    required: true
+    default:
+    type: redactor

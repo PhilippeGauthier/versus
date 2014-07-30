@@ -1,0 +1,30 @@
+title: Case Studies Entry
+
+fields:
+
+  header: 
+    type: text
+
+  subHeader:
+    type: text
+
+  gallery:
+    display: Photo Gallery
+    type: grid
+    starting_rows: 1
+    min_rows: 1
+    fields:
+      photo:
+        type: file
+        display: Photo
+        destination: assets/img/entries
+        show_thumbnail: true
+        width: 25%
+      headerCaption:
+        type: text
+        display: Headline
+        width: 25%
+      caption:
+        type: redactor
+        display: Caption
+        width: 50%

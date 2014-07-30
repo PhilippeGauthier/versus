@@ -1,0 +1,77 @@
+<script>
+
+$(function() {
+  $('a.menu-icon[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+        
+</script>
+
+<script>
+  var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+    menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+    menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+    showLeft = document.getElementById( 'showLeft' ),
+    showRight = document.getElementById( 'showRight' ),
+    showTop = document.getElementById( 'showTop' ),
+    showBottom = document.getElementById( 'showBottom' ),
+    showLeftPush = document.getElementById( 'showLeftPush' ),
+    left = document.getElementById( 'left' ),
+    showRightPush = document.getElementById( 'showRightPush' ),
+    body = document.body;
+
+
+  showLeftPush.onclick = function() {
+    classie.toggle( this, 'active' );
+    classie.toggle( body, 'cbp-spmenu-push-toright' );
+    classie.toggle( menuLeft, 'cbp-spmenu-open' );
+    disableOther( 'showLeftPush' );
+  };
+  left.onclick = function() {
+    classie.toggle( this, 'active' );
+    classie.toggle( body, 'cbp-spmenu-push-toright' );
+    classie.toggle( menuLeft, 'cbp-spmenu-open' );
+    disableOther( 'left' );
+  };
+  // showRightPush.onclick = function() {
+  //   classie.toggle( this, 'active' );
+  //   classie.toggle( body, 'cbp-spmenu-push-toleft' );
+  //   classie.toggle( menuRight, 'cbp-spmenu-open' );
+  //   disableOther( 'showRightPush' );
+  // };
+
+  function disableOther( button ) {
+    if( button !== 'showLeft' ) {
+      classie.toggle( showLeft, 'disabled' );
+    }
+    if( button !== 'left' ) {
+      classie.toggle( left, 'disabled' );
+    }
+    if( button !== 'showRight' ) {
+      classie.toggle( showRight, 'disabled' );
+    }
+    if( button !== 'showTop' ) {
+      classie.toggle( showTop, 'disabled' );
+    }
+    if( button !== 'showBottom' ) {
+      classie.toggle( showBottom, 'disabled' );
+    }
+    if( button !== 'showLeftPush' ) {
+      classie.toggle( showLeftPush, 'disabled' );
+    }
+    if( button !== 'showRightPush' ) {
+      classie.toggle( showRightPush, 'disabled' );
+    }
+  }
+    </script>

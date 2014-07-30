@@ -1,0 +1,170 @@
+
+.sub-section .sprite {
+	display: block;
+	height: 80px;
+	width: 80px;
+	margin: 0 auto;
+	background-size: 160px auto;
+			&.philosophy {
+				background-position: -80px 0px;
+			}
+			&.case-studies {
+				background-position: -80px -80px;
+			}
+			&.companies {
+				background-position: -80px -160px;
+			}
+
+			&.bios {
+				background-position: -80px -240px;
+			}
+			&.connect {
+				background-position: -80px -320px;
+			}
+}
+
+.sprite {
+	background: url("../img/icon-sprites.png") center center no-repeat;// "../../public/img/sprites.png" for localhost
+	&.nav {
+		margin: auto;
+		position: absolute;
+		display: inline-block;
+		vertical-align: middle;
+		top: 0;
+		bottom: 0;
+		right: 14px;
+		height: 50px;
+		width: 50px;
+		background-size: 100px auto;
+		@include breakpoint ($medium) {
+			right: 14px;
+			height: 80px;
+			width: 80px;
+			background-size: 160px auto;
+		}
+	}
+	&.philosophy {
+		background-position: 0 0;
+	}
+	&.case-studies {
+		background-position: 0 -50px;
+	}
+	&.companies {
+		background-position: 0 -100px;
+	}
+	&.bios {
+		background-position: 0 -150px;
+	}
+	&.connect {
+		background-position: 0 -200px;
+	}
+	&.home {
+		background-position: 0 -250px;
+	}
+	@include breakpoint($medium) {
+		&.philosophy {
+			background-position: 0 0px;
+		}
+		&.case-studies {
+			background-position: 0 -80px;
+		}
+		&.companies {
+			background-position: 0 -160px;
+		}
+		&.bios {
+			background-position: 0 -240px;
+		}
+		&.connect {
+			background-position: 0 -320px;
+		}
+		&.home {
+			background-position: 0 -400px;
+		}
+	}
+}
+
+.active {
+	.sprite.nav {
+		right: 6px;
+		&.philosophy {
+			background-position: -50px 0px;
+		}
+		&.case-studies {
+			background-position: -50px -50px;
+		}
+		&.companies {
+			background-position: -50px -100px;
+		}
+
+		&.bios {
+			background-position: -50px -150px;
+		}
+		&.connect {
+			background-position: -50px -200px;
+		}
+		@include breakpoint ($medium) {
+			right: 6px;
+			&.philosophy {
+				background-position: -80px 0px;
+			}
+			&.case-studies {
+				background-position: -80px -80px;
+			}
+			&.companies {
+				background-position: -80px -160px;
+			}
+
+			&.bios {
+				background-position: -80px -240px;
+			}
+			&.connect {
+				background-position: -80px -320px;
+			}
+		}
+	}
+}
+
+li:hover {
+	.sprite {
+		&.philosophy {
+			background-position: -50px 0px;
+		}
+		&.case-studies {
+			background-position: -50px -50px;
+		}
+		&.companies {
+			background-position: -50px -100px;
+		}
+
+		&.bios {
+			background-position: -50px -150px;
+		}
+		&.connect {
+			background-position: -50px -200px;
+		}
+		@include breakpoint($medium) {
+			&.philosophy {
+				background-position: -80px 0px;
+			}
+			&.case-studies {
+				background-position: -80px -80px;
+			}
+			&.companies {
+				background-position: -80px -160px;
+			}
+
+			&.bios {
+				background-position: -80px -240px;
+			}
+			&.connect {
+				background-position: -80px -320px;
+			}			
+		}
+
+	}
+}
+
+
+
+
+

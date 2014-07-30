@@ -1,0 +1,40 @@
+
+
+
+  <div id="Stage" class="EDGE-129047792">
+  </div>
+<section id="philosophy">
+
+
+
+{{ entries:listing folder="philosophy" sort_by="numeric" sort_dir="desc" }}
+
+  <div class="sub-section" id="{{ title }}">
+
+
+      <div class="wrapper content center">
+
+        {{ if mainTitle|not_empty }}
+         <h1>{{ mainTitle }}</h1>
+        {{ endif }}
+
+        {{ if subTitle|not_empty }}
+        <h3>{{ subTitle }}</h3>
+        {{ endif }}
+
+        {{ content }}
+      </div>
+
+      </div>
+    
+  <div style="margin: 50px auto;" class="gif-container">
+    <img class="gif1" src="{{ gif1 }}" alt="">
+    <img src="{{ gif2 }}" alt="" class="gif2">
+  </div>
+
+
+
+  {{ /entries:listing }}</div>
+
+</section>
+

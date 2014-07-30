@@ -1,0 +1,52 @@
+<section id="companies" name="companies">
+
+<div class="flex">
+
+{{ entries:listing folder="companies" sort_by="numeric" sort_dir="desc" }}
+
+
+  <div class="sub-section" id="{{ title }}">
+
+    <div class="flex-wrapper">
+      <div class="wrapper content center">
+      <span class="sprite active companies"></span>
+
+
+        {{ if mainTitle|not_empty }}
+         <h1>{{ mainTitle }}</h1>
+        {{ endif }}
+
+        {{ if subTitle|not_empty }}
+        <h3>{{ subTitle }}</h3>
+        {{ endif }}
+
+        {{ content }}
+
+      </div>
+    </div>
+
+  </div>
+
+  {{ /entries:listing }}</div>
+
+<div class="grid-gallery">
+
+        {{ entries:listing folder="companies/entries" sort_by="numeric" sort_dir="desc" }}
+
+
+          <ul class="grid">
+
+              <li class="inner-image">
+                <div class="inner-image" style="background-image: url( {{ photo }} );">
+                <h2>{{ title }}</h2>
+                <h3>{{ subTitle }}</h3>
+                {{ content }}
+              </div>
+              </li>
+
+          </ul>
+
+          {{ /entries:listing }}
+</div>
+
+</section>

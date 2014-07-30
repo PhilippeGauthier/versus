@@ -1,0 +1,12 @@
+fields:
+
+  content:
+    display: Blog Entry
+    required: true
+    default:
+    type: redactor
+
+  icon: 
+    type: file
+    display: Icon
+    destination: assets/img

@@ -1,0 +1,34 @@
+title: Standard Page
+
+fields:
+  _template:
+    display: Template
+    type: templates
+
+  philosophyIcon: 
+    type: file
+    display: Philosophy Icon
+    destination: assets/img
+  caseStudiesIcon: 
+    type: file
+    display: Case Studies Icon
+    destination: assets/img
+  companiesIcon: 
+    type: file
+    display: Companies Icon
+    destination: assets/img
+  biosIcon: 
+    type: file
+    display: Bios Icon
+    destination: assets/img
+  connectIcon: 
+    type: file
+    display: Connect Icon
+    destination: assets/img
+  logoIcon: 
+    type: file
+    display: Versus Icon
+    destination: assets/img
+
+
+

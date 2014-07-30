@@ -1,0 +1,12 @@
+  
+<section id="recent-blog-posts">
+  <div class="divider"></div>
+  <div class="wrapper">
+  {{ entries:listing folder="blog" limit="{home_blog_items}" }}
+      {{ theme:partial src="landing-blog-entry" use_context="true" }}
+  {{ /entries:listing }}
+  </div>
+</section>
+
+
+

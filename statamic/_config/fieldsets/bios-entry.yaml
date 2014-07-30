@@ -1,0 +1,30 @@
+
+fields:
+
+  bio:
+    display: Whose Bio Item
+    type: select
+    options:
+      - Steve
+      - Alexis
+
+  image: 
+    type: file
+    display: Image
+    destination: assets/img
+
+  jobTitle:
+    display: Job Title
+    default:
+    type: text
+
+  location:
+    display: location
+    default:
+    type: text
+
+  content:
+    display: description
+    default:
+    type: redactor
+

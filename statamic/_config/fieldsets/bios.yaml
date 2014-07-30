@@ -1,0 +1,27 @@
+
+fields:
+
+  icon: 
+    type: file
+    display: Icon
+    destination: assets/img
+
+  date:
+    display: Event Date
+    type: date
+
+  mainTitle:
+    display: Main Title
+    default:
+    type: text
+
+  subTitle:
+    display: Sub Title
+    default:
+    type: text
+
+  content:
+    display: Intro Text
+    required: true
+    default:
+    type: redactor

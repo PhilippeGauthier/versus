@@ -1,0 +1,171 @@
+$darkblue         :#3D4C53;
+$green            :#70B7BA;
+$red              :#F1433F;
+$white            :#d0d2d3;
+$purple           :#6800eb;
+$lightgray        :#D0D2D3;
+$darkgray         :#1a1a1a;
+
+
+$base-font-size: 22px;
+$base-line-height: 32px;
+$rhythm-unit: 'rem';
+$base-font-family: "hurme-thin",“Helvetica Neue”,Helvetica,Arial,sans-serif;
+$headline-font: "neusa-semi-bold",Georgia,Cambria,"Times New Roman",Times,serif;
+$subHeadline-font: "hurme-bold",Georgia,Cambria,"Times New Roman",Times,serif;
+$base-font-weight: 400;
+$base-font-color: #e5e5e5;
+$tiny-font-size: 12pt;
+$tiny-font-leading: 0.75;
+$small-font-size: 16pt;
+$small-font-leading: 0.75;
+$base-font-size: 21pt;
+$base-font-leading: 1;
+$medium-font-size: 24pt;
+$medium-font-leading: 1.25;
+$large-font-size: 39pt;
+$large-font-leading: 1.25;
+$xlarge-font-size: 52pt;
+$xlarge-font-leading: 3;
+
+
+@mixin typeSize($size) {
+ @if $size == "tiny" {
+  @include adjust-font-size-to($tiny-font-size);
+  @include adjust-leading-to($tiny-font-leading);
+ }
+ @if $size == "small" {
+  @include adjust-font-size-to($small-font-size);
+  @include adjust-leading-to($small-font-leading);
+ }
+ @if $size == "base" {
+  @include adjust-font-size-to($base-font-size);
+  @include adjust-leading-to($base-font-leading);
+ }
+ @if $size == "medium" {
+  @include adjust-font-size-to($medium-font-size);
+  @include adjust-leading-to($medium-font-leading);
+ }
+ @if $size == "large" {
+  @include adjust-font-size-to($large-font-size);
+  @include adjust-leading-to($large-font-leading);
+ }
+ @if $size == "xlarge" {
+  @include adjust-font-size-to($xlarge-font-size);
+  @include adjust-leading-to($xlarge-font-leading);
+ }
+}
+
+@mixin responsiveTypeSize($size) {
+ @if $size == "tiny" {
+  @include adjust-font-size-to($tiny-font-size, $tiny-font-leading);
+ }
+ @if $size == "small" {
+  @include adjust-font-size-to($tiny-font-size, $tiny-font-leading);
+  @include breakpoint($small-screen-width) {
+   @include adjust-font-size-to($tiny-font-size, $tiny-font-leading);
+  }
+ }
+ @if $size == "base" {
+  @include adjust-font-size-to($small-font-size, $small-font-leading);
+  @include breakpoint($small-screen-width) {
+   @include adjust-font-size-to($base-font-size, $base-font-leading);
+  }
+ }
+ @if $size == "medium" {
+  @include adjust-font-size-to($base-font-size, $base-font-leading);
+  @include breakpoint($small-screen-width) {
+   @include adjust-font-size-to($medium-font-size, $medium-font-leading);
+  }
+ }
+ @if $size == "large" {
+  @include adjust-font-size-to($medium-font-size, $medium-font-leading);
+  @include breakpoint($small-screen-width) {
+   @include adjust-font-size-to($large-font-size, $large-font-leading);
+  }
+ }
+ @if $size == "xlarge" {
+  @include adjust-font-size-to($large-font-size, $large-font-leading);
+  @include breakpoint($small-screen-width) {
+   @include adjust-font-size-to($xlarge-font-size, $xlarge-font-leading);
+  }
+ }
+}
+
+// Type weights
+%t-ultrastrong {
+ font-weight: 900;
+}
+%t-strong {
+ font-weight: 700;
+}
+%t-regular {
+ font-weight: 400;
+}
+%t-light {
+ font-weight: 300;
+}
+%t-ultralight {
+ font-weight: 200;
+}
+
+// Type size variants 
+%t-tiny {
+ @include typeSize(tiny);
+}
+%t-small {
+ @include typeSize(small);
+}
+%t-base {
+ @include typeSize(base);
+}
+%t-medium {
+ @include typeSize(medium);
+}
+%t-large {
+ @include typeSize(large);
+}
+%t-xlarge {
+ @include typeSize(xlarge);
+}
+.t-tiny {
+ @include typeSize(tiny);
+}
+.t-small {
+ @include typeSize(small);
+}
+.t-base {
+ @include typeSize(base);
+}
+.t-medium {
+ @include typeSize(medium);
+}
+.t-large {
+ @include typeSize(large);
+}
+.t-xlarge {
+ @include typeSize(xlarge);
+}
+
+#{headings(4)} {
+ margin: 0;
+}
+h1 {
+ @extend %t-xlarge;
+}
+h2 {
+ @extend %t-large;
+}
+h3 {
+ @extend %t-medium;
+}
+h4 {
+ @extend %t-base;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

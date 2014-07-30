@@ -1,0 +1,32 @@
+
+fields:
+
+  icon: 
+    type: file
+    display: Icon
+    destination: assets/img
+
+  mainTitle:
+    display: Main Title
+    default:
+    type: text
+
+  sources:
+    display: Ways to Connect
+    type: grid
+    starting_rows: 1
+    min_rows: 1
+    fields:
+      image:
+        type: file
+        display: Image
+        destination: assets/img
+        show_thumbnail: true
+
+      location:
+        type: text
+        display: Title
+
+      url:
+        type: text
+        display: URL / Web Address

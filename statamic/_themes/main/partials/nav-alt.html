@@ -1,0 +1,11 @@
+<div class="nav-wrapper">
+	<nav class="alt">
+		<div class="nav-container">
+			<ul>
+
+			<li><a href="/philippe.io/statamic/"><i class="pe-7s-home pe-2x pe-va"></i> </a></li>
+			  {{ nav from="/" }}<li><a href="{{ url }}"{{ if is_current || is_parent }} class="on"{{ endif }}>{{ title }}</a><li>{{ /nav }}
+			</ul>
+		</div>
+	</nav>
+</div>

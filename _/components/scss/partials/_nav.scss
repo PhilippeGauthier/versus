@@ -1,0 +1,377 @@
+.main {
+	@include container();
+	float: right;
+	position: fixed;
+}
+
+.cbp-spmenu-push {
+	top: 0;
+	float: left;
+	@include breakpoint($medium) {
+		float: none;
+		left: 120px;
+		margin-right: 120px;
+	}
+
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.cbp-spmenu {
+	background: $darkgray;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	z-index: 10005;
+	width: 200px;
+	@include breakpoint ($medium) {
+		width: 280px;
+	}
+	&:hover {
+		li {
+			&.desktop {
+				&:after {
+					height: 1px;
+				    display: block;
+				    width: 180px;
+				    margin-left: 10px;
+				    background: #808080;
+				    content: '';
+				    @include breakpoint($medium) {
+				    	width: 240px;
+				    	margin-left: 20px;
+
+				    }
+				}	
+			}
+			&.divider {
+				&:after {
+					margin-left: 10px;
+					@include breakpoint ($medium) {
+						margin-left: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.cbp-spmenu-left {
+	left: -260px;
+	float: left;
+	@include breakpoint($medium) {
+		left: 120px;
+		float: none;
+	}
+}
+
+.cbp-spmenu-left {
+	left: -193px;
+	&.expanded {
+		left: 0;
+	}
+	@include breakpoint($medium) {
+		left: -170px;
+		&:hover {
+			left: 0;
+		}
+
+	}
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
+
+
+.cbp-spmenu-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 8px;
+	@include breakpoint($medium) {
+		left: 120px;
+	}
+}
+
+.cbp-spmenu-push-toright {
+	left: 260px;
+}
+
+.cbp-spmenu-push-toleft {
+	left: -260px;
+}
+
+
+
+#showLeftPush {
+	display: block;
+	@include breakpoint($medium) {
+		display: none;
+	}
+}
+
+
+
+
+ul.nav {
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+
+}
+
+li.menu-item {
+	flex: 1 1 auto;
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	&:after {
+		height: 1px;
+	    display: block;
+	    width: 92px;
+	    margin-left: auto;
+	    margin-right: 8px;
+	    background: #808080;
+	    content: '';
+	}	
+	
+
+	&.divider {
+		&:after {
+			height: 1px;
+		    display: block;
+		    width: 180px;
+		    margin-left: 10px;
+		    background: #808080;
+		    content: '';
+		    @include breakpoint($medium) {
+		    	width: 240px;
+		    	margin-left: 20px;
+		    }
+		}
+	}
+	&.active {
+		&:after {
+			margin-right: 0;
+		}
+		border-right: 8px solid $purple;
+
+	}
+	&:hover {
+		.desktop {
+			&:after {
+				height: 1px;
+			    display: block;
+			    width: 240px;
+			    margin-left: 20px;
+			    background: #808080;
+			    content: '';
+			}
+		}
+
+	}
+	a {
+		height: 100px;
+		width: 100%;
+		position: absolute;
+		text-decoration: none;
+		margin: auto;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		.separator {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			.descriptor {
+				padding-left: 20px;
+				width: 140px;
+				text-align: left;
+				display: inline-block;
+				@include responsiveTypeSize(small);
+				@include breakpoint ($medium) {
+					padding-left: 20px;
+					@include responsiveTypeSize(base);
+				}
+			}
+			.icon {
+				padding-right: 20px;
+				padding-left: 20px;
+				width: 120px;
+				display: inline-block;
+			}
+		}
+
+
+	}
+
+	&.active.entry {
+		border-right: 8px solid $darkgray;
+	}
+	&:hover {
+
+		svg path { 
+			fill: $purple;
+			stroke: $purple;
+			stroke-width: 0;				
+		}		
+	}
+}
+
+.menu-icon {
+	svg {
+		path {
+			stroke: rgba($lightgray,.7);
+			stroke-width: 1.5px;
+		}
+	}
+	&:hover {
+
+	}
+}
+.logo-icon {
+	svg {
+		path {
+			@include transition(.35s);
+			fill: $lightgray;
+			stroke: $lightgray;
+		}
+	}
+}
+
+
+
+.svg-main {
+	position: relative;
+	margin: 0 auto;
+	height: 120px;
+	width: 120px;
+	margin-bottom: 20px;
+	path {
+		fill: $purple;
+		stroke: $purple;
+	}
+}
+
+.main {
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	@include breakpoint($medium) {
+		display: none;
+	}
+}
+
+#left {
+	height: 100%;
+	position: fixed;
+	width: 10%;
+	display: block;
+	opacity: 0;
+	@include breakpoint($medium) {
+		display: none;
+	}
+}
+
+#showLeftPush {
+	z-index: 100;
+	-webkit-appearance: button;
+	cursor: pointer;
+	// position: relative;
+	float: left;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	margin-left: 15px;
+	padding: 9px 10px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	background-color: transparent;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	@include transition(.3s);
+	background-color: rgba(black,.3);
+	border-radius: 3px;
+}
+
+
+.button-expanded {
+	left: 210px !important;
+}
+
+
+.icon-bar {
+	width: 22px;
+	height: 2px;
+	background-color: $purple;
+	border-radius: 1px;
+	display: block;
+	margin-top: 4px;
+	&:first-of-type {
+		margin-top: 0;
+	}
+}
+
+.indicators {
+
+	display: block;
+	width: 40px;
+	span {
+		margin: 12px auto;
+		border-radius: 50%;
+		animation: loadingFade 1s infinite;
+		background-color: $purple;
+		opacity: 0;
+	}
+	.one {
+		animation-delay:0.0s;
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+	.two {
+		animation-delay:.1s;
+		display: block;
+		height: 12px;
+		width: 12px;
+	}
+	.three {
+		animation-delay:.2s;
+		display: block;
+		height: 8px;
+		width: 8px;
+		margin-bottom: 12px;
+	}
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		background-color: rgba($purple,0);
+	}
+	100% {
+		background-color: rgba($purple,.5);
+	}
+}
+@keyframes loadingFade {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+

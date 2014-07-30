@@ -1,0 +1,266 @@
+// #case-studies {
+// 	@include span(12);
+// }
+
+#imagelightbox-container {
+	color: #fff;
+	position: fixed;
+	z-index: 10001;
+	left: 0;
+	right: 0;
+	top: 5%;
+	// bottom: 0;
+	margin:auto;
+	// background:rgba(black,.5);
+	img {
+
+	}
+}
+
+#header {
+	height: 160px;
+	z-index: 10001;
+}
+.case-study-image, .company-image {
+	max-width: 100%;
+	margin-bottom: -5px;
+}
+
+a.lightbox {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+	h2,h3 {
+		color: white;
+	}
+	h2 {
+		font-family: $headline-font;
+		@include responsiveTypeSize(xlarge);
+	}
+}
+
+.title {
+	 position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.grid {
+	@include pre(1);
+	@include span(10);
+	display: block;
+	clear: left;
+	clear: right;
+	position: relative;
+	.title {
+		z-index: 100;
+		@include vertical-align;
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+	li {
+		@include transition(.35s);
+		border: 2px solid transparent;
+		&:hover {
+			border: 2px solid $purple;
+		}
+
+		margin-bottom: 40px;
+		a {
+			vertical-align: middle;
+			img {
+				filter: grayscale(1);
+			}
+		}
+	}
+}
+
+.effect_box
+{
+	display:block;
+	width:100%; height:0;
+	padding:0 0 100% 0;
+}
+
+.effect_box_opacity   { opacity: 1.0; }
+
+.hidden {
+	display: none;
+}
+
+.current {
+	p {
+		color: white;
+		z-index: 1000;
+		position: relative;
+	}
+}
+
+.grid-gallery {
+	@include container();
+	position: relative;
+	h2,h3 {
+		text-transform: uppercase;
+	}
+	h2,h3,p {
+		text-shadow: 1px 1px 1px #000;
+	}
+	h2 {
+		@include responsiveTypeSize(xlarge);
+		font-family: $subHeadline-font;
+	}
+	h3 {
+		font-family: $base-font-family;
+			@include responsiveTypeSize(medium);
+	}
+}
+
+#imagelightbox-header  {
+	text-align: left;
+	display: inline;
+	width: 20%;
+	height: 100px;
+}
+
+#imagelightbox-caption {
+	width: 80%;
+}
+
+#imagelightbox-header > h3 {
+	display: inline-block;
+	max-width: 20%;
+	padding-right: 60px;
+	vertical-align: top;
+}
+
+#imagelightbox-caption > p {
+	display: inline-block;
+}
+
+#imagelightbox-header {
+
+}
+
+#imagelightbox-caption {
+
+	display: inline-block;
+	p {
+		margin: 0;
+		padding: 0;
+		@include responsiveTypeSize(base);
+	}
+}
+
+#imagelightbox-container {
+	// height: 100%;
+}
+
+#imagelightbox-container img {
+
+}
+
+#header-companies {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 10001;
+}
+#header-companies-wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+	z-index: 10001;
+}
+
+#header-companies-wrapper {
+	#imagelightbox-caption, #imagelightbox-header {
+		width: 80%;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		h2, p  {
+			padding-right: 0;
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+		}
+		h2 {
+			@include responsiveTypeSize(large);
+			font-family: $subHeadline-font;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+	}
+	#imagelightbox-header {
+		margin-top: 100px;
+		height: auto;
+
+	}
+}
+
+.grid.companies {
+	border: 2px solid transparent;
+	@include transition(.25s);
+	padding-left: 0;
+	padding-right: 0;
+	margin-bottom: 20px;
+	&:hover {
+		border: 2px solid $purple;
+	}
+}
+
+div.inner-image {
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+	text-align: center;
+}
+
+div.inner-image {
+	cursor: pointer;
+	background-image: url('grid.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 400px;
+	width: 100%;
+	filter: grayscale(1);
+	&:hover {
+		filter: grayscale(0);
+	}
+	@include transition(.5s);
+	&.active {
+		filter: grayscale(0);
+		height: 575px;
+	}
+	p {
+		display: none;
+		height: 0;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0;
+		max-width: 80%;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		// @include transition(.5s);
+	}
+		p.active {
+			height: auto;
+			display: block;
+			opacity: 1;
+			transition-delay: .25s;
+			@include transition(.5s);
+		}
+}

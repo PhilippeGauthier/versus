@@ -1,0 +1,108 @@
+{{ nav from="/" include_content="true"}}
+  <a class="menu-item" href="{{ url }}"{{ if is_current }} class="active"{{ endif }}><li class="menu-icon">
+    <div class="separator">
+      <span class="descriptor">{{ title }}</span>
+      <span class="icon">{{ if icon|not_empty }}<img src="{{ icon }}" class="svg">{{ endif }}</span>
+    </div></li>
+  </a>
+
+
+{{ /nav }}
+
+    <nav class="cbp-spmenu cbp-spmenu-left" id="cbp-spmenu-s1">
+    <ul class="nav">
+          <a class="menu-item" href="#philosophy"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">philosophy</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/1_Vs_icon_outline_philosophy.svg"/></span>
+            </div></li>
+          </a>
+	
+          <a class="menu-item" href="#case-studies"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">case<br>studies</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/2_Vs_icon_outline_casestudies.svg"/></span>
+            </div></li>
+          </a>
+          <a class="menu-item" href="#"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">companies</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/3_Vs_icon_outline_companies.svg"/></span>
+            </div></li>
+            </a>
+          <a class="menu-item" href="#"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">bios</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/4_Vs_icon_outline_bios.svg"/></span>
+            </div></li>
+            </a>
+          <a class="menu-item" href="#"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">connect</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/5_Vs_icon_outline_connect.svg"/></span>
+            </div></li>
+            </a>
+          <a class="menu-item" href="#"><li class="menu-icon">
+            <div class="separator">
+              <span class="descriptor">home<br>sweet<br>home</span>
+              <span class="icon"><img class="svg" src="_themes/main/img/0_Vs_icon_logo.svg"/></span>
+            </div></li>
+           </a>
+      </ul>
+    </nav>
+
+    <button id="showLeftPush">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button> 
+
+    <li class="menu-item">
+      <a class="menu-icon" href="#philosophy">
+        <div class="separator">
+          <span class="descriptor">philosophy</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/1_Vs_icon_outline_philosophy.svg"/></span>
+        </div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a class="menu-icon" href="#companies">
+        <div class="separator">
+          <span class="descriptor">companies</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/3_Vs_icon_outline_companies.svg"/></span>
+        </div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-icon" href="#case-studies">
+        <div class="separator">
+          <span class="descriptor">case<br>studies</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/2_Vs_icon_outline_casestudies.svg"/></span>
+        </div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-icon" href="#bios">
+        <div class="separator">
+          <span class="descriptor">bios</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/4_Vs_icon_outline_bios.svg"/></span>
+        </div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-icon" href="#connect">
+        <div class="separator">
+          <span class="descriptor">connect</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/5_Vs_icon_outline_connect.svg"/></span>
+        </div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-icon" href="#home">
+        <div class="separator">
+          <span class="descriptor">home<br>sweet<br>home</span>
+          <span class="icon"><img class="svg-icon" src="_themes/main/img/0_Vs_icon_logo.svg"/></span>
+        </div>
+       </a>
+    </li>

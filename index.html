@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 
+
+<style>
+* {
+	box-sizing: border-box;
+}
+	html, body {
+		margin: 0;
+		padding: 0;
+/*		height: 2500px;*/
+	}
+	p {
+		margin-top: 500px;
+	}
+	div {
+		padding: 0;
+		margin: 0;
+	}
+	#connect {
+		width: 100%;
+		z-index: 1000;
+		
+	}
+	.stuck {
+		position: fixed;
+		top: 0;
+	}
+	.names {
+		display: inline-block;
+	}
+	.left {
+		text-align: right;
+		justify-content: flex-end;
+	}
+	.sticky-wrapper {
+		width: 100%;
+		text-align: center;
+
+	}
+
+	.sticky-container {
+		width: 100%;
+		background-color: tomato;
+
+	}
+
+
+/*	.block {
+		text-align: center;
+		display: flex;
+		min-height: 100vh;
+
+	}*/
+	h2 {
+		display: inline-block;
+	}
+	h1 {
+/*		-webkit-margin-before: 0;
+		-webkit-margin-after: 0;*/
+	}
+
+.inner-image {
+	background-image: url('grid.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 400px;
+	width: 100%;
+}
+
+.container {
+	width: 80%;
+    max-width: 1000px;
+	margin: 200px auto;
+    
+}
+
+.inner {
+	overflow: hidden;
+    display: inline-block;
+    height: 300px;
+    /*margin: 200px auto;*/
+    position: relative;
+    width: 100%;
+
+}
+
+img {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+  width: 100%;
+/*  transform: translateY(-50%);*/
+}
+
+.box {
+	height: 200px;
+	width: 200px;
+	background-color: tomato;
+	margin: 0 auto;
+}
+
+body{
+    background:#343434;
+}
+#container{
+    width:100%;
+    height:600px;
+}
+#box1{
+    position:absolute;
+    margin-left:0px;
+    text-align:center;
+    height:23px;
+    width:60px;
+    border-radius:10px;
+    background:#999999;
+    border: 3px #0000ff solid;
+    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
+    font-size:20px;
+    text-decoration:none;
+}
+#box2{
+    margin-left:100px;
+    position:absolute;
+    text-align:center;
+    height:23px;
+    width:60px;
+    border-radius:10px;
+    background:#999999;
+    border: 3px #0000ff solid;
+    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
+    font-size:20px;
+    text-decoration:none;
+}
+#box3{
+    margin-left:200px;
+    position:absolute;
+    text-align:center;
+    height:23px;
+    width:60px;
+    border-radius:10px;
+    background:#999999;
+    border: 3px #0000ff solid;
+    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
+    font-size:20px;
+    text-decoration:none;
+}
+#link1 a:hover{
+    color:#0000ff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+          
+}
+#link2 a:hover{
+    color:#0000ff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+          
+}
+#link3 a:hover{
+    color:#0000ff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+          
+}
+.navigation{
+        color:#0000ff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="inner-image"></div>
+</div>
+<div id='topbar'>toggle me</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="_/components/js/waypoints.js"></script>
+<script src="_/components/js/waypoints.sticky.js"></script>
+<script src="_/components/js/jquery.scrollme.js"></script>
+
+<script>
+
+// $('#connect').waypoint('sticky', {
+//   // offset: 49,
+//   stuckClass: 'stuck' // Apply "stuck" when element 30px from top
+// });
+
+// $('.sticky-container').waypoint('sticky', {
+//   offset: 50,
+//   stuckClass: 'float' // Apply "stuck" when element 30px from top
+// });
+
+	var image_url = $('.inner-image').css('background-image'),
+    image;
+
+// Remove url() or in case of Chrome url("")
+image_url = image_url.match(/^url\("?(.+?)"?\)$/);
+
+if (image_url[1]) {
+    image_url = image_url[1];
+    image = new Image();
+
+    // just in case it is not already loaded
+    $(image).load(function () {
+        // alert(image.width + 'x' + image.height);
+    });
+    $('.inner-image').click(function(e){
+    	var $this = $(this);
+    	var oldHeight = $this.data("height");
+    	console.log(oldHeight);
+		var aspectRatio = ( (image.width) / (image.height) )
+		var newHeight = ( ($(this).width() ) / (aspectRatio) );
+		var heightDifference = ( ((newHeight) - ($(this).height()) ) / 2);
+		var box = $(this).closest('.inner-image');
+		
+
+	    if (box.hasClass('active')) {
+	        // Animate the box out
+	        animateBoxOut(box);
+	    } else {
+	        // Get the original left margin
+	        animateBoxIn(box);
+	    } 
+
+	function animateBoxIn(box) {
+	    // Animate the box in
+	    $(box).addClass('active').animate({
+			height: newHeight,
+			top: -heightDifference,
+			bottom: heightDifference
+			}, 1000, function() {
+			// Animation complete.
+			});
+	}
+
+	function animateBoxOut(box) {
+	    // Animate the box out
+	    $(box).animate({
+			top: heightDifference,
+			bottom: -heightDifference,
+			height: 300
+	    },1000).removeClass('active');
+	}
+
+	});
+
+    image.src = image_url;
+}
+
+
+// $('.box').click(function() {
+//     // Get the associated box
+//     var box = $(this).closest('.box');
+//     // Get the other boxes
+//     var otherBoxes = $('.box').not(box);
+//     // If the box is already active
+//     if (box.hasClass('active')) {
+//         // Animate the box out
+//         animateBoxOut(box);
+//     } else {
+//         // Get the original left margin
+//         var marginLeft = box.css('margin-left');
+//         // Store the original left margin
+//         box.data('marginLeft', marginLeft);
+//         // Animate the box in
+//         animateBoxIn(box);
+//         // Animate the other boxes out
+//         otherBoxes.each(function(index, element) {
+//             animateBoxOut(element);
+//         });
+//     }
+// });
+
+// function animateBoxIn(box) {
+//     // Animate the box in
+//     $(box).addClass('active').animate({
+//         marginLeft:"0px",
+//         marginTop:"100px"
+//     },500).animate({
+//         width:"260px",
+//         height:"80px"
+//     });
+// }
+
+// function animateBoxOut(box) {
+//     // Get the element's stored left margin
+//     var marginLeft = $(box).data('marginLeft');
+//     // Animate the box out
+//     $(box).animate({
+//         marginLeft:marginLeft,
+//         marginTop:"0px",
+//         width:"60px",
+//         height:"23px"
+//     },500).removeClass('active');
+// }
+
+// $('.inner img').click(function(){
+// 	console.log("it worked");
+// 	var imgHeight = $('.inner img').height();
+// 	var heightDifference = ( ((imgHeight) - ($(this).parent().height()) ) / 2);
+// 	console.log("the height difference is " + heightDifference);
+// 	console.log(imgHeight);
+// 	$( this ).parent().animate({
+// 	height: imgHeight,
+// 	top: -heightDifference,
+// 	bottom: heightDifference
+// 	}, 1000, function() {
+// 	// Animation complete.
+// 	});
+// 	$(this).css('margin-top','0');
+// });
+</script>
+
+
+
+</body>
+</html>

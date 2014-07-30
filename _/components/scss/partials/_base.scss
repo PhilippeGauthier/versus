@@ -1,0 +1,63 @@
+@include border-box-sizing;
+
+$susy: (
+	columns: 12,
+	column-width: 3em,
+	gutter-width: 1/4,
+	gutter-position: inside-static,
+);
+
+$small: 768px;
+$medium: 1000px;
+$large: 1200px;
+
+$small-screen-width: 30em;
+
+@include establish-baseline;
+
+html, body, #{headings()}, a, span, p {
+	color: $white;
+	// text-rendering: geometricPrecision;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	background: url('../img/background_1600x1600.png') center center no-repeat;
+	background-size: cover;
+	background-attachment:fixed;
+
+	
+}
+html, body, p {
+	font-family: $base-font-family;
+	letter-spacing: .03rem;
+}
+
+
+h1 {
+	font-family: $headline-font;
+	@extend %t-strong;
+	@include responsiveTypeSize(xlarge);
+	color: $purple;
+}
+
+h3 {
+	font-family: $subHeadline-font;
+	@include responsiveTypeSize(base);
+
+}
+
+
+p {
+	@include responsiveTypeSize(base);
+	@include trailer;
+	font-family: $base-font-family;
+	letter-spacing: .03rem;
+	&:first-of-type {
+		@include leader;
+	}
+	&:last-of-type {
+		@include padding-trailer;
+	}
+}

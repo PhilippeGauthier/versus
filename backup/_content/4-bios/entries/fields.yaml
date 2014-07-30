@@ -1,3 +1,0 @@
-type: date                    # see http://statamic.com/learn/core-concepts/pages-and-entries
-hide: yes                      # hide page from Add Page list
-_fieldset: bios-entry                # use the post fieldset

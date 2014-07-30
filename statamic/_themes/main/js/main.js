@@ -33,11 +33,7 @@
   }
 
   ScrollSpy.DEFAULTS = {
-<<<<<<< HEAD
     offset: 0
-=======
-    offset: 10
->>>>>>> master
   }
 
   ScrollSpy.prototype.refresh = function () {
@@ -155,7 +151,6 @@
   })
 
 }(jQuery);
-<<<<<<< HEAD
 
 
 /*
@@ -1731,5 +1726,3 @@ $('.inner-image').click(function(){
     var boxE = $(boxP).children('p');
     $(boxE).toggleClass('active');
 });
-=======
->>>>>>> master

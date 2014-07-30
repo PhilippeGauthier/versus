@@ -37,7 +37,7 @@
 
             {{ gallery }} 
               <li class="hidden">
-                <a href="{{ photo }}" class="lightbox {{ title }}" data-imageLightbox="{{ title }}">
+                <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title }}">
                 <div class="title">
                 <h2>{{ header }}</h2>
                 <h3>{{ subHeader }}</h3>

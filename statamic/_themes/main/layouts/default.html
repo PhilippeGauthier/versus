@@ -36,17 +36,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="{{ theme:js src="main" }}"></script>
 
-  <script src="{{ theme:js src="index_edgeActions" }}"></script>
-    <script src="{{ theme:js src="index_edgePreload" }}"></script>
-    <script src="{{ theme:js src="index_edge" }}"></script>
-
-
-
-
-    <style>
-        .edgeLoad-EDGE-129047792 { visibility:hidden; }
-    </style>
-
 <script>
 
 $( function()
@@ -150,7 +139,7 @@ $( function()
 
     {{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
 
-        var selector{{ title }} = 'a[data-imagelightbox="{{ title }}"]';
+        var selector{{ title }} = 'a[data-imagelightbox="{{ title|lower|slugify }}"]';
         var instance{{ title }} = $( selector{{ title }} ).imageLightbox(
         {
           quitOnDocClick: false,

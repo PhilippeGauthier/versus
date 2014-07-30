@@ -140,7 +140,7 @@ $( function()
     {{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
 
         var selector{{ title }} = 'a[data-imagelightbox="{{ title|lower|slugify }}"]';
-        var instance{{ title }} = $( selector{{ title }} ).imageLightbox(
+        var instance{{ title }} = $( selector{{ title|lower|slugify }} ).imageLightbox(
         {
           quitOnDocClick: false,
           onStart:   function() { navigationOn( instance{{ title }}, selector{{ title }} ); overlayOn( instance{{ title }}, selector{{ title }} ); closeButtonOn( instance{{ title }}, selector{{ title }} );},

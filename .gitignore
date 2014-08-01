@@ -38,3 +38,8 @@ npm-debug.log
 .htaccess
 statamic/_cache
 statamic/_cache/**/*
+
+statamic/_content
+statamic/_content/**/*
+statamic/assets
+statamic/assets/**/*

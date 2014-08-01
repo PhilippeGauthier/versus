@@ -14,6 +14,9 @@
 		padding: 0;
 /*		height: 2500px;*/
 	}
+	body {
+		position: relative;
+	}
 	p {
 		margin-top: 500px;
 	}
@@ -173,156 +176,52 @@ body{
         color:#0000ff;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 }
+.wrapper {
+	display: flex;
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+background-color: white;
+}
 
 </style>
+
+<link src="_/components/js/scrollspy.js"></script>
 </head>
-<body>
-<div class="container">
+<body data-spy="scroll" data-target=".navbar-example">
+  <div class="navbar-example">
+    <ul class="nav nav-tabs" role="tablist">
+      <li ><a href="#test">test</a></li>
+      <li ><a href="#testAgain">test again</a></li>
+      <li ><a href="#oneMore">one more</a></li>
+    </ul>
+  </div>
+<!-- <div class="container">
 	<div class="inner-image"></div>
 </div>
-<div id='topbar'>toggle me</div>
+<div id='topbar'>toggle me</div> -->
+<div id="test" class="wrapper">
+	<div class="content">test</div>
+</div>
+<div id="testAgain" class="wrapper">
+	<div class="content">test again</div>
+</div>
+<div id="oneMore" class="wrapper">
+	<div class="content">one more</div>
+</div>
 
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="_/components/js/waypoints.js"></script>
+<!-- <script src="_/components/js/waypoints.js"></script>
 <script src="_/components/js/waypoints.sticky.js"></script>
-<script src="_/components/js/jquery.scrollme.js"></script>
+<script src="_/components/js/jquery.scrollme.js"></script> -->
+<script src="_/components/js/scrollspy.js"></script>
 
 <script>
-
-// $('#connect').waypoint('sticky', {
-//   // offset: 49,
-//   stuckClass: 'stuck' // Apply "stuck" when element 30px from top
-// });
-
-// $('.sticky-container').waypoint('sticky', {
-//   offset: 50,
-//   stuckClass: 'float' // Apply "stuck" when element 30px from top
-// });
-
-	var image_url = $('.inner-image').css('background-image'),
-    image;
-
-// Remove url() or in case of Chrome url("")
-image_url = image_url.match(/^url\("?(.+?)"?\)$/);
-
-if (image_url[1]) {
-    image_url = image_url[1];
-    image = new Image();
-
-    // just in case it is not already loaded
-    $(image).load(function () {
-        // alert(image.width + 'x' + image.height);
-    });
-    $('.inner-image').click(function(e){
-    	var $this = $(this);
-    	var oldHeight = $this.data("height");
-    	console.log(oldHeight);
-		var aspectRatio = ( (image.width) / (image.height) )
-		var newHeight = ( ($(this).width() ) / (aspectRatio) );
-		var heightDifference = ( ((newHeight) - ($(this).height()) ) / 2);
-		var box = $(this).closest('.inner-image');
-		
-
-	    if (box.hasClass('active')) {
-	        // Animate the box out
-	        animateBoxOut(box);
-	    } else {
-	        // Get the original left margin
-	        animateBoxIn(box);
-	    } 
-
-	function animateBoxIn(box) {
-	    // Animate the box in
-	    $(box).addClass('active').animate({
-			height: newHeight,
-			top: -heightDifference,
-			bottom: heightDifference
-			}, 1000, function() {
-			// Animation complete.
-			});
-	}
-
-	function animateBoxOut(box) {
-	    // Animate the box out
-	    $(box).animate({
-			top: heightDifference,
-			bottom: -heightDifference,
-			height: 300
-	    },1000).removeClass('active');
-	}
-
-	});
-
-    image.src = image_url;
-}
-
-
-// $('.box').click(function() {
-//     // Get the associated box
-//     var box = $(this).closest('.box');
-//     // Get the other boxes
-//     var otherBoxes = $('.box').not(box);
-//     // If the box is already active
-//     if (box.hasClass('active')) {
-//         // Animate the box out
-//         animateBoxOut(box);
-//     } else {
-//         // Get the original left margin
-//         var marginLeft = box.css('margin-left');
-//         // Store the original left margin
-//         box.data('marginLeft', marginLeft);
-//         // Animate the box in
-//         animateBoxIn(box);
-//         // Animate the other boxes out
-//         otherBoxes.each(function(index, element) {
-//             animateBoxOut(element);
-//         });
-//     }
-// });
-
-// function animateBoxIn(box) {
-//     // Animate the box in
-//     $(box).addClass('active').animate({
-//         marginLeft:"0px",
-//         marginTop:"100px"
-//     },500).animate({
-//         width:"260px",
-//         height:"80px"
-//     });
-// }
-
-// function animateBoxOut(box) {
-//     // Get the element's stored left margin
-//     var marginLeft = $(box).data('marginLeft');
-//     // Animate the box out
-//     $(box).animate({
-//         marginLeft:marginLeft,
-//         marginTop:"0px",
-//         width:"60px",
-//         height:"23px"
-//     },500).removeClass('active');
-// }
-
-// $('.inner img').click(function(){
-// 	console.log("it worked");
-// 	var imgHeight = $('.inner img').height();
-// 	var heightDifference = ( ((imgHeight) - ($(this).parent().height()) ) / 2);
-// 	console.log("the height difference is " + heightDifference);
-// 	console.log(imgHeight);
-// 	$( this ).parent().animate({
-// 	height: imgHeight,
-// 	top: -heightDifference,
-// 	bottom: heightDifference
-// 	}, 1000, function() {
-// 	// Animation complete.
-// 	});
-// 	$(this).css('margin-top','0');
-// });
+	$('body').scrollspy({ target: '.navbar-example' })
 </script>
-
-
-
 </body>
 </html>

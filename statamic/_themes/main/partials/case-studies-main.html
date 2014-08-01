@@ -1,9 +1,9 @@
 <section id="case-studies" name="case-studies">
-<div class="flex">{{ entries:listing folder="case-studies" sort_by="numeric" sort_dir="desc" }}
+{{ entries:listing folder="case-studies" sort_by="numeric" sort_dir="desc" }}
   
   <div class="sub-section" id="{{ title }}">
   
-    <div class="flex-wrapper">
+ 
       <div class="wrapper content center">
       <span class="sprite active companies"></span>
   
@@ -19,37 +19,39 @@
         {{ content }}
   
       </div>
-    </div>
-  
   </div>
   
-  {{ /entries:listing }}</div>
+  
+  
+  {{ /entries:listing }}
 
-<div class="grid-gallery">
 
-        {{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
-        
-          <ul class="grid">
+
+  <div class="grid-gallery">
+
+{{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
+
+
+      <div class="title">
+<!-- {{ header }} -->
+      </div>
+  
+    <ul class="grid">
+      {{ gallery }} 
+      <li class="hidden">
+        <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title }}">
           <div class="title">
-
+            <h2>{{ header }}</h2>
+            <h3>{{ subHeader }}</h3>
           </div>
-              
+          <img class="case-study-image" src="{{ photo }}" header="{{ headerCaption}}" alt="{{ caption }}">
+        </a>
+      </li>
+      {{ /gallery }}       
+    </ul>
 
-            {{ gallery }} 
-              <li class="hidden">
-                <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title }}">
-                <div class="title">
-                <h2>{{ header }}</h2>
-                <h3>{{ subHeader }}</h3>
-                </div>
-                <img class="case-study-image" src="{{ photo }}" header="{{ headerCaption}}" alt="{{ caption }}">
-                </a>
-              </li>
-              {{ /gallery }}       
-          </ul>
-          
-          {{ /entries:listing }}
-</div>
+    {{ /entries:listing }}
+  </div>
 
   
 </section>

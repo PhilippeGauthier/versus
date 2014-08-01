@@ -633,9 +633,25 @@ section, .flex {
 
 /* line 40, ../partials/_layout.scss */
 .sub-section {
-  min-height: 100vh; }
+  min-height: 100vh;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap; }
 
-/* line 45, ../partials/_layout.scss */
+/* line 49, ../partials/_layout.scss */
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -653,64 +669,84 @@ section, .flex {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
 
-/* line 51, ../partials/_layout.scss */
+/* line 55, ../partials/_layout.scss */
 .wrapper {
   position: relative;
   display: block;
-  min-height: 100vh;
   max-width: 45em;
   margin-left: auto;
   margin-right: auto; }
-  /* line 55, ../partials/_layout.scss */
-  .wrapper * {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
   /* line 12, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.2/sass/susy/output/support/_clearfix.scss */
   .wrapper:after {
     content: " ";
     display: block;
     clear: both; }
   @media (min-width: 768px) {
-    /* line 51, ../partials/_layout.scss */
+    /* line 55, ../partials/_layout.scss */
     .wrapper {
       max-width: 700px; } }
   @media (min-width: 1000px) {
-    /* line 51, ../partials/_layout.scss */
+    /* line 55, ../partials/_layout.scss */
     .wrapper {
       max-width: 900px; } }
   @media (min-width: 1200px) {
-    /* line 51, ../partials/_layout.scss */
+    /* line 55, ../partials/_layout.scss */
     .wrapper {
       max-width: 1070px; } }
-  /* line 71, ../partials/_layout.scss */
+  /* line 76, ../partials/_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 74, ../partials/_layout.scss */
+  /* line 79, ../partials/_layout.scss */
   .wrapper.content.center {
     margin-right: auto;
     margin-left: auto;
     text-align: center; }
-    /* line 75, ../partials/_layout.scss */
+    /* line 80, ../partials/_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 82, ../partials/_layout.scss */
+  /* line 87, ../partials/_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 92, ../partials/_layout.scss */
+/* line 97, ../partials/_layout.scss */
 #connect h1 {
   margin-bottom: 40px; }
 
-/* line 98, ../partials/_layout.scss */
+/* line 103, ../partials/_layout.scss */
 .connect img {
   display: block;
   margin: 0 auto 6px; }
-/* line 102, ../partials/_layout.scss */
+/* line 107, ../partials/_layout.scss */
 .connect li {
   margin-bottom: 20px; }
+
+/* line 113, ../partials/_layout.scss */
+.sticky-wrapper {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative; }
+  @media (min-width: 768px) {
+    /* line 113, ../partials/_layout.scss */
+    .sticky-wrapper {
+      max-width: 700px; } }
+  @media (min-width: 1000px) {
+    /* line 113, ../partials/_layout.scss */
+    .sticky-wrapper {
+      max-width: 900px; } }
+  @media (min-width: 1200px) {
+    /* line 113, ../partials/_layout.scss */
+    .sticky-wrapper {
+      max-width: 1070px; } }
+
+/* line 130, ../partials/_layout.scss */
+.sticky-container {
+  width: 100%;
+  margin: 0 auto; }
+
+/* line 135, ../partials/_layout.scss */
+.sticky-wrapper {
+  margin-bottom: 200px; }
 
 /* line 3, ../partials/_modules.scss */
 .cbp-spmenu {
@@ -1189,6 +1225,16 @@ li.menu-item {
     margin: 0; }
 
 /* line 20, ../partials/_bios.scss */
+.scrollme {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 0.375em;
+  padding-right: 0.375em; }
+
+/* line 24, ../partials/_bios.scss */
 #bios .entries.wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1200,7 +1246,7 @@ li.menu-item {
   flex: 1 1 auto;
   min-height: 100vh;
   position: relative; }
-  /* line 25, ../partials/_bios.scss */
+  /* line 29, ../partials/_bios.scss */
   #bios .entries.wrapper .left, #bios .entries.wrapper .right {
     -webkit-flex-flow: column nowrap;
     -ms-flex-flow: column nowrap;
@@ -1213,188 +1259,68 @@ li.menu-item {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center; }
-    /* line 29, ../partials/_bios.scss */
+    /* line 33, ../partials/_bios.scss */
     #bios .entries.wrapper .left.sticky-name, #bios .entries.wrapper .right.sticky-name {
       -webkit-box-pack: start;
       -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
       justify-content: flex-start;
       padding-top: 100px; }
-  /* line 35, ../partials/_bios.scss */
-  #bios .entries.wrapper .image {
-    width: 100%;
-    text-align: center; }
   /* line 39, ../partials/_bios.scss */
+  #bios .entries.wrapper .image {
+    z-index: 1000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 33.33333%;
+    float: left;
+    padding-left: 0.375em;
+    padding-right: 0.375em;
+    margin-left: 33.33333%; }
+  /* line 44, ../partials/_bios.scss */
   #bios .entries.wrapper img {
-    max-width: 35%;
+    max-width: 100%;
     margin: 0 auto;
     text-align: center; }
 
-/* line 62, ../partials/_bios.scss */
-.bio-entry:last-of-type:after {
-  height: 30px;
-  width: 30px;
-  border: 2px solid white;
-  background-color: #1a1a1a;
-  content: "";
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -20px; }
+/* line 60, ../partials/_bios.scss */
+.bio-container {
+  position: relative; }
 
-/* line 78, ../partials/_bios.scss */
-#names #left-name, #names #right-name {
-  width: 50%;
-  padding: 0;
-  display: inline-block; }
-  /* line 83, ../partials/_bios.scss */
-  #names #left-name.active h2, #names #right-name.active h2 {
-    color: #d0d2d3; }
-  /* line 87, ../partials/_bios.scss */
-  #names #left-name h2, #names #right-name h2 {
-    color: #4d4d4d;
-    font-size: 2rem;
-    font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif;
-    font-weight: 900;
-    line-height: 110%;
-    text-transform: uppercase; }
-/* line 96, ../partials/_bios.scss */
-#names #left-name {
+/* line 64, ../partials/_bios.scss */
+.steve-description, .image {
+  position: absolute;
+  width: 100%; }
+
+/* line 69, ../partials/_bios.scss */
+.steve-description {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 50%;
+  width: 33.33333%;
   float: left;
   padding-left: 0.375em;
-  padding-right: 0.375em;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: right; }
-  /* line 100, ../partials/_bios.scss */
-  #names #left-name h2 {
-    padding-right: 40px; }
-/* line 104, ../partials/_bios.scss */
-#names #right-name {
+  padding-right: 0.375em; }
+
+/* line 73, ../partials/_bios.scss */
+.alexis-description {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 50%;
+  width: 33.33333%;
   float: right;
   padding-left: 0.375em;
-  padding-right: 0.375em;
-  text-align: left;
-  padding-left: 40px; }
-/* line 125, ../partials/_bios.scss */
-#names .names {
-  display: inline-block; }
-/* line 128, ../partials/_bios.scss */
-#names .left {
-  text-align: right;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end; }
-/* line 132, ../partials/_bios.scss */
-#names .sticky-wrapper {
-  width: 100%;
-  text-align: center; }
-/* line 137, ../partials/_bios.scss */
-#names .sticky-container {
-  width: 100%; }
-/* line 143, ../partials/_bios.scss */
-#names h2 {
-  display: inline-block; }
+  padding-right: 0.375em; }
 
-/* line 148, ../partials/_bios.scss */
-.stuck {
-  position: fixed;
-  top: 60px; }
-
-/* line 160, ../partials/_bios.scss */
-#names {
-  width: 100%;
-  margin: 0 auto; }
-  @media (min-width: 768px) {
-    /* line 160, ../partials/_bios.scss */
-    #names {
-      max-width: 700px; } }
-  @media (min-width: 1000px) {
-    /* line 160, ../partials/_bios.scss */
-    #names {
-      max-width: 900px; } }
-  @media (min-width: 1200px) {
-    /* line 160, ../partials/_bios.scss */
-    #names {
-      max-width: 1070px; } }
-
-/* line 178, ../partials/_bios.scss */
-.sticky-wrapper, .sticky-container, .names, .stuck {
-  margin: 0;
-  padding: 0; }
-
-/* line 183, ../partials/_bios.scss */
-.sticky-wrapper {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  position: relative; }
-  @media (min-width: 768px) {
-    /* line 183, ../partials/_bios.scss */
-    .sticky-wrapper {
-      max-width: 700px; } }
-  @media (min-width: 1000px) {
-    /* line 183, ../partials/_bios.scss */
-    .sticky-wrapper {
-      max-width: 900px; } }
-  @media (min-width: 1200px) {
-    /* line 183, ../partials/_bios.scss */
-    .sticky-wrapper {
-      max-width: 1070px; } }
-
-/* line 200, ../partials/_bios.scss */
-.sticky-container {
-  width: 100%;
-  margin: 0 auto; }
-
-/* line 205, ../partials/_bios.scss */
-.sticky-wrapper {
-  margin-bottom: 200px; }
-
-/* line 209, ../partials/_bios.scss */
-.names {
-  display: inline-block; }
-
-/* line 213, ../partials/_bios.scss */
-#left-name {
-  padding-right: 40px;
-  margin-left: auto; }
-  /* line 216, ../partials/_bios.scss */
-  #left-name h2 {
-    text-align: right; }
-
-/* line 221, ../partials/_bios.scss */
-#right-name {
-  padding-left: 40px;
-  margin-right: auto; }
-  /* line 224, ../partials/_bios.scss */
-  #right-name h2 {
-    text-align: left; }
-
-/* line 249, ../partials/_bios.scss */
+/* line 76, ../partials/_bios.scss */
 .bio-container-steve, .bio-container-alexis {
-  height: 200px;
   opacity: 0;
   -webkit-transition: 0.15s;
   transition: 0.15s; }
-  /* line 251, ../partials/_bios.scss */
+  /* line 78, ../partials/_bios.scss */
   .bio-container-steve p, .bio-container-alexis p {
     margin: 0; }
-  /* line 256, ../partials/_bios.scss */
+  /* line 83, ../partials/_bios.scss */
   .bio-container-steve.inview, .bio-container-steve.active, .bio-container-alexis.inview, .bio-container-alexis.active {
     opacity: 1.0; }
 

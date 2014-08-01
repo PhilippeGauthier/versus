@@ -17,6 +17,10 @@
 	}
 }
 
+.scrollme {
+	@include span(full);
+}
+
 #bios .entries.wrapper {
 	display: flex;
 	flex: 1 1 auto;
@@ -33,221 +37,44 @@
 		// min-height: 100vh;
 	}
 	.image {
-		width: 100%;
-		text-align: center;
+		z-index: 1000;
+		@include span(4);
+		@include push(4);
 	}
 	img {
-		max-width: 35%;
+		max-width: 100%;
 		margin: 0 auto;
 		text-align: center;
 	}
-	// &:before {
-	// 	height: 30px;
-	// 	width: 30px;
-	// 	border: 2px solid white;
-	// 	background-color: $darkgray;
-	// 	content: "";
-	// 	border-radius: 50%;
-	// 	display: inline-block;
-	// 	margin: 0 auto;
-	// 	position: absolute;
-	// 	left: 0;
-	// 	right: 0;
-	// 	top: -20px;
-	// }
 
 }
 
 
-.bio-entry:last-of-type:after {
-			height: 30px;
-		width: 30px;
-		border: 2px solid white;
-		background-color: $darkgray;
-		content: "";
-		border-radius: 50%;
-		display: inline-block;
-		margin: 0 auto;
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: -20px;
+.date-container {
+	// position: relative;
+	// @include pre(4);
+	// @include span (4 of 12);
+	
 }
 
-#names {
-	#left-name, #right-name {
-		width: 50%;
-		padding: 0;
-		display: inline-block;
-		&.active {
-			h2 {
-				color: $white;
-			}
-		}
-		h2 {
-			color: lighten($darkgray,20%);
-			font-size: 2rem;
-			font-family: $subHeadline-font;
-			font-weight: 900;
-			line-height: 110%;
-			text-transform: uppercase;
-		}
-	}
-	#left-name {
-		@include span(first 6);
-		justify-content: flex-end;
-		text-align: right;
-		h2 {
-			padding-right: 40px;
-		}
-	}
-	#right-name {
-		@include span(last 6);
-		text-align: left;
-		padding-left: 40px;
-	}
-	// .left {
-	// 	padding-right: 10%;
-	// 	&.sticky-name {
-	// 		text-align: right;
-	// 		margin-left: auto;
-	// 		float: right;
-	// 		h2.sticky {
-	// 			display: block;
-	// 			right: 0;
-	// 		text-align: right;
-	// 		margin-left: auto;
-	// 		float: right;
-	// 		}
-	// 	}
-	// }
-
-	.names {
-		display: inline-block;
-	}
-	.left {
-		text-align: right;
-		justify-content: flex-end;
-	}
-	.sticky-wrapper {
-		width: 100%;
-		text-align: center;
-	}
-
-	.sticky-container {
-		width: 100%;
-	}
-
-
-
-	h2 {
-		display: inline-block;
-	}
-}
-
-.stuck {
-	position: fixed;
-	top: 60px;
-	// display: flex;
-	// justify-content: center;
-	// @include container();
-}
-
- #names {
-
-}
-
-#names {
-	width: 100%;
-	margin: 0 auto;
-	@include breakpoint($small) {
-		max-width: 700px;
-	}
-	@include breakpoint($medium) {
-		max-width: 900px;
-	}
-	@include breakpoint($large) {
-		max-width: 1070px;
-	}
-}
-
-.sticky-wrapper {
-
-}
-
-.sticky-wrapper, .sticky-container, .names, .stuck {
-	margin: 0;
-	padding: 0;
-}
-
-.sticky-wrapper {
-	@include breakpoint($small) {
-		max-width: 700px;
-	}
-	@include breakpoint($medium) {
-		max-width: 900px;
-	}
-	@include breakpoint($large) {
-		max-width: 1070px;
-	}
-	// display: flex;
-	width: 100%;
-	text-align: center;
-	margin: 0 auto;
+.bio-container {
 	position: relative;
 }
 
-.sticky-container {
+.steve-description, .image, {
+	position: absolute;
 	width: 100%;
-	margin: 0 auto;
 }
 
-.sticky-wrapper {
-	margin-bottom: 200px;
+.steve-description {
+	@include span(first 4);
 }
 
-.names {
-	display: inline-block;
+.alexis-description {
+	@include span(last 4);
 }
-
-#left-name {
-	padding-right: 40px;
-	margin-left: auto;
-	h2 {
-		text-align: right;
-	}
-}
-
-#right-name {
-	padding-left: 40px;
-	margin-right: auto;
-	h2 {
-		text-align: left;
-	}
-}
-
-.date-container {
-	// display: flex;
-	// align-items: flex-end;
-	// flex-flow: column nowrap;
-	// justify-content: flex-start;
-	// position: relative;
-
-}
-
-.date {
-
-	// position: absolute;
-	// margin: 0 auto;
-	// margin-left: auto;
-	// margin-right: auto;
-	// right: -62px;
-	// top: -120px;
-
-}
-
 .bio-container-steve, .bio-container-alexis {
-	height: 200px;
+	// height: 200px;
 	p {
 		margin: 0;
 	}

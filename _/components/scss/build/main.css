@@ -61,93 +61,93 @@ h1 {
 
 /* line 119, ../modules/_variables.scss */
 h4 {
-  font-size: 21pt;
+  font-size: 17pt;
   font-size: 1rem;
   line-height: 24pt;
-  line-height: 1.14286rem;
+  line-height: 1.41176rem;
   line-height: 24pt;
-  line-height: 1.14286rem; }
+  line-height: 1.41176rem; }
 
 /* line 122, ../modules/_variables.scss */
 h3 {
-  font-size: 24pt;
-  font-size: 1.14286rem;
-  line-height: 48pt;
-  line-height: 2.28571rem;
+  font-size: 19pt;
+  font-size: 1.11765rem;
+  line-height: 24pt;
+  line-height: 1.41176rem;
   line-height: 30pt;
-  line-height: 1.42857rem; }
+  line-height: 1.76471rem; }
 
 /* line 125, ../modules/_variables.scss */
 h2 {
-  font-size: 39pt;
-  font-size: 1.85714rem;
+  font-size: 31pt;
+  font-size: 1.82353rem;
   line-height: 48pt;
-  line-height: 2.28571rem;
+  line-height: 2.82353rem;
   line-height: 30pt;
-  line-height: 1.42857rem; }
+  line-height: 1.76471rem; }
 
 /* line 128, ../modules/_variables.scss */
 h1 {
-  font-size: 52pt;
-  font-size: 2.47619rem;
-  line-height: 72pt;
-  line-height: 3.42857rem;
-  line-height: 72pt;
-  line-height: 3.42857rem; }
+  font-size: 42pt;
+  font-size: 2.47059rem;
+  line-height: 48pt;
+  line-height: 2.82353rem;
+  line-height: 36pt;
+  line-height: 2.11765rem; }
 
 /* line 131, ../modules/_variables.scss */
 .t-tiny {
-  font-size: 12pt;
-  font-size: 0.57143rem;
+  font-size: 10pt;
+  font-size: 0.58824rem;
   line-height: 24pt;
-  line-height: 1.14286rem;
+  line-height: 1.41176rem;
   line-height: 18pt;
-  line-height: 0.85714rem; }
+  line-height: 1.05882rem; }
 
 /* line 134, ../modules/_variables.scss */
 .t-small {
-  font-size: 16pt;
-  font-size: 0.7619rem;
+  font-size: 13pt;
+  font-size: 0.76471rem;
   line-height: 24pt;
-  line-height: 1.14286rem;
+  line-height: 1.41176rem;
   line-height: 18pt;
-  line-height: 0.85714rem; }
+  line-height: 1.05882rem; }
 
 /* line 137, ../modules/_variables.scss */
 .t-base {
-  font-size: 21pt;
+  font-size: 17pt;
   font-size: 1rem;
   line-height: 24pt;
-  line-height: 1.14286rem;
+  line-height: 1.41176rem;
   line-height: 24pt;
-  line-height: 1.14286rem; }
+  line-height: 1.41176rem; }
 
 /* line 140, ../modules/_variables.scss */
 .t-medium {
-  font-size: 24pt;
-  font-size: 1.14286rem;
-  line-height: 48pt;
-  line-height: 2.28571rem;
+  font-size: 19pt;
+  font-size: 1.11765rem;
+  line-height: 24pt;
+  line-height: 1.41176rem;
   line-height: 30pt;
-  line-height: 1.42857rem; }
+  line-height: 1.76471rem; }
 
 /* line 143, ../modules/_variables.scss */
 .t-large {
-  font-size: 39pt;
-  font-size: 1.85714rem;
+  font-size: 31pt;
+  font-size: 1.82353rem;
   line-height: 48pt;
-  line-height: 2.28571rem;
+  line-height: 2.82353rem;
   line-height: 30pt;
-  line-height: 1.42857rem; }
+  line-height: 1.76471rem; }
 
 /* line 146, ../modules/_variables.scss */
 .t-xlarge {
-  font-size: 52pt;
-  font-size: 2.47619rem;
-  line-height: 72pt;
-  line-height: 3.42857rem;
-  line-height: 72pt;
-  line-height: 3.42857rem; }
+  font-size: 42pt;
+  font-size: 2.47059rem;
+  line-height: 48pt;
+  line-height: 2.82353rem;
+  line-height: 36pt;
+  line-height: 2.11765rem; }
 
 /* line 150, ../modules/_variables.scss */
 h1, h2, h3, h4 {
@@ -579,8 +579,8 @@ footer {
 
 /* line 106, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
-  font-size: 175.0%;
-  line-height: 1.14286em; }
+  font-size: 141.66667%;
+  line-height: 1.41176em; }
 
 /* line 18, ../partials/_base.scss */
 html, body, h1, h2, h3, h4, h5, h6, a, span, p {
@@ -602,59 +602,60 @@ html, body, p {
 /* line 38, ../partials/_base.scss */
 h1 {
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 39pt;
-  font-size: 1.85714rem;
+  font-size: 31pt;
+  font-size: 1.82353rem;
   line-height: 30pt;
-  line-height: 1.42857rem;
-  color: #6800eb; }
+  line-height: 1.76471rem;
+  color: #6800eb;
+  letter-spacing: -2px; }
   @media (min-width: 30em) {
     /* line 38, ../partials/_base.scss */
     h1 {
-      font-size: 52pt;
-      font-size: 2.47619rem;
-      line-height: 72pt;
-      line-height: 3.42857rem; } }
+      font-size: 42pt;
+      font-size: 2.47059rem;
+      line-height: 36pt;
+      line-height: 2.11765rem; } }
 
-/* line 45, ../partials/_base.scss */
+/* line 46, ../partials/_base.scss */
 h3 {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 16pt;
-  font-size: 0.7619rem;
+  font-size: 13pt;
+  font-size: 0.76471rem;
   line-height: 18pt;
-  line-height: 0.85714rem; }
+  line-height: 1.05882rem; }
   @media (min-width: 30em) {
-    /* line 45, ../partials/_base.scss */
+    /* line 46, ../partials/_base.scss */
     h3 {
-      font-size: 21pt;
+      font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
-      line-height: 1.14286rem; } }
+      line-height: 1.41176rem; } }
 
-/* line 52, ../partials/_base.scss */
+/* line 53, ../partials/_base.scss */
 p {
-  font-size: 16pt;
-  font-size: 0.7619rem;
+  font-size: 13pt;
+  font-size: 0.76471rem;
   line-height: 18pt;
-  line-height: 0.85714rem;
+  line-height: 1.05882rem;
   margin-bottom: 24pt;
-  margin-bottom: 1.14286rem;
+  margin-bottom: 1.41176rem;
   font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
   letter-spacing: .03rem; }
   @media (min-width: 30em) {
-    /* line 52, ../partials/_base.scss */
+    /* line 53, ../partials/_base.scss */
     p {
-      font-size: 21pt;
+      font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
-      line-height: 1.14286rem; } }
-  /* line 57, ../partials/_base.scss */
+      line-height: 1.41176rem; } }
+  /* line 58, ../partials/_base.scss */
   p:first-of-type {
     margin-top: 24pt;
-    margin-top: 1.14286rem; }
-  /* line 60, ../partials/_base.scss */
+    margin-top: 1.41176rem; }
+  /* line 61, ../partials/_base.scss */
   p:last-of-type {
     padding-bottom: 24pt;
-    padding-bottom: 1.14286rem; }
+    padding-bottom: 1.41176rem; }
 
 /* line 8, ../partials/_layout.scss */
 .row:before,
@@ -686,11 +687,15 @@ p {
   .flex.row {
     flex-flow: row wrap; }
 
-/* line 36, ../partials/_layout.scss */
+/* line 40, ../partials/_layout.scss */
+.divider {
+  height: 50%; }
+
+/* line 44, ../partials/_layout.scss */
 section, .flex {
   position: relative; }
 
-/* line 40, ../partials/_layout.scss */
+/* line 48, ../partials/_layout.scss */
 .sub-section {
   min-height: 100vh;
   position: relative;
@@ -699,14 +704,14 @@ section, .flex {
   align-items: center;
   flex-flow: column nowrap; }
 
-/* line 49, ../partials/_layout.scss */
+/* line 57, ../partials/_layout.scss */
 .flex-wrapper {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
   flex: 1 1 auto; }
 
-/* line 55, ../partials/_layout.scss */
+/* line 63, ../partials/_layout.scss */
 .wrapper {
   position: relative;
   display: block;
@@ -719,69 +724,69 @@ section, .flex {
     display: block;
     clear: both; }
   @media (min-width: 768px) {
-    /* line 55, ../partials/_layout.scss */
+    /* line 63, ../partials/_layout.scss */
     .wrapper {
       max-width: 700px; } }
   @media (min-width: 1000px) {
-    /* line 55, ../partials/_layout.scss */
+    /* line 63, ../partials/_layout.scss */
     .wrapper {
       max-width: 900px; } }
   @media (min-width: 1200px) {
-    /* line 55, ../partials/_layout.scss */
+    /* line 63, ../partials/_layout.scss */
     .wrapper {
       max-width: 1070px; } }
-  /* line 76, ../partials/_layout.scss */
+  /* line 84, ../partials/_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 79, ../partials/_layout.scss */
+  /* line 87, ../partials/_layout.scss */
   .wrapper.content.center {
     margin-right: auto;
     margin-left: auto;
     text-align: center; }
-    /* line 80, ../partials/_layout.scss */
+    /* line 88, ../partials/_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 87, ../partials/_layout.scss */
+  /* line 95, ../partials/_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 97, ../partials/_layout.scss */
+/* line 105, ../partials/_layout.scss */
 #connect h1 {
   margin-bottom: 40px; }
 
-/* line 103, ../partials/_layout.scss */
+/* line 111, ../partials/_layout.scss */
 .connect img {
   display: block;
   margin: 0 auto 6px; }
-/* line 107, ../partials/_layout.scss */
+/* line 115, ../partials/_layout.scss */
 .connect li {
   margin-bottom: 20px; }
 
-/* line 113, ../partials/_layout.scss */
+/* line 121, ../partials/_layout.scss */
 .sticky-wrapper {
   width: 100%;
   text-align: center;
   margin: 0 auto;
   position: relative; }
   @media (min-width: 768px) {
-    /* line 113, ../partials/_layout.scss */
+    /* line 121, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 700px; } }
   @media (min-width: 1000px) {
-    /* line 113, ../partials/_layout.scss */
+    /* line 121, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 900px; } }
   @media (min-width: 1200px) {
-    /* line 113, ../partials/_layout.scss */
+    /* line 121, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 1070px; } }
 
-/* line 130, ../partials/_layout.scss */
+/* line 138, ../partials/_layout.scss */
 .sticky-container {
   width: 100%;
   margin: 0 auto; }
 
-/* line 135, ../partials/_layout.scss */
+/* line 143, ../partials/_layout.scss */
 .sticky-wrapper {
   margin-bottom: 200px; }
 
@@ -1005,32 +1010,32 @@ li.menu-item {
         width: 140px;
         text-align: left;
         display: inline-block;
-        font-size: 12pt;
-        font-size: 0.57143rem;
+        font-size: 10pt;
+        font-size: 0.58824rem;
         line-height: 18pt;
-        line-height: 0.85714rem; }
+        line-height: 1.05882rem; }
         @media (min-width: 30em) {
           /* line 200, ../partials/_nav.scss */
           li.menu-item a .separator .descriptor {
-            font-size: 12pt;
-            font-size: 0.57143rem;
+            font-size: 10pt;
+            font-size: 0.58824rem;
             line-height: 18pt;
-            line-height: 0.85714rem; } }
+            line-height: 1.05882rem; } }
         @media (min-width: 1000px) {
           /* line 200, ../partials/_nav.scss */
           li.menu-item a .separator .descriptor {
             padding-left: 20px;
-            font-size: 16pt;
-            font-size: 0.7619rem;
+            font-size: 13pt;
+            font-size: 0.76471rem;
             line-height: 18pt;
-            line-height: 0.85714rem; } }
+            line-height: 1.05882rem; } }
   @media (min-width: 1000px) and (min-width: 30em) {
     /* line 200, ../partials/_nav.scss */
     li.menu-item a .separator .descriptor {
-      font-size: 21pt;
+      font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
-      line-height: 1.14286rem; } }
+      line-height: 1.41176rem; } }
 
       /* line 211, ../partials/_nav.scss */
       li.menu-item a .separator .icon {
@@ -1461,8 +1466,8 @@ li:hover .sprite.connect {
 
 /* line 15, ../partials/_entry-animation.scss */
 .gif-container {
-  width: 350px;
-  height: 200px;
+  width: 280px;
+  height: 160px;
   position: relative; }
 
 /* line 21, ../partials/_entry-animation.scss */
@@ -1513,17 +1518,17 @@ a.lightbox {
   /* line 37, ../partials/_case-studies.scss */
   a.lightbox h2 {
     font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 39pt;
-    font-size: 1.85714rem;
+    font-size: 31pt;
+    font-size: 1.82353rem;
     line-height: 30pt;
-    line-height: 1.42857rem; }
+    line-height: 1.76471rem; }
     @media (min-width: 30em) {
       /* line 37, ../partials/_case-studies.scss */
       a.lightbox h2 {
-        font-size: 52pt;
-        font-size: 2.47619rem;
-        line-height: 72pt;
-        line-height: 3.42857rem; } }
+        font-size: 42pt;
+        font-size: 2.47059rem;
+        line-height: 36pt;
+        line-height: 2.11765rem; } }
 
 /* line 43, ../partials/_case-studies.scss */
 .title {
@@ -1561,11 +1566,11 @@ a.lightbox {
     -moz-transition: 0.35s;
     -webkit-transition: 0.35s;
     transition: 0.35s;
-    border: 2px solid transparent;
+    border: 8px solid transparent;
     margin-bottom: 40px; }
     /* line 68, ../partials/_case-studies.scss */
     .grid li:hover {
-      border: 2px solid #6800eb; }
+      border: 8px solid #6800eb; }
     /* line 73, ../partials/_case-studies.scss */
     .grid li a {
       vertical-align: middle; }
@@ -1613,32 +1618,32 @@ a.lightbox {
     text-shadow: 1px 1px 1px #000; }
   /* line 112, ../partials/_case-studies.scss */
   .grid-gallery h2 {
-    font-size: 39pt;
-    font-size: 1.85714rem;
+    font-size: 31pt;
+    font-size: 1.82353rem;
     line-height: 30pt;
-    line-height: 1.42857rem;
+    line-height: 1.76471rem;
     font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
     @media (min-width: 30em) {
       /* line 112, ../partials/_case-studies.scss */
       .grid-gallery h2 {
-        font-size: 52pt;
-        font-size: 2.47619rem;
-        line-height: 72pt;
-        line-height: 3.42857rem; } }
+        font-size: 42pt;
+        font-size: 2.47059rem;
+        line-height: 36pt;
+        line-height: 2.11765rem; } }
   /* line 116, ../partials/_case-studies.scss */
   .grid-gallery h3 {
     font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
-    font-size: 21pt;
+    font-size: 17pt;
     font-size: 1rem;
     line-height: 24pt;
-    line-height: 1.14286rem; }
+    line-height: 1.41176rem; }
     @media (min-width: 30em) {
       /* line 116, ../partials/_case-studies.scss */
       .grid-gallery h3 {
-        font-size: 24pt;
-        font-size: 1.14286rem;
+        font-size: 19pt;
+        font-size: 1.11765rem;
         line-height: 30pt;
-        line-height: 1.42857rem; } }
+        line-height: 1.76471rem; } }
 
 /* line 122, ../partials/_case-studies.scss */
 #imagelightbox-header {
@@ -1669,17 +1674,17 @@ a.lightbox {
   #imagelightbox-caption p {
     margin: 0;
     padding: 0;
-    font-size: 16pt;
-    font-size: 0.7619rem;
+    font-size: 13pt;
+    font-size: 0.76471rem;
     line-height: 18pt;
-    line-height: 0.85714rem; }
+    line-height: 1.05882rem; }
     @media (min-width: 30em) {
       /* line 151, ../partials/_case-studies.scss */
       #imagelightbox-caption p {
-        font-size: 21pt;
+        font-size: 17pt;
         font-size: 1rem;
         line-height: 24pt;
-        line-height: 1.14286rem; } }
+        line-height: 1.41176rem; } }
 
 /* line 166, ../partials/_case-studies.scss */
 #header-companies {
@@ -1716,20 +1721,20 @@ a.lightbox {
     height: auto; }
   /* line 199, ../partials/_case-studies.scss */
   #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
-    font-size: 24pt;
-    font-size: 1.14286rem;
+    font-size: 19pt;
+    font-size: 1.11765rem;
     line-height: 30pt;
-    line-height: 1.42857rem;
+    line-height: 1.76471rem;
     font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif;
     text-transform: uppercase;
     margin-bottom: 20px; }
     @media (min-width: 30em) {
       /* line 199, ../partials/_case-studies.scss */
       #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
-        font-size: 39pt;
-        font-size: 1.85714rem;
+        font-size: 31pt;
+        font-size: 1.82353rem;
         line-height: 30pt;
-        line-height: 1.42857rem; } }
+        line-height: 1.76471rem; } }
 /* line 206, ../partials/_case-studies.scss */
 #header-companies-wrapper #imagelightbox-header {
   margin-top: 100px;

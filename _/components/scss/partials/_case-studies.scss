@@ -64,9 +64,9 @@ a.lightbox {
 	}
 	li {
 		@include transition(.35s);
-		border: 2px solid transparent;
+		border: 8px solid transparent;
 		&:hover {
-			border: 2px solid $purple;
+			border: 8px solid $purple;
 		}
 
 		margin-bottom: 40px;

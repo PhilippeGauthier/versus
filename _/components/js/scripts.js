@@ -1,10 +1,10 @@
 $('.bio-container.inview').addClass('active');
 
 $( window ).unload(function() {
-  $( "ul li:first-child" ).removeClass( "hidden" );
-  // $('#names').waypoint('sticky', {
-  //   offset: 60 // Apply "stuck" when element 30px from top
-  // });
+  $( ".case-study-grid li:first-child" ).removeClass( "hidden" );
+  $('[data-spy="scroll"]').each(function () {
+    var $spy = $(this).scrollspy('refresh')
+  })
 });
 
 // Smooth Scroll
@@ -150,7 +150,9 @@ $('.menu-icon').click(function() {
 
 $(function(){
 $( ".grid li:first-of-type" ).removeClass( "hidden" );
-$.waypoints('refresh');
+$('[data-spy="scroll"]').each(function () {
+  var $spy = $(this).scrollspy('refresh')
+})
 });
 
 
@@ -323,3 +325,5 @@ $('.inner-image').click(function(){
     var boxE = $(boxP).children('p');
     $(boxE).toggleClass('active');
 });
+
+$('body').scrollspy({ target: '.cbp-spmenu' })

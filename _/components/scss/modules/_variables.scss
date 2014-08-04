@@ -15,18 +15,18 @@ $headline-font: "neusa-semi-bold",Georgia,Cambria,"Times New Roman",Times,serif;
 $subHeadline-font: "hurme-bold",Georgia,Cambria,"Times New Roman",Times,serif;
 $base-font-weight: 400;
 $base-font-color: #e5e5e5;
-$tiny-font-size: 12pt;
+$tiny-font-size: 10pt;
 $tiny-font-leading: 0.75;
-$small-font-size: 16pt;
+$small-font-size: 13pt;
 $small-font-leading: 0.75;
-$base-font-size: 21pt;
+$base-font-size: 17pt;
 $base-font-leading: 1;
-$medium-font-size: 24pt;
+$medium-font-size: 19pt;
 $medium-font-leading: 1.25;
-$large-font-size: 39pt;
+$large-font-size: 31pt;
 $large-font-leading: 1.25;
-$xlarge-font-size: 52pt;
-$xlarge-font-leading: 3;
+$xlarge-font-size: 42pt;
+$xlarge-font-leading: 1.5;
 
 
 @mixin typeSize($size) {

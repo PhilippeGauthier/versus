@@ -92,7 +92,8 @@ a.lightbox {
 .effect_box_opacity   { opacity: 1.0; }
 
 .hidden {
-	display: none;
+	height: 0;
+	opacity: 0;
 }
 
 .current {

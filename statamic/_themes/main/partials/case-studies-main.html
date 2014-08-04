@@ -39,12 +39,12 @@
     <ul class="grid case-study-grid">
       {{ gallery }} 
       <li class="hidden">
-        <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title }}">
+        <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title|lower|slugify }}">
           <div class="title">
             <h2>{{ header }}</h2>
             <h3>{{ subHeader }}</h3>
           </div>
-          <img class="case-study-image" src="{{ photo }}" header="{{ headerCaption}}" alt="{{ caption }}">
+          <img class="case-study-image" src="{{ preview }}" header="{{ headerCaption}}" alt="{{ caption }}">
         </a>
       </li>
       {{ /gallery }}       

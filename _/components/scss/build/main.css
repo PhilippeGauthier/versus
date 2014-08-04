@@ -1690,7 +1690,11 @@ a.lightbox {
         line-height: 24pt;
         line-height: 1.41176rem; } }
 
-/* line 170, ../partials/_case-studies.scss */
+/* line 162, ../partials/_case-studies.scss */
+#imagelightbox-container {
+  left: 120px; }
+
+/* line 171, ../partials/_case-studies.scss */
 #header-companies {
   position: relative;
   top: 0;
@@ -1700,7 +1704,7 @@ a.lightbox {
   margin: auto;
   z-index: 10001; }
 
-/* line 179, ../partials/_case-studies.scss */
+/* line 180, ../partials/_case-studies.scss */
 #header-companies-wrapper {
   position: absolute;
   top: 0;
@@ -1710,20 +1714,20 @@ a.lightbox {
   margin: auto;
   z-index: 10001; }
 
-/* line 191, ../partials/_case-studies.scss */
+/* line 192, ../partials/_case-studies.scss */
 #header-companies-wrapper #imagelightbox-caption, #header-companies-wrapper #imagelightbox-header {
   width: 80%;
   margin: 0 auto;
   display: block;
   text-align: center; }
-  /* line 196, ../partials/_case-studies.scss */
+  /* line 197, ../partials/_case-studies.scss */
   #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-caption p, #header-companies-wrapper #imagelightbox-header h2, #header-companies-wrapper #imagelightbox-header p {
     padding-right: 0;
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto; }
-  /* line 203, ../partials/_case-studies.scss */
+  /* line 204, ../partials/_case-studies.scss */
   #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
     font-size: 19pt;
     font-size: 1.11765rem;
@@ -1733,18 +1737,18 @@ a.lightbox {
     text-transform: uppercase;
     margin-bottom: 20px; }
     @media (min-width: 30em) {
-      /* line 203, ../partials/_case-studies.scss */
+      /* line 204, ../partials/_case-studies.scss */
       #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
         font-size: 31pt;
         font-size: 1.82353rem;
         line-height: 30pt;
         line-height: 1.76471rem; } }
-/* line 210, ../partials/_case-studies.scss */
+/* line 211, ../partials/_case-studies.scss */
 #header-companies-wrapper #imagelightbox-header {
   margin-top: 100px;
   height: auto; }
 
-/* line 217, ../partials/_case-studies.scss */
+/* line 218, ../partials/_case-studies.scss */
 .grid.companies {
   border: 2px solid transparent;
   -moz-transition: 0.25s;
@@ -1753,18 +1757,18 @@ a.lightbox {
   padding-left: 0;
   padding-right: 0;
   margin-bottom: 20px; }
-  /* line 223, ../partials/_case-studies.scss */
+  /* line 224, ../partials/_case-studies.scss */
   .grid.companies:hover {
     border: 2px solid #6800eb; }
 
-/* line 228, ../partials/_case-studies.scss */
+/* line 229, ../partials/_case-studies.scss */
 div.inner-image {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
   text-align: center; }
 
-/* line 235, ../partials/_case-studies.scss */
+/* line 236, ../partials/_case-studies.scss */
 div.inner-image {
   cursor: pointer;
   background-image: url("grid.png");
@@ -1777,14 +1781,14 @@ div.inner-image {
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-  /* line 244, ../partials/_case-studies.scss */
+  /* line 245, ../partials/_case-studies.scss */
   div.inner-image:hover {
     filter: grayscale(0); }
-  /* line 248, ../partials/_case-studies.scss */
+  /* line 249, ../partials/_case-studies.scss */
   div.inner-image.active {
     filter: grayscale(0);
     height: 575px; }
-  /* line 252, ../partials/_case-studies.scss */
+  /* line 253, ../partials/_case-studies.scss */
   div.inner-image p {
     display: none;
     height: 0;
@@ -1794,7 +1798,7 @@ div.inner-image {
     max-width: 80%;
     margin-bottom: 0;
     padding-bottom: 0; }
-  /* line 263, ../partials/_case-studies.scss */
+  /* line 264, ../partials/_case-studies.scss */
   div.inner-image p.active {
     height: auto;
     display: block;

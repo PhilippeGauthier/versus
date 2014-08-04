@@ -128,21 +128,25 @@ a.lightbox {
 	display: inline;
 	width: 20%;
 	height: 100px;
+	h3 {
+		font-family: $headline-font;
+	}
 }
 
 #imagelightbox-caption {
-	width: 80%;
+	// width: 80%;
 }
 
 #imagelightbox-header > h3 {
-	display: inline-block;
-	max-width: 20%;
-	padding-right: 60px;
+	// display: inline-block;
+	// max-width: 20%;
+	// padding-right: 60px;
 	vertical-align: top;
 }
 
 #imagelightbox-caption > p {
-	display: inline-block;
+	// display: inline-block;
+	font-size: .8rem;
 }
 
 #imagelightbox-header {
@@ -161,7 +165,7 @@ a.lightbox {
 
 #imagelightbox-container {
 	// height: 100%;
-	left: 120px;
+	left: 120px;	 
 }
 
 #imagelightbox-container img {

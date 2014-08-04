@@ -103,7 +103,7 @@ $( function()
     navigationOn = function( instance, selector )
     {
       var images = $( selector );
-      if( images.length )
+      if( images.length > 0 )
       {
         var nav = $( '<div id="imagelightbox-nav"></div>' );
         for( var i = 0; i < images.length; i++ )

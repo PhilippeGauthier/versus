@@ -31,6 +31,6 @@ fields:
         display: Headline
         width: 25%
       caption:
-        type: redactor
+        type: textarea
         display: Caption
         width: 50%

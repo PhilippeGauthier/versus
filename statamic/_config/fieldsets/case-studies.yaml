@@ -20,4 +20,4 @@ fields:
     display: Intro Text
     required: true
     default:
-    type: redactor
+    type: text

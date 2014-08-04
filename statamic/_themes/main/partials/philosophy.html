@@ -3,7 +3,30 @@
 
   {{ entries:listing folder="philosophy" sort_dir="asc" }}
 
+{{ if first }}
   <div class="sub-section" id="{{ title }}">
+
+
+    <div class="wrapper content center">
+     <span class="sprite active philosophy"></span>
+
+
+      {{ if mainTitle|not_empty }}
+      <h1>{{ mainTitle }}</h1>
+      {{ endif }}
+
+      {{ if subTitle|not_empty }}
+      <h3>{{ subTitle }}</h3>
+      {{ endif }}
+
+      {{ content }}
+    </div>
+
+  </div>
+
+  {{ else }}
+
+    <div class="sub-section" id="{{ title }}">
 
 
     <div class="wrapper content center">
@@ -25,6 +48,8 @@
     </div>
 
   </div>
+
+{{ endif }}
 
   {{ /entries:listing }}</div>
 

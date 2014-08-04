@@ -75,6 +75,9 @@ a.lightbox {
 			img {
 				filter: grayscale(1);
 			}
+			&:hover img {
+				filter: grayscale(0);
+			}
 		}
 	}
 }

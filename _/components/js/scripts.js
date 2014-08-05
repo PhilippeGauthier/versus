@@ -326,4 +326,6 @@ $('.inner-image').click(function(){
     $(boxE).toggleClass('active');
 });
 
-$('body').scrollspy({ target: '.cbp-spmenu' })
+$('body').scrollspy({ target: '.cbp-spmenu' });
+
+

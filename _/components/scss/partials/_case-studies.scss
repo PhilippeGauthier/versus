@@ -8,9 +8,12 @@
 	z-index: 10001;
 	left: 0;
 	right: 0;
-	top: 5%;
-	// bottom: 0;
+	top: 0;
+	bottom: 0;
 	margin:auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 100%;
 	// background:rgba(black,.5);
 	img {
 
@@ -18,8 +21,10 @@
 }
 
 #header {
-	height: 160px;
+	padding: 50px 0;
 	z-index: 10001;
+	// margin-top: 20px;
+	// margin-bottom: 20px;
 }
 .case-study-image, .company-image {
 	max-width: 100%;
@@ -123,11 +128,18 @@ a.lightbox {
 	}
 }
 
+#imagelightbox {
+	// padding-bottom: 100px;
+	position: relative;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+}
+
 #imagelightbox-header  {
 	text-align: left;
-	display: inline;
-	width: 20%;
-	height: 100px;
+	// display: inline;
+	// width: 20%;
 	h3 {
 		font-family: $headline-font;
 	}
@@ -155,7 +167,7 @@ a.lightbox {
 
 #imagelightbox-caption {
 
-	display: inline-block;
+	// display: inline-block;
 	p {
 		margin: 0;
 		padding: 0;
@@ -163,13 +175,27 @@ a.lightbox {
 	}
 }
 
+#imagelightbox-nav {
+	display: block;
+	bottom: 0;
+	position: relative;
+	background-color: transparent;
+	margin: 0 auto;
+	width: 100%;
+}
+
 #imagelightbox-container {
-	// height: 100%;
+	max-height: 100vh;
 	left: 120px;	 
 }
 
 #imagelightbox-container img {
+	display: block;
+}
 
+.imagelightbox-wrapper {
+	position: relative;
+	max-height: 100vh;
 }
 
 #header-companies {
@@ -213,7 +239,7 @@ a.lightbox {
 		}
 	}
 	#imagelightbox-header {
-		margin-top: 100px;
+		padding-top: 100px;
 		height: auto;
 
 	}
@@ -270,6 +296,6 @@ div.inner-image {
 			display: block;
 			opacity: 1;
 			transition-delay: .25s;
-			@include transition(.5s);
+			@include transition(1.5s);
 		}
 }

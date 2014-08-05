@@ -124,7 +124,7 @@ a.lightbox {
 		text-transform: uppercase;
 	}
 	h2,h3,p {
-		text-shadow: 1px 1px 1px #000;
+		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
 	}
 	h2 {
 		@include responsiveTypeSize(xlarge);

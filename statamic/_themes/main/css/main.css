@@ -1661,7 +1661,7 @@ a.lightbox {
     text-transform: uppercase; }
   /* line 126, ../partials/_case-studies.scss */
   .grid-gallery h2, .grid-gallery h3, .grid-gallery p {
-    text-shadow: 1px 1px 1px #000; }
+    text-shadow: 1px 0.5px 0.5px rgba(0, 0, 0, 0.8); }
   /* line 129, ../partials/_case-studies.scss */
   .grid-gallery h2 {
     font-size: 31pt;

@@ -1822,19 +1822,10 @@ div.inner-image {
   /* line 294, ../partials/_case-studies.scss */
   div.inner-image p {
     display: none;
-    height: 0;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0;
     max-width: 80%;
     margin-bottom: 0;
-    padding-bottom: 0; }
-  /* line 305, ../partials/_case-studies.scss */
-  div.inner-image p.active {
-    height: auto;
-    display: block;
-    opacity: 1;
-    transition-delay: .25s;
-    -moz-transition: 1.5s;
-    -webkit-transition: 1.5s;
-    transition: 1.5s; }
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-top: 20px; }

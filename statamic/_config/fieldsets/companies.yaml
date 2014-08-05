@@ -16,8 +16,12 @@ fields:
     default:
     type: text
 
-  content:
+  fullText:
     display: Intro Text
     required: true
     default:
+    type: text
+
+  content:
     type: redactor
+    hide: true

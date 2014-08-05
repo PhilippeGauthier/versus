@@ -1726,7 +1726,10 @@ $('.inner-image').click(function(){
     var box = $(this).closest('.inner-image');
     var boxP = $(box).children();
     var boxE = $(boxP).children('p');
-    $(boxE).toggleClass('active');
+    var text = $(boxE).children('.full-text');
+    $( boxE ).slideToggle( "slow" );
+    // console.log(text.height());
+    // $(boxE).height(text.height());
 });
 
 $('body').scrollspy({ target: '.cbp-spmenu' });

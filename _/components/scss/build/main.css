@@ -1817,6 +1817,9 @@ div.inner-image {
     filter: grayscale(0);
     height: 575px; }
   /* line 291, ../partials/_case-studies.scss */
+  div.inner-image h2 {
+    font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
+  /* line 294, ../partials/_case-studies.scss */
   div.inner-image p {
     display: none;
     height: 0;
@@ -1826,7 +1829,7 @@ div.inner-image {
     max-width: 80%;
     margin-bottom: 0;
     padding-bottom: 0; }
-  /* line 302, ../partials/_case-studies.scss */
+  /* line 305, ../partials/_case-studies.scss */
   div.inner-image p.active {
     height: auto;
     display: block;

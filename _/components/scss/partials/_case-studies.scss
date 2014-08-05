@@ -288,6 +288,9 @@ div.inner-image {
 		filter: grayscale(0);
 		height: 575px;
 	}
+	h2 {
+		font-family: $headline-font;
+	}
 	p {
 		display: none;
 		height: 0;

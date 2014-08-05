@@ -45,6 +45,14 @@ a.lightbox {
 	}
 }
 
+
+#imagelightbox-close {
+	border: 1px solid white;
+}
+#imagelightbox-close:before, #imagelightbox-close:after {
+	width: 1px;
+}
+
 .title {
 	 position: relative;
   top: 50%;

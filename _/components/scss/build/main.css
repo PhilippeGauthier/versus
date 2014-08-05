@@ -1534,13 +1534,21 @@ a.lightbox {
         line-height: 36pt;
         line-height: 2.11765rem; } }
 
-/* line 48, ../partials/_case-studies.scss */
+/* line 49, ../partials/_case-studies.scss */
+#imagelightbox-close {
+  border: 1px solid white; }
+
+/* line 52, ../partials/_case-studies.scss */
+#imagelightbox-close:before, #imagelightbox-close:after {
+  width: 1px; }
+
+/* line 56, ../partials/_case-studies.scss */
 .title {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
 
-/* line 54, ../partials/_case-studies.scss */
+/* line 62, ../partials/_case-studies.scss */
 .grid {
   margin-left: 8.33333%;
   -moz-box-sizing: border-box;
@@ -1554,7 +1562,7 @@ a.lightbox {
   clear: left;
   clear: right;
   position: relative; }
-  /* line 61, ../partials/_case-studies.scss */
+  /* line 69, ../partials/_case-studies.scss */
   .grid .title {
     z-index: 100;
     position: relative;
@@ -1565,49 +1573,49 @@ a.lightbox {
     left: 0;
     right: 0;
     text-align: center; }
-  /* line 70, ../partials/_case-studies.scss */
+  /* line 78, ../partials/_case-studies.scss */
   .grid li {
     -moz-transition: 0.35s;
     -webkit-transition: 0.35s;
     transition: 0.35s;
     border: 8px solid transparent;
     margin-bottom: 40px; }
-    /* line 73, ../partials/_case-studies.scss */
+    /* line 81, ../partials/_case-studies.scss */
     .grid li:hover {
       border: 8px solid #6800eb; }
-    /* line 78, ../partials/_case-studies.scss */
+    /* line 86, ../partials/_case-studies.scss */
     .grid li a {
       vertical-align: middle; }
-      /* line 80, ../partials/_case-studies.scss */
+      /* line 88, ../partials/_case-studies.scss */
       .grid li a img {
         filter: grayscale(1); }
-      /* line 83, ../partials/_case-studies.scss */
+      /* line 91, ../partials/_case-studies.scss */
       .grid li a:hover img {
         filter: grayscale(0); }
 
-/* line 90, ../partials/_case-studies.scss */
+/* line 98, ../partials/_case-studies.scss */
 .effect_box {
   display: block;
   width: 100%;
   height: 0;
   padding: 0 0 100% 0; }
 
-/* line 97, ../partials/_case-studies.scss */
+/* line 105, ../partials/_case-studies.scss */
 .effect_box_opacity {
   opacity: 1.0; }
 
-/* line 99, ../partials/_case-studies.scss */
+/* line 107, ../partials/_case-studies.scss */
 .hidden {
   height: 0;
   opacity: 0; }
 
-/* line 105, ../partials/_case-studies.scss */
+/* line 113, ../partials/_case-studies.scss */
 .current p {
   color: white;
   z-index: 1000;
   position: relative; }
 
-/* line 112, ../partials/_case-studies.scss */
+/* line 120, ../partials/_case-studies.scss */
 .grid-gallery {
   max-width: 45em;
   margin-left: auto;
@@ -1618,13 +1626,13 @@ a.lightbox {
     content: " ";
     display: block;
     clear: both; }
-  /* line 115, ../partials/_case-studies.scss */
+  /* line 123, ../partials/_case-studies.scss */
   .grid-gallery h2, .grid-gallery h3 {
     text-transform: uppercase; }
-  /* line 118, ../partials/_case-studies.scss */
+  /* line 126, ../partials/_case-studies.scss */
   .grid-gallery h2, .grid-gallery h3, .grid-gallery p {
     text-shadow: 1px 1px 1px #000; }
-  /* line 121, ../partials/_case-studies.scss */
+  /* line 129, ../partials/_case-studies.scss */
   .grid-gallery h2 {
     font-size: 31pt;
     font-size: 1.82353rem;
@@ -1632,13 +1640,13 @@ a.lightbox {
     line-height: 1.76471rem;
     font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
     @media (min-width: 30em) {
-      /* line 121, ../partials/_case-studies.scss */
+      /* line 129, ../partials/_case-studies.scss */
       .grid-gallery h2 {
         font-size: 42pt;
         font-size: 2.47059rem;
         line-height: 36pt;
         line-height: 2.11765rem; } }
-  /* line 125, ../partials/_case-studies.scss */
+  /* line 133, ../partials/_case-studies.scss */
   .grid-gallery h3 {
     font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
     font-size: 17pt;
@@ -1646,36 +1654,36 @@ a.lightbox {
     line-height: 24pt;
     line-height: 1.41176rem; }
     @media (min-width: 30em) {
-      /* line 125, ../partials/_case-studies.scss */
+      /* line 133, ../partials/_case-studies.scss */
       .grid-gallery h3 {
         font-size: 19pt;
         font-size: 1.11765rem;
         line-height: 30pt;
         line-height: 1.76471rem; } }
 
-/* line 131, ../partials/_case-studies.scss */
+/* line 139, ../partials/_case-studies.scss */
 #imagelightbox {
   position: relative;
   max-width: 100%;
   height: auto;
   margin-bottom: 20px; }
 
-/* line 139, ../partials/_case-studies.scss */
+/* line 147, ../partials/_case-studies.scss */
 #imagelightbox-header {
   text-align: left; }
-  /* line 143, ../partials/_case-studies.scss */
+  /* line 151, ../partials/_case-studies.scss */
   #imagelightbox-header h3 {
     font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 152, ../partials/_case-studies.scss */
+/* line 160, ../partials/_case-studies.scss */
 #imagelightbox-header > h3 {
   vertical-align: top; }
 
-/* line 159, ../partials/_case-studies.scss */
+/* line 167, ../partials/_case-studies.scss */
 #imagelightbox-caption > p {
   font-size: .8rem; }
 
-/* line 171, ../partials/_case-studies.scss */
+/* line 179, ../partials/_case-studies.scss */
 #imagelightbox-caption p {
   margin: 0;
   padding: 0;
@@ -1684,14 +1692,14 @@ a.lightbox {
   line-height: 18pt;
   line-height: 1.05882rem; }
   @media (min-width: 30em) {
-    /* line 171, ../partials/_case-studies.scss */
+    /* line 179, ../partials/_case-studies.scss */
     #imagelightbox-caption p {
       font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
       line-height: 1.41176rem; } }
 
-/* line 178, ../partials/_case-studies.scss */
+/* line 186, ../partials/_case-studies.scss */
 #imagelightbox-nav {
   display: block;
   bottom: 0;
@@ -1700,21 +1708,21 @@ a.lightbox {
   margin: 0 auto;
   width: 100%; }
 
-/* line 187, ../partials/_case-studies.scss */
+/* line 195, ../partials/_case-studies.scss */
 #imagelightbox-container {
   max-height: 100vh;
   left: 120px; }
 
-/* line 192, ../partials/_case-studies.scss */
+/* line 200, ../partials/_case-studies.scss */
 #imagelightbox-container img {
   display: block; }
 
-/* line 196, ../partials/_case-studies.scss */
+/* line 204, ../partials/_case-studies.scss */
 .imagelightbox-wrapper {
   position: relative;
   max-height: 100vh; }
 
-/* line 201, ../partials/_case-studies.scss */
+/* line 209, ../partials/_case-studies.scss */
 #header-companies {
   position: relative;
   top: 0;
@@ -1724,7 +1732,7 @@ a.lightbox {
   margin: auto;
   z-index: 10001; }
 
-/* line 210, ../partials/_case-studies.scss */
+/* line 218, ../partials/_case-studies.scss */
 #header-companies-wrapper {
   position: absolute;
   top: 0;
@@ -1734,20 +1742,20 @@ a.lightbox {
   margin: auto;
   z-index: 10001; }
 
-/* line 222, ../partials/_case-studies.scss */
+/* line 230, ../partials/_case-studies.scss */
 #header-companies-wrapper #imagelightbox-caption, #header-companies-wrapper #imagelightbox-header {
   width: 80%;
   margin: 0 auto;
   display: block;
   text-align: center; }
-  /* line 227, ../partials/_case-studies.scss */
+  /* line 235, ../partials/_case-studies.scss */
   #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-caption p, #header-companies-wrapper #imagelightbox-header h2, #header-companies-wrapper #imagelightbox-header p {
     padding-right: 0;
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto; }
-  /* line 234, ../partials/_case-studies.scss */
+  /* line 242, ../partials/_case-studies.scss */
   #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
     font-size: 19pt;
     font-size: 1.11765rem;
@@ -1757,18 +1765,18 @@ a.lightbox {
     text-transform: uppercase;
     margin-bottom: 20px; }
     @media (min-width: 30em) {
-      /* line 234, ../partials/_case-studies.scss */
+      /* line 242, ../partials/_case-studies.scss */
       #header-companies-wrapper #imagelightbox-caption h2, #header-companies-wrapper #imagelightbox-header h2 {
         font-size: 31pt;
         font-size: 1.82353rem;
         line-height: 30pt;
         line-height: 1.76471rem; } }
-/* line 241, ../partials/_case-studies.scss */
+/* line 249, ../partials/_case-studies.scss */
 #header-companies-wrapper #imagelightbox-header {
   padding-top: 100px;
   height: auto; }
 
-/* line 248, ../partials/_case-studies.scss */
+/* line 256, ../partials/_case-studies.scss */
 .grid.companies {
   border: 2px solid transparent;
   -moz-transition: 0.25s;
@@ -1777,18 +1785,18 @@ a.lightbox {
   padding-left: 0;
   padding-right: 0;
   margin-bottom: 20px; }
-  /* line 254, ../partials/_case-studies.scss */
+  /* line 262, ../partials/_case-studies.scss */
   .grid.companies:hover {
     border: 2px solid #6800eb; }
 
-/* line 259, ../partials/_case-studies.scss */
+/* line 267, ../partials/_case-studies.scss */
 div.inner-image {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
   text-align: center; }
 
-/* line 266, ../partials/_case-studies.scss */
+/* line 274, ../partials/_case-studies.scss */
 div.inner-image {
   cursor: pointer;
   background-image: url("grid.png");
@@ -1801,14 +1809,14 @@ div.inner-image {
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-  /* line 275, ../partials/_case-studies.scss */
+  /* line 283, ../partials/_case-studies.scss */
   div.inner-image:hover {
     filter: grayscale(0); }
-  /* line 279, ../partials/_case-studies.scss */
+  /* line 287, ../partials/_case-studies.scss */
   div.inner-image.active {
     filter: grayscale(0);
     height: 575px; }
-  /* line 283, ../partials/_case-studies.scss */
+  /* line 291, ../partials/_case-studies.scss */
   div.inner-image p {
     display: none;
     height: 0;
@@ -1818,7 +1826,7 @@ div.inner-image {
     max-width: 80%;
     margin-bottom: 0;
     padding-bottom: 0; }
-  /* line 294, ../partials/_case-studies.scss */
+  /* line 302, ../partials/_case-studies.scss */
   div.inner-image p.active {
     height: auto;
     display: block;

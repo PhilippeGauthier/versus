@@ -318,17 +318,20 @@ $(function(){
 //     image.src = image_url;
 // }
 
-$('.inner-image').click(function(){
+$('.company-container').click(function(){
   $(this).toggleClass('active');
-    var box = $(this).closest('.inner-image');
-    var boxP = $(box).children();
+    var box = $(this).children('.company-text');
+    var boxP = $(box).children('p');
     var boxE = $(boxP).children('p');
-    var text = $(boxE).children('.full-text');
-    $( boxE ).slideToggle( "slow" );
-    // console.log(text.height());
+    $(box).children('.text').slideToggle( 700 );
+    console.log(box.height());
     // $(boxE).height(text.height());
 });
 
 $('body').scrollspy({ target: '.cbp-spmenu' });
+
+baguetteBox.run('.gallery', {
+  // Custom options
+});
 
 

@@ -499,6 +499,255 @@ footer {
 #imagelightbox-nav {
   display: block; }
 
+/*!
+ * baguetteBox.js
+ * @author  feimosi
+ * @version 0.7.0
+ * @url https://github.com/feimosi/baguetteBox.js
+ */
+/* line 8, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease; }
+
+/* line 24, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay.visible {
+  opacity: 1; }
+
+/* line 28, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay .full-image {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+
+/* line 36, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay .full-image figure {
+  display: inline;
+  margin: 0;
+  height: 100%; }
+
+/* line 42, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay .full-image img {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); }
+
+/* line 54, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay .full-image figcaption {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 1.8;
+  color: #ccc;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: sans-serif; }
+
+/* line 67, ../third_party/_baguetteBox.scss */
+#baguetteBox-overlay .full-image:before {
+  content: "";
+  display: inline-block;
+  height: 50%;
+  width: 1px;
+  margin-right: -1px; }
+
+/* line 75, ../third_party/_baguetteBox.scss */
+#baguetteBox-slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  -webkit-transition: left 0.4s ease, -webkit-transform 0.4s ease;
+  transition: left 0.4s ease, transform 0.4s ease; }
+
+/* line 87, ../third_party/_baguetteBox.scss */
+#baguetteBox-slider.bounce-from-right {
+  -webkit-animation: bounceFromRight 0.4s ease-out;
+  animation: bounceFromRight 0.4s ease-out; }
+
+/* line 92, ../third_party/_baguetteBox.scss */
+#baguetteBox-slider.bounce-from-left {
+  -webkit-animation: bounceFromLeft 0.4s ease-out;
+  animation: bounceFromLeft 0.4s ease-out; }
+
+/* line 97, ../third_party/_baguetteBox.scss */
+.baguetteBox-button#next-button,
+.baguetteBox-button#previous-button {
+  top: 50%;
+  top: -webkit-calc(50% - 30px);
+  top: calc(50% - 30px);
+  width: 44px;
+  height: 60px; }
+
+/* line 105, ../third_party/_baguetteBox.scss */
+.baguetteBox-button {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 15%;
+  background-color: #323232;
+  background-color: rgba(50, 50, 50, 0.5);
+  color: #ddd;
+  font: 1.6em sans-serif;
+  -webkit-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease; }
+
+/* line 122, ../third_party/_baguetteBox.scss */
+.baguetteBox-button:hover {
+  background-color: rgba(50, 50, 50, 0.9); }
+
+/* line 126, ../third_party/_baguetteBox.scss */
+.baguetteBox-button#next-button {
+  right: 2%; }
+
+/* line 130, ../third_party/_baguetteBox.scss */
+.baguetteBox-button#previous-button {
+  left: 2%; }
+
+/* line 134, ../third_party/_baguetteBox.scss */
+.baguetteBox-button#close-button {
+  top: 20px;
+  right: 2%;
+  right: -webkit-calc(2% + 6px);
+  right: calc(2% + 6px);
+  width: 30px;
+  height: 30px; }
+
+/* line 142, ../third_party/_baguetteBox.scss */
+.baguetteBox-button svg {
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+/*
+    Preloader
+    Borrowed from http://tobiasahlin.com/spinkit/
+*/
+/* line 153, ../third_party/_baguetteBox.scss */
+.spinner {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px; }
+
+/* line 164, ../third_party/_baguetteBox.scss */
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: bounce 2s infinite ease-in-out;
+  animation: bounce 2s infinite ease-in-out; }
+
+/* line 179, ../third_party/_baguetteBox.scss */
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s; }
+
+@-webkit-keyframes bounceFromRight {
+  /* line 186, ../third_party/_baguetteBox.scss */
+  0% {
+    margin-left: 0; }
+
+  /* line 190, ../third_party/_baguetteBox.scss */
+  50% {
+    margin-left: -30px; }
+
+  /* line 194, ../third_party/_baguetteBox.scss */
+  100% {
+    margin-left: 0; } }
+@keyframes bounceFromRight {
+  /* line 202, ../third_party/_baguetteBox.scss */
+  0% {
+    margin-left: 0; }
+
+  /* line 206, ../third_party/_baguetteBox.scss */
+  50% {
+    margin-left: -30px; }
+
+  /* line 210, ../third_party/_baguetteBox.scss */
+  100% {
+    margin-left: 0; } }
+@-webkit-keyframes bounceFromLeft {
+  /* line 218, ../third_party/_baguetteBox.scss */
+  0% {
+    margin-left: 0; }
+
+  /* line 222, ../third_party/_baguetteBox.scss */
+  50% {
+    margin-left: 30px; }
+
+  /* line 226, ../third_party/_baguetteBox.scss */
+  100% {
+    margin-left: 0; } }
+@keyframes bounceFromLeft {
+  /* line 234, ../third_party/_baguetteBox.scss */
+  0% {
+    margin-left: 0; }
+
+  /* line 238, ../third_party/_baguetteBox.scss */
+  50% {
+    margin-left: 30px; }
+
+  /* line 242, ../third_party/_baguetteBox.scss */
+  100% {
+    margin-left: 0; } }
+@-webkit-keyframes bounce {
+  /* line 250, ../third_party/_baguetteBox.scss */
+  0%,100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+
+  /* line 255, ../third_party/_baguetteBox.scss */
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+@keyframes bounce {
+  /* line 264, ../third_party/_baguetteBox.scss */
+  0%,100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
+
+  /* line 270, ../third_party/_baguetteBox.scss */
+  50% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); } }
 /* line 11, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.2/sass/susy/language/susy/_box-sizing.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -527,7 +776,12 @@ html, body, p {
   font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
   letter-spacing: .03rem; }
 
-/* line 39, ../partials/_base.scss */
+/* line 38, ../partials/_base.scss */
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* line 42, ../partials/_base.scss */
 h1 {
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 31pt;
@@ -537,14 +791,14 @@ h1 {
   color: #6800eb;
   letter-spacing: -2px; }
   @media (min-width: 30em) {
-    /* line 39, ../partials/_base.scss */
+    /* line 42, ../partials/_base.scss */
     h1 {
       font-size: 42pt;
       font-size: 2.47059rem;
       line-height: 36pt;
       line-height: 2.11765rem; } }
 
-/* line 47, ../partials/_base.scss */
+/* line 50, ../partials/_base.scss */
 h3 {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 13pt;
@@ -552,14 +806,14 @@ h3 {
   line-height: 18pt;
   line-height: 1.05882rem; }
   @media (min-width: 30em) {
-    /* line 47, ../partials/_base.scss */
+    /* line 50, ../partials/_base.scss */
     h3 {
       font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
       line-height: 1.41176rem; } }
 
-/* line 54, ../partials/_base.scss */
+/* line 57, ../partials/_base.scss */
 p {
   font-size: 13pt;
   font-size: 0.76471rem;
@@ -570,17 +824,17 @@ p {
   font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
   letter-spacing: .03rem; }
   @media (min-width: 30em) {
-    /* line 54, ../partials/_base.scss */
+    /* line 57, ../partials/_base.scss */
     p {
       font-size: 17pt;
       font-size: 1rem;
       line-height: 24pt;
       line-height: 1.41176rem; } }
-  /* line 59, ../partials/_base.scss */
+  /* line 62, ../partials/_base.scss */
   p:first-of-type {
     margin-top: 24pt;
     margin-top: 1.41176rem; }
-  /* line 62, ../partials/_base.scss */
+  /* line 65, ../partials/_base.scss */
   p:last-of-type {
     padding-bottom: 24pt;
     padding-bottom: 1.41176rem; }
@@ -1815,19 +2069,7 @@ a.lightbox {
   padding-top: 100px;
   height: auto; }
 
-/* line 256, ../partials/_case-studies.scss */
-.grid.companies {
-  border: 2px solid transparent;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-  padding-left: 0;
-  padding-right: 0;
-  margin-bottom: 20px; }
-  /* line 262, ../partials/_case-studies.scss */
-  .grid.companies:hover {
-    border: 2px solid #6800eb; }
-
-/* line 267, ../partials/_case-studies.scss */
+/* line 258, ../partials/_case-studies.scss */
 div.inner-image {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1842,37 +2084,106 @@ div.inner-image {
   flex-flow: column nowrap;
   text-align: center; }
 
-/* line 274, ../partials/_case-studies.scss */
-div.inner-image {
+/* line 265, ../partials/_case-studies.scss */
+figcaption {
+  max-width: 52.5em;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 12, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.2/sass/susy/output/support/_clearfix.scss */
+  figcaption:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+/* line 269, ../partials/_case-studies.scss */
+.image-wrapper {
+  position: relative;
+  top: 0; }
+
+/* line 1, ../partials/_companies.scss */
+.company-container {
   cursor: pointer;
-  background-image: url("grid.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  position: relative;
   height: 400px;
   width: 100%;
-  -webkit-filter: grayscale(1);
+  border: 8px solid transparent;
+  margin-bottom: 40px;
   -webkit-transition: 0.5s;
   transition: 0.5s; }
-  /* line 283, ../partials/_case-studies.scss */
-  div.inner-image:hover {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0); }
-  /* line 287, ../partials/_case-studies.scss */
-  div.inner-image.active {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
+  /* line 8, ../partials/_companies.scss */
+  .company-container:hover {
+    border: 8px solid #6800eb; }
+    /* line 10, ../partials/_companies.scss */
+    .company-container:hover .company-image {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0); }
+  /* line 15, ../partials/_companies.scss */
+  .company-container.active {
     height: 575px; }
-  /* line 291, ../partials/_case-studies.scss */
-  div.inner-image h2 {
-    font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
-  /* line 295, ../partials/_case-studies.scss */
-  div.inner-image p {
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
+    /* line 17, ../partials/_companies.scss */
+    .company-container.active .company-gradient {
+      background: none; }
+    /* line 20, ../partials/_companies.scss */
+    .company-container.active .company-image {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0); }
+    /* line 24, ../partials/_companies.scss */
+    .company-container.active .company-text .text {
+      height: 100px; }
+  /* line 29, ../partials/_companies.scss */
+  .company-container .company {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  /* line 38, ../partials/_companies.scss */
+  .company-container .company-text {
+    z-index: 11;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    text-align: center;
     max-width: 80%;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    margin-top: 20px; }
+    margin: 0 auto; }
+    /* line 47, ../partials/_companies.scss */
+    .company-container .company-text h2, .company-container .company-text h3, .company-container .company-text p {
+      margin: 10px auto;
+      padding: 0; }
+    /* line 51, ../partials/_companies.scss */
+    .company-container .company-text .text {
+      display: none; }
+  /* line 55, ../partials/_companies.scss */
+  .company-container .company-gradient {
+    z-index: 10;
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.65)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* IE10+ */
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.65)));
+    /* IE10+ */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+    /* IE6-9 */ }
+  /* line 66, ../partials/_companies.scss */
+  .company-container .company-image {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    background-color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }

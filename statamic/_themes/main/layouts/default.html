@@ -39,134 +39,134 @@
 
 <script>
 
-$( function()
-{
-  var activityIndicatorOn = function()
-    {
-      $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
-    },
-    activityIndicatorOff = function()
-    {
-      $( '#imagelightbox-loading' ).remove();
-    },
+// $( function()
+// {
+//   var activityIndicatorOn = function()
+//     {
+//       $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+//     },
+//     activityIndicatorOff = function()
+//     {
+//       $( '#imagelightbox-loading' ).remove();
+//     },
 
-    overlayOn = function()
-    {
-      $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
-    },
-    overlayOff = function()
-    {
-      $( '#imagelightbox-overlay' ).remove();
-    },
+//     overlayOn = function()
+//     {
+//       $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+//     },
+//     overlayOff = function()
+//     {
+//       $( '#imagelightbox-overlay' ).remove();
+//     },
 
-    closeButtonOn = function( instance )
-    {
-      $( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click touchend', function(){ $( this ).remove(); instance.quitImageLightbox(); return false; });
-    },
-    closeButtonOff = function()
-    {
-      $( '#imagelightbox-close' ).remove();
-      $( '#imagelightbox-container' ).remove();
-    },
-    headerOn = function()
-    {
-      var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'header' );
-      if( description.length > 0 )
-        $( '<div id="imagelightbox-header">' + '<h3>' + description + '</h3>' + '</div>' ).prependTo( '#header' );
-    },
-    headerOnCompanies = function()
-    {
-      var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'header' );
-      if( description.length > 0 )
-        $( '<div id="imagelightbox-header">' + '<h2>' + description + '</h2>' + '</div>' ).prependTo( '#header-companies-wrapper' );
-    },
-    headerOff = function()
-    {
-      $( '#imagelightbox-header' ).remove();
-    },
-    captionOn = function()
-    {
-      var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'caption' );
-      if( description.length > 0 )
-        $( '<div id="imagelightbox-caption">' + description + '</div>' ).prependTo( '#header' );
-    },
-    captionOnCompanies = function()
-    {
-      var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-      if( description.length > 0 )
-        $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( '#header-companies-wrapper' );
-    },
-    captionOff = function()
-    {
-      $( '#imagelightbox-caption' ).remove();
-    },
-    navigationOn = function( instance, selector )
-    {
-      var images = $( selector );
-      if( images.length > 0 )
-      {
-        var nav = $( '<div id="imagelightbox-nav"></div>' );
-        for( var i = 0; i < images.length; i++ )
-          nav.append( '<a href="#"></a>' );
+//     closeButtonOn = function( instance )
+//     {
+//       $( '<a href="#" id="imagelightbox-close">Close</a>' ).appendTo( 'body' ).on( 'click touchend', function(){ $( this ).remove(); instance.quitImageLightbox(); return false; });
+//     },
+//     closeButtonOff = function()
+//     {
+//       $( '#imagelightbox-close' ).remove();
+//       $( '#imagelightbox-container' ).remove();
+//     },
+//     headerOn = function()
+//     {
+//       var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'header' );
+//       if( description.length > 0 )
+//         $( '<div id="imagelightbox-header">' + '<h3>' + description + '</h3>' + '</div>' ).prependTo( '#header' );
+//     },
+//     headerOnCompanies = function()
+//     {
+//       var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'header' );
+//       if( description.length > 0 )
+//         $( '<div id="imagelightbox-header">' + '<h2>' + description + '</h2>' + '</div>' ).prependTo( '#header-companies-wrapper' );
+//     },
+//     headerOff = function()
+//     {
+//       $( '#imagelightbox-header' ).remove();
+//     },
+//     captionOn = function()
+//     {
+//       var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'caption' );
+//       if( description.length > 0 )
+//         $( '<div id="imagelightbox-caption">' + description + '</div>' ).prependTo( '#header' );
+//     },
+//     captionOnCompanies = function()
+//     {
+//       var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
+//       if( description.length > 0 )
+//         $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( '#header-companies-wrapper' );
+//     },
+//     captionOff = function()
+//     {
+//       $( '#imagelightbox-caption' ).remove();
+//     },
+//     navigationOn = function( instance, selector )
+//     {
+//       var images = $( selector );
+//       if( images.length > 0 )
+//       {
+//         var nav = $( '<div id="imagelightbox-nav"></div>' );
+//         for( var i = 0; i < images.length; i++ )
+//           nav.append( '<a href="#"></a>' );
 
-        nav.appendTo( '#imagelightbox-container' );
-        nav.on( 'click touchend', function(){ return false; });
+//         nav.appendTo( '#imagelightbox-container' );
+//         nav.on( 'click touchend', function(){ return false; });
 
-        var navItems = nav.find( 'a' );
-        navItems.on( 'click touchend', function()
-        {
-          var $this = $( this );
-          if( images.eq( $this.index() ).attr( 'href' ) != $( '#imagelightbox' ).attr( 'src' ) )
-            instance.switchImageLightbox( $this.index() );
+//         var navItems = nav.find( 'a' );
+//         navItems.on( 'click touchend', function()
+//         {
+//           var $this = $( this );
+//           if( images.eq( $this.index() ).attr( 'href' ) != $( '#imagelightbox' ).attr( 'src' ) )
+//             instance.switchImageLightbox( $this.index() );
 
-          navItems.removeClass( 'active' );
-          navItems.eq( $this.index() ).addClass( 'active' );
+//           navItems.removeClass( 'active' );
+//           navItems.eq( $this.index() ).addClass( 'active' );
 
-          return false;
-        })
-        .on( 'touchend', function(){ return false; });
-      }
-    },
-    navigationUpdate = function( selector )
-    {
-      var items = $( '#imagelightbox-nav a' );
-      items.removeClass( 'active' );
-      items.eq( $( selector ).filter( '[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"]' ).index( selector ) ).addClass( 'active' );
-    },
-    navigationOff = function()
-    {
-      $( '#imagelightbox-nav' ).remove();
-    };
+//           return false;
+//         })
+//         .on( 'touchend', function(){ return false; });
+//       }
+//     },
+//     navigationUpdate = function( selector )
+//     {
+//       var items = $( '#imagelightbox-nav a' );
+//       items.removeClass( 'active' );
+//       items.eq( $( selector ).filter( '[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"]' ).index( selector ) ).addClass( 'active' );
+//     },
+//     navigationOff = function()
+//     {
+//       $( '#imagelightbox-nav' ).remove();
+//     };
 
-    moveNav = function() {
-        $('#imagelightbox-nav').insertAfter('#imagelightbox');
-    };
+//     moveNav = function() {
+//         $('#imagelightbox-nav').insertAfter('#imagelightbox');
+//     };
 
-    addWrap = function() {
-        $('#header').addClass('wrapAll');
-        $('#imagelightbox').addClass('wrapAll');
-        $('#imagelighbox-nav').addClass('wrapAll');
-    };
+//     addWrap = function() {
+//         $('#header').addClass('wrapAll');
+//         $('#imagelightbox').addClass('wrapAll');
+//         $('#imagelighbox-nav').addClass('wrapAll');
+//     };
 
-    wrapAll = function() {
-        $('.wrapAll').wrapAll("<div class='imagelightbox-wrapper' />");
-    };
+//     wrapAll = function() {
+//         $('.wrapAll').wrapAll("<div class='imagelightbox-wrapper' />");
+//     };
 
-    {{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
+//     {{ entries:listing folder="case-studies/entries" sort_by="numeric" sort_dir="desc" }}
 
-        var selector{{ title|lower|slugify }} = 'a[data-imagelightbox="{{ title|lower|slugify }}"]';
-        var instance{{ title|lower|slugify }} = $( selector{{ title|lower|slugify }} ).imageLightbox(
-        {
-          quitOnDocClick: false,
-          onStart:   function() {  overlayOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); closeButtonOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); navigationOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} );},
-          onEnd:     function() { navigationOff(); activityIndicatorOff(); closeButtonOff(); captionOff(); headerOff(); overlayOff(); },
-          onLoadStart: function() { captionOff(); headerOff();  activityIndicatorOn(); },
-          onLoadEnd:   function() { headerOn();  navigationUpdate( selector{{ title|lower|slugify }} ); activityIndicatorOff();  addWrap(); wrapAll(); moveNav();}
-        });
-    {{ /entries:listing }}
+//         var selector{{ title|lower|slugify }} = 'a[data-imagelightbox="{{ title|lower|slugify }}"]';
+//         var instance{{ title|lower|slugify }} = $( selector{{ title|lower|slugify }} ).imageLightbox(
+//         {
+//           quitOnDocClick: false,
+//           onStart:   function() {  overlayOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); closeButtonOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); navigationOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} );},
+//           onEnd:     function() { navigationOff(); activityIndicatorOff(); closeButtonOff(); captionOff(); headerOff(); overlayOff(); },
+//           onLoadStart: function() { captionOff(); headerOff();  activityIndicatorOn(); },
+//           onLoadEnd:   function() { captionOn(); headerOn();  navigationUpdate( selector{{ title|lower|slugify }} ); activityIndicatorOff();  addWrap(); wrapAll(); moveNav();}
+//         });
+//     {{ /entries:listing }}
 
 
-});
+// });
 
 
 </script>

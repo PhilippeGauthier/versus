@@ -37,8 +37,9 @@
       </div>
   
     <ul class="grid case-study-grid">
+    <div class="gallery">
       {{ gallery }} 
-      <li class="hidden">
+<!--       <li class="hidden">
         <a href="{{ photo }}" class="lightbox {{ title|lower|slugify }}" data-imageLightbox="{{ title|lower|slugify }}">
           <div class="title">
             <h2>{{ header }}</h2>
@@ -46,8 +47,19 @@
           </div>
           <img class="case-study-image" src="{{ preview }}" header="{{ headerCaption}}" caption="{{ caption }}">
         </a>
-      </li>
-      {{ /gallery }}       
+      </li> -->
+      
+        <li class="hidden">
+          <a class="lightbox"href="{{ photo }}" data-header="{{ header }}" data-caption="{{ caption }}"><img src="{{ photo }}">
+            <div class="title">
+              <h2>{{ header }}</h2>
+              <h3>{{ subHeader }}</h3>
+            </div>
+          </a>
+        </li>
+      
+      {{ /gallery }}     
+      </div>  
     </ul>
 
     {{ /entries:listing }}

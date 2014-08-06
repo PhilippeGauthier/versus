@@ -35,7 +35,10 @@ html, body, p {
 	letter-spacing: .03rem;
 }
 
-
+img {
+	max-width: 100%;
+	height: auto;
+}
 h1 {
 	font-family: $headline-font;
 	@extend %t-strong;

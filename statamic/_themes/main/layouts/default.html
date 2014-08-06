@@ -161,7 +161,7 @@ $( function()
           onStart:   function() {  overlayOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); closeButtonOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} ); navigationOn( instance{{ title|lower|slugify }}, selector{{ title|lower|slugify }} );},
           onEnd:     function() { navigationOff(); activityIndicatorOff(); closeButtonOff(); captionOff(); headerOff(); overlayOff(); },
           onLoadStart: function() { captionOff(); headerOff();  activityIndicatorOn(); },
-          onLoadEnd:   function() { captionOn(); headerOn();  navigationUpdate( selector{{ title|lower|slugify }} ); activityIndicatorOff();  addWrap(); wrapAll(); moveNav();}
+          onLoadEnd:   function() { headerOn();  navigationUpdate( selector{{ title|lower|slugify }} ); activityIndicatorOff();  addWrap(); wrapAll(); moveNav();}
         });
     {{ /entries:listing }}
 

@@ -2129,10 +2129,7 @@ figcaption {
     .company-container.active .company-image {
       -webkit-filter: grayscale(0);
       filter: grayscale(0); }
-    /* line 25, ../partials/_companies.scss */
-    .company-container.active .company-text .text {
-      height: 100px; }
-  /* line 30, ../partials/_companies.scss */
+  /* line 25, ../partials/_companies.scss */
   .company-container .company {
     height: 100%;
     width: 100%;
@@ -2141,7 +2138,7 @@ figcaption {
     left: 0;
     right: 0;
     bottom: 0; }
-  /* line 39, ../partials/_companies.scss */
+  /* line 34, ../partials/_companies.scss */
   .company-container .company-text {
     z-index: 11;
     display: -webkit-box;
@@ -2158,14 +2155,14 @@ figcaption {
     text-align: center;
     max-width: 80%;
     margin: 0 auto; }
-    /* line 48, ../partials/_companies.scss */
+    /* line 42, ../partials/_companies.scss */
     .company-container .company-text h2, .company-container .company-text h3, .company-container .company-text p {
       margin: 10px auto;
       padding: 0; }
-    /* line 52, ../partials/_companies.scss */
+    /* line 46, ../partials/_companies.scss */
     .company-container .company-text .text {
       display: none; }
-  /* line 56, ../partials/_companies.scss */
+  /* line 50, ../partials/_companies.scss */
   .company-container .company-gradient {
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -2184,7 +2181,7 @@ figcaption {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
     /* IE6-9 */ }
-  /* line 69, ../partials/_companies.scss */
+  /* line 63, ../partials/_companies.scss */
   .company-container .company-image {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);

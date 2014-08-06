@@ -2088,17 +2088,21 @@ figcaption {
       filter: grayscale(0); }
   /* line 15, ../partials/_companies.scss */
   .company-container.active {
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     height: 575px; }
-    /* line 17, ../partials/_companies.scss */
+    /* line 18, ../partials/_companies.scss */
     .company-container.active .company-gradient {
-      background: none; }
-    /* line 20, ../partials/_companies.scss */
+      opacity: 0; }
+    /* line 21, ../partials/_companies.scss */
     .company-container.active .company-image {
       filter: grayscale(0); }
-    /* line 24, ../partials/_companies.scss */
+    /* line 25, ../partials/_companies.scss */
     .company-container.active .company-text .text {
       height: 100px; }
-  /* line 29, ../partials/_companies.scss */
+  /* line 30, ../partials/_companies.scss */
   .company-container .company {
     height: 100%;
     width: 100%;
@@ -2107,7 +2111,7 @@ figcaption {
     left: 0;
     right: 0;
     bottom: 0; }
-  /* line 38, ../partials/_companies.scss */
+  /* line 39, ../partials/_companies.scss */
   .company-container .company-text {
     z-index: 11;
     display: flex;
@@ -2116,16 +2120,21 @@ figcaption {
     text-align: center;
     max-width: 80%;
     margin: 0 auto; }
-    /* line 47, ../partials/_companies.scss */
+    /* line 48, ../partials/_companies.scss */
     .company-container .company-text h2, .company-container .company-text h3, .company-container .company-text p {
       margin: 10px auto;
       padding: 0; }
-    /* line 51, ../partials/_companies.scss */
+    /* line 52, ../partials/_companies.scss */
     .company-container .company-text .text {
       display: none; }
-  /* line 55, ../partials/_companies.scss */
+  /* line 56, ../partials/_companies.scss */
   .company-container .company-gradient {
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     z-index: 10;
+    opacity: 1;
     background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.65)));
@@ -2140,7 +2149,7 @@ figcaption {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
     /* IE6-9 */ }
-  /* line 66, ../partials/_companies.scss */
+  /* line 69, ../partials/_companies.scss */
   .company-container .company-image {
     filter: grayscale(1);
     background-color: #fff;

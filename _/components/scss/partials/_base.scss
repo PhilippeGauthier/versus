@@ -2,11 +2,12 @@
 
 $susy: (
 	columns: 12,
-	column-width: 3em,
+	column-width: 3.5em,
 	gutter-width: 1/4,
 	gutter-position: inside-static,
 );
 
+$xsmall: 480px;
 $small: 768px;
 $medium: 1000px;
 $large: 1200px;

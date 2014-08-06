@@ -41,6 +41,10 @@
 	height: 50%;
 }
 
+section {
+	@include container();
+}
+
 section, .flex {
 	position: relative;
 }
@@ -52,6 +56,17 @@ section, .flex {
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
+  margin: 0 auto;
+	max-width: 400px;
+@include breakpoint($small) {
+	max-width: 700px;
+}
+@include breakpoint($medium) {
+	max-width: 900px;
+}
+@include breakpoint($large) {
+	max-width: 1070px;
+}
 }
 
 .flex-wrapper {
@@ -68,16 +83,7 @@ section, .flex {
   // * {
   //   @include vertical-align;
   // }
-	@include container();
-	@include breakpoint($small) {
-		max-width: 700px;
-	}
-	@include breakpoint($medium) {
-		max-width: 900px;
-	}
-	@include breakpoint($large) {
-		max-width: 1070px;
-	}
+
 	&.content {
     // min-height: 100vh;
 		// justify-content: center;
@@ -119,6 +125,9 @@ section, .flex {
 
 
 .sticky-wrapper {
+	@include breakpoint($xsmall) {
+		max-width: 400px;
+	}
 	@include breakpoint($small) {
 		max-width: 700px;
 	}

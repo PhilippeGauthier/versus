@@ -279,7 +279,7 @@ div.inner-image {
 	background-position: center center;
 	height: 400px;
 	width: 100%;
-	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
 	&:hover {
 		filter: grayscale(0);
 	}
@@ -291,6 +291,7 @@ div.inner-image {
 	h2 {
 		font-family: $headline-font;
 	}
+
 	p {
 		display: none;
 		margin-left: auto;
@@ -302,4 +303,5 @@ div.inner-image {
 		margin-top: 20px;
 
 	}
+
 }

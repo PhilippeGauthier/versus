@@ -57,6 +57,7 @@ section, .flex {
   align-items: center;
   flex-flow: column nowrap;
   margin: 0 auto;
+  @include span(full);
 	max-width: 400px;
 @include breakpoint($small) {
 	max-width: 700px;

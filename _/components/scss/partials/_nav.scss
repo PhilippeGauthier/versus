@@ -9,8 +9,8 @@
 	float: left;
 	@include breakpoint($medium) {
 		float: none;
-		left: 120px;
-		margin-right: 120px;
+		left: 110px;
+		margin-right: 110px;
 	}
 
 }
@@ -68,7 +68,7 @@
 	left: -260px;
 	float: left;
 	@include breakpoint($medium) {
-		left: 120px;
+		left: 110px;
 		float: none;
 	}
 }
@@ -95,9 +95,9 @@
 .cbp-spmenu-push {
 	overflow-x: hidden;
 	position: relative;
-	left: 8px;
+	left: 0;
 	@include breakpoint($medium) {
-		left: 120px;
+		left: 110px;
 	}
 }
 

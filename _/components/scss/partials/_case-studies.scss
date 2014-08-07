@@ -118,7 +118,7 @@ a.lightbox {
 }
 
 .grid-gallery {
-	@include container();
+	@include span(full);
 	position: relative;
 	h2,h3 {
 		text-transform: uppercase;

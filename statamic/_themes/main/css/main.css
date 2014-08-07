@@ -921,28 +921,28 @@ section, .flex {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   margin: 0 auto;
+  width: 100%;
+  margin-left: 8.33333%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
+  width: 83.33333%;
   float: left;
   padding-left: 0.4375em;
-  padding-right: 0.4375em;
-  max-width: 400px; }
+  padding-right: 0.4375em; }
   @media (min-width: 768px) {
     /* line 52, ../partials/_layout.scss */
     .sub-section {
-      max-width: 700px; } }
-  @media (min-width: 1000px) {
-    /* line 52, ../partials/_layout.scss */
-    .sub-section {
-      max-width: 900px; } }
-  @media (min-width: 1200px) {
-    /* line 52, ../partials/_layout.scss */
-    .sub-section {
-      max-width: 1070px; } }
+      margin-left: 0%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      padding-left: 0.4375em;
+      padding-right: 0.4375em; } }
 
-/* line 73, ../partials/_layout.scss */
+/* line 76, ../partials/_layout.scss */
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -960,66 +960,66 @@ section, .flex {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
 
-/* line 79, ../partials/_layout.scss */
+/* line 82, ../partials/_layout.scss */
 .wrapper {
   position: relative;
   display: block; }
-  /* line 91, ../partials/_layout.scss */
+  /* line 94, ../partials/_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 94, ../partials/_layout.scss */
+  /* line 97, ../partials/_layout.scss */
   .wrapper.content.center {
     margin-right: auto;
     margin-left: auto;
     text-align: center; }
-    /* line 95, ../partials/_layout.scss */
+    /* line 98, ../partials/_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 102, ../partials/_layout.scss */
+  /* line 105, ../partials/_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 112, ../partials/_layout.scss */
+/* line 115, ../partials/_layout.scss */
 #connect h1 {
   margin-bottom: 40px; }
 
-/* line 118, ../partials/_layout.scss */
+/* line 121, ../partials/_layout.scss */
 .connect img {
   display: block;
   margin: 0 auto 6px; }
-/* line 122, ../partials/_layout.scss */
+/* line 125, ../partials/_layout.scss */
 .connect li {
   margin-bottom: 20px; }
 
-/* line 128, ../partials/_layout.scss */
+/* line 131, ../partials/_layout.scss */
 .sticky-wrapper {
   width: 100%;
   text-align: center;
   margin: 0 auto;
   position: relative; }
   @media (min-width: 480px) {
-    /* line 128, ../partials/_layout.scss */
+    /* line 131, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 400px; } }
   @media (min-width: 768px) {
-    /* line 128, ../partials/_layout.scss */
+    /* line 131, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 700px; } }
   @media (min-width: 1000px) {
-    /* line 128, ../partials/_layout.scss */
+    /* line 131, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 900px; } }
   @media (min-width: 1200px) {
-    /* line 128, ../partials/_layout.scss */
+    /* line 131, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 1070px; } }
 
-/* line 148, ../partials/_layout.scss */
+/* line 151, ../partials/_layout.scss */
 .sticky-container {
   width: 100%;
   margin: 0 auto; }
 
-/* line 153, ../partials/_layout.scss */
+/* line 156, ../partials/_layout.scss */
 .sticky-wrapper {
   margin-bottom: 200px; }
 
@@ -2155,13 +2155,16 @@ figcaption {
     max-width: 80%;
     margin: 0 auto; }
     /* line 42, ../partials/_companies.scss */
+    .company-container .company-text h2 {
+      font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
+    /* line 45, ../partials/_companies.scss */
     .company-container .company-text h2, .company-container .company-text h3, .company-container .company-text p {
       margin: 10px auto;
       padding: 0; }
-    /* line 46, ../partials/_companies.scss */
+    /* line 49, ../partials/_companies.scss */
     .company-container .company-text .text {
       display: none; }
-  /* line 50, ../partials/_companies.scss */
+  /* line 53, ../partials/_companies.scss */
   .company-container .company-gradient {
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -2180,7 +2183,7 @@ figcaption {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
     /* IE6-9 */ }
-  /* line 62, ../partials/_companies.scss */
+  /* line 65, ../partials/_companies.scss */
   .company-container .company-image {
     -webkit-transition: 0.5s;
     transition: 0.5s;

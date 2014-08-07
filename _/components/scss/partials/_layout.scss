@@ -57,17 +57,20 @@ section, .flex {
   align-items: center;
   flex-flow: column nowrap;
   margin: 0 auto;
-  @include span(full);
-	max-width: 400px;
-@include breakpoint($small) {
-	max-width: 700px;
-}
-@include breakpoint($medium) {
-	max-width: 900px;
-}
-@include breakpoint($large) {
-	max-width: 1070px;
-}
+  width:100%;
+	  @include pre(1);
+	  @include span(10);
+		// max-width: 400px;
+	@include breakpoint($small) {
+		@include pre(0);
+		@include span(full)
+	}
+	// @include breakpoint($medium) {
+	// 	max-width: 900px;
+	// }
+	// @include breakpoint($large) {
+	// 	max-width: 1070px;
+	// }
 }
 
 .flex-wrapper {

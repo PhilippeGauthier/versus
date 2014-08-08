@@ -8,18 +8,18 @@ fields:
   subHeader:
     type: text
 
+  previewImage:
+    type: file
+    display: Preview
+    destination: assets/img/entries
+    show_thumbnail: true
+
   gallery:
     display: Photo Gallery
     type: grid
     starting_rows: 1
     min_rows: 1
     fields:
-      preview:
-        type: file
-        display: Preview
-        destination: assets/img/entries
-        show_thumbnail: true
-        width: 25%
       photo:
         type: file
         display: Photo

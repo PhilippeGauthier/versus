@@ -324,14 +324,83 @@ $('.company-container').click(function(){
     var boxP = $(box).children('p');
     var boxE = $(boxP).children('p');
     $(box).children('.text').slideToggle( 700 );
-    console.log(box.height());
     // $(boxE).height(text.height());
 });
 
 $('body').scrollspy({ target: '.cbp-spmenu' });
 
-baguetteBox.run('.gallery', {
-  // Custom options
+
+$('.single-item').slick();
+
+// $(document).ready(function(){
+//   var caseStudyTextHeight = $('.case-study-text').height();
+//   console.log(caseStudyTextHeight);
+// });
+
+$('.case-study-text').each(function(){
+    $this = $(this);
+    var $height = $this.height();
+    // $this.css("margin-top",-$height);
+    $this.height($height - $height);
 });
+
+
+var caseStudyTextHeight = $('.case-study-text').height();
+// console.log(caseStudyTextHeight);
+// $('.case-study-text').height(caseStudyTextHeight - caseStudyTextHeight);
+
+  $('.case-study-close').click(function() {
+    $(this).next('.case-study-wrapper').removeClass('active');
+    $(this).removeClass('visible');
+
+    $('.case-study-text').height(0);
+  });
+
+$('.case-study-wrapper').click(function() {
+  $(this).addClass('active');
+  $(this).children('.single-item').toggleClass('fade-in');
+  $(this).children('.single-item .slick-list .slick-track .case-study-content').toggleClass('fade-in');
+  var $this = $(this);
+  var caseStudyWrapper = $this;
+  var singleItem = $($this).children('.single-item');
+  var slickList = $(singleItem).children('.slick-list');
+  var slickTrack = $(slickList).children('.slick-track');
+  var caseStudyContent = $(slickTrack).children('.case-study-content');
+  var caseStudyText = $(caseStudyContent).children('.case-study-text');
+  var caseStudyText = $(caseStudyContent).children('.case-study-text');
+  var textHeight = $(caseStudyText).height();
+
+  $('.case-study-text').each(function(){
+      $this = $(this);
+      var $height = $this.height();
+      // $this.closest('.case-study-wrapper').addClass('foo');
+
+      // $this.css("height", $height - $height);
+      if ($this.closest('.case-study-wrapper').hasClass('active')) {
+        $this.height(200);
+        // $this.css("margin-top","0");
+        $this.addClass('foo');
+        console.log($height);
+      }
+      else {
+        $this.css('margin-top',-$height);
+      }
+      
+      console.log($height);
+  });
+  // $(caseStudyText).height(caseStudyText);
+  if ( $(this).hasClass('active')) {
+    // $(caseStudyText).css("height","auto");
+    $(this).prev('.case-study-close').addClass('visible');
+    // $(caseStudyText).css("margin-top", "0");
+  } 
+  else {
+    // $(caseStudyText).height(textHeight - textHeight);
+  }
+
+  // console.log(caseStudyText.height());
+});
+
+
 
 

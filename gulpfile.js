@@ -47,7 +47,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['_/components/js/scrollspy.js','_/components/js/imagelightbox.js','_/components/js/baguetteBox.js','_/components/js/waypoints.js','_/components/js/jquery.scrollme.js','_/components/js/waypoints.sticky.js','_/components/js/scripts.js' ])
+  return gulp.src(['_/components/js/scrollspy.js','_/components/js/imagelightbox.js','_/components/js/_slick.js','_/components/js/waypoints.js','_/components/js/jquery.scrollme.js','_/components/js/waypoints.sticky.js','_/components/js/scripts.js' ])
     // .pipe(jshint())
     // .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))

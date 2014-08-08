@@ -21,15 +21,7 @@ html, body, #{headings()}, a, span, p {
 	// text-rendering: geometricPrecision;
 }
 
-html, body {
-	height: 100%;
-	margin: 0;
-	background: url('../img/background_1600x1600.png') center center no-repeat;
-	background-size: cover;
-	background-attachment:fixed;
 
-	
-}
 html, body, p {
 	font-family: $base-font-family;
 	letter-spacing: .03rem;

@@ -3374,19 +3374,6 @@ $('[data-spy="scroll"]').each(function () {
 });
 
 
-// Add lightbox to body on click
-$('.case-study-image').click(function(){
-    $('<div class="wrapper" id="imagelightbox-container"><div id="header"></div></div>').appendTo('body');
-});
-
-$('.company-image').click(function(){
-    $('<div class="wrapper" id="imagelightbox-container"><div id="header-companies"><div id="header-companies-wrapper"></div></div></div>').appendTo('body');
-});
-
-$('a .case-study').click(function(){
-    $(this).css("display","inline-block");
-});
-
 
 $(document).ready(function() {
 $( "ul li:first-child" ).removeClass( "hidden" );
@@ -3404,138 +3391,6 @@ $(function(){
 });
 
 
-// $(function() {
-
-
-//   var bio_container_steve = $('.bio-container-steve');
-//   var bio_container_alexis = $('.bio-container-alexis');
-
-//   bio_container_steve.waypoint({
-//     handler: function(direction,event) {
-//       var active_section = $(this);
-//       if (direction === 'down') {
-//           $(this).addClass('active');
-//           $('#left-name').addClass('active');
-//       }
-//       else {
-//           $(this).removeClass('active');
-//           $('#left-name').removeClass('active');
-//       }
-//     },
-//     offset: 'bottom-in-view'
-//   });
-//   bio_container_steve.waypoint({
-//     handler: function(direction,event) {
-//       var active_section = $(this);
-//       if (direction === 'down') {
-//           $(this).removeClass('active');
-//           $('#left-name').removeClass('active');
-//       }
-//       else {
-//           $(this).addClass('active');
-//           $('#left-name').addClass('active');
-//       }
-//     },
-//     offset: '300'
-//   });
-
-//   bio_container_alexis.waypoint({
-//     handler: function(direction,event) {
-//       var active_section = $(this);
-//       if (direction === 'down') {
-//           $(this).addClass('active');
-//           $('#right-name').addClass('active');
-//       }
-//       else {
-//           $(this).removeClass('active');
-//           $('#right-name').removeClass('active');
-//       }
-//     },
-//     offset: 'bottom-in-view'
-//   });
-//   bio_container_alexis.waypoint({
-//     handler: function(direction,event) {
-//       var active_section = $(this);
-//       if (direction === 'down') {
-//           $(this).removeClass('active');
-//           $('#right-name').removeClass('active');
-//       }
-//       else {
-//           $(this).addClass('active');
-//           $('#right-name').addClass('active');
-//       }
-//     },
-//     offset: '300'
-//   });
-//   $.waypoints('refresh');
-
-// });
-
-// Companies Code
-
-//   var image_url = $('.inner-image').css('background-image'),
-//     image;
-
-// // Remove url() or in case of Chrome url("")
-// image_url = image_url.match(/^url\("?(.+?)"?\)$/);
-
-// if (image_url[1]) {
-//     image_url = image_url[1];
-//     image = new Image();
-
-//     // just in case it is not already loaded
-//     $(image).load(function () {
-//         // alert(image.width + 'x' + image.height);
-//     });
-//     $('.inner-image').click(function(){
-//       var oldHeight = $(this).height();
-//     var aspectRatio = ( (image.width) / (image.height) )
-//     var newHeight = ( ($(this).width() ) / (aspectRatio) );
-//     var heightDifference = ( ((newHeight) - ($(this).height()) ) / 2);
-//     var box = $(this).closest('.inner-image');
-//     var boxP = $(box).children();
-//     var boxE = $(boxP).children('p');
-
-//     console.log(oldHeight);
-
-//       if (box.hasClass('active')) {
-//           // Animate the box out
-//           animateBoxOut(box);
-//       } else {
-//           // Get the original left margin
-//           animateBoxIn(box);
-//       }
-
-//   function animateBoxIn(box) {
-//       // Animate the box in
-//       $(box).addClass('active').animate({
-//       height: newHeight,
-//       top: -heightDifference,
-//       bottom: heightDifference
-//       }, 400, function() {
-//         $(boxE).addClass('active');
-//       });
-
-//   }
-//   // function animateBoxIn(boxP) {
-//   //   $(boxP).addClass('active');
-//   // }
-
-//   function animateBoxOut(box) {
-//       // Animate the box out
-//       $(box).animate({
-//       top: heightDifference,
-//       bottom: -heightDifference,
-//       height: 400
-//       },400).removeClass('active');
-//       $(boxE).removeClass('active');
-//   }
-
-//   });
-
-//     image.src = image_url;
-// }
-
 $('.company-container').click(function(){
   $(this).toggleClass('active');
     var box = $(this).children('.company-text');
@@ -3550,74 +3405,52 @@ $('body').scrollspy({ target: '.cbp-spmenu' });
 
 $('.single-item').slick();
 
-// $(document).ready(function(){
-//   var caseStudyTextHeight = $('.case-study-text').height();
-//   console.log(caseStudyTextHeight);
-// });
 
-$('.case-study-text').each(function(){
-    $this = $(this);
-    var $height = $this.height();
-    // $this.css("margin-top",-$height);
-    $this.height($height - $height);
-});
+$('.case-study-wrapper').each(function(){
 
-
-var caseStudyTextHeight = $('.case-study-text').height();
-// console.log(caseStudyTextHeight);
-// $('.case-study-text').height(caseStudyTextHeight - caseStudyTextHeight);
-
-  $('.case-study-close').click(function() {
-    $(this).next('.case-study-wrapper').removeClass('active');
-    $(this).removeClass('visible');
-
-    $('.case-study-text').height(0);
-  });
-
-$('.case-study-wrapper').click(function() {
-  $(this).addClass('active');
-  $(this).children('.single-item').toggleClass('fade-in');
-  $(this).children('.single-item .slick-list .slick-track .case-study-content').toggleClass('fade-in');
   var $this = $(this);
-  var caseStudyWrapper = $this;
-  var singleItem = $($this).children('.single-item');
-  var slickList = $(singleItem).children('.slick-list');
-  var slickTrack = $(slickList).children('.slick-track');
-  var caseStudyContent = $(slickTrack).children('.case-study-content');
-  var caseStudyText = $(caseStudyContent).children('.case-study-text');
-  var caseStudyText = $(caseStudyContent).children('.case-study-text');
-  var textHeight = $(caseStudyText).height();
-
-  $('.case-study-text').each(function(){
-      $this = $(this);
-      var $height = $this.height();
-      // $this.closest('.case-study-wrapper').addClass('foo');
-
-      // $this.css("height", $height - $height);
-      if ($this.closest('.case-study-wrapper').hasClass('active')) {
-        $this.height(200);
-        // $this.css("margin-top","0");
-        $this.addClass('foo');
-        console.log($height);
-      }
-      else {
-        $this.css('margin-top',-$height);
-      }
-      
-      console.log($height);
+  var caseStudyText = $(this).find('.case-study-text');
+  var caseStudyImage = $(this).find('.case-study-image');
+  var $height = caseStudyText.height();
+  var close = $(this).prev('.case-study-close');
+  
+  $(this).click(function(){
+    caseStudyText.height($height);
+    caseStudyImage.addClass('active');
   });
-  // $(caseStudyText).height(caseStudyText);
-  if ( $(this).hasClass('active')) {
-    // $(caseStudyText).css("height","auto");
-    $(this).prev('.case-study-close').addClass('visible');
-    // $(caseStudyText).css("margin-top", "0");
-  } 
-  else {
-    // $(caseStudyText).height(textHeight - textHeight);
-  }
 
-  // console.log(caseStudyText.height());
+  $(this).click(function(){
+    close.delay(750).queue(function(){
+      $(this).addClass('visible').dequeue();
+    });
+    caseStudyText.delay(0).queue(function(){
+      $(this).addClass('active').dequeue();
+    });
+  });
+
+  $(caseStudyText).height(0);
+
+  $(close).click(function() {  
+
+    $(this).delay(0).queue(function(){
+       $(this).removeClass('visible').dequeue();
+    });
+
+    $(caseStudyText).delay(0).queue(function(){
+      $(this).removeClass('active').dequeue();
+    });
+    $(caseStudyText).delay(300).queue(function(){
+      $(this).height(0).dequeue();
+    });
+    $(caseStudyImage).delay(500).queue(function(){
+      $(this).removeClass('active').dequeue();
+    });
+  });
+
 });
+
+
+
 
 
 

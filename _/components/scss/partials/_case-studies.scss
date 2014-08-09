@@ -132,63 +132,70 @@
 }
 
 .case-study-wrapper {
-	height: 400px;
-	@include transition(.5s);
-	.preview {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
-	.preview {
-		position: relative;
-		@include transition(.5s);
-		height: 400px;
-		opacity: 1;
-		&.fade-out {
-			margin: 200px 0;
-			height: 0;
-			opacity: 0;
-		}
-	}
+	// height: 400px;
+	// transition-delay: 12.5s;
+	// @include transition(1.5s);
+	// .preview {
+	// 	position: absolute;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// }
+	// .preview {
+	// 	position: relative;
+	// 	@include transition(.5s);
+	// 	height: 400px;
+	// 	opacity: 1;
+	// 	&.fade-out {
+	// 		margin: 200px 0;
+	// 		height: 0;
+	// 		opacity: 0;
+	// 	}
+	// }
 	.case-study-text {
-		@include transition(.5s);
 		opacity: 0;
-		// height: 0;
-		// z-index: -999;
-
-	}
-	.single-item {
-		opacity: 1;
-		&.fade-in {
-
-		}
+		// transition-delay: 1.5s;
+		@include transition(.75s);
 	}
 	.case-study-image {
-		@include transition(.5s);
+		@include transition(1.5s);
+		// transition-delay: 2.5s;
 		height: 400px;
 		width: 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
-	&.active {
-		height: auto;
-		.case-study-text {
+	// &.active {
+	// 	// transition-delay: 1.35s;
+	// 	@include transition(2.5s);
+	// 	// height: auto;
+	// 	.case-study-text {
+
+	// 	}
+	// }
+	.case-study-text.active {
+		@include transition(.75s);
+			transition-delay: .75s;
 			opacity: 1;
-		}
-		.case-study-image {
-			height: 575px;
-		}
+	}
+	.case-study-image.active{
+		@include transition(1.5s);
+		// transition-delay: 2s;
+		height: 575px;
 	}
 }
 
 .case-study-close {
-	display: none;
+	@include transition(.25s);
+
+	opacity: 0;
 	text-align: right;
 	&.visible {
-		display: block;
+		@include transition(.25s);
+		height: 30px;
+		opacity: 1;
 	}
 }
 

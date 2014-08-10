@@ -852,7 +852,7 @@ footer {
 
 /* line 6, ../third_party/_slick.scss */
 .slick-loading .slick-list {
-  background: white url("./ajax-loader.gif") center center no-repeat; }
+  background: white url("../fonts/ajax-loader.gif") center center no-repeat; }
 
 /* line 7, ../third_party/_slick.scss */
 .slick-list.dragging {
@@ -924,8 +924,8 @@ footer {
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url("./fonts/slick.eot");
-  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  src: url("../fonts/slick.eot");
+  src: url("../fonts/slick.eot?#iefix") format("embedded-opentype"), url("../fonts/slick.woff") format("woff"), url("../fonts/slick.ttf") format("truetype"), url("../fonts/slick.svg#slick") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Arrows */

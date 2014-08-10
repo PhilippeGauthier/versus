@@ -3376,55 +3376,55 @@ $('.company-container').click(function(){
 
 $('body').scrollspy({ target: '.cbp-spmenu' });
 
-$(window).load(function() {
 
-  $('.case-study-wrapper').each(function(){
+// Case Studies Code
 
-    var $this = $(this);
-    var caseStudyText = $(this).find('.case-study-text');
-    var caseStudyImage = $(this).find('.case-study-image');
-    var $height = caseStudyText.outerHeight(true);
-    console.log($height);
-    var close = $(this).prev('.case-study-close');
-    
-    $(this).click(function(){
-      caseStudyText.height($height);
-      caseStudyImage.addClass('active');
-    });
+$('.case-study-wrapper').each(function(){
 
-    $(this).click(function(){
-      close.delay(750).queue(function(){
-        $(this).addClass('visible').dequeue();
-      });
-      caseStudyText.delay(0).queue(function(){
-        $(this).addClass('active').dequeue();
-      });
-    });
+  var $this = $(this);
+  var caseStudyText = $(this).find('.case-study-text');
+  var caseStudyImage = $(this).find('.case-study-image');
+  var close = $(this).prev('.case-study-close');
+  var $height = caseStudyText.outerHeight(true);
 
-    $(caseStudyText).height(0);
-
-    $(close).click(function() {  
-
-      $(this).delay(0).queue(function(){
-         $(this).removeClass('visible').dequeue();
-      });
-
-      $(caseStudyText).delay(0).queue(function(){
-        $(this).removeClass('active').dequeue();
-      });
-      $(caseStudyText).delay(300).queue(function(){
-        $(this).height(0).dequeue();
-      });
-      $(caseStudyImage).delay(500).queue(function(){
-        $(this).removeClass('active').dequeue();
-      });
-    });
-
+  $(caseStudyText).height(0);
+  
+  $(this).click(function(){
+    caseStudyText.height($height);
+    caseStudyImage.addClass('active');
   });
+
+  $(this).click(function(){
+    close.delay(750).queue(function(){
+      $(this).addClass('visible').dequeue();
+    });
+    caseStudyText.delay(0).queue(function(){
+      $(this).addClass('active').dequeue();
+    });
+  });
+
+  $(close).click(function() {  
+
+    $(this).delay(0).queue(function(){
+       $(this).removeClass('visible').dequeue();
+    });
+
+    $(caseStudyText).delay(0).queue(function(){
+      $(this).removeClass('active').dequeue();
+    });
+    $(caseStudyText).delay(300).queue(function(){
+      $(this).height(0).dequeue();
+    });
+    $(caseStudyImage).delay(500).queue(function(){
+      $(this).removeClass('active').dequeue();
+    });
+  });
+
+});
 
   $('.single-item').slick();
 
-});
+
 
 
 

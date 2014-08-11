@@ -132,34 +132,72 @@
 }
 
 .case-study-wrapper {
-	// height: 400px;
-	// transition-delay: 12.5s;
-	// @include transition(1.5s);
-	// .preview {
-	// 	position: absolute;
-	// 	top: 0;
-	// 	bottom: 0;
-	// 	left: 0;
-	// 	right: 0;
-	// }
-	// .preview {
-	// 	position: relative;
-	// 	@include transition(.5s);
-	// 	height: 400px;
-	// 	opacity: 1;
-	// 	&.fade-out {
-	// 		margin: 200px 0;
-	// 		height: 0;
-	// 		opacity: 0;
-	// 	}
-	// }
+	position: relative;
+	border: 8px solid transparent;
+	@include transition(.5s);
+	&:hover {
+
+		cursor: pointer;
+		border: 8px solid $purple;
+		.case-study-image {
+			filter: grayscale(0) brightness(.9);
+		}
+	}
+	button {
+		display: none !important;
+	}
+	&.active {
+		button {
+			display: block !important;
+			color: $purple;
+		}
+		.case-study-image {
+			filter: grayscale(0) brightness(1);
+		}
+		.preview-text {
+			cursor: default;
+		}
+	}
+	&.active:hover {
+
+		cursor: auto;
+		border: 8px solid transparent;
+	}
+	.preview-text {
+		opacity: 0;
+		@include transition(1s);
+		&.active {
+			@include transition(.5s);
+			opacity: 1;
+		}
+		z-index: 1000;
+		position: absolute;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+	.slick-slider {
+		margin-bottom: 0;
+	}
 	.case-study-text {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: flex-end;
 		opacity: 0;
 		// transition-delay: 1.5s;
 		@include transition(.75s);
 	}
 	.case-study-image {
+		filter: grayscale(1) brightness(.6);
 		@include transition(1.5s);
+		&:hover {
+
+		}
 		// transition-delay: 2.5s;
 		height: 400px;
 		width: 100%;
@@ -188,10 +226,17 @@
 }
 
 .case-study-close {
+	cursor: pointer;
 	@include transition(.25s);
-
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	margin-left: auto;
 	opacity: 0;
-	text-align: right;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 26px;
 	&.visible {
 		@include transition(.25s);
 		height: 30px;

@@ -2149,49 +2149,120 @@ li:hover .sprite.connect {
 .company-container.active .case-study-image {
   height: 575px; }
 
-/* line 156, ../partials/_case-studies.scss */
-.case-study-wrapper .case-study-text {
-  opacity: 0;
-  -moz-transition: 0.75s;
-  -o-transition: 0.75s;
-  -webkit-transition: 0.75s;
-  transition: 0.75s; }
-/* line 161, ../partials/_case-studies.scss */
-.case-study-wrapper .case-study-image {
-  -moz-transition: 1.5s;
-  -o-transition: 1.5s;
-  -webkit-transition: 1.5s;
-  transition: 1.5s;
-  height: 400px;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center; }
-/* line 178, ../partials/_case-studies.scss */
-.case-study-wrapper .case-study-text.active {
-  -moz-transition: 0.75s;
-  -o-transition: 0.75s;
-  -webkit-transition: 0.75s;
-  transition: 0.75s;
-  transition-delay: .75s;
-  opacity: 1; }
-/* line 183, ../partials/_case-studies.scss */
-.case-study-wrapper .case-study-image.active {
-  -moz-transition: 1.5s;
-  -o-transition: 1.5s;
-  -webkit-transition: 1.5s;
-  transition: 1.5s;
-  height: 575px; }
+/* line 134, ../partials/_case-studies.scss */
+.case-study-wrapper {
+  position: relative;
+  border: 8px solid transparent;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s; }
+  /* line 138, ../partials/_case-studies.scss */
+  .case-study-wrapper:hover {
+    cursor: pointer;
+    border: 8px solid #6800eb; }
+    /* line 142, ../partials/_case-studies.scss */
+    .case-study-wrapper:hover .case-study-image {
+      filter: grayscale(0) brightness(0.9); }
+  /* line 146, ../partials/_case-studies.scss */
+  .case-study-wrapper button {
+    display: none !important; }
+  /* line 150, ../partials/_case-studies.scss */
+  .case-study-wrapper.active button {
+    display: block !important;
+    color: #6800eb; }
+  /* line 154, ../partials/_case-studies.scss */
+  .case-study-wrapper.active .case-study-image {
+    filter: grayscale(0) brightness(1); }
+  /* line 157, ../partials/_case-studies.scss */
+  .case-study-wrapper.active .preview-text {
+    cursor: default; }
+  /* line 161, ../partials/_case-studies.scss */
+  .case-study-wrapper.active:hover {
+    cursor: auto;
+    border: 8px solid transparent; }
+  /* line 166, ../partials/_case-studies.scss */
+  .case-study-wrapper .preview-text {
+    opacity: 0;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+    /* line 169, ../partials/_case-studies.scss */
+    .case-study-wrapper .preview-text.active {
+      -moz-transition: 0.5s;
+      -o-transition: 0.5s;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      opacity: 1; }
+  /* line 184, ../partials/_case-studies.scss */
+  .case-study-wrapper .slick-slider {
+    margin-bottom: 0; }
+  /* line 187, ../partials/_case-studies.scss */
+  .case-study-wrapper .case-study-text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    opacity: 0;
+    -moz-transition: 0.75s;
+    -o-transition: 0.75s;
+    -webkit-transition: 0.75s;
+    transition: 0.75s; }
+  /* line 195, ../partials/_case-studies.scss */
+  .case-study-wrapper .case-study-image {
+    filter: grayscale(1) brightness(0.6);
+    -moz-transition: 1.5s;
+    -o-transition: 1.5s;
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+  /* line 216, ../partials/_case-studies.scss */
+  .case-study-wrapper .case-study-text.active {
+    -moz-transition: 0.75s;
+    -o-transition: 0.75s;
+    -webkit-transition: 0.75s;
+    transition: 0.75s;
+    transition-delay: .75s;
+    opacity: 1; }
+  /* line 221, ../partials/_case-studies.scss */
+  .case-study-wrapper .case-study-image.active {
+    -moz-transition: 1.5s;
+    -o-transition: 1.5s;
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+    height: 575px; }
 
-/* line 190, ../partials/_case-studies.scss */
+/* line 228, ../partials/_case-studies.scss */
 .case-study-close {
+  cursor: pointer;
   -moz-transition: 0.25s;
   -o-transition: 0.25s;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-left: auto;
   opacity: 0;
-  text-align: right; }
-  /* line 195, ../partials/_case-studies.scss */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 26px; }
+  /* line 240, ../partials/_case-studies.scss */
   .case-study-close.visible {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
@@ -2200,7 +2271,7 @@ li:hover .sprite.connect {
     height: 30px;
     opacity: 1; }
 
-/* line 203, ../partials/_case-studies.scss */
+/* line 248, ../partials/_case-studies.scss */
 .uber-wrapper {
   margin-bottom: 60px; }
 

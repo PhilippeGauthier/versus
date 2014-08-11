@@ -166,45 +166,72 @@ $('.case-study-wrapper').each(function(){
   var $this = $(this);
   var caseStudyText = $(this).find('.case-study-text');
   var caseStudyImage = $(this).find('.case-study-image');
+  var previewText = $(this).find('.preview-text');
   var close = $(this).prev('.case-study-close');
   var $height = caseStudyText.outerHeight(true);
 
   $(caseStudyText).height(0);
   
   $(this).click(function(){
+    $this.addClass('active');
     caseStudyText.height($height);
     caseStudyImage.addClass('active');
+    previewText.removeClass('active');
   });
 
   $(this).click(function(){
-    close.delay(750).queue(function(){
-      $(this).addClass('visible').dequeue();
-    });
-    caseStudyText.delay(0).queue(function(){
-      $(this).addClass('active').dequeue();
-    });
+    // close.delay(750).queue(function(){
+    //   $(this).addClass('visible').dequeue();
+    // });
+    // caseStudyText.delay(0).queue(function(){
+    //   $(this).addClass('active').dequeue();
+    // });
+    setTimeout(function(){
+      $(close).addClass('visible');
+    }, 200);
+    setTimeout(function(){
+      caseStudyText.addClass('active');
+    }, 200);
   });
 
   $(close).click(function() {  
 
-    $(this).delay(0).queue(function(){
-       $(this).removeClass('visible').dequeue();
-    });
+    // $(this).delay(0).queue(function(){
+    //    $(this).removeClass('visible').dequeue();
+    // });
+    $(caseStudyText).removeClass('active');
+    $(this).removeClass('visible');
+    setTimeout(function(){
+      $(caseStudyText).height(0);
+    }, 200);
+    setTimeout(function(){
+      $(caseStudyImage).removeClass('active');
+    }, 200);
+    setTimeout(function(){
+      $($this).removeClass('active');
+    }, 200);
+    setTimeout(function(){
+      $(previewText).addClass('active');
+    }, 1300);
+ 
+    // $(caseStudyText).delay(0).queue(function(){
+    //   $(this).removeClass('active').dequeue();
+    // });
+    // $(caseStudyText).delay(300).queue(function(){
+    //   $(this).height(0).dequeue();
+    // });
+    // $(caseStudyImage).delay(500).queue(function(){
+    //   $(this).removeClass('active').dequeue();
+    // });
 
-    $(caseStudyText).delay(0).queue(function(){
-      $(this).removeClass('active').dequeue();
-    });
-    $(caseStudyText).delay(300).queue(function(){
-      $(this).height(0).dequeue();
-    });
-    $(caseStudyImage).delay(500).queue(function(){
-      $(this).removeClass('active').dequeue();
-    });
   });
 
 });
 
-  $('.single-item').slick();
+$('.single-item').slick({
+  infinite: false,
+  arrows: true,
+});
 
 
 

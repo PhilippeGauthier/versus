@@ -1055,13 +1055,7 @@ section, .flex {
   position: relative; }
 
 /* line 52, ../partials/_layout.scss */
-.sub-section {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
+.sub-section, .grid-gallery {
   margin: 0 auto;
   width: 100%;
   margin-left: 8.33333%;
@@ -1074,7 +1068,7 @@ section, .flex {
   padding-right: 0.625em; }
   @media (min-width: 768px) {
     /* line 52, ../partials/_layout.scss */
-    .sub-section {
+    .sub-section, .grid-gallery {
       margin-left: 0%;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -1085,71 +1079,80 @@ section, .flex {
       padding-right: 0.625em; } }
   @media (min-width: 1000px) {
     /* line 52, ../partials/_layout.scss */
-    .sub-section {
+    .sub-section, .grid-gallery {
       max-width: 900px; } }
   @media (min-width: 1200px) {
     /* line 52, ../partials/_layout.scss */
-    .sub-section {
+    .sub-section, .grid-gallery {
       max-width: 1070px; } }
 
-/* line 76, ../partials/_layout.scss */
+/* line 70, ../partials/_layout.scss */
+.sub-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap; }
+
+/* line 80, ../partials/_layout.scss */
 .flex-wrapper {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
   flex: 1 1 auto; }
-  /* line 81, ../partials/_layout.scss */
+  /* line 85, ../partials/_layout.scss */
   .flex-wrapper .flow-wrapper {
     flex: 1 1 auto; }
 
-/* line 85, ../partials/_layout.scss */
+/* line 89, ../partials/_layout.scss */
 .wrapper {
   position: relative;
   display: block; }
-  /* line 97, ../partials/_layout.scss */
+  /* line 101, ../partials/_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 100, ../partials/_layout.scss */
+  /* line 104, ../partials/_layout.scss */
   .wrapper.content.center {
     margin-right: auto;
     margin-left: auto;
     text-align: center; }
-    /* line 101, ../partials/_layout.scss */
+    /* line 105, ../partials/_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 108, ../partials/_layout.scss */
+  /* line 112, ../partials/_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 134, ../partials/_layout.scss */
+/* line 138, ../partials/_layout.scss */
 .sticky-wrapper {
   width: 100%;
   text-align: center;
   margin: 0 auto;
   position: relative; }
   @media (min-width: 480px) {
-    /* line 134, ../partials/_layout.scss */
+    /* line 138, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 400px; } }
   @media (min-width: 768px) {
-    /* line 134, ../partials/_layout.scss */
+    /* line 138, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 700px; } }
   @media (min-width: 1000px) {
-    /* line 134, ../partials/_layout.scss */
+    /* line 138, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 900px; } }
   @media (min-width: 1200px) {
-    /* line 134, ../partials/_layout.scss */
+    /* line 138, ../partials/_layout.scss */
     .sticky-wrapper {
       max-width: 1070px; } }
 
-/* line 154, ../partials/_layout.scss */
+/* line 158, ../partials/_layout.scss */
 .sticky-container {
   width: 100%;
   margin: 0 auto; }
 
-/* line 159, ../partials/_layout.scss */
+/* line 163, ../partials/_layout.scss */
 .sticky-wrapper {
   margin-bottom: 200px; }
 
@@ -2038,7 +2041,7 @@ li:hover .sprite.connect {
   .case-study-wrapper .case-study-text {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     opacity: 0;
     -moz-transition: 0.75s;
     -o-transition: 0.75s;

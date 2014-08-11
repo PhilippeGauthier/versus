@@ -49,13 +49,7 @@ section, .flex {
 	position: relative;
 }
 
-.sub-section {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
+.sub-section, .grid-gallery {
   margin: 0 auto;
   width:100%;
 	  @include pre(1);
@@ -71,6 +65,16 @@ section, .flex {
 	@include breakpoint($large) {
 		max-width: 1070px;
 	}
+}
+
+.sub-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+
 }
 
 .flex-wrapper {

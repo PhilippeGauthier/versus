@@ -168,7 +168,7 @@ $('.case-study-wrapper').each(function(){
   var caseStudyImage = $(this).find('.case-study-image');
   var previewText = $(this).find('.preview-text');
   var close = $(this).prev('.case-study-close');
-  var $height = caseStudyText.outerHeight(true);
+  var $height = caseStudyText.height();
 
   $(caseStudyText).height(0);
   
@@ -200,9 +200,12 @@ $('.case-study-wrapper').each(function(){
     //    $(this).removeClass('visible').dequeue();
     // });
     $(caseStudyText).removeClass('active');
-    $(this).removeClass('visible');
+    // $(this).removeClass('visible');
     setTimeout(function(){
       $(caseStudyText).height(0);
+    }, 200);
+    setTimeout(function(){
+      $(close).removeClass('visible');
     }, 200);
     setTimeout(function(){
       $(caseStudyImage).removeClass('active');
@@ -213,16 +216,6 @@ $('.case-study-wrapper').each(function(){
     setTimeout(function(){
       $(previewText).addClass('active');
     }, 1300);
- 
-    // $(caseStudyText).delay(0).queue(function(){
-    //   $(this).removeClass('active').dequeue();
-    // });
-    // $(caseStudyText).delay(300).queue(function(){
-    //   $(this).height(0).dequeue();
-    // });
-    // $(caseStudyImage).delay(500).queue(function(){
-    //   $(this).removeClass('active').dequeue();
-    // });
 
   });
 

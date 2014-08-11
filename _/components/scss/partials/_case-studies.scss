@@ -70,12 +70,12 @@
 		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
 	}
 	h2 {
-		@include responsiveTypeSize(xlarge);
+		font-size: 42pt;
 		font-family: $subHeadline-font;
 	}
 	h3 {
 		font-family: $base-font-family;
-			@include responsiveTypeSize(medium);
+			font-size: 19pt;
 	}
 }
 
@@ -112,7 +112,7 @@
 			height: auto;
 		}
 		h2 {
-			@include responsiveTypeSize(large);
+			font-size: 31pt;
 			font-family: $subHeadline-font;
 			text-transform: uppercase;
 			margin-bottom: 20px;

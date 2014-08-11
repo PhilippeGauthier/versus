@@ -202,10 +202,10 @@ li.menu-item {
 				width: 140px;
 				text-align: left;
 				display: inline-block;
-				@include responsiveTypeSize(small);
+				font-size: 13pt;
 				@include breakpoint ($medium) {
 					padding-left: 20px;
-					@include responsiveTypeSize(base);
+					font-size: 17pt;
 				}
 			}
 			.icon {

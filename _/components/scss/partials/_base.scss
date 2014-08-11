@@ -2,7 +2,7 @@
 
 $susy: (
 	columns: 12,
-	column-width: 3.5em,
+	column-width: 5em,
 	gutter-width: 1/4,
 	gutter-position: inside-static,
 );
@@ -14,7 +14,7 @@ $large: 1200px;
 
 $small-screen-width: 30em;
 
-@include establish-baseline;
+// @include establish-baseline();
 
 html, body, #{headings()}, a, span, p {
 	color: $white;
@@ -33,21 +33,20 @@ img {
 }
 h1 {
 	font-family: $headline-font;
-	@extend %t-strong;
-	@include responsiveTypeSize(xlarge);
+	font-size: 60px;
 	color: $purple;
 	letter-spacing: -2px;
 }
 
 h3 {
 	font-family: $subHeadline-font;
-	@include responsiveTypeSize(base);
+	font-size: 17pt;
 
 }
 
 
 p {
-	@include responsiveTypeSize(base);
+	font-size: 17pt;
 	@include trailer;
 	font-family: $base-font-family;
 	letter-spacing: .03rem;

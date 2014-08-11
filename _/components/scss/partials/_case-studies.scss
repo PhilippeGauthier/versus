@@ -136,7 +136,6 @@
 	border: 8px solid transparent;
 	@include transition(.5s);
 	&:hover {
-
 		cursor: pointer;
 		border: 8px solid $purple;
 		.case-study-image {
@@ -189,43 +188,24 @@
 		flex-flow: column nowrap;
 		justify-content: flex-end;
 		opacity: 0;
-		// transition-delay: 1.5s;
 		@include transition(.75s);
 	}
 	.case-study-image {
 		filter: grayscale(1) brightness(.6);
 		@include transition(1.5s);
-		&:hover {
-
-		}
-		// transition-delay: 2.5s;
 		height: 400px;
 		width: 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
-	// &.active {
-	// 	// transition-delay: 1.35s;
-	// 	@include transition(2.5s);
-	// 	// height: auto;
-	// 	.case-study-text {
-
-	// 	}
-	// }
 	.case-study-text.active {
 		@include transition(.75s);
 			transition-delay: .75s;
 			opacity: 1;
-			// h3 {
-			// 	font-size: 1rem;
-			// 	line-height: ;
-			// 	text-transform: none;
-			// }	
 	}
 	.case-study-image.active{
 		@include transition(1.5s);
-		// transition-delay: 2s;
 		height: 660px;
 	}
 }
@@ -248,7 +228,6 @@
 		opacity: 1;
 	}
 }
-
 
 .uber-wrapper {
 	margin-bottom: 60px;

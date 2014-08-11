@@ -180,12 +180,6 @@ $('.case-study-wrapper').each(function(){
   });
 
   $(this).click(function(){
-    // close.delay(750).queue(function(){
-    //   $(this).addClass('visible').dequeue();
-    // });
-    // caseStudyText.delay(0).queue(function(){
-    //   $(this).addClass('active').dequeue();
-    // });
     setTimeout(function(){
       $(close).addClass('visible');
     }, 200);
@@ -196,11 +190,7 @@ $('.case-study-wrapper').each(function(){
 
   $(close).click(function() {  
 
-    // $(this).delay(0).queue(function(){
-    //    $(this).removeClass('visible').dequeue();
-    // });
     $(caseStudyText).removeClass('active');
-    // $(this).removeClass('visible');
     setTimeout(function(){
       $(caseStudyText).height(0);
     }, 200);
@@ -216,7 +206,6 @@ $('.case-study-wrapper').each(function(){
     setTimeout(function(){
       $(previewText).addClass('active');
     }, 1300);
-
   });
 
 });

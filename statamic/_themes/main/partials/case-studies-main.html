@@ -2,44 +2,44 @@
   {{ entries:listing folder="case-studies"  sort_dir="asc" }}
   
   <div class="sub-section" id="{{ title }}">
-    
-   
+
+
     <div class="wrapper content center">
       <span class="sprite active companies"></span>
-      
-      
+
+
       {{ if mainTitle|not_empty }}
       <h1>{{ mainTitle }}</h1>
       {{ endif }}
-      
+
       {{ if subTitle|not_empty }}
       <h3>{{ subTitle }}</h3>
       {{ endif }}
-      
+
       {{ content }}
-      
+
     </div>
   </div>
-  
+
   {{ /entries:listing }}
 
   <div class="grid-gallery">
     {{ entries:listing folder="case-studies/entries" sort_dir="asc" }}
 
     <div class="uber-wrapper">
-      
+
       <div class="case-study-close">x</div>
       <div class="case-study-wrapper">
 
 
-        
+
        <div class="single-item">
-        <div class="preview-text active">
+<!--         <div class="preview-text active">
           <h2>{{ header }}</h2>
           <h3>{{ subHeader }}</h3>
-        </div>
+        </div> -->
         {{ gallery }} 
-        
+
         <div class="case-study-content">
           <div class="case-study-text">
             <h2>{{ header }}</h2>
@@ -47,7 +47,7 @@
           </div>
           <div class="case-study-image" style="background-image: url( {{ photo }} );"></div>
         </div>
-        
+
         {{ /gallery }} 
       </div>    
       

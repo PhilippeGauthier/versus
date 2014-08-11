@@ -217,6 +217,10 @@
 		@include transition(.75s);
 			transition-delay: .75s;
 			opacity: 1;
+			p {
+				padding-bottom: 0;
+				margin: 16px 0;
+			}	
 	}
 	.case-study-image.active{
 		@include transition(1.5s);

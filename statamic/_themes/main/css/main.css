@@ -2275,7 +2275,7 @@ li:hover .sprite.connect {
   .case-study-wrapper .case-study-image.active {
     -webkit-transition: 1.5s;
     transition: 1.5s;
-    height: 575px; }
+    height: 660px; }
 
 /* line 228, ../partials/_case-studies.scss */
 .case-study-close {

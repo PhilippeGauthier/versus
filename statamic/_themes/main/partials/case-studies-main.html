@@ -23,8 +23,8 @@
 
   {{ /entries:listing }}
 
-  <div class="grid-gallery">
-    {{ entries:listing folder="case-studies/entries" sort_dir="asc" }}
+  <div class="grid-gallery desktop">
+    {{ entries:listing folder="case-studies/desktop_entries" sort_dir="asc" }}
 
     <div class="uber-wrapper">
 
@@ -43,7 +43,42 @@
         <div class="case-study-content">
           <div class="case-study-text">
             <h2>{{ header }}</h2>
-            {{ caption}}
+            <p>{{ caption }}</p>
+          </div>
+          <div class="case-study-image" style="background-image: url( {{ photo }} );"></div>
+        </div>
+
+        {{ /gallery }} 
+      </div>    
+      
+    </div>
+
+  </div>
+
+  {{ /entries:listing }}
+</div>
+
+  <div class="grid-gallery mobile">
+    {{ entries:listing folder="case-studies/mobile_entries" sort_dir="asc" }}
+
+    <div class="uber-wrapper">
+
+      <div class="case-study-close">x</div>
+      <div class="case-study-wrapper">
+
+        <div class="preview-text active">
+          <h2>{{ header }}</h2>
+          <h3>{{ subHeader }}</h3>
+        </div>
+
+       <div class="single-item">
+
+        {{ gallery }} 
+
+        <div class="case-study-content">
+          <div class="case-study-text">
+            <h2>{{ header }}</h2>
+            <p>{{ caption }}</p>
           </div>
           <div class="case-study-image" style="background-image: url( {{ photo }} );"></div>
         </div>

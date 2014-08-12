@@ -2,6 +2,18 @@
 	width: 100%;
 }
 
+.bios-desktop {
+	display: none;
+	@include breakpoint(small) {
+		display: block;
+	}
+}
+.bios-mobile {
+	display: block;
+	@include breakpoint(small) {
+		display: none;
+	}
+}
 .left {
 	// border-right: 1px solid white;
 	color: white;

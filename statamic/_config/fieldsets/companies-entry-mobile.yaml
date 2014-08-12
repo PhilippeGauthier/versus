@@ -1,0 +1,15 @@
+
+fields:
+
+  photo: 
+    type: file
+    display: Photo
+    destination: assets/img
+
+  subTitle:
+    display: Sub Title
+    default:
+    type: text
+
+  content:
+    type: redactor

@@ -61,6 +61,20 @@
 }
 
 .grid-gallery {
+	&.desktop {
+		display: none;
+		@include breakpoint($small) {
+			display: block;
+		}
+	}
+	&.mobile {
+		display: block;
+		@include pre(0);
+		@include span(full);
+		@include breakpoint($small) {
+			display: none;
+		}
+	}
 	@include span(full);
 	position: relative;
 	h2,h3 {
@@ -70,12 +84,10 @@
 		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
 	}
 	h2 {
-		font-size: 42pt;
 		font-family: $subHeadline-font;
 	}
 	h3 {
 		font-family: $base-font-family;
-			font-size: 19pt;
 	}
 }
 
@@ -188,6 +200,10 @@
 		flex-flow: column nowrap;
 		justify-content: flex-start;
 		opacity: 0;
+		p {
+			padding-bottom: 0;
+			margin: 10px 0;
+		}
 		@include transition(.75s);
 	}
 	.case-study-image {

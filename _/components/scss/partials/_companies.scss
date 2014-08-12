@@ -1,3 +1,10 @@
+#companies {
+	.sub-section.companies, .grid-gallery.mobile {
+		@include pre(0);
+		@include span(full);
+	}
+}
+
 .company-container {
 	cursor: pointer;
 	position: relative;
@@ -11,10 +18,15 @@
 			filter: grayscale(0) brightness(1);
 		}
 	}
+	@include breakpoint(small) {
+		&.active {
+			height: 575px;
+		}
+	}
 	@include transition(.5s);
 	&.active {
 		@include transition(.5s);
-		height: 575px;
+		height: 500px;
 		.company-gradient {
 			opacity: 1;
 		}

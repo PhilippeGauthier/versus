@@ -20,16 +20,16 @@
       {{ content }}
 
     </div>
-
+d
   </div>
 
   {{ /entries:listing }}
 
 
-<div class="sub-section">
-  <div class="grid-gallery">
-  
-    {{ entries:listing folder="companies/entries" sort_dir="asc" }}
+<div class="sub-section companies">
+
+  <div class="grid-gallery desktop">
+    {{ entries:listing folder="companies/desktop_entries" sort_dir="asc" }}
     <div class="company-container">
       <div class="company company-text">
         <h2>{{ title }}</h2>
@@ -42,6 +42,22 @@
     </div>
     {{ /entries:listing }}
   </div>
+
+  <div class="grid-gallery mobile">
+    {{ entries:listing folder="companies/desktop_entries" sort_dir="asc" }}
+    <div class="company-container">
+      <div class="company company-text">
+        <h2>{{ title }}</h2>
+        <h3>{{ subTitle }}</h3>
+  
+        <div class="text">{{ content }}</div>
+      </div>
+      <div class="company company-gradient"></div>
+      <div class="company company-image" style="background-image: url( {{ photo }} );"></div>
+    </div>
+    {{ /entries:listing }}
+  </div>
+
 </div>
 
 </section>

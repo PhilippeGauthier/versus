@@ -21,6 +21,17 @@ html, body, #{headings()}, a, span, p {
 	// text-rendering: geometricPrecision;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+	background-color: black;
+  @include breakpoint(small) {
+	  background: url('{{ theme:img src="background_1600x1600.png" }}') center center no-repeat;
+	  background-size: cover;
+  	background-attachment: fixed;
+  	background-size: cover;
+  }
+}
 
 html, body, p {
 	font-family: $base-font-family;
@@ -33,23 +44,38 @@ img {
 }
 h1 {
 	font-family: $headline-font;
-	font-size: 60px;
+	font-size: 36pt;
 	color: $purple;
 	letter-spacing: -2px;
+	@include breakpoint(small) {
+		font-size: 50pt;
+	}
+}
+
+h2 {
+	font-size: 24pt;
+	@include breakpoint($small) {
+		font-size: 42pt;
+	}
 }
 
 h3 {
 	font-family: $subHeadline-font;
-	font-size: 17pt;
-
+	font-size: 18pt;
+	@include breakpoint($small) {
+		font-size: 24pt;
+	}
 }
 
 
 p {
-	font-size: 17pt;
+	font-size: 16pt;
 	@include trailer;
 	font-family: $base-font-family;
 	letter-spacing: .03rem;
+	@include breakpoint($small) {
+		font-size: 21pt;
+	}
 	&:first-of-type {
 		@include leader;
 	}

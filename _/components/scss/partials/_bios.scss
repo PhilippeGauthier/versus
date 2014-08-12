@@ -4,13 +4,13 @@
 
 .bios-desktop {
 	display: none;
-	@include breakpoint(small) {
+	@include breakpoint($small) {
 		display: block;
 	}
 }
 .bios-mobile {
 	display: block;
-	@include breakpoint(small) {
+	@include breakpoint($small) {
 		display: none;
 	}
 }

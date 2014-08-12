@@ -47,16 +47,20 @@ section {
 	@include breakpoint($small) {
 		max-width: 700px;
 	}
-	@include breakpoint($medium) {
-		max-width: 900px;
-	}
-	@include breakpoint($large) {
-		max-width: 1200px;
-	}
+	// @include breakpoint($medium) {
+	// 	max-width: 900px;
+	// }
+	// @include breakpoint($large) {
+	// 	max-width: 1200px;
+	// }
 }
 
 section, .flex {
 	position: relative;
+	min-height: 100%;
+	@include breakpoint($small) {
+		min-height: 100vh;
+	}
 }
 
 .sub-section, .grid-gallery {
@@ -84,7 +88,9 @@ section, .flex {
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-
+  @include breakpoint(small) {
+  	min-height: 100vh;
+  }
 }
 
 .flex-wrapper {

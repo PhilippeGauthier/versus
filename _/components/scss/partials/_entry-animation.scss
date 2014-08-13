@@ -28,7 +28,7 @@
 	margin: 0 auto 50px;
 	width: 200px;
 	height: 115px;
-	@include breakpoint(small) {
+	@include breakpoint($small) {
 		width: 280px;
 		height: 160px;	
 	}

@@ -3434,7 +3434,7 @@ $('.case-study-wrapper').each(function(){
 });
 
 $('.case-study-desktop').slick({
-  infinite: true,
+  infinite: false,
   arrows: true,
 });
 

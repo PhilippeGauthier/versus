@@ -18,6 +18,7 @@ $small-screen-width: 30em;
 
 html, body, #{headings()}, a, span, p {
 	color: $white;
+	font-family: $headline-font;
 	// text-rendering: geometricPrecision;
 }
 
@@ -43,7 +44,6 @@ img {
 	height: auto;
 }
 h1 {
-	font-family: $headline-font;
 	font-size: 36pt;
 	color: $purple;
 	letter-spacing: -2px;
@@ -60,7 +60,6 @@ h2 {
 }
 
 h3 {
-	font-family: $subHeadline-font;
 	font-size: 18pt;
 	@include breakpoint($small) {
 		font-size: 24pt;

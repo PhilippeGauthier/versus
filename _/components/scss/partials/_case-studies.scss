@@ -123,9 +123,6 @@
 	h2,h3,p {
 		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
 	}
-	h2 {
-		font-family: $subHeadline-font;
-	}
 	h3 {
 		font-family: $base-font-family;
 	}
@@ -148,34 +145,6 @@
 	right: 0;
 	margin: auto;
 	z-index: 10001;
-}
-
-#header-companies-wrapper {
-	#imagelightbox-caption, #imagelightbox-header {
-		width: 80%;
-		margin: 0 auto;
-		display: block;
-		text-align: center;
-		h2, p  {
-			padding-right: 0;
-			display: block;
-			width: 100%;
-			max-width: 100%;
-			height: auto;
-		}
-		h2 {
-			font-size: 31pt;
-			font-family: $subHeadline-font;
-			text-transform: uppercase;
-			margin-bottom: 20px;
-		}
-	}
-	#imagelightbox-header {
-		padding-top: 100px;
-		height: auto;
-
-	}
-
 }
 
 .company-container {

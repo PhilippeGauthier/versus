@@ -26,12 +26,12 @@ html, body {
   height: 100%;
   margin: 0;
 	background-color: black;
-  @include breakpoint(small) {
-	  background: url('{{ theme:img src="background_1600x1600.png" }}') center center no-repeat;
-	  background-size: cover;
-  	background-attachment: fixed;
-  	background-size: cover;
-  }
+  // @include breakpoint($small) {
+	 //  background: url('{{ theme:img src="background_1600x1600.png" }}') center center no-repeat;
+	 //  background-size: cover;
+  // 	background-attachment: fixed;
+  // 	background-size: cover;
+  // }
 }
 
 html, body, p {

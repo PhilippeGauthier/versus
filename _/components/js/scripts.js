@@ -216,7 +216,7 @@ $('.case-study-wrapper').each(function(){
 });
 
 $('.case-study-desktop').slick({
-  infinite: false,
+  infinite: true,
   arrows: true,
 });
 

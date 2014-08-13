@@ -29,7 +29,7 @@
 	}
 	@include breakpoint(small) {
 		&.active {
-			height: 575px;
+			height: 590px;
 		}
 	}
 	@include transition(.5s);

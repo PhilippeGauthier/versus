@@ -2075,7 +2075,7 @@ li:hover .sprite.connect {
 
 /* line 151, ../partials/_case-studies.scss */
 .company-container.active .case-study-image {
-  height: 575px; }
+  height: 590px; }
 
 /* line 157, ../partials/_case-studies.scss */
 .case-study-image .company-container {
@@ -2261,7 +2261,7 @@ li:hover .sprite.connect {
   @media (min-width: small) {
     /* line 31, ../partials/_companies.scss */
     .company-container.active {
-      height: 575px; } }
+      height: 590px; } }
   /* line 36, ../partials/_companies.scss */
   .company-container.active {
     -moz-transition: 0.5s;

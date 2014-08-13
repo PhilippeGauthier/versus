@@ -188,7 +188,7 @@ $('.case-study-wrapper').each(function(){
     if($(this).hasClass('mobile')) {
       // $(this).height(winHeight);
       $('html,body').animate({
-          scrollTop: $(this).offset().top -50
+          scrollTop: $(this).offset().top -40
       }, 2000);
     }
   });

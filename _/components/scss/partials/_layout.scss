@@ -47,12 +47,12 @@ section {
 	@include breakpoint($small) {
 		max-width: 700px;
 	}
-	// @include breakpoint($medium) {
-	// 	max-width: 900px;
-	// }
-	// @include breakpoint($large) {
-	// 	max-width: 1200px;
-	// }
+	@include breakpoint($medium) {
+		max-width: 900px;
+	}
+	@include breakpoint($large) {
+		max-width: 1200px;
+	}
 }
 
 section, .flex {
@@ -88,7 +88,7 @@ section, .flex {
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
-  @include breakpoint(small) {
+  @include breakpoint($small) {
   	min-height: 100vh;
   }
 }

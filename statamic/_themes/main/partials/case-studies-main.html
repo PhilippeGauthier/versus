@@ -36,7 +36,7 @@
           <h3>{{ subHeader }}</h3>
         </div>
 
-       <div class="single-item">
+       <div class="case-study-desktop">
 
         {{ gallery }} 
 
@@ -61,7 +61,7 @@
   <div class="grid-gallery mobile">
     {{ entries:listing folder="case-studies/mobile_entries" sort_dir="asc" }}
 
-    <div class="uber-wrapper">
+    <div class="uber-wrapper mobile">
 
       <div class="case-study-close">x</div>
       <div class="case-study-wrapper">
@@ -71,16 +71,20 @@
           <h3>{{ subHeader }}</h3>
         </div>
 
-       <div class="single-item">
+       <div class="case-study-desktop">
 
         {{ gallery }} 
 
         <div class="case-study-content">
           <div class="case-study-text">
             <h2>{{ header }}</h2>
-            <p>{{ caption }}</p>
           </div>
+          {{ if photo|not_empty }}
           <div class="case-study-image" style="background-image: url( {{ photo }} );"></div>
+          {{ endif }}
+          {{ if caption|not_empty }}
+          <div class="case-study-image"><p class="caption">{{ caption }}</p></div>
+          {{ endif }}
         </div>
 
         {{ /gallery }} 
@@ -89,7 +93,6 @@
     </div>
 
   </div>
-
   {{ /entries:listing }}
 </div>
 

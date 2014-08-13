@@ -5,6 +5,15 @@
 	}
 }
 
+.grid-gallery.mobile {
+	.company-container {
+		height: 360px;
+		&.active {
+			height: 460px;
+		}
+	}
+}
+
 .company-container {
 	cursor: pointer;
 	position: relative;

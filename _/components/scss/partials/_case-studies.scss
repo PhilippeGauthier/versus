@@ -1,5 +1,7 @@
 
-
+.slick-slide {
+	// height: auto;
+}
 #header {
 	padding: 50px 0;
 	z-index: 10001;
@@ -69,6 +71,44 @@
 	}
 	&.mobile {
 		display: block;
+		.case-study-image {
+			height: 360px;
+		}
+		.case-study-wrapper .case-study-image.active {
+			height: 400px;
+		}
+		.slick-next {
+			right: 15px;
+		}
+		.slick-prev {
+			left: 15px;
+		}
+		.preview-text {
+			z-index: -10;
+			&.active {
+				z-index: 10;
+			}
+		}
+		.caption {
+			padding-top: 20px;
+			text-align: center;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			max-width: 80%;
+			margin: 0 auto;
+		}
+		.case-study-close {
+			color: white;
+			position: absolute;
+			z-index: 1001;
+			bottom: 80px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			margin-right: auto;
+		}
 		@include pre(0);
 		@include span(full);
 		@include breakpoint($small) {
@@ -96,7 +136,7 @@
 	top: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
+	// right: 0;
 	margin: auto;
 	z-index: 10001;
 }
@@ -135,12 +175,30 @@
 		height: auto;
 
 	}
+
 }
 
 .company-container {
 	&.active .case-study-image {
 		height: 575px;
 	}
+}
+
+.case-study-image {
+	.company-container {
+		height: 360px;
+		&.active {
+			height: 460px;
+		}
+	}
+}
+
+.slick-dots li.slick-active button:before {
+	color: white;
+}
+
+.slick-dots li button:before {
+	color: white;
 }
 
 .case-study-wrapper {

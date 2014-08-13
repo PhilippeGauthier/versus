@@ -2191,8 +2191,8 @@ li:hover .sprite.connect {
     transition: 0.75s; }
     /* line 261, ../partials/_case-studies.scss */
     .case-study-wrapper .case-study-text p {
-      padding-bottom: 0;
-      margin: 10px 0; }
+      padding: 10px 0;
+      margin: 0; }
   /* line 267, ../partials/_case-studies.scss */
   .case-study-wrapper .case-study-image {
     filter: grayscale(1) brightness(0.6);

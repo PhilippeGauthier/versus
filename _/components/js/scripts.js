@@ -161,45 +161,36 @@ $('body').scrollspy({ target: '.cbp-spmenu' });
 
 // Case Studies Code
 
+console.log($(window).height());
 
-
-$('.uber-wrapper').each(function(){
+$('.case-study-wrapper').each(function(){
 
   var $this = $(this);
-  var caseStudyWrapper =$(this).find('.case-study-wrapper');
   var caseStudyText = $(this).find('.case-study-text');
   var caseStudyImage = $(this).find('.case-study-image');
   var previewText = $(this).find('.preview-text');
-  var close = $(this).find('.case-study-close');
-  var winHeight =$(window).height();
-  var scrollPos = $(this).scrollTop();
+  var close = $(this).prev('.case-study-close');  
   var $height = caseStudyText.height();
-
-  console.log(scrollPos);
-
 
   $(caseStudyText).height(0);
   
   $(this).click(function(){
-    caseStudyWrapper.addClass('active');
+    $this.addClass('active');
     caseStudyText.height($height);
     caseStudyImage.addClass('active');
     previewText.removeClass('active');
-    if($(this).hasClass('mobile')) {
-      // $(this).height(winHeight);
-      $('html,body').animate({
-          scrollTop: $(this).offset().top -50
-      }, 2000);
-    }
-  });
-
-  $(this).click(function(){
     setTimeout(function(){
       $(close).addClass('visible');
     }, 200);
     setTimeout(function(){
       caseStudyText.addClass('active');
     }, 200);
+    if($(this).hasClass('mobile')) {
+      // $(this).height(winHeight);
+      $('html,body').animate({
+          scrollTop: $(this).offset().top -50
+      }, 2000);
+    }
   });
 
   $(close).click(function() {  

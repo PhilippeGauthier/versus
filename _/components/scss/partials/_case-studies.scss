@@ -259,8 +259,8 @@
 		justify-content: flex-start;
 		opacity: 0;
 		p {
-			padding-bottom: 0;
-			margin: 10px 0;
+			padding: 10px 0;
+			margin:0;
 		}
 		@include transition(.75s);
 	}

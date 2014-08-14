@@ -376,4 +376,11 @@ li.menu-item {
     100% { opacity: 0; }
 }
 
+#home-sweet-home {
+	display: none;
+	@include breakpoint($medium) {
+		display: block;
+	}
+}
+
 

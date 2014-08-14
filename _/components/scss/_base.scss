@@ -41,7 +41,7 @@ h1 {
 	color: $purple;
 	letter-spacing: -2px;
 	text-transform: uppercase;
-	margin: 10px 0;
+	margin: 20px 0;
 	font-family: $headline-font;
 	@include breakpoint($small) {
 		font-size: 50pt;
@@ -58,6 +58,7 @@ h2 {
 
 h3 {
 	font-size: 18pt;
+	margin-bottom: 20px;
 	@include breakpoint($small) {
 		font-size: 20pt;
 		margin-bottom: 40px;

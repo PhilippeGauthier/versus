@@ -345,7 +345,7 @@ h1 {
   color: #6800eb;
   letter-spacing: -2px;
   text-transform: uppercase;
-  margin: 10px 0;
+  margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
     /* line 39, ../_base.scss */
@@ -363,20 +363,21 @@ h2 {
 
 /* line 59, ../_base.scss */
 h3 {
-  font-size: 18pt; }
+  font-size: 18pt;
+  margin-bottom: 20px; }
   @media (min-width: 768px) {
     /* line 59, ../_base.scss */
     h3 {
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 68, ../_base.scss */
+/* line 69, ../_base.scss */
 p {
   font-size: 16pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 68, ../_base.scss */
+    /* line 69, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
@@ -1681,7 +1682,7 @@ h1 {
   color: #6800eb;
   letter-spacing: -2px;
   text-transform: uppercase;
-  margin: 10px 0;
+  margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
     /* line 39, ../_base.scss */
@@ -1699,20 +1700,21 @@ h2 {
 
 /* line 59, ../_base.scss */
 h3 {
-  font-size: 18pt; }
+  font-size: 18pt;
+  margin-bottom: 20px; }
   @media (min-width: 768px) {
     /* line 59, ../_base.scss */
     h3 {
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 68, ../_base.scss */
+/* line 69, ../_base.scss */
 p {
   font-size: 16pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 68, ../_base.scss */
+    /* line 69, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
@@ -2095,6 +2097,14 @@ li.menu-item {
   /* line 376, ../partials/_nav.scss */
   100% {
     opacity: 0; } }
+/* line 379, ../partials/_nav.scss */
+#home-sweet-home {
+  display: none; }
+  @media (min-width: 1000px) {
+    /* line 379, ../partials/_nav.scss */
+    #home-sweet-home {
+      display: block; } }
+
 /* line 1, ../partials/_bios.scss */
 #bios {
   width: 100%; }

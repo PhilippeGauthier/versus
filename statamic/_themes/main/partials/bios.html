@@ -1,6 +1,6 @@
 <section id="bios">
 
-    {{ entries:listing folder="bios" sort_by="numeric" sort_dir="desc" }}
+  {{ entries:listing folder="bios" sort_by="numeric" sort_dir="desc" }}
 
     <div class="sub-section" id="{{ title }}">
         <div class="wrapper content center">
@@ -21,14 +21,14 @@
 
     </div>
 
-    {{ /entries:listing }}
+  {{ /entries:listing }}
 
 
-<div class="bios-desktop">
-  {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
+  <div class="bios-desktop">
+    {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
     
     <div class="entries wrapper bio-entry">
-    
+
       {{ if bio =="Steve" }}
       <div class="steve scrollme">
         <div class="date-container bio-container-steve active" >
@@ -36,44 +36,44 @@
             <img src="{{ image }}" alt="">
           </div>
           <div class="steve-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-          <h3>{{ title }}</h3>
-          <h3>{{ jobTitle }}</h3>
-          <h3>{{ location }}</h3>
-          <p>{{ content }}</p>
+            <h3>{{ title }}</h3>
+            <h3>{{ jobTitle }}</h3>
+            <h3>{{ location }}</h3>
+            <p>{{ content }}</p>
           </div>
-    
-        </div>
-      
-      {{ endif }}
-      </div>
-   
-    
-    <div class="entries wrapper bio-entry">
-      {{ if bio =="Alexis" }}
-      <div class="alexis scrollme">
-        <div class="date-container bio-container-steve active" >
-          <div class="image">
-            <img src="{{ image }}" alt="">
-          </div>
-          <div class="alexis-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-          <h3>{{ title }}</h3>
-          <h3>{{ jobTitle }}</h3>
-          <h3>{{ location }}</h3>
-          <p>{{ content }}</p>
-          </div>
-    
-        </div>
-      
-      {{ endif }}
-    </div>
-    
-    </div>
-    {{ /entries:listing }}
-  </div>
 
-  <div class="bios-mobile">
-  {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
-    
+        </div>
+
+        {{ endif }}
+      </div>
+
+
+      <div class="entries wrapper bio-entry">
+        {{ if bio =="Alexis" }}
+        <div class="alexis scrollme">
+          <div class="date-container bio-container-steve active" >
+            <div class="image">
+              <img src="{{ image }}" alt="">
+            </div>
+            <div class="alexis-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
+              <h3>{{ title }}</h3>
+              <h3>{{ jobTitle }}</h3>
+              <h3>{{ location }}</h3>
+              <p>{{ content }}</p>
+            </div>
+
+          </div>
+
+          {{ endif }}
+        </div>
+
+      </div>
+      {{ /entries:listing }}
+    </div>
+
+    <div class="bios-mobile">
+      {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
+
 <!--     <div class="entries wrapper bio-entry">
     
       {{ if bio =="Steve" }}
@@ -113,7 +113,7 @@
       {{ endif }}
     </div>
     
-    </div> -->
-    {{ /entries:listing }}
-  </div>
+  </div> -->
+  {{ /entries:listing }}
+</div>
 </section>

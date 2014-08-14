@@ -1,0 +1,140 @@
+
+.work-example.mobile {
+	.company-container {
+		height: 360px;
+		&.active {
+			height: 460px;
+		}
+	}
+}
+
+.work-example {
+	&.desktop {
+		display: none;
+		@include breakpoint($small) {
+			display: block;
+		}
+	}
+	&.mobile {
+		display: block;
+		.slick-next {
+			right: 15px;
+		}
+		.slick-prev {
+			left: 15px;
+		}
+		.case-study-wrapper .preview-text {
+			z-index: -10;
+			&.active {
+				z-index: 10;
+			}
+
+		}
+		.case-study-close {
+			color: white;
+			position: absolute;
+			z-index: 1001;
+			bottom: 80px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			margin-right: auto;
+		}
+		@include breakpoint($small) {
+			display: none;
+		}
+	}
+	position: relative;
+	h2,h3 {
+		text-transform: uppercase;
+	}
+
+}
+
+
+.company-container, .case-study-image {
+	margin: 0 auto;
+	height: 360px;
+	cursor: pointer;
+	position: relative;
+	z-index: 10001;
+	&.active {
+		height: 500px;
+	}
+	@include breakpoint($small) {
+		&.active {
+			height: 265px;
+		}
+	}
+	@include breakpoint($medium) {
+
+		&.active {
+			height: 438px;
+		}
+	}
+	@include breakpoint($large) {
+		height: 400px;
+		&.active {
+			height: 578px;
+		}
+	}
+}
+
+.company-container, .case-study-wrapper {
+	display: block;
+	position: relative;
+	margin-bottom: 40px;
+	border: 8px solid transparent;
+	@include transition(.5s);
+	&:hover  {
+		cursor: pointer;
+		border: 8px solid $purple;
+		.company-image, .case-study-image {
+			filter: grayscale(0) brightness(1);
+		}
+	}
+}
+
+.company-container.active {
+	cursor: pointer;
+	border: 8px solid $purple;
+	.company-image {
+		filter: grayscale(0) brightness(1);
+	}
+}
+
+.case-study-image, .company-image {
+	@include transition(.5s);
+	filter: grayscale(1) brightness(.6);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.preview-text {
+	z-index: 1000;
+	max-width: 80%;
+	@include text-flex;
+	@include absolute-pos;
+	h2,h3,p {
+		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
+		margin: 10px auto;
+		padding: 0;
+	}
+	h3 {
+		font-family: $base-font-family;
+		display: none;
+	}
+	@include breakpoint($small) {
+		h3 {
+			display: block;
+		}
+		
+	}
+	&.active {
+		z-index: 10;
+	}
+	.text {
+		display: none;
+	}
+}

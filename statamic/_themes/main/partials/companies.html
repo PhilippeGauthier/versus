@@ -2,7 +2,6 @@
 
   {{ entries:listing folder="companies" sort_dir="asc" }}
 
-
   <div class="sub-section" id="{{ title }}">
 
     <div class="wrapper content center">
@@ -25,12 +24,10 @@
   {{ /entries:listing }}
 
 
-<div class="sub-section companies">
-
-  <div class="grid-gallery desktop">
+  <div class="work-example desktop">
     {{ entries:listing folder="companies/desktop_entries" sort_dir="asc" }}
     <div class="company-container">
-      <div class="company company-text">
+      <div class="preview-text">
         <h2>{{ title }}</h2>
         <h3>{{ subTitle }}</h3>
   
@@ -42,10 +39,10 @@
     {{ /entries:listing }}
   </div>
 
-  <div class="grid-gallery mobile">
+  <div class="work-example mobile">
     {{ entries:listing folder="companies/desktop_entries" sort_dir="asc" }}
     <div class="company-container">
-      <div class="company company-text">
+      <div class="preview-text">
         <h2>{{ title }}</h2>
         <h3>{{ subTitle }}</h3>
   
@@ -56,7 +53,5 @@
     </div>
     {{ /entries:listing }}
   </div>
-
-</div>
 
 </section>

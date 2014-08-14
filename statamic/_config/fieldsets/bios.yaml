@@ -2,9 +2,9 @@
 fields:
 
   icon: 
-    type: file
-    display: Icon
-    destination: assets/img
+    type: text
+    default: bios
+    hide: true
 
   date:
     display: Event Date

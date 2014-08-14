@@ -3371,7 +3371,8 @@ $('.company-container').click(function(){
     var box = $(this).children('.company-text');
     var boxP = $(box).children('p');
     var boxE = $(boxP).children('p');
-    $(box).children('.text').slideToggle( 700 );
+    var text = $(this).find('.text');
+    $(text).slideToggle( 700 );
 });
 
 $('body').scrollspy({ target: '.cbp-spmenu' });
@@ -3404,7 +3405,6 @@ $('.case-study-wrapper').each(function(){
       caseStudyText.addClass('active');
     }, 200);
     if($(this).hasClass('mobile')) {
-      // $(this).height(winHeight);
       $('html,body').animate({
           scrollTop: $(this).offset().top -40
       }, 2000);

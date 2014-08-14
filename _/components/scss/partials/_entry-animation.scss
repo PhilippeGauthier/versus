@@ -1,18 +1,7 @@
 #entry {
-	.sub-section {
-		// position: relative;
-		.flow-wrapper {
-			flex: 1 1 auto;
-			display: flex;
-			justify-content: center;
-			// align-content: center;
-			// align-items: center;
-			.center-wrapper {
-				align-self: center;
-				top: 0;
-				bottom: 0;
-			}
-		}
+	display: none;
+	@include breakpoint($small) {
+		display: block;
 	}
 }
 

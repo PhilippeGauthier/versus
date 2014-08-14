@@ -5,7 +5,7 @@
 
 
     <div class="wrapper content center">
-      <span class="sprite active companies"></span>
+      <span class="sprite active case-studies"></span>
 
 
       {{ if mainTitle|not_empty }}
@@ -23,7 +23,7 @@
 
   {{ /entries:listing }}
 
-  <div class="grid-gallery desktop">
+  <div class="work-example desktop">
     {{ entries:listing folder="case-studies/desktop_entries" sort_dir="asc" }}
 
     <div class="uber-wrapper">
@@ -58,7 +58,7 @@
   {{ /entries:listing }}
 </div>
 
-  <div class="grid-gallery mobile">
+  <div class="work-example mobile">
     {{ entries:listing folder="case-studies/mobile_entries" sort_dir="asc" }}
 
     <div class="uber-wrapper mobile">

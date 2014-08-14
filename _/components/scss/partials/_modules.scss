@@ -1,32 +1,3 @@
 
 
-.cbp-spmenu {
-	float: left;
-	@include breakpoint($small) {
-		float: none;
-	}
-}
-
-#box {
-	position:relative;
-   animation: mymove 2s 2s 1;
-   animation-fill-mode: forwards;
-}
-
-@keyframes mymove
-{
-  from {
-    -webkit-transform: translateY(0px);
-    -webkit-transform: translateX(0px);
-    opacity: 0;
-  }
-
-  to {
-    -webkit-transform: translateY(100px);
-    -webkit-transform: translateX(100px);
-    opacity: 1.0;
-  }
-}
-
-
 

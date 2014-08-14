@@ -40,7 +40,7 @@ h1 {
 	font-size: 36pt;
 	color: $purple;
 	letter-spacing: -2px;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	margin: 20px 0;
 	font-family: $headline-font;
 	@include breakpoint($small) {

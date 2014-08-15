@@ -8,12 +8,6 @@ fields:
   subHeader:
     type: text
 
-  previewImage:
-    type: file
-    display: Preview
-    destination: assets/img/entries
-    show_thumbnail: true
-
   gallery:
     display: Photo Gallery
     type: grid

@@ -5,6 +5,9 @@
 	button {
 		display: none !important;
 	}
+	p {
+		color: white;
+	}
 	&.active {
 		button {
 			display: block !important;

@@ -52,7 +52,7 @@
 			color: white;
 			position: absolute;
 			z-index: 1001;
-			bottom: 80px;
+			bottom: 110px;
 			left: 0;
 			right: 0;
 			text-align: center;
@@ -140,6 +140,9 @@
 	}
 	p {
 		font-size: 14pt;
+	}
+	.slick-dots {
+		bottom: -25px;
 	}
 	@include transition(.5s);
 

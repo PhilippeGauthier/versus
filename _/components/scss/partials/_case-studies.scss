@@ -13,8 +13,8 @@
 			display: block !important;
 			color: $purple;
 		}
-		.case-study-image {
-			filter: grayscale(0) brightness(1);
+		.case-study-image, .case-study-image.active {
+			filter: none;
 		}
 		.preview-text {
 			cursor: default;

@@ -106,6 +106,9 @@
 	&.active {
 		cursor: default;
 		height: 400px;
+		p {
+			text-shadow: none;
+		}
 	}
 	@include breakpoint($small) {
 		&.active {
@@ -148,7 +151,7 @@
 
 }
 
-.company-container.active {
+.company-container.active, {
 	cursor: pointer;
 	border: 8px solid $purple;
 	.company-image {
@@ -164,6 +167,9 @@
 	background-position: center center;
 }
 
+.case-study-image.active {
+	filter: grayscale(0) brightness(1);
+}
 
 .preview-text {
 	z-index: 1000;

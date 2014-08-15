@@ -20,8 +20,14 @@ fields:
     default:
     type: text
 
+  featureImage:
+    type: file
+    display: Photo
+    destination: assets/img/entries
+    show_thumbnail: true
+
   content:
     display: Intro Text
-    required: true
+    hide: true
     default:
     type: redactor

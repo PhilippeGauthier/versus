@@ -264,10 +264,10 @@ img {
   height: auto; }
 
 /* line 35, ../_base.scss */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, strong {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 39, ../_base.scss */
+/* line 40, ../_base.scss */
 h1 {
   font-size: 36pt;
   color: #6800eb;
@@ -275,36 +275,36 @@ h1 {
   margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
-    /* line 39, ../_base.scss */
+    /* line 40, ../_base.scss */
     h1 {
       font-size: 50pt;
       margin: 15px 0 40px; } }
 
-/* line 52, ../_base.scss */
+/* line 53, ../_base.scss */
 h2 {
   font-size: 24pt; }
   @media (min-width: 768px) {
-    /* line 52, ../_base.scss */
+    /* line 53, ../_base.scss */
     h2 {
       font-size: 42pt; } }
 
-/* line 59, ../_base.scss */
+/* line 60, ../_base.scss */
 h3 {
   font-size: 18pt;
   margin-bottom: 20px; }
   @media (min-width: 768px) {
-    /* line 59, ../_base.scss */
+    /* line 60, ../_base.scss */
     h3 {
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 69, ../_base.scss */
+/* line 70, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 69, ../_base.scss */
+    /* line 70, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
@@ -1603,10 +1603,10 @@ img {
   height: auto; }
 
 /* line 35, ../_base.scss */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, strong {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 39, ../_base.scss */
+/* line 40, ../_base.scss */
 h1 {
   font-size: 36pt;
   color: #6800eb;
@@ -1614,36 +1614,36 @@ h1 {
   margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
-    /* line 39, ../_base.scss */
+    /* line 40, ../_base.scss */
     h1 {
       font-size: 50pt;
       margin: 15px 0 40px; } }
 
-/* line 52, ../_base.scss */
+/* line 53, ../_base.scss */
 h2 {
   font-size: 24pt; }
   @media (min-width: 768px) {
-    /* line 52, ../_base.scss */
+    /* line 53, ../_base.scss */
     h2 {
       font-size: 42pt; } }
 
-/* line 59, ../_base.scss */
+/* line 60, ../_base.scss */
 h3 {
   font-size: 18pt;
   margin-bottom: 20px; }
   @media (min-width: 768px) {
-    /* line 59, ../_base.scss */
+    /* line 60, ../_base.scss */
     h3 {
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 69, ../_base.scss */
+/* line 70, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 69, ../_base.scss */
+    /* line 70, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;

@@ -32,9 +32,10 @@ img {
 	height: auto;
 }
 
-#{headings()} {
+#{headings()}, strong {
 	font-family: $subHeadline-font;
 }
+
 
 h1 {
 	font-size: 36pt;

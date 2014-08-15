@@ -1,101 +1,67 @@
-#bios {
-	width: 100%;
+
+
+.meet-steve {
+	margin-top: 100px;
+	@include span(4 of 9);
+	@include break;
+}
+
+.meet-alexis {
+	@include span(4 of 9);
+	@include pre(5 of 9);
+	@include break;
+}
+
+.bio-entry {
+	display: inline-block;
 }
 
 .bios-desktop {
-	display: none;
-	@include breakpoint($small) {
-		display: block;
-	}
-}
-.bios-mobile {
-	display: block;
-	@include breakpoint($small) {
-		display: none;
-	}
-}
-.left {
-	// border-right: 1px solid white;
-	color: white;
-	text-align: right;
-	@include span (first 6);
-}
-.right {
-	// border-left: 1px solid white;
-	color: white;
-	@include span (last 6);
-	p {
-		margin: 0;
+	margin-top: 40px;
+	display: inline-block;
+	&:after {
+	    content:"";
+	    position: absolute;
+	    z-index: -1;
+	    height: 100%;
+	    top: 0;
+	    bottom: 0;
+	    left: 50.5%;
+	    margin-top: 10px;
+	    border-left: 1px solid white;
 	}
 }
 
-.scrollme {
-	@include span(full);
+.scrollme.steve {
+	@include span(5 of 13);
 }
 
-#bios .entries.wrapper {
-	display: flex;
-	flex: 1 1 auto;
-	min-height: 100vh;
-	position: relative;
-	.left, .right {
-		flex-flow: column nowrap;
-		display: flex;
-		justify-content: center;
-		&.sticky-name {
-			justify-content: flex-start;
-			padding-top: 100px;
-		}
-		// min-height: 100vh;
-	}
-	.image {
-		z-index: 1000;
-		@include span(4);
-		@include push(4);
-	}
-	img {
-		max-width: 100%;
-		margin: 0 auto;
+.bio-names {
+	h1 {
+		margin-top: 0;
 		text-align: center;
+		color: white;
 	}
-
 }
 
-
-.date-container {
-	position: relative;
-	@include pre(4);
-	@include span (4 of 12);
-	
-}
-
-.bio-container {
-	position: relative;
-}
-
-.steve-description, .image, {
-	position: absolute;
+.date {
 	width: 100%;
-}
-
-.steve-description {
-	@include span(first 4);
-}
-
-.alexis-description {
-	@include span(last 4);
-}
-.bio-container-steve, .bio-container-alexis {
-	// height: 200px;
-	p {
-		margin: 0;
-	}
-	opacity: 0;
-	@include transition(.15s);
-	&.inview, &.active {
-		opacity: 1.0;
+	height: 0;
+	padding-top: span(1 of 13);
+	@include pre(1);
+	@include span(1 of 13);
+	background-color: $darkgray;
+	border: 1px solid white;
+	border-radius: 50%;
+	position: relative;
+	div {
+		@include absolute-pos;
+		@include text-flex;
+		font-size: 22pt;
+		font-family: $headline-font;
 	}
 }
 
-
-
+.scrollme.alexis {
+	@include span(last 5 of 13);
+}

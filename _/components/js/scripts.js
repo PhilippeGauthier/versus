@@ -157,7 +157,7 @@ $('.company-container').click(function(){
     $(text).slideToggle( 700 );
 });
 
-$('body').scrollspy({ target: '.cbp-spmenu' });
+$('body').scrollspy({ target: '.cbp-spmenu', offset: 100 });
 
 
 // Case Studies Code

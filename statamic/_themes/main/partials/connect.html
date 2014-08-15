@@ -18,13 +18,32 @@
         {{ endif }}
   
         <ul class="connect">
-        {{ if sources|not_empty}}
-        {{ sources }}
+
             <li>
-              <a href="{{ url }}"><img src="{{ image }}" alt="{{ location }}">{{ location }}</a>
+              <a href="mailto:info@wearevs.com">
+                <div class="connect-sprite email"></div>
+                <p>Drop us a line.</p>
+              </a>
             </li>
-          {{ /sources }}
-        {{ endif }}
+            <li>
+              <a href="http://instagram.com/wearevs">
+                <div class="connect-sprite instagram"></div>
+                <p>See what we're getting into.</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url }}">
+                <div class="connect-sprite soundcloud"></div>
+                <p>Hear what makes us bounce.</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url }}">
+                <div class="connect-sprite flipboard"></div>
+                <p>Get inspired by the stuff that drives us.</p>
+              </a>
+            </li>
+
         </ul>
       </div>
 
@@ -34,3 +53,5 @@
   {{ /entries:listing }}
 
 </section>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ullam, laudantium et voluptatum eius facere impedit debitis accusantium eos dolor numquam harum, obcaecati iure sint perferendis. Distinctio fuga, id enim.

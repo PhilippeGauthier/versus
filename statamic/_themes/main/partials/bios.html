@@ -2,118 +2,79 @@
 
   {{ entries:listing folder="bios" sort_by="numeric" sort_dir="desc" }}
 
-    <div class="sub-section" id="{{ title }}">
-        <div class="wrapper content center">
-          <span class="sprite active bios"></span>
+  <div class="sub-section" id="{{ title }}">
+    <div class="wrapper content center">
+      <span class="sprite active bios"></span>
 
 
-          {{ if mainTitle|not_empty }}
-          <h1>{{ mainTitle }}</h1>
-          {{ endif }}
+      {{ if mainTitle|not_empty }}
+      <h1>{{ mainTitle }}</h1>
+      {{ endif }}
 
-          {{ if subTitle|not_empty }}
-          <h3>{{ subTitle }}</h3>
-          {{ endif }}
+      {{ if subTitle|not_empty }}
+      <h3>{{ subTitle }}</h3>
+      {{ endif }}
 
-          {{ content }}
-
-        </div>
+      {{ content }}
 
     </div>
 
+  </div>
+
+  <img src="{{ featureImage }}" alt="">
+
+<div class="bio-names scrollme">
+  <div class="meet-steve animateme" data-when="enter" data-from="0.7" data-to="0.2" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>MEET STEVE</h1>
+  </div>
+</div>
+<div class="bio-names scrollme">
+  <div class="meet-alexis animateme" data-when="enter" data-from="0.8" data-to="0.3" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>AND ALEXIS</h1>
+  </div>
+</div>
+
   {{ /entries:listing }}
+
+
 
 
   <div class="bios-desktop">
+  
     {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
     
-    <div class="entries wrapper bio-entry">
 
-      {{ if bio =="Steve" }}
-      <div class="steve scrollme">
+
+    <div class="bio-entry" style="margin-top: {{ margin }}px">
+
+      <div class="scrollme steve">
+      {{ if steveContent|not_empty }}
         <div class="date-container bio-container-steve active" >
-          <div class="image">
-            <img src="{{ image }}" alt="">
+          <div class="effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
+            {{ steveContent }}
           </div>
-          <div class="steve-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-            <h3>{{ title }}</h3>
-            <h3>{{ jobTitle }}</h3>
-            <h3>{{ location }}</h3>
-            <p>{{ content }}</p>
-          </div>
-
         </div>
-
-        {{ endif }}
-      </div>
-
-
-      <div class="entries wrapper bio-entry">
-        {{ if bio =="Alexis" }}
-        <div class="alexis scrollme">
-          <div class="date-container bio-container-steve active" >
-            <div class="image">
-              <img src="{{ image }}" alt="">
-            </div>
-            <div class="alexis-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-              <h3>{{ title }}</h3>
-              <h3>{{ jobTitle }}</h3>
-              <h3>{{ location }}</h3>
-              <p>{{ content }}</p>
-            </div>
-
-          </div>
-
-          {{ endif }}
-        </div>
-
-      </div>
-      {{ /entries:listing }}
-    </div>
-
-    <div class="bios-mobile">
-      {{ entries:listing folder="bios/entries" sort_by="numeric" sort_dir="desc" }}
-
-<!--     <div class="entries wrapper bio-entry">
-    
-      {{ if bio =="Steve" }}
-      <div class="steve scrollme">
-        <div class="date-container bio-container-steve active" >
-          <div class="image">
-            <img src="{{ image }}" alt="">
-          </div>
-          <div class="steve-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-          <h3>{{ title }}</h3>
-          <h3>{{ jobTitle }}</h3>
-          <h3>{{ location }}</h3>
-          <p>{{ content }}</p>
-          </div>
-    
-        </div>
-      </div>
       {{ endif }}
-    </div>
-    
-    <div class="entries wrapper bio-entry">
-      {{ if bio =="Alexis" }}
-      <div class="alexis scrollme">
-        <div class="date-container bio-container-steve active" >
-          <div class="image">
-            <img src="{{ image }}" alt="">
-          </div>
-          <div class="alexis-description  effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-400" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-          <h3>{{ title }}</h3>
-          <h3>{{ jobTitle }}</h3>
-          <h3>{{ location }}</h3>
-          <p>{{ content }}</p>
-          </div>
-    
-        </div>
       </div>
+      
+      <div class="date"><div>'14</div></div>
+      
+      <div class="scrollme alexis">
+      {{ if alexisContent|not_empty }}
+        <div class="date-container bio-container-steve active" >
+          <div class="effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
+            {{ alexisContent }}
+          </div>
+        </div>
       {{ endif }}
+      </div>
+
     </div>
-    
-  </div> -->
-  {{ /entries:listing }}
+
+
+
+
+    {{ /entries:listing }}
+  
+
+
 </div>
 </section>

@@ -36,16 +36,11 @@
 	}
 	.slick-prev, .slick-next {
 		top: auto;
-		height: 30px;
-		width: 30px;
-		border-radius: 50%;
-		background-color: transparent;
-		border: 1px solid white;
-		line-height: 14px;
-		&.slick-disabled {
-			border: 1px solid rgba(white,.25);
-		}
+		height: 44px;
+		width: 31px;
 		&:before, &:after {
+			height: 44px !important;
+			width: 31px !important;
 			margin: 0 auto;
 		}
 		@include breakpoint($small) {
@@ -61,13 +56,13 @@
 	.slick-prev {
 		left: -45px;
 		&:before {
-			content: "<";
+			content: url("../img/prev.svg");
 		}
 	}
 	.slick-next {
 		right: -45px;
 		&:before {
-			content: ">";
+			content: url("../img/next.svg");
 		}
 	}
 

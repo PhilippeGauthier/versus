@@ -85,6 +85,15 @@
 	position: relative;
 	margin-bottom: 40px;
 	border: 8px solid transparent;
+	h1 {
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		font-size: 42pt;
+	}
+	p {
+		font-size: 14pt;
+	}
 	@include transition(.5s);
 	&:hover  {
 		cursor: pointer;
@@ -116,7 +125,11 @@
 	max-width: 80%;
 	@include text-flex;
 	@include absolute-pos;
-	h2,h3,p {
+	h1 {
+		color: white;
+		text-transform: uppercase;
+	}
+	h1,h3,p {
 		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
 		margin: 10px auto;
 		padding: 0;

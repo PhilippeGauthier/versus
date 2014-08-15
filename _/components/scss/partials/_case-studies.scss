@@ -14,6 +14,8 @@
 			color: $purple;
 		}
 		.case-study-image, .case-study-image.active {
+			@include text-flex;
+			padding-bottom: 35px;
 			filter: none;
 		}
 		.preview-text {

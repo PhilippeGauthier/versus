@@ -2567,10 +2567,6 @@ li:hover .sprite.connect {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
   /* IE6-9 */ }
 
-/* line 1, ../partials/_connect.scss */
-#connect {
-  padding-bottom: 100px; }
-
 /* line 6, ../partials/_connect.scss */
 .connect li {
   margin-bottom: 20px; }

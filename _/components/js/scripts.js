@@ -150,19 +150,20 @@ $(function(){
 
 $('.company-container').click(function(){
   $(this).toggleClass('active');
-    var box = $(this).children('.company-text');
-    var boxP = $(box).children('p');
-    var boxE = $(boxP).children('p');
+    var mobile = $(this).parent();
     var text = $(this).find('.text');
     $(text).slideToggle( 700 );
+    // if($(mobile).hasClass('mobile')) {
+    //   $('html,body').animate({
+    //       scrollTop: $(this).offset().top -1
+    //   }, 2000);
+    // }
 });
 
 $('body').scrollspy({ target: '.cbp-spmenu', offset: 100 });
 
 
 // Case Studies Code
-
-console.log($(window).height());
 
 $('.case-study-wrapper').each(function(){
 

@@ -31,11 +31,11 @@
     <img src="{{ featureImage }}" alt="">
 
     <div class="bio-names scrollme">
-      <div class="meet-steve animateme" data-when="enter" data-from="0.7" data-to="0" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>MEET STEVE</h1>
+      <div class="meet-steve animateme" data-when="enter" data-from=".8" data-to="0" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>MEET STEVE</h1>
       </div>
     </div>
     <div class="bio-names scrollme">
-      <div class="meet-alexis animateme" data-when="enter" data-from="0.7" data-to="0" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>AND ALEXIS</h1>
+      <div class="meet-alexis animateme" data-when="enter" data-from=".8" data-to="0" data-opacity="0" style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h1>AND ALEXIS</h1>
       </div>
     </div>
 
@@ -46,26 +46,22 @@
       <div class="scrollme steve">
         {{ if steveContent|not_empty }}
         <div class="date-container bio-container-steve active" >
-          <div class="effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
+          <div class="effect_box_opacity animateme"data-when="view" data-from="0.35" data-to="0.0" data-translatex="200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
             {{ steveContent }}
           </div>
         </div>
-        {{ else }}
-        <p></p>
         {{ endif }}
       </div>
       
-      <div class="date"><div>{{ bioDate }}</div></div>
+      <div class="date"><div class="date-circle"><div>{{ bioDate }}</div></div></div>
       
       <div class="scrollme alexis">
         {{ if alexisContent|not_empty }}
         <div class="date-container bio-container-steve active" >
-          <div class="effect_box_opacity animateme"data-when="view" data-from="0.25" data-to="0.05" data-translatex="-200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
-          {{ alexisContent }}
+          <div class="effect_box_opacity animateme"data-when="view" data-from="0.35" data-to="0.0" data-translatex="-200" data-translatey="50" data-opacity="0" data-scale="0" style="opacity: 1; -webkit-transform: translate3d(0, 0, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1);">
+            {{ alexisContent }}
           </div>
         </div>
-        {{ else }}
-        <p></p>
         {{ endif }}
       </div>
 
@@ -75,6 +71,29 @@
 
     {{ /entries:listing }}
 
+  </div>
+
+  <div class="bios-mobile">
+
+    {{ entries:listing folder="bios/entries" sort_by="numeric" }}
+
+    <img src="{{ featureImage }}" alt="">
+    <div class="bio-names">
+      <h1>Meet Steve &amp; Alexis</h1>
+    </div>
+
+    {{ biosEntry }}
+
+    <div class="bio-entry">
+      <div class="date"><div class="date-circle"><div>{{ bioDate }}</div></div></div>
+      {{ steveContent }}
+      {{ alexisContent }}
+    </div>
+    {{ /biosEntry }}
+
+    {{ /entries:listing }}
 
   </div>
+
 </section>
+

@@ -13,13 +13,7 @@ $susy: (
 	gutter-width: 1/4,
 	column-width: 70px,
 	gutter-position: inside-static,
-	debug: (
-		image: show,
-		color: blue,
-		output: overlay,
-		toggle: top right,
-		)
-	);
+);
 
 $xsmall: 480px;
 $small: 768px;

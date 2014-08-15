@@ -17,7 +17,7 @@
 			cursor: default;
 		}
 	}
-	&.active:hover {
+	&.active:hover, &.active:focus {
 		cursor: auto;
 		border: 8px solid transparent;
 	}
@@ -38,6 +38,7 @@
 		top: auto;
 		height: 44px;
 		width: 31px;
+		bottom: 200px;
 		&:before, &:after {
 			height: 44px !important;
 			width: 31px !important;
@@ -54,13 +55,19 @@
 		}
 	}
 	.slick-prev {
-		left: -45px;
+		left: -35px;
+		@include breakpoint($small) {
+			left: -45px;
+		}
 		&:before {
 			content: url("../img/prev.svg");
 		}
 	}
 	.slick-next {
-		right: -45px;
+		right: -35px;
+		@include breakpoint($small) {
+			right: -45px;
+		}
 		&:before {
 			content: url("../img/next.svg");
 		}

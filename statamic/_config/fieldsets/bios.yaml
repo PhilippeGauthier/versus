@@ -20,12 +20,6 @@ fields:
     default:
     type: text
 
-  featureImage:
-    type: file
-    display: Photo
-    destination: assets/img/entries
-    show_thumbnail: true
-
   content:
     display: Intro Text
     hide: true

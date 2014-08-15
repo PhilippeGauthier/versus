@@ -13,10 +13,15 @@
 }
 
 .bio-entry {
+	@include break;
+	&:last-of-type {
+		padding-bottom: 200px;
+	}
 	display: inline-block;
 }
 
 .bios-desktop {
+	position: relative;
 	margin-top: 40px;
 	display: inline-block;
 	&:after {
@@ -42,6 +47,11 @@
 		text-align: center;
 		color: white;
 	}
+	@include break;
+}
+
+.date-container {
+	width: 100%;
 }
 
 .date {

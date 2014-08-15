@@ -173,7 +173,7 @@ section {
       background-clip: content-box, border-box;
       background-position: left top; }
 
-/* line 82, ../_layout.scss */
+/* line 83, ../_layout.scss */
 section, .flex {
   position: relative;
   min-height: 100%;
@@ -207,11 +207,11 @@ section, .flex {
       background-clip: content-box, border-box;
       background-position: left top; }
   @media (min-width: 768px) {
-    /* line 82, ../_layout.scss */
+    /* line 83, ../_layout.scss */
     section, .flex {
       min-height: 100vh; } }
 
-/* line 91, ../_layout.scss */
+/* line 92, ../_layout.scss */
 .sub-section, .work-example {
   margin: 0 auto;
   max-width: 100%;
@@ -219,7 +219,7 @@ section, .flex {
   margin-left: 8.33333%;
   margin-right: 8.33333%; }
   @media (min-width: 768px) {
-    /* line 91, ../_layout.scss */
+    /* line 92, ../_layout.scss */
     .sub-section, .work-example {
       padding: 0;
       margin-left: 0%;
@@ -233,28 +233,28 @@ section, .flex {
       padding-right: 8.75px;
       min-height: 100vh; } }
 
-/* line 105, ../_layout.scss */
+/* line 106, ../_layout.scss */
 body .company-container, body .uber-wrapper {
   margin-left: auto;
   margin-right: auto; }
 @media (min-width: 768px) {
-  /* line 110, ../_layout.scss */
+  /* line 111, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 480px; } }
 @media (min-width: 1000px) {
-  /* line 115, ../_layout.scss */
+  /* line 116, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 768px; } }
 @media (min-width: 1170px) {
-  /* line 120, ../_layout.scss */
+  /* line 121, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 1000px; } }
 @media (min-width: 1171px) {
-  /* line 125, ../_layout.scss */
+  /* line 126, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 100%; } }
 
-/* line 132, ../_layout.scss */
+/* line 133, ../_layout.scss */
 .sub-section {
   min-height: 100%;
   position: relative;
@@ -274,11 +274,11 @@ body .company-container, body .uber-wrapper {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
   @media (min-width: 768px) {
-    /* line 132, ../_layout.scss */
+    /* line 133, ../_layout.scss */
     .sub-section {
       min-height: 100vh; } }
 
-/* line 144, ../_layout.scss */
+/* line 145, ../_layout.scss */
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -295,49 +295,49 @@ body .company-container, body .uber-wrapper {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
-  /* line 149, ../_layout.scss */
+  /* line 150, ../_layout.scss */
   .flex-wrapper .flow-wrapper {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto; }
 
-/* line 153, ../_layout.scss */
+/* line 154, ../_layout.scss */
 .wrapper {
   position: relative;
   display: block; }
   @media (min-width: 1000px) {
-    /* line 156, ../_layout.scss */
+    /* line 157, ../_layout.scss */
     .wrapper.content {
       margin-left: 16.66667%;
       margin-right: 16.66667%; } }
-  /* line 160, ../_layout.scss */
+  /* line 161, ../_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 163, ../_layout.scss */
+  /* line 164, ../_layout.scss */
   .wrapper.content.center {
     text-align: center; }
-    /* line 164, ../_layout.scss */
+    /* line 165, ../_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 169, ../_layout.scss */
+  /* line 170, ../_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 175, ../_layout.scss */
+/* line 176, ../_layout.scss */
 .divider {
   display: none; }
   @media (min-width: 768px) {
-    /* line 175, ../_layout.scss */
+    /* line 176, ../_layout.scss */
     .divider {
       display: block; } }
 
-/* line 182, ../_layout.scss */
+/* line 183, ../_layout.scss */
 .sticky-container {
   width: 100%;
   margin: 0 auto; }
 
-/* line 187, ../_layout.scss */
+/* line 188, ../_layout.scss */
 .sticky-wrapper {
   margin-bottom: 200px; }
 
@@ -1493,7 +1493,7 @@ section {
       background-clip: content-box, border-box;
       background-position: left top; }
 
-/* line 82, ../_layout.scss */
+/* line 83, ../_layout.scss */
 section, .flex {
   position: relative;
   min-height: 100%;
@@ -1527,11 +1527,11 @@ section, .flex {
       background-clip: content-box, border-box;
       background-position: left top; }
   @media (min-width: 768px) {
-    /* line 82, ../_layout.scss */
+    /* line 83, ../_layout.scss */
     section, .flex {
       min-height: 100vh; } }
 
-/* line 91, ../_layout.scss */
+/* line 92, ../_layout.scss */
 .sub-section, .work-example {
   margin: 0 auto;
   max-width: 100%;
@@ -1539,7 +1539,7 @@ section, .flex {
   margin-left: 8.33333%;
   margin-right: 8.33333%; }
   @media (min-width: 768px) {
-    /* line 91, ../_layout.scss */
+    /* line 92, ../_layout.scss */
     .sub-section, .work-example {
       padding: 0;
       margin-left: 0%;
@@ -1553,28 +1553,28 @@ section, .flex {
       padding-right: 8.75px;
       min-height: 100vh; } }
 
-/* line 105, ../_layout.scss */
+/* line 106, ../_layout.scss */
 body .company-container, body .uber-wrapper {
   margin-left: auto;
   margin-right: auto; }
 @media (min-width: 768px) {
-  /* line 110, ../_layout.scss */
+  /* line 111, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 480px; } }
 @media (min-width: 1000px) {
-  /* line 115, ../_layout.scss */
+  /* line 116, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 768px; } }
 @media (min-width: 1170px) {
-  /* line 120, ../_layout.scss */
+  /* line 121, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 1000px; } }
 @media (min-width: 1171px) {
-  /* line 125, ../_layout.scss */
+  /* line 126, ../_layout.scss */
   body .company-container, body .uber-wrapper {
     max-width: 100%; } }
 
-/* line 132, ../_layout.scss */
+/* line 133, ../_layout.scss */
 .sub-section {
   min-height: 100%;
   position: relative;
@@ -1594,11 +1594,11 @@ body .company-container, body .uber-wrapper {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
   @media (min-width: 768px) {
-    /* line 132, ../_layout.scss */
+    /* line 133, ../_layout.scss */
     .sub-section {
       min-height: 100vh; } }
 
-/* line 144, ../_layout.scss */
+/* line 145, ../_layout.scss */
 .flex-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1615,49 +1615,49 @@ body .company-container, body .uber-wrapper {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
-  /* line 149, ../_layout.scss */
+  /* line 150, ../_layout.scss */
   .flex-wrapper .flow-wrapper {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto; }
 
-/* line 153, ../_layout.scss */
+/* line 154, ../_layout.scss */
 .wrapper {
   position: relative;
   display: block; }
   @media (min-width: 1000px) {
-    /* line 156, ../_layout.scss */
+    /* line 157, ../_layout.scss */
     .wrapper.content {
       margin-left: 16.66667%;
       margin-right: 16.66667%; } }
-  /* line 160, ../_layout.scss */
+  /* line 161, ../_layout.scss */
   .wrapper.content.left {
     text-align: left; }
-  /* line 163, ../_layout.scss */
+  /* line 164, ../_layout.scss */
   .wrapper.content.center {
     text-align: center; }
-    /* line 164, ../_layout.scss */
+    /* line 165, ../_layout.scss */
     .wrapper.content.center h1, .wrapper.content.center h2, .wrapper.content.center h3, .wrapper.content.center h4, .wrapper.content.center h5, .wrapper.content.center h6 {
       text-align: center; }
-  /* line 169, ../_layout.scss */
+  /* line 170, ../_layout.scss */
   .wrapper.content.right {
     text-align: right; }
 
-/* line 175, ../_layout.scss */
+/* line 176, ../_layout.scss */
 .divider {
   display: none; }
   @media (min-width: 768px) {
-    /* line 175, ../_layout.scss */
+    /* line 176, ../_layout.scss */
     .divider {
       display: block; } }
 
-/* line 182, ../_layout.scss */
+/* line 183, ../_layout.scss */
 .sticky-container {
   width: 100%;
   margin: 0 auto; }
 
-/* line 187, ../_layout.scss */
+/* line 188, ../_layout.scss */
 .sticky-wrapper {
   margin-bottom: 200px; }
 
@@ -2180,13 +2180,18 @@ li.menu-item {
 
 /* line 15, ../partials/_bios.scss */
 .bio-entry {
+  clear: both;
   display: inline-block; }
+  /* line 17, ../partials/_bios.scss */
+  .bio-entry:last-of-type {
+    padding-bottom: 200px; }
 
-/* line 19, ../partials/_bios.scss */
+/* line 23, ../partials/_bios.scss */
 .bios-desktop {
+  position: relative;
   margin-top: 40px;
   display: inline-block; }
-  /* line 22, ../partials/_bios.scss */
+  /* line 27, ../partials/_bios.scss */
   .bios-desktop:after {
     content: "";
     position: absolute;
@@ -2198,7 +2203,7 @@ li.menu-item {
     margin-top: 10px;
     border-left: 1px solid white; }
 
-/* line 35, ../partials/_bios.scss */
+/* line 40, ../partials/_bios.scss */
 .scrollme.steve {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2208,13 +2213,20 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 40, ../partials/_bios.scss */
-.bio-names h1 {
-  margin-top: 0;
-  text-align: center;
-  color: white; }
+/* line 44, ../partials/_bios.scss */
+.bio-names {
+  clear: both; }
+  /* line 45, ../partials/_bios.scss */
+  .bio-names h1 {
+    margin-top: 0;
+    text-align: center;
+    color: white; }
 
-/* line 47, ../partials/_bios.scss */
+/* line 53, ../partials/_bios.scss */
+.date-container {
+  width: 100%; }
+
+/* line 57, ../partials/_bios.scss */
 .date {
   width: 100%;
   height: 0;
@@ -2231,7 +2243,7 @@ li.menu-item {
   border: 1px solid white;
   border-radius: 50%;
   position: relative; }
-  /* line 57, ../partials/_bios.scss */
+  /* line 67, ../partials/_bios.scss */
   .date div {
     position: absolute;
     top: 0;
@@ -2256,7 +2268,7 @@ li.menu-item {
     font-size: 22pt;
     font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 65, ../partials/_bios.scss */
+/* line 75, ../partials/_bios.scss */
 .scrollme.alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

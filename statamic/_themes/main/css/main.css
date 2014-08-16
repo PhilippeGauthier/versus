@@ -329,20 +329,22 @@ h2 {
 /* line 60, ../_base.scss */
 h3 {
   font-size: 18pt;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  line-height: 23pt; }
   @media (min-width: 768px) {
     /* line 60, ../_base.scss */
     h3 {
+      line-height: 27pt;
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 70, ../_base.scss */
+/* line 72, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 70, ../_base.scss */
+    /* line 72, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
@@ -1640,20 +1642,22 @@ h2 {
 /* line 60, ../_base.scss */
 h3 {
   font-size: 18pt;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  line-height: 23pt; }
   @media (min-width: 768px) {
     /* line 60, ../_base.scss */
     h3 {
+      line-height: 27pt;
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 70, ../_base.scss */
+/* line 72, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 70, ../_base.scss */
+    /* line 72, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
@@ -2065,6 +2069,7 @@ li.menu-item {
   @media (min-width: 768px) {
     /* line 2, ../partials/_bios.scss */
     .bios-desktop, .bios-mobile {
+      margin-left: 0%;
       clear: both;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -2074,16 +2079,16 @@ li.menu-item {
       padding-left: 8.75px;
       padding-right: 8.75px; } }
 
-/* line 11, ../partials/_bios.scss */
+/* line 12, ../partials/_bios.scss */
 .bios-desktop {
   display: none;
   position: relative;
   margin-top: 40px; }
   @media (min-width: 768px) {
-    /* line 11, ../partials/_bios.scss */
+    /* line 12, ../partials/_bios.scss */
     .bios-desktop {
       display: inline-block; } }
-  /* line 18, ../partials/_bios.scss */
+  /* line 19, ../partials/_bios.scss */
   .bios-desktop:after {
     content: "";
     position: absolute;
@@ -2095,15 +2100,15 @@ li.menu-item {
     margin-top: 10px;
     border-left: 1px solid white; }
 
-/* line 31, ../partials/_bios.scss */
+/* line 32, ../partials/_bios.scss */
 .bios-mobile {
   display: block;
   padding: 30px 0; }
   @media (min-width: 768px) {
-    /* line 31, ../partials/_bios.scss */
+    /* line 32, ../partials/_bios.scss */
     .bios-mobile {
       display: none; } }
-  /* line 37, ../partials/_bios.scss */
+  /* line 38, ../partials/_bios.scss */
   .bios-mobile p, .bios-mobile .date {
     clear: both;
     -moz-box-sizing: border-box;
@@ -2114,11 +2119,11 @@ li.menu-item {
     padding-left: 8.75px;
     padding-right: 8.75px;
     padding-bottom: 20px; }
-  /* line 41, ../partials/_bios.scss */
+  /* line 42, ../partials/_bios.scss */
   .bios-mobile .date {
     padding-top: 40px; }
 
-/* line 46, ../partials/_bios.scss */
+/* line 47, ../partials/_bios.scss */
 .bio-names {
   clear: both;
   -moz-box-sizing: border-box;
@@ -2129,16 +2134,16 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px;
   margin-top: 40px; }
-  /* line 49, ../partials/_bios.scss */
+  /* line 50, ../partials/_bios.scss */
   .bio-names h1 {
     text-align: center;
     color: white; }
   @media (min-width: 768px) {
-    /* line 54, ../partials/_bios.scss */
+    /* line 55, ../partials/_bios.scss */
     .bio-names h1 {
       margin-top: 0; } }
 
-/* line 60, ../partials/_bios.scss */
+/* line 61, ../partials/_bios.scss */
 .meet-steve {
   margin-top: 100px;
   -moz-box-sizing: border-box;
@@ -2150,7 +2155,7 @@ li.menu-item {
   padding-right: 8.75px;
   clear: both; }
 
-/* line 66, ../partials/_bios.scss */
+/* line 67, ../partials/_bios.scss */
 .meet-alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2160,11 +2165,11 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 70, ../partials/_bios.scss */
+/* line 71, ../partials/_bios.scss */
 .bio-entry {
   display: inline-block; }
   @media (min-width: 768px) {
-    /* line 70, ../partials/_bios.scss */
+    /* line 71, ../partials/_bios.scss */
     .bio-entry {
       clear: both;
       -moz-box-sizing: border-box;
@@ -2174,15 +2179,15 @@ li.menu-item {
       float: left;
       padding-left: 8.75px;
       padding-right: 8.75px; } }
-  /* line 75, ../partials/_bios.scss */
+  /* line 76, ../partials/_bios.scss */
   .bio-entry:last-of-type {
     padding-bottom: 200px; }
 
-/* line 81, ../partials/_bios.scss */
+/* line 82, ../partials/_bios.scss */
 .scrollme {
   min-height: 1px; }
 
-/* line 85, ../partials/_bios.scss */
+/* line 86, ../partials/_bios.scss */
 .scrollme.steve {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2192,7 +2197,7 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 90, ../partials/_bios.scss */
+/* line 91, ../partials/_bios.scss */
 .date {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2201,7 +2206,7 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 92, ../partials/_bios.scss */
+  /* line 93, ../partials/_bios.scss */
   .date .date-circle {
     margin: auto;
     text-align: center;
@@ -2211,7 +2216,7 @@ li.menu-item {
     border: 1px solid white;
     border-radius: 50%;
     position: relative; }
-    /* line 101, ../partials/_bios.scss */
+    /* line 102, ../partials/_bios.scss */
     .date .date-circle div {
       position: absolute;
       top: 0;
@@ -2236,7 +2241,7 @@ li.menu-item {
       font-size: 22pt;
       font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 110, ../partials/_bios.scss */
+/* line 111, ../partials/_bios.scss */
 .scrollme.alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

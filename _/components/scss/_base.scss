@@ -60,7 +60,9 @@ h2 {
 h3 {
 	font-size: 18pt;
 	margin-bottom: 20px;
+	line-height: 23pt;
 	@include breakpoint($small) {
+		line-height: 27pt;
 		font-size: 20pt;
 		margin-bottom: 40px;
 	}

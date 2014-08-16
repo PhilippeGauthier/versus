@@ -3,6 +3,7 @@
 	@include pre(1);
 	@include span(10);
 	@include breakpoint($small) {
+		@include pre(0);
 		@include full;
 	}
 	

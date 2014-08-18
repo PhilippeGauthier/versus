@@ -18,34 +18,10 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 
    //=========================================================
    
-   //Edge symbol: 'we-are-vs-and-we'
+   //Edge symbol: 'step1'
    (function(symbolName) {   
    
-   })("we-are-vs-and-we");
-   //Edge symbol end:'we-are-vs-and-we'
-
-   //=========================================================
-   
-   //Edge symbol: 'mask-build-listen'
-   (function(symbolName) {   
-   
-   })("mask-build-listen");
-   //Edge symbol end:'mask-build-listen'
-
-   //=========================================================
-   
-   //Edge symbol: 'mask-to-make-your'
-   (function(symbolName) {   
-   
-   })("mask-to-make-your");
-   //Edge symbol end:'mask-to-make-your'
-
-   //=========================================================
-   
-   //Edge symbol: 'step-1'
-   (function(symbolName) {   
-   
-   })("step-1");
-   //Edge symbol end:'step-1'
+   })("step1");
+   //Edge symbol end:'step1'
 
 })(jQuery, AdobeEdge, "EDGE-6766476");

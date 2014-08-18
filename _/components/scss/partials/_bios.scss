@@ -46,10 +46,9 @@
 
 .bio-names {
 	@include full;
-	margin-top: 40px;
 	h1 {
 		text-align: center;
-		color: white;
+		color: $purple;
 	}
 	@include breakpoint($small) {
 		h1 {

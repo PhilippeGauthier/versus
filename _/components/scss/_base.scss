@@ -45,7 +45,7 @@ h1 {
 	margin: 20px 0;
 	font-family: $headline-font;
 	@include breakpoint($small) {
-		font-size: 50pt;
+		font-size: 42pt;
 		margin: 15px 0 40px;
 	}
 }

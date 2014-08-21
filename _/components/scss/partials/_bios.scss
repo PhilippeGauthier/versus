@@ -45,7 +45,10 @@
 	border: 1px solid white;
 	border-radius: 50%;
 	position: relative;
-
+	@include text-flex;
+	font-size: 18pt;
+	font-family: $headline-font;
+	background-color: #1a1a1a;
 }
 
 .bios-mobile {

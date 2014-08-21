@@ -2131,17 +2131,33 @@ li.menu-item {
   text-align: center;
   border: 1px solid white;
   border-radius: 50%;
-  position: relative; }
+  position: relative;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  text-align: center;
+  font-size: 18pt;
+  font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif;
+  background-color: #1a1a1a; }
 
-/* line 51, ../partials/_bios.scss */
+/* line 54, ../partials/_bios.scss */
 .bios-mobile {
   display: block;
   padding: 30px 0; }
   @media (min-width: 768px) {
-    /* line 51, ../partials/_bios.scss */
+    /* line 54, ../partials/_bios.scss */
     .bios-mobile {
       display: none; } }
-  /* line 57, ../partials/_bios.scss */
+  /* line 60, ../partials/_bios.scss */
   .bios-mobile p, .bios-mobile .date {
     clear: both;
     -moz-box-sizing: border-box;
@@ -2152,11 +2168,11 @@ li.menu-item {
     padding-left: 8.75px;
     padding-right: 8.75px;
     padding-bottom: 20px; }
-  /* line 61, ../partials/_bios.scss */
+  /* line 64, ../partials/_bios.scss */
   .bios-mobile .date {
     padding-top: 40px; }
 
-/* line 66, ../partials/_bios.scss */
+/* line 69, ../partials/_bios.scss */
 .bio-names {
   clear: both;
   -moz-box-sizing: border-box;
@@ -2166,16 +2182,16 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 68, ../partials/_bios.scss */
+  /* line 71, ../partials/_bios.scss */
   .bio-names h1 {
     text-align: center;
     color: #6800eb; }
   @media (min-width: 768px) {
-    /* line 73, ../partials/_bios.scss */
+    /* line 76, ../partials/_bios.scss */
     .bio-names h1 {
       margin-top: 0; } }
 
-/* line 79, ../partials/_bios.scss */
+/* line 82, ../partials/_bios.scss */
 .meet-steve {
   margin-top: 100px;
   -moz-box-sizing: border-box;
@@ -2187,7 +2203,7 @@ li.menu-item {
   padding-right: 8.75px;
   clear: both; }
 
-/* line 85, ../partials/_bios.scss */
+/* line 88, ../partials/_bios.scss */
 .meet-alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2197,11 +2213,11 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 89, ../partials/_bios.scss */
+/* line 92, ../partials/_bios.scss */
 .bio-entry {
   display: inline-block; }
   @media (min-width: 768px) {
-    /* line 89, ../partials/_bios.scss */
+    /* line 92, ../partials/_bios.scss */
     .bio-entry {
       clear: both;
       -moz-box-sizing: border-box;
@@ -2211,15 +2227,15 @@ li.menu-item {
       float: left;
       padding-left: 8.75px;
       padding-right: 8.75px; } }
-  /* line 94, ../partials/_bios.scss */
+  /* line 97, ../partials/_bios.scss */
   .bio-entry:last-of-type {
     padding-bottom: 200px; }
 
-/* line 100, ../partials/_bios.scss */
+/* line 103, ../partials/_bios.scss */
 .scrollme {
   min-height: 1px; }
 
-/* line 104, ../partials/_bios.scss */
+/* line 107, ../partials/_bios.scss */
 .scrollme.steve {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2229,7 +2245,7 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 109, ../partials/_bios.scss */
+/* line 112, ../partials/_bios.scss */
 .date {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2238,7 +2254,7 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 111, ../partials/_bios.scss */
+  /* line 114, ../partials/_bios.scss */
   .date .date-circle {
     margin: auto;
     text-align: center;
@@ -2248,7 +2264,7 @@ li.menu-item {
     border: 1px solid white;
     border-radius: 50%;
     position: relative; }
-    /* line 120, ../partials/_bios.scss */
+    /* line 123, ../partials/_bios.scss */
     .date .date-circle div {
       position: absolute;
       top: 0;
@@ -2273,7 +2289,7 @@ li.menu-item {
       font-size: 18pt;
       font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 129, ../partials/_bios.scss */
+/* line 132, ../partials/_bios.scss */
 .scrollme.alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

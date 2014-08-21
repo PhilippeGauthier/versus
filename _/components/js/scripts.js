@@ -176,7 +176,7 @@ $('.case-study-wrapper').each(function(){
   $(this).click(function(){
     $this.addClass('active');
     caseStudyText.height("auto");
-    caseStudyText.css("min-height",$height);
+    // caseStudyText.css("min-height",$height);
     caseStudyImage.addClass('active');
     previewText.removeClass('active');
     setTimeout(function(){

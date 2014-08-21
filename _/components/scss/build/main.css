@@ -2057,7 +2057,7 @@ li.menu-item {
     .bios-desktop {
       display: inline-block; } }
   /* line 19, ../partials/_bios.scss */
-  .bios-desktop:after {
+  .bios-desktop:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -2067,16 +2067,42 @@ li.menu-item {
     left: 50%;
     margin-top: 10px;
     border-left: 1px solid white; }
+  /* line 30, ../partials/_bios.scss */
+  .bios-desktop p {
+    font-size: 14pt;
+    line-height: 20pt; }
 
-/* line 32, ../partials/_bios.scss */
+/* line 36, ../partials/_bios.scss */
+.bio-circle-container {
+  clear: both;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 8.75px;
+  padding-right: 8.75px;
+  margin-top: 10px; }
+
+/* line 40, ../partials/_bios.scss */
+.bio-circle {
+  margin: auto;
+  height: 78px;
+  width: 78px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: relative; }
+
+/* line 51, ../partials/_bios.scss */
 .bios-mobile {
   display: block;
   padding: 30px 0; }
   @media (min-width: 768px) {
-    /* line 32, ../partials/_bios.scss */
+    /* line 51, ../partials/_bios.scss */
     .bios-mobile {
       display: none; } }
-  /* line 38, ../partials/_bios.scss */
+  /* line 57, ../partials/_bios.scss */
   .bios-mobile p, .bios-mobile .date {
     clear: both;
     -moz-box-sizing: border-box;
@@ -2087,11 +2113,11 @@ li.menu-item {
     padding-left: 8.75px;
     padding-right: 8.75px;
     padding-bottom: 20px; }
-  /* line 42, ../partials/_bios.scss */
+  /* line 61, ../partials/_bios.scss */
   .bios-mobile .date {
     padding-top: 40px; }
 
-/* line 47, ../partials/_bios.scss */
+/* line 66, ../partials/_bios.scss */
 .bio-names {
   clear: both;
   -moz-box-sizing: border-box;
@@ -2101,16 +2127,16 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 49, ../partials/_bios.scss */
+  /* line 68, ../partials/_bios.scss */
   .bio-names h1 {
     text-align: center;
     color: #6800eb; }
   @media (min-width: 768px) {
-    /* line 54, ../partials/_bios.scss */
+    /* line 73, ../partials/_bios.scss */
     .bio-names h1 {
       margin-top: 0; } }
 
-/* line 60, ../partials/_bios.scss */
+/* line 79, ../partials/_bios.scss */
 .meet-steve {
   margin-top: 100px;
   -moz-box-sizing: border-box;
@@ -2122,7 +2148,7 @@ li.menu-item {
   padding-right: 8.75px;
   clear: both; }
 
-/* line 66, ../partials/_bios.scss */
+/* line 85, ../partials/_bios.scss */
 .meet-alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2132,11 +2158,11 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 70, ../partials/_bios.scss */
+/* line 89, ../partials/_bios.scss */
 .bio-entry {
   display: inline-block; }
   @media (min-width: 768px) {
-    /* line 70, ../partials/_bios.scss */
+    /* line 89, ../partials/_bios.scss */
     .bio-entry {
       clear: both;
       -moz-box-sizing: border-box;
@@ -2146,15 +2172,15 @@ li.menu-item {
       float: left;
       padding-left: 8.75px;
       padding-right: 8.75px; } }
-  /* line 75, ../partials/_bios.scss */
+  /* line 94, ../partials/_bios.scss */
   .bio-entry:last-of-type {
     padding-bottom: 200px; }
 
-/* line 81, ../partials/_bios.scss */
+/* line 100, ../partials/_bios.scss */
 .scrollme {
   min-height: 1px; }
 
-/* line 85, ../partials/_bios.scss */
+/* line 104, ../partials/_bios.scss */
 .scrollme.steve {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2164,7 +2190,7 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 90, ../partials/_bios.scss */
+/* line 109, ../partials/_bios.scss */
 .date {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2173,7 +2199,7 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 92, ../partials/_bios.scss */
+  /* line 111, ../partials/_bios.scss */
   .date .date-circle {
     margin: auto;
     text-align: center;
@@ -2183,7 +2209,7 @@ li.menu-item {
     border: 1px solid white;
     border-radius: 50%;
     position: relative; }
-    /* line 101, ../partials/_bios.scss */
+    /* line 120, ../partials/_bios.scss */
     .date .date-circle div {
       position: absolute;
       top: 0;
@@ -2197,10 +2223,10 @@ li.menu-item {
       justify-content: center;
       flex-flow: column nowrap;
       text-align: center;
-      font-size: 22pt;
+      font-size: 18pt;
       font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 110, ../partials/_bios.scss */
+/* line 129, ../partials/_bios.scss */
 .scrollme.alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2404,12 +2430,13 @@ li:hover .sprite.connect {
   display: none !important; }
 /* line 8, ../partials/_case-studies.scss */
 .case-study-wrapper p {
-  color: white; }
-/* line 12, ../partials/_case-studies.scss */
+  color: white;
+  line-height: 20pt; }
+/* line 13, ../partials/_case-studies.scss */
 .case-study-wrapper.active button {
   display: block !important;
   color: #6800eb; }
-/* line 16, ../partials/_case-studies.scss */
+/* line 17, ../partials/_case-studies.scss */
 .case-study-wrapper.active .case-study-image, .case-study-wrapper.active .case-study-image.active {
   margin: 0 auto;
   display: flex;
@@ -2418,14 +2445,14 @@ li:hover .sprite.connect {
   text-align: center;
   padding-bottom: 35px;
   filter: none; }
-/* line 21, ../partials/_case-studies.scss */
+/* line 22, ../partials/_case-studies.scss */
 .case-study-wrapper.active .preview-text {
   cursor: default; }
-/* line 25, ../partials/_case-studies.scss */
+/* line 26, ../partials/_case-studies.scss */
 .case-study-wrapper.active:hover, .case-study-wrapper.active:focus {
   cursor: auto;
   border: 8px solid transparent; }
-/* line 29, ../partials/_case-studies.scss */
+/* line 30, ../partials/_case-studies.scss */
 .case-study-wrapper .preview-text {
   opacity: 0;
   z-index: -999;
@@ -2433,7 +2460,7 @@ li:hover .sprite.connect {
   -o-transition: 1s;
   -webkit-transition: 1s;
   transition: 1s; }
-  /* line 33, ../partials/_case-studies.scss */
+  /* line 34, ../partials/_case-studies.scss */
   .case-study-wrapper .preview-text.active {
     z-index: 999;
     -moz-transition: 0.5s;
@@ -2441,53 +2468,53 @@ li:hover .sprite.connect {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     opacity: 1; }
-/* line 39, ../partials/_case-studies.scss */
+/* line 40, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-slider {
   margin-bottom: 0; }
-/* line 42, ../partials/_case-studies.scss */
+/* line 43, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
   top: auto;
   height: 44px;
   width: 31px;
   bottom: 200px; }
-  /* line 47, ../partials/_case-studies.scss */
+  /* line 48, ../partials/_case-studies.scss */
   .case-study-wrapper .slick-prev:before, .case-study-wrapper .slick-prev:after, .case-study-wrapper .slick-next:before, .case-study-wrapper .slick-next:after {
     height: 44px !important;
     width: 31px !important;
     margin: 0 auto; }
   @media (min-width: 768px) {
-    /* line 42, ../partials/_case-studies.scss */
+    /* line 43, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
       bottom: 132px; } }
   @media (min-width: 1000px) {
-    /* line 42, ../partials/_case-studies.scss */
+    /* line 43, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
       bottom: 220px; } }
   @media (min-width: 1170px) {
-    /* line 42, ../partials/_case-studies.scss */
+    /* line 43, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
       bottom: 280px; } }
-/* line 62, ../partials/_case-studies.scss */
+/* line 63, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-prev {
   left: -35px; }
   @media (min-width: 768px) {
-    /* line 62, ../partials/_case-studies.scss */
+    /* line 63, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev {
       left: -45px; } }
-  /* line 67, ../partials/_case-studies.scss */
+  /* line 68, ../partials/_case-studies.scss */
   .case-study-wrapper .slick-prev:before {
     content: url("../img/prev.svg"); }
-/* line 71, ../partials/_case-studies.scss */
+/* line 72, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-next {
   right: -35px; }
   @media (min-width: 768px) {
-    /* line 71, ../partials/_case-studies.scss */
+    /* line 72, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-next {
       right: -45px; } }
-  /* line 76, ../partials/_case-studies.scss */
+  /* line 77, ../partials/_case-studies.scss */
   .case-study-wrapper .slick-next:before {
     content: url("../img/next.svg"); }
-/* line 81, ../partials/_case-studies.scss */
+/* line 82, ../partials/_case-studies.scss */
 .case-study-wrapper .case-study-text {
   display: flex;
   flex-flow: column nowrap;
@@ -2497,28 +2524,28 @@ li:hover .sprite.connect {
   -o-transition: 0.75s;
   -webkit-transition: 0.75s;
   transition: 0.75s; }
-  /* line 86, ../partials/_case-studies.scss */
+  /* line 87, ../partials/_case-studies.scss */
   .case-study-wrapper .case-study-text p {
     margin: 0;
     padding: 10px 0; }
-  /* line 91, ../partials/_case-studies.scss */
+  /* line 92, ../partials/_case-studies.scss */
   .case-study-wrapper .case-study-text.active {
     transition-delay: .75s;
     opacity: 1; }
-/* line 96, ../partials/_case-studies.scss */
+/* line 97, ../partials/_case-studies.scss */
 .case-study-wrapper .case-study-image {
   -moz-transition: 1.5s;
   -o-transition: 1.5s;
   -webkit-transition: 1.5s;
   transition: 1.5s; }
-/* line 99, ../partials/_case-studies.scss */
+/* line 100, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-dots li.slick-active button:before {
   color: white; }
-/* line 103, ../partials/_case-studies.scss */
+/* line 104, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-dots li button:before {
   color: white; }
 
-/* line 108, ../partials/_case-studies.scss */
+/* line 109, ../partials/_case-studies.scss */
 .case-study-close {
   cursor: pointer;
   -moz-transition: 0.25s;
@@ -2535,7 +2562,7 @@ li:hover .sprite.connect {
   vertical-align: middle;
   line-height: 35px;
   font-size: 28px; }
-  /* line 121, ../partials/_case-studies.scss */
+  /* line 122, ../partials/_case-studies.scss */
   .case-study-close.visible {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;

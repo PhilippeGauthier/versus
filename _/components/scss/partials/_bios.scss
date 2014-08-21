@@ -16,7 +16,7 @@
 	}
 	position: relative;
 	margin-top: 40px;
-	&:after {
+	&:before {
 	    content:"";
 	    position: absolute;
 	    z-index: -1;
@@ -27,6 +27,25 @@
 	    margin-top: 10px;
 	    border-left: 1px solid white;
 	}
+	p {
+		font-size: 14pt;
+		line-height: 20pt;
+	}
+}
+
+.bio-circle-container {
+	@include full;
+	margin-top: 10px;
+}
+.bio-circle {
+	margin: auto;
+	height: 78px;
+	width: 78px;
+	text-align: center;
+	border: 1px solid white;
+	border-radius: 50%;
+	position: relative;
+
 }
 
 .bios-mobile {
@@ -101,7 +120,7 @@
 		div {
 			@include absolute-pos;
 			@include text-flex;
-			font-size: 22pt;
+			font-size: 18pt;
 			font-family: $headline-font;
 		}
 	}

@@ -22,6 +22,5 @@ fields:
 
   content:
     display: Intro Text
-    hide: true
     default:
     type: redactor

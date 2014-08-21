@@ -3393,7 +3393,8 @@ $('.case-study-wrapper').each(function(){
   
   $(this).click(function(){
     $this.addClass('active');
-    caseStudyText.height($height);
+    caseStudyText.height("auto");
+    caseStudyText.css("min-height",$height);
     caseStudyImage.addClass('active');
     previewText.removeClass('active');
     setTimeout(function(){
@@ -3408,8 +3409,6 @@ $('.case-study-wrapper').each(function(){
       }, 2000);
     }
   });
-
-
 
   $(close).click(function() {  
 

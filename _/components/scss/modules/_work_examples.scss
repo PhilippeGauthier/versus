@@ -141,6 +141,7 @@
 		margin-top: 0;
 	}
 	p {
+		color: white;
 		font-size: 14pt;
 		line-height: 16pt;
 		@include breakpoint($small) {

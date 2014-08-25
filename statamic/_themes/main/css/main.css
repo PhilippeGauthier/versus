@@ -493,26 +493,27 @@ p {
     margin-top: 0; }
   /* line 143, ../modules/_work_examples.scss */
   .company-container p, .case-study-wrapper p {
+    color: white;
     font-size: 14pt;
     line-height: 16pt; }
     @media (min-width: 768px) {
       /* line 143, ../modules/_work_examples.scss */
       .company-container p, .case-study-wrapper p {
         line-height: 20pt; } }
-  /* line 150, ../modules/_work_examples.scss */
+  /* line 151, ../modules/_work_examples.scss */
   .company-container .slick-dots, .case-study-wrapper .slick-dots {
     bottom: -25px; }
 
-/* line 157, ../modules/_work_examples.scss */
+/* line 158, ../modules/_work_examples.scss */
 .company-container.active {
   cursor: pointer;
   border: 8px solid #6800eb; }
-  /* line 160, ../modules/_work_examples.scss */
+  /* line 161, ../modules/_work_examples.scss */
   .company-container.active .company-image {
     -webkit-filter: grayscale(0) brightness(1);
     filter: grayscale(0) brightness(1); }
 
-/* line 165, ../modules/_work_examples.scss */
+/* line 166, ../modules/_work_examples.scss */
 .case-study-image, .company-image {
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -522,12 +523,12 @@ p {
   background-repeat: no-repeat;
   background-position: center center; }
 
-/* line 173, ../modules/_work_examples.scss */
+/* line 174, ../modules/_work_examples.scss */
 .case-study-image.active {
   -webkit-filter: grayscale(0) brightness(1);
   filter: grayscale(0) brightness(1); }
 
-/* line 177, ../modules/_work_examples.scss */
+/* line 178, ../modules/_work_examples.scss */
 .preview-text {
   z-index: 1000;
   max-width: 80%;
@@ -551,27 +552,27 @@ p {
   right: 0;
   width: 100%;
   height: 100%; }
-  /* line 182, ../modules/_work_examples.scss */
+  /* line 183, ../modules/_work_examples.scss */
   .preview-text h1 {
     color: white;
     text-transform: uppercase; }
-  /* line 186, ../modules/_work_examples.scss */
+  /* line 187, ../modules/_work_examples.scss */
   .preview-text h1, .preview-text h3, .preview-text p {
     text-shadow: 1px 0.5px 0.5px rgba(0, 0, 0, 0.8);
     margin: 10px auto;
     padding: 0; }
-  /* line 191, ../modules/_work_examples.scss */
+  /* line 192, ../modules/_work_examples.scss */
   .preview-text h3 {
     font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
     display: none; }
   @media (min-width: 768px) {
-    /* line 196, ../modules/_work_examples.scss */
+    /* line 197, ../modules/_work_examples.scss */
     .preview-text h3 {
       display: block; } }
-  /* line 201, ../modules/_work_examples.scss */
+  /* line 202, ../modules/_work_examples.scss */
   .preview-text.active {
     z-index: 10; }
-  /* line 204, ../modules/_work_examples.scss */
+  /* line 205, ../modules/_work_examples.scss */
   .preview-text .text {
     display: none; }
 

@@ -142,6 +142,10 @@
 	}
 	p {
 		font-size: 14pt;
+		line-height: 16pt;
+		@include breakpoint($small) {
+			line-height: 20pt;
+		}
 	}
 	.slick-dots {
 		bottom: -25px;

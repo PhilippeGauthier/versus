@@ -13,6 +13,16 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
+      Symbol.bindElementAction(compId, symbolName, "${_replay-cta}", "click", function(sym, e) {
+         
+         // Replay from the beginning, regardless of current playing state 
+         if (!sym.isPlaying() ) {
+         	sym.play(0);
+         }
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 
@@ -23,5 +33,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
    })("step1");
    //Edge symbol end:'step1'
+
+   //=========================================================
+   
+   //Edge symbol: 'replay-cta'
+   (function(symbolName) {   
+   
+   })("replay-cta");
+   //Edge symbol end:'replay-cta'
 
 })(jQuery, AdobeEdge, "EDGE-6766476");

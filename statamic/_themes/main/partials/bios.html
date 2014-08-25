@@ -73,7 +73,7 @@
 
   </div>
 
-<div class="bio-circle-container">
+<div class="bio-circle-container desktop">
   <div class="bio-circle">the end.</div>
 </div>
 
@@ -82,9 +82,6 @@
     {{ entries:listing folder="bios/entries" sort_by="numeric" }}
 
     <img src="{{ featureImage }}" alt="">
-    <div class="bio-names">
-      <h1>Meet Steve &amp; Alexis</h1>
-    </div>
 
     {{ biosEntry }}
 
@@ -97,7 +94,13 @@
 
     {{ /entries:listing }}
 
+  <div class="bio-circle-container mobile">
+  <div class="bio-circle">the end.</div>
+</div>
+
   </div>
+
+
 
 </section>
 

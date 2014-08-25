@@ -36,6 +36,20 @@
 .bio-circle-container {
 	@include full;
 	margin-top: 10px;
+	&.desktop {
+		display: none;
+	}
+	&.mobile {
+		display: block;
+	}
+	@include breakpoint($small) {
+		&.desktop {
+			display: block;
+		}
+		&.mobile {
+			display: none;
+		}
+	}
 }
 .bio-circle {
 	margin: auto;

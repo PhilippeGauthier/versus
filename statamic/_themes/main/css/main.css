@@ -2130,8 +2130,21 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px;
   margin-top: 10px; }
+  /* line 39, ../partials/_bios.scss */
+  .bio-circle-container.desktop {
+    display: none; }
+  /* line 42, ../partials/_bios.scss */
+  .bio-circle-container.mobile {
+    display: block; }
+  @media (min-width: 768px) {
+    /* line 46, ../partials/_bios.scss */
+    .bio-circle-container.desktop {
+      display: block; }
+    /* line 49, ../partials/_bios.scss */
+    .bio-circle-container.mobile {
+      display: none; } }
 
-/* line 40, ../partials/_bios.scss */
+/* line 54, ../partials/_bios.scss */
 .bio-circle {
   margin: auto;
   height: 78px;
@@ -2157,15 +2170,15 @@ li.menu-item {
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif;
   background-color: #1a1a1a; }
 
-/* line 54, ../partials/_bios.scss */
+/* line 68, ../partials/_bios.scss */
 .bios-mobile {
   display: block;
   padding: 30px 0; }
   @media (min-width: 768px) {
-    /* line 54, ../partials/_bios.scss */
+    /* line 68, ../partials/_bios.scss */
     .bios-mobile {
       display: none; } }
-  /* line 60, ../partials/_bios.scss */
+  /* line 74, ../partials/_bios.scss */
   .bios-mobile p, .bios-mobile .date {
     clear: both;
     -moz-box-sizing: border-box;
@@ -2176,11 +2189,11 @@ li.menu-item {
     padding-left: 8.75px;
     padding-right: 8.75px;
     padding-bottom: 20px; }
-  /* line 64, ../partials/_bios.scss */
+  /* line 78, ../partials/_bios.scss */
   .bios-mobile .date {
     padding-top: 40px; }
 
-/* line 69, ../partials/_bios.scss */
+/* line 83, ../partials/_bios.scss */
 .bio-names {
   clear: both;
   -moz-box-sizing: border-box;
@@ -2190,16 +2203,16 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 71, ../partials/_bios.scss */
+  /* line 85, ../partials/_bios.scss */
   .bio-names h1 {
     text-align: center;
     color: #6800eb; }
   @media (min-width: 768px) {
-    /* line 76, ../partials/_bios.scss */
+    /* line 90, ../partials/_bios.scss */
     .bio-names h1 {
       margin-top: 0; } }
 
-/* line 82, ../partials/_bios.scss */
+/* line 96, ../partials/_bios.scss */
 .meet-steve {
   margin-top: 100px;
   -moz-box-sizing: border-box;
@@ -2211,7 +2224,7 @@ li.menu-item {
   padding-right: 8.75px;
   clear: both; }
 
-/* line 88, ../partials/_bios.scss */
+/* line 102, ../partials/_bios.scss */
 .meet-alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2221,11 +2234,11 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 92, ../partials/_bios.scss */
+/* line 106, ../partials/_bios.scss */
 .bio-entry {
   display: inline-block; }
   @media (min-width: 768px) {
-    /* line 92, ../partials/_bios.scss */
+    /* line 106, ../partials/_bios.scss */
     .bio-entry {
       clear: both;
       -moz-box-sizing: border-box;
@@ -2235,15 +2248,15 @@ li.menu-item {
       float: left;
       padding-left: 8.75px;
       padding-right: 8.75px; } }
-  /* line 97, ../partials/_bios.scss */
+  /* line 111, ../partials/_bios.scss */
   .bio-entry:last-of-type {
     padding-bottom: 200px; }
 
-/* line 103, ../partials/_bios.scss */
+/* line 117, ../partials/_bios.scss */
 .scrollme {
   min-height: 1px; }
 
-/* line 107, ../partials/_bios.scss */
+/* line 121, ../partials/_bios.scss */
 .scrollme.steve {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2253,7 +2266,7 @@ li.menu-item {
   padding-left: 8.75px;
   padding-right: 8.75px; }
 
-/* line 112, ../partials/_bios.scss */
+/* line 126, ../partials/_bios.scss */
 .date {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2262,7 +2275,7 @@ li.menu-item {
   float: left;
   padding-left: 8.75px;
   padding-right: 8.75px; }
-  /* line 114, ../partials/_bios.scss */
+  /* line 128, ../partials/_bios.scss */
   .date .date-circle {
     margin: auto;
     text-align: center;
@@ -2272,7 +2285,7 @@ li.menu-item {
     border: 1px solid white;
     border-radius: 50%;
     position: relative; }
-    /* line 123, ../partials/_bios.scss */
+    /* line 137, ../partials/_bios.scss */
     .date .date-circle div {
       position: absolute;
       top: 0;
@@ -2297,7 +2310,7 @@ li.menu-item {
       font-size: 18pt;
       font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 132, ../partials/_bios.scss */
+/* line 146, ../partials/_bios.scss */
 .scrollme.alexis {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

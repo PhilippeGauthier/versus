@@ -229,6 +229,9 @@ $('.case-study-mobile').slick({
 });
 
 
+setTimeout(function(){
+  $('.indicators').addClass('active');
+}, 18000);
 
 
 

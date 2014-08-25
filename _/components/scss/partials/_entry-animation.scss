@@ -5,6 +5,27 @@
 	}
 }
 
+#Stage {
+	letter-spacing: -1px;
+	#Stage_replay-cta {
+		cursor: pointer;
+	}
+	// font-size: 99%;
+}
+
+.entry {
+	@include text-flex;
+	height: 100vh;
+	.indicators {
+		text-align: center;
+		margin: 0 auto;
+		opacity: 0;
+		&.active {
+			opacity: 1;
+		}
+	}
+}
+
 // #animation {
 // 	margin: 0 auto;
 // 	text-align: center;

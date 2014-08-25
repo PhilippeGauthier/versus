@@ -6,6 +6,14 @@
 			opacity: 1;
 		}
 	}
+	p {
+		line-height: 16pt;
+	}
+	@include breakpoint($small) {
+		p {
+			line-height: 20pt;
+		}	
+	}
 	.company {
 		@include absolute-pos;
 	}

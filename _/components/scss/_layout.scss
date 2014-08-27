@@ -90,6 +90,7 @@ body {
 	.company-container, .uber-wrapper {
 		margin-left: auto;
 		margin-right: auto;
+		position: relative;
 	}
 	@include breakpoint($small) {
 		.company-container,.uber-wrapper {

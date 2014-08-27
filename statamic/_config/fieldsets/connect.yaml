@@ -11,15 +11,21 @@ fields:
     default:
     type: text
 
-  sources:
-    display: Ways to Connect
-    type: grid
-    starting_rows: 1
-    min_rows: 1
-    fields:
-      location:
-        type: text
-        display: Title
-      url:
-        type: text
-        display: URL / Web Address
+  email:
+    type: text
+    display: email address
+
+  instagram:
+    type: text
+    display: instagram url
+
+  soundcloud:
+    type: text
+    display: soundcloud url
+
+  flipboard:
+    type: text
+    display: flipboard url
+
+  content:
+    hide: true

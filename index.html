@@ -9,181 +9,102 @@
 * {
 	box-sizing: border-box;
 }
-	html, body {
-		margin: 0;
-		padding: 0;
-/*		height: 2500px;*/
-	}
-	body {
-		position: relative;
-	}
-	p {
-		margin-top: 500px;
-	}
-	div {
-		padding: 0;
-		margin: 0;
-	}
-	#connect {
-		width: 100%;
-		z-index: 1000;
-		
-	}
-	.stuck {
-		position: fixed;
-		top: 0;
-	}
-	.names {
-		display: inline-block;
-	}
-	.left {
-		text-align: right;
-		justify-content: flex-end;
-	}
-	.sticky-wrapper {
-		width: 100%;
-		text-align: center;
-
-	}
-
-	.sticky-container {
-		width: 100%;
-		background-color: tomato;
-
-	}
-
-
-/*	.block {
-		text-align: center;
-		display: flex;
-		min-height: 100vh;
-
-	}*/
-	h2 {
-		display: inline-block;
-	}
-	h1 {
-/*		-webkit-margin-before: 0;
-		-webkit-margin-after: 0;*/
-	}
-
-.inner-image {
-	background-image: url('grid.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	height: 400px;
-	width: 100%;
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #1a1a1a;
 }
-
-.container {
-	width: 80%;
-    max-width: 1000px;
-	margin: 200px auto;
-    
-}
-
-.inner {
-	overflow: hidden;
-    display: inline-block;
-    height: 300px;
-    /*margin: 200px auto;*/
-    position: relative;
-    width: 100%;
-
-}
-
-img {
+body {
 	position: relative;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 0;
-  width: 100%;
-/*  transform: translateY(-50%);*/
+}
+.triangle-one {
+	position: fixed;
+	z-index: 10;
+	top: 50px;
+	left: 50px;
+	width: 0; 
+	height: 0; 
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent; 
+	border-right:25px solid #6800eb; 
+	transform: rotate(45deg);
+	z-index: 1;
 }
 
-.box {
-	height: 200px;
-	width: 200px;
-	background-color: tomato;
-	margin: 0 auto;
+.triangle-two {
+	position: fixed;
+	z-index: 10;
+	top: 50px;
+	left: 100px;
+	width: 0; 
+	height: 0; 
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent; 
+	border-right:25px solid black; 
+	transform: rotate(45deg);
+	z-index: 1;
 }
 
-body{
-    background:#343434;
+span {
+	z-index: 10;
+	position:absolute;
+	display: inline-block;
 }
-#container{
-    width:100%;
-    height:600px;
+
+.triangle-one span {
+	transform: rotate(-45deg);
 }
-#box1{
-    position:absolute;
-    margin-left:0px;
-    text-align:center;
-    height:23px;
-    width:60px;
-    border-radius:10px;
-    background:#999999;
-    border: 3px #0000ff solid;
-    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
-    font-size:20px;
-    text-decoration:none;
+
+.triangle-two span {
+	transform: rotate(90deg);
 }
-#box2{
-    margin-left:100px;
-    position:absolute;
-    text-align:center;
-    height:23px;
-    width:60px;
-    border-radius:10px;
-    background:#999999;
-    border: 3px #0000ff solid;
-    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
-    font-size:20px;
-    text-decoration:none;
+
+.triangle-one span:first-child {
+	width: 20px;
+	height: 2px;
+	top: -7px;
+	left: 4px;
+	background-color: black;
 }
-#box3{
-    margin-left:200px;
-    position:absolute;
-    text-align:center;
-    height:23px;
-    width:60px;
-    border-radius:10px;
-    background:#999999;
-    border: 3px #0000ff solid;
-    box-shadow: inset 0px 0px 0px 1px #000, 0px 0px 0px 1px #000;
-    font-size:20px;
-    text-decoration:none;
+
+.triangle-one span:nth-child(2n) {
+	width: 14px;
+	height: 2px;
+	top: -2px;
+	left: 8px;
+	background-color: black;
 }
-#link1 a:hover{
-    color:#0000ff;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-          
+
+.triangle-one span:nth-child(3n) {
+	width: 10px;
+	height: 2px;
+	top: 2px;
+	left: 12px;
+	background-color: black;
 }
-#link2 a:hover{
-    color:#0000ff;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-          
+
+.triangle-two span:first-child {
+	width: 10px;
+	height: 2px;
+	top: -1px;
+	left: 4px;
+	background-color: #6800eb;
 }
-#link3 a:hover{
-    color:#0000ff;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-          
+
+.triangle-two span:nth-child(2n) {
+	width: 14px;
+	height: 2px;
+	top: -1px;
+	left: 7px;
+	background-color: #6800eb;
 }
-.navigation{
-        color:#0000ff;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-}
-.wrapper {
-	display: flex;
-	min-height: 100vh;
-	justify-content: center;
-	align-items: center;
-}
-.content {
-background-color: white;
+
+.triangle-two span:nth-child(3n) {
+	width: 20px;
+	height: 2px;
+	top: -1px;
+	left: 9px;
+	background-color: #6800eb;
 }
 
 </style>
@@ -191,26 +112,17 @@ background-color: white;
 <link src="_/components/js/scrollspy.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar-example">
-<!--   <div class="navbar-example">
-    <ul class="nav nav-tabs" role="tablist">
-      <li ><a href="#test">test</a></li>
-      <li ><a href="#testAgain">test again</a></li>
-      <li ><a href="#oneMore">one more</a></li>
-    </ul>
-  </div> -->
-<div class="container">
-	<div class="inner-image"></div>
+
+<div class="triangle-one">
+<span></span>
+<span></span>
+<span></span>
 </div>
-<div id='topbar'>toggle me</div>
-<!-- <div id="test" class="wrapper">
-	<div class="content">test</div>
+<div class="triangle-two">
+<span></span>
+<span></span>
+<span></span>
 </div>
-<div id="testAgain" class="wrapper">
-	<div class="content">test again</div>
-</div>
-<div id="oneMore" class="wrapper">
-	<div class="content">one more</div>
-</div> -->
 
 
 

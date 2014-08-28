@@ -21,9 +21,7 @@
 .cbp-spmenu,
 .cbp-spmenu-push {
 
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	transition: all 0.3s ease;
+	transition: all 0.5s ease;
 }
 
 .cbp-spmenu {
@@ -290,31 +288,92 @@ li.menu-item {
 	}
 }
 
-#showLeftPush {
-	z-index: 100;
-	-webkit-appearance: button;
-	cursor: pointer;
-	// position: relative;
-	float: left;
+
+.triangle {
+	display: block;
+	@include breakpoint($medium) {
+		display: none;
+	}
+	transition: all 0.7s ease;
 	position: fixed;
-	top: 0;
-	left: 0;
-	margin-left: 15px;
-	padding: 9px 10px;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	background-color: transparent;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	@include transition(.3s);
-	background-color: rgba(black,.3);
-	border-radius: 3px;
+	z-index: 10;
+	top: -10px;
+	left: 10px;
+	width: 0; 
+	height: 0; 
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent; 
+	border-right:25px solid #6800eb; 
+	transform: rotate(45deg);
+	z-index: 1;
+	span {
+		transition: all 0.7s ease;
+		z-index: 10;
+		position:absolute;
+		display: inline-block;
+		transform: rotate(-45deg);
+		background-color: $purple;
+		&:first-child {
+			width: 20px;
+			height: 2px;
+			top: -7px;
+			left: 4px;
+			background-color: black;
+		}
+
+		&:nth-child(2n) {
+			width: 14px;
+			height: 2px;
+			top: -2px;
+			left: 8px;
+			background-color: black;
+		}
+
+		&:nth-child(3n) {
+			width: 10px;
+			height: 2px;
+			top: 2px;
+			left: 12px;
+			background-color: black;
+		}
+	}
+	&.button-expanded {
+		border-right:25px solid $darkgray; 
+		span {
+			transition: all 0.7s ease;
+			transform: rotate(90deg);
+			background-color: $purple;
+			&:first-child {
+				width: 10px;
+				height: 2px;
+				top: -1px;
+				left: 4px;
+			}
+
+			&:nth-child(2n) {
+				width: 14px;
+				height: 2px;
+				top: -1px;
+				left: 7px;
+			}
+
+			&:nth-child(3n) {
+				width: 20px;
+				height: 2px;
+				top: -1px;
+				left: 9px;
+			}
+		}
+	}
 }
 
 
+
+
+
 .button-expanded {
-	left: 210px !important;
+	transition: all 0.5s ease;
+	left: 203px !important;
 }
 
 

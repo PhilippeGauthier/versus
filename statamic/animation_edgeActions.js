@@ -13,33 +13,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
-      Symbol.bindElementAction(compId, symbolName, "${_replay-cta}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${_cta}", "click", function(sym, e) {
+         // insert code for mouse click here
+         // Navigate to a new URL in the current window
+         // (replace "_self" with appropriate target attribute)
+         window.open("http://www.wearevs.com", "_self");
          
-         // Replay from the beginning, regardless of current playing state 
-         if (!sym.isPlaying() ) {
-         	sym.play(0);
-         }
 
       });
       //Edge binding end
 
    })("stage");
    //Edge symbol end:'stage'
-
-   //=========================================================
-   
-   //Edge symbol: 'step1'
-   (function(symbolName) {   
-   
-   })("step1");
-   //Edge symbol end:'step1'
-
-   //=========================================================
-   
-   //Edge symbol: 'replay-cta'
-   (function(symbolName) {   
-   
-   })("replay-cta");
-   //Edge symbol end:'replay-cta'
 
 })(jQuery, AdobeEdge, "EDGE-6766476");

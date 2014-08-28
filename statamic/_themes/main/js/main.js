@@ -3301,26 +3301,26 @@ $('.menu-icon').click(function() {
   $(this).parent().toggleClass('active');
 });
 
-var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-  menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-  menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-  menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-  showLeft = document.getElementById( 'showLeft' ),
-  showRight = document.getElementById( 'showRight' ),
-  showTop = document.getElementById( 'showTop' ),
-  showBottom = document.getElementById( 'showBottom' ),
-  showLeftPush = document.getElementById( 'showLeftPush' ),
-  left = document.getElementById( 'left' ),
-  showRightPush = document.getElementById( 'showRightPush' ),
-  body = document.body;
+// var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+//   menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+//   menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+//   menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+//   showLeft = document.getElementById( 'showLeft' ),
+//   showRight = document.getElementById( 'showRight' ),
+//   showTop = document.getElementById( 'showTop' ),
+//   showBottom = document.getElementById( 'showBottom' ),
+//   triangle = document.getElementById( 'triangle' ),
+//   left = document.getElementById( 'left' ),
+//   showRightPush = document.getElementById( 'showRightPush' ),
+//   body = document.body;
 
 
-showLeftPush.onclick = function() {
-  classie.toggle( this, 'active' );
-  classie.toggle( body, 'cbp-spmenu-push-toright' );
-  classie.toggle( menuLeft, 'cbp-spmenu-open' );
-  disableOther( 'showLeftPush' );
-};
+// triangle.onclick = function() {
+//   classie.toggle( this, 'active' );
+//   classie.toggle( body, 'cbp-spmenu-push-toright' );
+//   classie.toggle( menuLeft, 'cbp-spmenu-open' );
+//   disableOther( 'triangle' );
+// };
 
 
 function disableOther( button ) {

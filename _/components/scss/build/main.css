@@ -2413,66 +2413,70 @@ li:hover .sprite.connect {
   cursor: pointer; }
 
 /* line 7, ../partials/_entry-animation.scss */
+#Stage {
+  letter-spacing: -1px; }
+
+/* line 11, ../partials/_entry-animation.scss */
 .entry {
   flex-flow: column nowrap;
   align-content: space-around; }
-  /* line 12, ../partials/_entry-animation.scss */
+  /* line 16, ../partials/_entry-animation.scss */
   .entry .flow-wrapper {
     flex: 1 1 auto; }
-  /* line 15, ../partials/_entry-animation.scss */
+  /* line 19, ../partials/_entry-animation.scss */
   .entry.desktop {
     display: none;
     height: 100vh; }
-  /* line 19, ../partials/_entry-animation.scss */
+  /* line 23, ../partials/_entry-animation.scss */
   .entry.mobile {
     display: flex;
     height: 100%;
     justify-content: center;
     align-content: center;
     align-items: center; }
-    /* line 25, ../partials/_entry-animation.scss */
+    /* line 29, ../partials/_entry-animation.scss */
     .entry.mobile h1 {
       color: #6800eb;
       text-align: center; }
-    /* line 29, ../partials/_entry-animation.scss */
+    /* line 33, ../partials/_entry-animation.scss */
     .entry.mobile span {
       color: white; }
   @media (min-width: 768px) {
-    /* line 34, ../partials/_entry-animation.scss */
+    /* line 38, ../partials/_entry-animation.scss */
     .entry.desktop {
       display: flex; }
-    /* line 37, ../partials/_entry-animation.scss */
+    /* line 41, ../partials/_entry-animation.scss */
     .entry.mobile {
       display: none; } }
-  /* line 41, ../partials/_entry-animation.scss */
+  /* line 45, ../partials/_entry-animation.scss */
   .entry .wrapper {
     align-self: center; }
-    /* line 43, ../partials/_entry-animation.scss */
+    /* line 47, ../partials/_entry-animation.scss */
     .entry .wrapper a {
       display: inline-block; }
-  /* line 47, ../partials/_entry-animation.scss */
+  /* line 51, ../partials/_entry-animation.scss */
   .entry .indicators {
     text-align: center;
     margin: 0 auto;
     opacity: 0;
     display: block !important; }
-    /* line 52, ../partials/_entry-animation.scss */
+    /* line 56, ../partials/_entry-animation.scss */
     .entry .indicators.active {
       opacity: 1; }
 
-/* line 66, ../partials/_entry-animation.scss */
+/* line 70, ../partials/_entry-animation.scss */
 .gif-container {
   margin: 0 auto 50px;
   width: 200px;
   height: 115px;
   position: relative; }
   @media (min-width: 768px) {
-    /* line 66, ../partials/_entry-animation.scss */
+    /* line 70, ../partials/_entry-animation.scss */
     .gif-container {
       width: 280px;
       height: 160px; } }
 
-/* line 78, ../partials/_entry-animation.scss */
+/* line 82, ../partials/_entry-animation.scss */
 .gif1 {
   position: absolute;
   bottom: 0;
@@ -2480,7 +2484,7 @@ li:hover .sprite.connect {
   max-width: 100%;
   max-height: 100%; }
 
-/* line 86, ../partials/_entry-animation.scss */
+/* line 90, ../partials/_entry-animation.scss */
 .gif2 {
   position: absolute;
   top: 0;
@@ -2684,32 +2688,32 @@ li:hover .sprite.connect {
   /* line 11, ../partials/_connect.scss */
   .connect a .connect-sprite {
     display: block;
-    height: 75px;
-    width: 75px;
+    height: 70px;
+    width: 70px;
     margin: 0 auto;
-    background: url("../img/connect-sprites.png") center center no-repeat;
-    background-size: 150px auto; }
+    background: url("../img/connect-sprites-large.png") center center no-repeat;
+    background-size: 140px auto; }
     /* line 18, ../partials/_connect.scss */
     .connect a .connect-sprite.email {
       background-position: 0px 0px; }
     /* line 21, ../partials/_connect.scss */
     .connect a .connect-sprite.instagram {
-      background-position: 0 -75px; }
+      background-position: 0 -70px; }
     /* line 24, ../partials/_connect.scss */
     .connect a .connect-sprite.soundcloud {
-      background-position: 0 -150px; }
+      background-position: 0 -140px; }
     /* line 27, ../partials/_connect.scss */
     .connect a .connect-sprite.flipboard {
-      background-position: 0 -225px; }
+      background-position: 0 -210px; }
   /* line 33, ../partials/_connect.scss */
   .connect a:hover .connect-sprite.email {
-    background-position: -75px 0px; }
+    background-position: -70px 0px; }
   /* line 36, ../partials/_connect.scss */
   .connect a:hover .connect-sprite.instagram {
-    background-position: -75px -75px; }
+    background-position: -70px -70px; }
   /* line 39, ../partials/_connect.scss */
   .connect a:hover .connect-sprite.soundcloud {
-    background-position: -75px -150px; }
+    background-position: -70px -140px; }
   /* line 42, ../partials/_connect.scss */
   .connect a:hover .connect-sprite.flipboard {
-    background-position: -75px -225px; }
+    background-position: -70px -210px; }

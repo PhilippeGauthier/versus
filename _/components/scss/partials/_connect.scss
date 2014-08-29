@@ -10,37 +10,37 @@
 		text-decoration: none;
 		.connect-sprite {
 			display: block;
-			height: 75px;
-			width: 75px;
+			height: 70px;
+			width: 70px;
 			margin: 0 auto;
-			background: url("../img/connect-sprites.png") center center no-repeat;
-			background-size: 150px auto;
+			background: url("../img/connect-sprites-large.png") center center no-repeat;
+			background-size: 140px auto;
 			&.email {
 				background-position: 0px 0px;
 			}
 			&.instagram {
-				background-position: 0 -75px;
+				background-position: 0 -70px;
 			}
 			&.soundcloud {
-				background-position: 0 -150px;
+				background-position: 0 -140px;
 			}
 			&.flipboard {
-				background-position: 0 -225px;
+				background-position: 0 -210px;
 			}
 		}
 		&:hover {
 			.connect-sprite {
 				&.email {
-					background-position: -75px 0px;
+					background-position: -70px 0px;
 				}
 				&.instagram {
-					background-position: -75px -75px;
+					background-position: -70px -70px;
 				}
 				&.soundcloud {
-					background-position: -75px -150px;
+					background-position: -70px -140px;
 				}
 				&.flipboard {
-					background-position: -75px -225px;
+					background-position: -70px -210px;
 				}
 			}
 		}

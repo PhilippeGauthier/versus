@@ -305,7 +305,7 @@ html, body, p {
   @media (min-width: 768px) {
     /* line 22, ../_base.scss */
     html, body, p {
-      font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
+      font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
 
 /* line 30, ../_base.scss */
 img {
@@ -567,7 +567,7 @@ p {
     padding: 0; }
   /* line 195, ../modules/_work_examples.scss */
   .preview-text h3 {
-    font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif;
+    font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif;
     display: none; }
   @media (min-width: 768px) {
     /* line 200, ../modules/_work_examples.scss */
@@ -1585,7 +1585,7 @@ html, body, p {
   @media (min-width: 768px) {
     /* line 22, ../_base.scss */
     html, body, p {
-      font-family: "hurme-thin", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
+      font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
 
 /* line 30, ../_base.scss */
 img {

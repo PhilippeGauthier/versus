@@ -62,10 +62,25 @@ class statamic_fieldset
       }
     }
 
+    Statamic_Fieldset::checkForDashes($fields['fields']);
+
     $set = new Statamic_Fieldset($fields);
     $set->set_name($fieldset_names);
 
     return $set;
+  }
+
+  private static function checkForDashes($fields)
+  {
+    foreach ($fields as $key => $val) {
+      if (strpos($key, '-')) {
+        throw new Exception('Field names may not contain dashes. Please use underscores.');
+      }
+
+      if (is_array($val)) {
+        Statamic_Fieldset::checkForDashes($val);
+      }
+    }
   }
 
   public static function fetch_fieldset($fieldset)

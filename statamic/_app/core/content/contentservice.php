@@ -75,7 +75,7 @@ class ContentService
         if (!is_array(self::$structure)) {
             // something has gone wrong, log a message and set to an empty array
             self::$cache = array();
-            Log::fatal('Could not find or access your cache.Try checking your file permissions.', 'core', 'ContentService');
+            Log::fatal('Could not find or access your cache. Try checking your file permissions.', 'core', 'ContentService');
             throw new Exception('Could not find or access your cache. Try checking your file permissions.');
         }
     }
@@ -166,7 +166,7 @@ class ContentService
 
         // make sure we can find the requested URL in the structure
         if (!isset(self::$structure[$base_url])) {
-            Log::fatal('Could not find URL in structure cache.', 'core', 'ContentService');
+            Log::debug('Could not find URL in structure cache.', 'core', 'ContentService');
             return array();
         }
 
@@ -182,7 +182,7 @@ class ContentService
             }
 
             // is this under the appropriate parent?
-            if (!Pattern::startsWith($base_url, $data['parent'])) {
+            if (!Pattern::startsWith(Path::tidy($data['parent'] . '/'), Path::tidy($base_url . '/'))) {
                 continue;
             }
 
@@ -345,6 +345,10 @@ class ContentService
     public static function getTaxonomyName($taxonomy, $taxonomy_slug)
     {
         self::loadCache();
+
+        if (Config::getTaxonomySlugify()) {
+            $taxonomy_slug = Slug::humanize($taxonomy_slug);
+        }
 
         if (!isset(self::$cache['taxonomies'][$taxonomy]) || !isset(self::$cache['taxonomies'][$taxonomy][$taxonomy_slug])) {
             return null;

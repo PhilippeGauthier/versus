@@ -6,7 +6,7 @@ define("STATAMIC_START", microtime(true));
 global $is_debuggable_route;
 $is_debuggable_route = false;
 
-const STATAMIC_VERSION = '1.8';
+const STATAMIC_VERSION = '1.8.4';
 const APP_PATH = __DIR__;
 
 // handle the PHP development server
@@ -90,6 +90,7 @@ require_once __DIR__ . '/vendor/Lex/Parser.php';
 */
 
 // helper functions
+require_once __DIR__ . '/core/exceptions.php';
 require_once __DIR__ . '/core/functions.php';
 
 // register the Statamic autoloader

@@ -162,7 +162,7 @@ class Plugin_Get_Files extends Plugin
         | Sort By
         |--------------------------------------------------------------------------
         |
-        | Recursively traverse directories, starting at 0.
+        | Sort by name, file, or type
         |
         */
 

@@ -286,7 +286,7 @@ $admin_app->get('/entries', function() use ($admin_app) {
       'app'      => $admin_app,
       'errors'   => $errors,
       'path'     => $path,
-      'folder'   => preg_replace(Pattern::NUMERIC, '', $path),
+      'folder'   => Path::addStartingSlash(preg_replace(Pattern::NUMERIC, '', $path)),
       'entries'  => $entries,
       'type'     => $entry_type,
       'listings' => Statamic::get_listings()
@@ -671,6 +671,8 @@ $admin_app->post('/publish', function() use ($admin_app) {
       $fields_data = $fs->get_data();
       $field_settings = $fields_data['fields'];
     }
+  } else {
+    $field_settings = array_get($data, 'fields', array());
   }
 
   /*
@@ -825,12 +827,12 @@ $admin_app->post('/publish', function() use ($admin_app) {
       if (Config::getEntryTimestamps()) {
         $new_timestamp = $form_data['meta']['publish-time'];
         $new_datestamp = $form_data['meta']['publish-date'];
-        $new_file = $content_root . "/" . dirname($path) . "/" . $status_prefix .  $new_datestamp . "-" . $new_timestamp . "-" . $new_slug.".".$content_type;
+        $new_file = Path::assemble($content_root, dirname($path), $status_prefix . $new_datestamp . "-" . $new_timestamp . "-" . $new_slug.".".$content_type);
 
       // Without Timestamps
       } else {
         $new_datestamp = $form_data['meta']['publish-date'];
-        $new_file = $content_root . "/" . dirname($path) . "/" . $status_prefix . $new_datestamp . "-" . $new_slug.".".$content_type;
+        $new_file = Path::assemble($content_root, dirname($path), $status_prefix . $new_datestamp . "-" . $new_slug.".".$content_type);
       }
 
     // Numerical Entry
@@ -1146,11 +1148,12 @@ $admin_app->get('/publish', function() use ($admin_app) {
 
         }
       } else {
-        if (isset($data['_fieldset'])) {
-          $fs = Statamic_Fieldset::load($data['_fieldset']);
+        $fieldset = array_get($data, '_fieldset', Config::get('default_fieldset'));
+        if ($fieldset) {
+          $fs = Statamic_Fieldset::load($fieldset);
           $fields_data = $fs->get_data();
-          $data['fields'] = isset($fields_data['fields']) ? $fields_data['fields'] : array();
-          $data['fieldset'] = $data['_fieldset'];
+          $data['fields'] = array_get($fields_data, 'fields', array());
+          $data['fieldset'] = $fieldset;
         }
         $data['type'] = 'none';
       }
@@ -1211,8 +1214,8 @@ $admin_app->get('/publish', function() use ($admin_app) {
     $data['return'] = $app->request()->getRootUri() . $custom_return;
   } else {
     $data['return'] = ($data['type'] == 'none')
-                      ? $app->urlFor('pages')."?path=".$folder
-                      : $app->urlFor('entries')."?path=".$folder;
+                      ? $app->urlFor('pages')."?path=".Path::addStartingSlash($folder)
+                      : $app->urlFor('entries')."?path=".Path::addStartingSlash($folder);
   }
 
   $data['templates'] = Theme::getTemplates();
@@ -1259,6 +1262,10 @@ $admin_app->post('/member', function() use ($admin_app) {
     
   // prepare submission
   array_walk_recursive($submission, function(&$item, $key) {
+      // we don't need to special-chars a password
+      if (strpos($key, '[password]') !== 0) {
+          return;
+      }
       $item = htmlspecialchars($item);
   });
     
@@ -1441,9 +1448,11 @@ $admin_app->get('/account', function() use ($admin_app) {
   authenticateForRole('admin');
   doStatamicVersionCheck($admin_app);
 
-  $template_list = array("account");
-  Statamic_View::set_templates(array_reverse($template_list));
-  $admin_app->render(null, array('route' => 'members', 'app' => $admin_app));
+  $user = Auth::getCurrentMember();
+  $username = $user->get('username');
+
+  $admin_app->redirect($admin_app->urlFor('member').'?name=' . $username);
+
 })->name('account');
 
 
@@ -1570,6 +1579,8 @@ $admin_app->get('/system/logs', function() use ($admin_app) {
       // we have found at least one valid log
       $data['logs_exist'] = TRUE;
     }
+
+    ksort($data['logs']);
 
     closedir($dir);
 

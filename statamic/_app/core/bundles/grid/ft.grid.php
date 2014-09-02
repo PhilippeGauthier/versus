@@ -14,11 +14,11 @@ class Fieldtype_grid extends Fieldtype
     {
         // determine boundaries
         $max_rows = array_get($this->field_config, 'max_rows', false);
-        $min_rows = array_get($this->field_config, 'min_rows', false);
+        $min_rows = array_get($this->field_config, 'min_rows', 0);
 
         $max_rows_attr = ($max_rows) ? " data-max-rows='$max_rows'" : '';
         $min_rows_attr = ($min_rows) ? " data-min-rows='$min_rows'" : '';
-        $starting_rows = array_get($this->field_config, 'starting_rows', 1);
+        $starting_rows = array_get($this->field_config, 'starting_rows');
 
         // create header row
         // -------------------------------------------------------------------------
@@ -38,12 +38,13 @@ class Fieldtype_grid extends Fieldtype
         // -------------------------------------------------------------------------
         $html .= "<tbody>\n";
 
-        # rows to render, in order will prefer: starting_rows, min_rows, 1
-
-        if (isset($this->field_config['min_rows']) && is_numeric($this->field_config['min_rows'])) {
-            $rows_to_render = $this->field_config['min_rows'];
-        } else {
+        # rows to render
+        if ($starting_rows && $starting_rows > $min_rows) {
             $rows_to_render = $starting_rows;
+        } elseif ($min_rows) {
+            $rows_to_render = $min_rows;
+        } else {
+            $rows_to_render = 1;
         }
 
         # render the rows

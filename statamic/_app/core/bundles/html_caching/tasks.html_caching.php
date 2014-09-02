@@ -138,8 +138,27 @@ class Tasks_html_caching extends Tasks
         
         $this->cache->put(Helper::makeHash($url), $html);
     }
-    
-    
+
+
+    /**
+     * Invalidated the cache
+     * 
+     * @param string  $url  An optional URL to invalidate the HTML cache for
+     * @return void
+     */
+    public function invalidateCache($url=null)
+    {
+        // url-specific
+        if (!is_null($url) && $this->isPageCached($url)) {
+            $this->cache->delete(Helper::makeHash($url));
+            return;
+        }
+        
+        // the whole thing
+        $this->cache->destroy();
+    }
+
+
     /**
      * Strips out the query string from a URL
      * 

@@ -6,7 +6,7 @@ class Plugin_member extends Plugin
         // parse parameters and vars
         $attr_string          = '';
         $site_root            = Config::getSiteRoot();
-        $return               = $this->fetchParam('return', $this->fetchConfig('member_home', $site_root), null, false, false);
+        $return               = $this->fetchParam('return', URL::getCurrent(), null, false, false);
         $allow_request_return = $this->fetchParam('allow_request_return', false, null, true, false);
         $logged_in_redirect   = $this->fetchParam('logged_in_redirect', $return, null, false, false);
         $attr                 = $this->fetchParam('attr', false);
@@ -55,7 +55,7 @@ class Plugin_member extends Plugin
     
     public function logout_url()
     {
-        $return = $this->fetchParam('return', '/');
+        $return = $this->fetchParam('return', URL::getCurrent());
         return URL::assemble(Config::getSiteRoot(), "TRIGGER", 'member', "logout?return={$return}");
     }
     
@@ -75,7 +75,7 @@ class Plugin_member extends Plugin
 
         $attr_string          = '';
         $site_root            = Config::getSiteRoot();
-        $return               = $this->fetchParam('return', $site_root, null, false, false);
+        $return               = $this->fetchParam('return', URL::getCurrent(), null, false, false);
         $allow_request_return = $this->fetchParam('allow_request_return', false, null, true, false);
         $attr                 = $this->fetchParam('attr', false);
         $auto_login           = (int) $this->fetchParam('auto_login', true, null, true, false);
@@ -139,7 +139,7 @@ class Plugin_member extends Plugin
         $member       = Auth::getCurrentMember();
         $site_root    = Config::getSiteRoot();
         $username     = $this->fetchParam('username', $member->get('username'));
-        $return       = $this->fetchParam('return', $site_root, null, false, false);
+        $return       = $this->fetchParam('return', URL::getCurrent(), null, false, false);
         $attr         = $this->fetchParam('attr', false);
         
         // get old values
@@ -232,24 +232,33 @@ class Plugin_member extends Plugin
     {
         // parse parameters
         $username = $this->fetchParam(array('username', 'name', 'member'), null, false, false, false);
+        $uid      = $this->fetchParam('uid', null, false, false, false);
 
-        // no username? try to use the current user
-        if (!$username) {
-            $user = Auth::getCurrentMember();
-
-            if ($user) {
-                $username = $user->get('name');
-            } else {
-                return array('no_results' => true);
-            }
+        if ($username) {  // username
+            return Member::getProfile($username);
+        } elseif ($uid) {  // uid
+            return Member::getProfileByUID($uid);
         }
+        
+        // neither of those? try the current user
+        $user = Auth::getCurrentMember();
 
-        return Member::getProfile($username);
+        if ($user) {
+            $username = $user->get('name');
+            return Member::getProfile($username);
+        } else {
+            return array('no_results' => true);
+        }
     }
 
     
     public function listing()
     {
+        if (Config::get('disable_member_cache')) {
+            $this->log->error("Cannot use `member:listing` when `_disable_member_cache` is `true`.");
+            return Parse::template($this->content, array('no_results' => true));
+        }
+        
         // grab common parameters
         $settings = $this->parseCommonParameters();
 
@@ -337,7 +346,8 @@ class Plugin_member extends Plugin
         // determine filters
         $filters = array(
             'role'       => $this->fetchParam('role', null, false, false, false),
-            'conditions' => trim($this->fetchParam('conditions', null, false, false, false))
+            'conditions' => trim($this->fetchParam('conditions', null, false, false, false)),
+            'where'      => trim($this->fetchParam('where', null, false, false, false))
         );
 
         // determine other factors

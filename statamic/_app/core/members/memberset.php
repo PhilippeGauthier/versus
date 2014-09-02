@@ -86,12 +86,14 @@ class MemberSet
         
         $roles = null;
         $conditions = null;
+        $where = null;
         
         // standardize filters
         $given_filters = $filters;
         $filters = array(
             'role'        => (isset($given_filters['role']))       ? $given_filters['role']       : null,
-            'conditions'  => (isset($given_filters['conditions'])) ? $given_filters['conditions'] : null
+            'conditions'  => (isset($given_filters['conditions'])) ? $given_filters['conditions'] : null,
+            'where'       => (isset($given_filters['where']))      ? $given_filters['where']      : null
         );
         
         // determine filters
@@ -101,6 +103,10 @@ class MemberSet
         
         if ($filters['conditions']) {
             $conditions = Parse::conditions($filters['conditions']);
+        }
+        
+        if ($filters['where']) {
+            $where = $filters['where'];
         }
         
         // run filters
@@ -118,6 +124,11 @@ class MemberSet
                     unset($this->members[$username]);
                     continue;
                 }
+            }
+
+            if ($where && !(bool) Parse::template("{{ if " . $where . " }}1{{ else }}0{{ endif }}", $data)) {
+                unset($this->members[$username]);
+                continue;
             }
             
             if ($conditions) {

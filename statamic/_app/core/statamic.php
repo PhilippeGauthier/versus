@@ -89,9 +89,9 @@ class Statamic
         |
         */
 
-        $settings_to_parse .= "\n\n_routes:\n" . preg_replace("/\n/", "\n  ", File::get(Config::getConfigPath() . '/routes.yaml'));
-        $settings_to_parse .= "\n\n_vanity_urls:\n" . preg_replace("/\n/", "\n  ", File::get(Config::getConfigPath() . '/vanity.yaml'));
-
+        $settings_to_parse .= "\n\n_routes:\n  " . trim(preg_replace("/\n/", "\n  ", File::get(Config::getConfigPath() . '/routes.yaml')));
+        $settings_to_parse .= "\n\n_vanity_urls:\n  " . trim(preg_replace("/\n/", "\n  ", File::get(Config::getConfigPath() . '/vanity.yaml')));
+                
         /*
         |--------------------------------------------------------------------------
         | Global Variables
@@ -105,15 +105,16 @@ class Statamic
         if (Folder::exists($config_files_location = Config::getConfigPath())) {            
             $files = glob($config_files_location . '/*.yaml');
             
-            foreach ($files as $file) {
-                if (strpos($file, 'routes.yaml') !== false || strpos($file, 'vanity.yaml') !== false || strpos($file, 'settings.yaml')) {
-                    continue;
+            if ($files) {
+                foreach ($files as $file) {
+                    if (strpos($file, 'routes.yaml') !== false || strpos($file, 'vanity.yaml') !== false || strpos($file, 'settings.yaml')) {
+                        continue;
+                    }
+                    
+                    $settings_to_parse .= "\n\n" . File::get($file);
                 }
-                
-                $settings_to_parse .= "\n\n" . File::get($file);
             }
         }
-
 
         /*
         |--------------------------------------------------------------------------
@@ -142,10 +143,12 @@ class Statamic
         $settings_to_parse = '';
 
         if (Folder::exists($theme_files_location = Path::assemble(BASE_PATH, $themes_path, $theme_name))) {
-            $theme_files = glob($theme_files_location . '/*.yaml');
+            $theme_files = glob(Path::tidy($theme_files_location . '/*.yaml'));
 
-            foreach ($theme_files as $file) {
-                $settings_to_parse .= "\n\n" . File::get($file);
+            if ($theme_files) {
+                foreach ($theme_files as $file) {
+                    $settings_to_parse .= "\n\n" . File::get($file);
+                }
             }
         }
         
@@ -1090,6 +1093,11 @@ class Statamic
 
         foreach ($files as $file) {
             $slug = Path::trimSlashes(Path::makeRelative($file->getPath(), Config::getContentRoot()));
+
+            // handle root listing
+            if ($slug == '.') {
+                $slug = '/';
+            }
 
             $meta = array(
                 'slug'  => $slug,

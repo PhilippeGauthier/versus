@@ -58,7 +58,6 @@ class Hooks_member extends Hooks
         $referrer    = Request::getReferrer();
         $token       = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
         $return      = filter_input(INPUT_POST, 'return', FILTER_SANITIZE_STRING);
-        $return        = ($return) ? $return : $this->fetchConfig('member_home', $site_root, null, false, false);
         $auto_login  = (bool) filter_input(INPUT_POST, 'auto_login', FILTER_SANITIZE_NUMBER_INT);
 
         // validate form token
@@ -169,6 +168,9 @@ class Hooks_member extends Hooks
             
             // save member
             $member->save();
+            
+            // trigger a hook
+            $this->runHook('register', 'call', null, $member);
 
             // user saved
             $this->flash->set('register_success', 'Member created.');
@@ -273,6 +275,9 @@ class Hooks_member extends Hooks
         } else {
             // save member
             $member->save();
+            
+            // trigger a hook
+            $this->runHook('profile_update', 'call', null, $member);
 
             // user saved
             $this->flash->set('update_profile_success', 'Member profile updated.');

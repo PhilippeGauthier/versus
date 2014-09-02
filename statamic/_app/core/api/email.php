@@ -23,7 +23,7 @@ class Email
      *
      * @var array
      */
-    public static $allowed = array('to', 'from', 'subject', 'cc', 'bcc', 'headers', 'text', 'html', 'mail_handler', 'mail_handler_key');
+    public static $allowed = array('to', 'from', 'subject', 'cc', 'bcc', 'headers', 'text', 'html', 'email_handler', 'email_handler_key');
 
 
     /**
@@ -161,7 +161,7 @@ class Email
                     }
 
                     if (array_get($attributes, 'smtp:auth', false) === TRUE) {
-                        $email->SMTPAuth = TTRUE;
+                        $email->SMTPAuth = TRUE;
                     }
 
                     if ($smtp_username = array_get($attributes, 'smtp:username', false)) {

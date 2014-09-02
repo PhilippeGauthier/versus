@@ -42,9 +42,14 @@
 
       <?php if (CP_Helper::is_page_visible($page)): ?>
 
-      <li class="page">
+      <li class="page" data-url="<?php echo $page['url'] ?>">
         <?php if (array_get($page, 'has_entries', false)): ?> <div class="has-entries"></div><?php endif ?>
         <div class="page-wrapper">
+          <?php if (isset($page['children']) && (sizeof($page['children'])> 0)): ?>
+            <button class="toggle-children">
+              <span class="ss-icon">downright</span>
+            </button>
+          <?php endif; ?>
           <div class="page-primary">
           <?php
           $base = $page['slug'];

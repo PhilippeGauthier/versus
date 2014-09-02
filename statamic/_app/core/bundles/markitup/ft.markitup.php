@@ -23,6 +23,7 @@ class Fieldtype_markitup extends Fieldtype
 
     // build field
     $height = isset($this->field_config['height']) ? $this->field_config['height'].'px' : '300px';
+    $required_str = ($this->is_required) ? "data-required='true'" : '';
     $html = "
       <textarea
         name='{$this->fieldname}'
@@ -31,6 +32,7 @@ class Fieldtype_markitup extends Fieldtype
         class='input-textarea markitup'
         data-image-url='{$image_url}'
         data-file-url='{$file_url}'
+        {$required_str}
       >{$this->field_data}</textarea>";
 
     return $html;

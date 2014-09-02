@@ -5,7 +5,8 @@ class Fieldtype_redactor extends Fieldtype {
 
     function render() {
         self::$field_settings = $this->field_config;
-        $html = "<div class='redactor-container'><textarea name='{$this->fieldname}' tabindex='{$this->tabindex}'>{$this->field_data}</textarea></div>";
+        $required_str = ($this->is_required) ? "data-required='true'" : '';
+        $html = "<div class='redactor-container'><textarea name='{$this->fieldname}' tabindex='{$this->tabindex}' {$required_str}>{$this->field_data}</textarea></div>";
 
         return $html;
     }

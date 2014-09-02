@@ -248,6 +248,12 @@ class ContentSet
                 continue;
             }
 
+            // where
+            if ($where && !(bool) Parse::template("{{ if " . $where . " }}1{{ else }}0{{ endif }}", $data)) {
+                unset($this->content[$key]);
+                continue;
+            }
+
             // conditions
             if ($conditions) {
                 $case_sensitive_taxonomies  = Config::getTaxonomyCaseSensitive();
@@ -739,13 +745,14 @@ class ContentSet
      * Supplements the content in the set
      *
      * @param array  $context  Context for supplementing
+     * @param bool  $override  Override the check to see if this has already been supplemented
      * @return void
      */
-    public function supplement($context=array())
+    public function supplement($context=array(), $override=false)
     {
         $hash = Debug::markStart('content', 'supplementing');
         
-        if ($this->supplemented) {
+        if ($this->supplemented && !$override) {
             return;
         }
 
@@ -798,7 +805,7 @@ class ContentSet
                     if ($center_point) {
                         $location = array($data['latitude'], $data['longitude']);
                         $data['distance_km'] = Math::getDistanceInKilometers($center_point, $location);
-                        $data['distance_mi'] = Math::convertKilometersToMiles($data['distance_km']['distance_km']);
+                        $data['distance_mi'] = Math::convertKilometersToMiles($data['distance_km']);
                     }
                 }
             }

@@ -155,14 +155,14 @@ class Resource
         }
 
         if (!$file) {
-            Log::error("Could not find files to load the `{$addon}` {$name}.", "API", "Resource");
-            throw new Exception("Could not find files to load the `{$addon}` {$name}.");
+//            Log::error("Could not find files to load the `{$addon}` {$name}.", "API", "Resource");
+            throw new ResourceNotFoundException("Could not find files to load the `{$addon}` {$name}.");
         }
 
         $class = ucwords($name) . "_" . $addon;
 
         if (!class_exists($class)) {
-            throw new Exception("Improperly formatted {$name} object.");
+            throw new ResourceNotFoundException("Improperly formatted {$name} object.");
         }
 
         return new $class();

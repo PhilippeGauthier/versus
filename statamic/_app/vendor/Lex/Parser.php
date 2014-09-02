@@ -572,7 +572,7 @@ class Parser
                             $offset = (isset($parameters['offset'])) ? $parameters['offset'] : 0;
                             $limit  = (isset($parameters['limit'])) ? $parameters['limit'] : null;
 
-                            $values = array_splice($values, $offset, $limit);
+                            $values = array_slice($values, $offset, $limit);
                         }
 
 
@@ -1022,7 +1022,7 @@ class Parser
 
         // <statamic>
         // expand allowed characters in variable regex
-        $this->variableRegex = '[a-zA-Z0-9_][|a-zA-Z\-\+\*%\^\/,0-9_\.'.$glue.']*';
+        $this->variableRegex = '\b(?!if|unless\s)[a-zA-Z0-9_][|a-zA-Z\-\+\*%\^\/,0-9_\.'.$glue.']*';
         // </statamic>
         $this->callbackNameRegex = $this->variableRegex.$glue.$this->variableRegex;
         $this->variableLoopRegex = '/\{\{\s*('.$this->variableRegex.')\s*\}\}(.*?)\{\{\s*\/\1\s*\}\}/ms';

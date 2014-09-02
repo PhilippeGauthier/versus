@@ -187,10 +187,8 @@ $(function() {
         var self = this;
         self.lang = lang;
         self.uploadType = uploadType;
-        // one-time setup
-        if ( ! self.modal.hasClass('initialized')) {
-          self.init(markItUp, uploadType, lang);
-        }
+        // setup
+        self.init(markItUp, uploadType, lang);
         // reset
         self.reset();
         // show modal
@@ -208,17 +206,19 @@ $(function() {
       // bind uploader to field
       $('#miu-file').fileupload({
           dataType: 'json',
-          url: markItUp.textarea.dataset[uploadType+'Url'],
+          url: markItUp.textarea.dataset[self.uploadType+'Url'],
           dropzone: self.dropzone,
           replaceFileInput: false, // prevent 'no file chosen' when a file is chosen
           done: function (e, data) {
             self.uploadComplete(data);
           }
       });      
-      // dropzone effects
-      self.bindDropzoneEffects();
-      // mark
-      self.modal.addClass('initialized');
+      if ( ! self.modal.hasClass('initialized')) {
+        // dropzone effects
+        self.bindDropzoneEffects();
+        // mark
+        self.modal.addClass('initialized');
+      }
     },
     reset: function() {
       var self = this;
@@ -248,7 +248,7 @@ $(function() {
         var alt = this.alt || '';
         var url = this.img;
 
-        if (self.uploadType == 'image') {
+        if (this.uploadType == 'image') {
 
           if (this.lang === 'markdown') {
               var str = '!['+alt+']('+url+')';
@@ -434,12 +434,27 @@ $(function() {
   /////////////////////////////////////////
 
   // Patch to rename the ids to something, anything unique
-  $('#rename_me').attr('id', randomString());
+  var renameMeReplacement = function() {
+    $('[id^=rename_me]').each(function(){
+      var $el = $(this);
+      var currentId = $el.attr('id');
+      var name = $el.attr('name');
+      name = name.replace(/\[|\]/g, '');
+      var newId = currentId.replace('rename_me', name);
+
+      $el.attr('id', newId);
+
+      if ($el.attr('type') == 'checkbox' || $el.attr('type') == 'radio') {
+        $el.next().attr('for', newId);
+      }
+    });
+  }
+  renameMeReplacement();
 
   var checkGridState = function($grid) {
     var opacity,
       max_rows = parseInt($grid.data("maxRows"), 10) || Infinity,
-      rows = $grid.find("tbody tr").length;
+      rows = $grid.find("> tbody > tr").length;
 
     opacity = (rows >= max_rows) ? 0.2 : 1.0;
     $grid.next("a.grid-add-row").css("opacity", opacity);
@@ -481,11 +496,10 @@ $(function() {
           return output;
         });
       });
-
       $(this).attr("name", newName);
 
-      // Patch to rename the ids to something, anything unique
-      $('#rename_me').attr('id', randomString());
+      // adjust the 'rename_me' fields
+      renameMeReplacement();
 
     });
   };
@@ -640,14 +654,33 @@ $(function() {
 
   $('.btn-remove-file').on('click', function(e) {
     e.preventDefault();
-    var name = $(this).next('input').attr('name');
+    var btn = $(this);
+    var field = btn.closest('.file-field-container');
+    var name = field.find('select').attr('name');
 
-    $(this).parent().parent().append(
-      $('<p />').append($('<input/>').attr('type', 'file').attr('name', name))
+    field.removeClass('file-exists').append(
+      $('<p><input type="file" name="'+name+'" />')
     );
 
-    $(this).parent().remove();
+    btn.parent().remove();
   });
+
+  $('body').on('click', '.btn-file-browse', function(e){
+    e.preventDefault();
+    var btn = $(this);
+    var file = btn.parent().find('input[type=file]');
+    var name = file.attr('name');
+    var select = btn.parent().find('select');
+    if (select.is(':hidden')) {
+      select.show();
+      file.hide().attr('name', '');
+      btn.find('span').text('upload');
+    } else {
+      select.hide();
+      file.show().attr('name', name);
+      btn.find('span').text('openfolder');
+    }
+  })
 
   /////////////////////////////////////////
   //
@@ -673,5 +706,56 @@ $(function() {
       return string;
   }
 
-});
 
+  /////////////////////////////////////////
+  //
+  // Expandable Pages
+  //
+  /////////////////////////////////////////
+
+  function supportsLocalStorage() {
+    try {
+      return 'localStorage' in window && window['localStorage'] !== null;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  $(function(){
+    var hiddenPages = {};
+
+    // Hide previously closed nodes on load
+    if (supportsLocalStorage && localStorage['hiddenPages']) {
+      hiddenPages = JSON.parse(localStorage['hiddenPages']);
+      var tree = $('#page-tree');
+      _.each(hiddenPages, function(val, url) {
+        var node = tree.find('.page[data-url="'+url+'"]');
+        node.children('.subpages').hide();
+        node.find('.toggle-children .ss-icon').text('right')
+      });
+    }
+
+    // Toggle on click
+    $('.toggle-children').on('click', function() {
+      var btn      = $(this);
+      var page     = btn.closest('.page');
+      var url      = page.attr('data-url');
+      var icon     = btn.find('.ss-icon');
+      var hidden   = (icon.text() == 'right');
+      var iconText = (hidden) ? 'downright' : 'right';
+      icon.text(iconText);
+      $(this).parent().siblings('.subpages').toggle();
+
+      // Save state to local storage
+      if (supportsLocalStorage) {
+        if (!(url in hiddenPages)) {
+          hiddenPages[url] = true;
+        } else {
+          delete hiddenPages[url];
+        }
+        localStorage['hiddenPages'] = JSON.stringify(hiddenPages);
+      }
+    });
+  });
+
+});

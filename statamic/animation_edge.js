@@ -5,7 +5,7 @@
 //images folder
 var im='images/';
 
-var fonts = {};    fonts['neusasemibold, Helvetica, \'Arial sans-serif\', Georgia, Cambria, "Times New Roman", Times, serif']='<link rel=\"stylesheet\" href=\"http://contestabili.com/assets/webfonts/neusa/stylesheet.css\" type=\"text/css\" charset=\"utf-8\" />';
+var fonts = {};    fonts['neusasemibold, Helvetica, \'Arial sans-serif\', Georgia, Cambria, "Times New Roman", Times, serif']='<link rel=\"stylesheet\" href=\"_themes/main/css/main.min.css\" type=\"text/css\" charset=\"utf-8\" />';
 
 var opts = {
     'gAudioPreloadPreference': 'auto',

@@ -15,7 +15,6 @@ fields:
     fields:
       steveContent:
         display: Steve Text
-        required: true
         width: 40%
         type: redactor
       bioDate:
@@ -24,7 +23,6 @@ fields:
         width: 10%
       alexisContent:
         display: Alexis Text
-        required: true
         width: 40%
         type: redactor
       padding:

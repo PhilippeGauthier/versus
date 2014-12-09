@@ -11,7 +11,7 @@ class Modifier_relative extends Modifier
 {
     public function index($value, $parameters = array())
     {
-        if (is_int($value)) {
+        if (is_numeric($value)) {
             // this is a timestamp
             return Carbon::createFromTimestamp($value)->diffForHumans();
         } else {

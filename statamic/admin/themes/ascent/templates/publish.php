@@ -201,7 +201,8 @@
     </div>
 
     <div id="publish-action" class="footer-controls push-down">
-      <input type="submit" class="btn" value="<?php echo Localization::fetch('save_publish') ?>" id="publish-submit">
+      <button type="submit" class="btn" id="publish-submit"><?php echo Localization::fetch('save_publish') ?></button>
+      <button type="submit" class="btn" id="publish-continue-submit" name="continue" value="true"><?php echo Localization::fetch('save_publish_continue') ?></button>
     </div>
 
   </form>

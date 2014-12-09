@@ -12,7 +12,6 @@
 # with this source code.
 #
 #
-
 namespace erusev;
 
 class ParsedownExtra extends Parsedown
@@ -67,7 +66,7 @@ class ParsedownExtra extends Parsedown
     {
         $Block = parent::identifyAtx($Line);
 
-        if (preg_match('/[ ]*'.$this->attributesPattern.'[ ]*$/', $Block['element']['text'], $matches, PREG_OFFSET_CAPTURE))
+        if (preg_match('/[ #]*'.$this->attributesPattern.'[ ]*$/', $Block['element']['text'], $matches, PREG_OFFSET_CAPTURE))
         {
             $attributeString = $matches[1][0];
 
@@ -157,6 +156,55 @@ class ParsedownExtra extends Parsedown
 
             $Block['element']['text'] = substr($Block['element']['text'], 0, $matches[0][1]);
         }
+
+        return $Block;
+    }
+
+    #
+    # Markup
+
+    protected function completeMarkup($Block)
+    {
+        $DOMDocument = new \DOMDocument;
+
+        $DOMDocument->loadXML($Block['element'], LIBXML_NOERROR | LIBXML_NOWARNING);
+
+        if ($DOMDocument->documentElement === null)
+        {
+            return $Block;
+        }
+
+        $result = $DOMDocument->documentElement->getAttribute('markdown');
+
+        if ($result !== '1')
+        {
+            return $Block;
+        }
+
+        $DOMDocument->documentElement->removeAttribute('markdown');
+
+        $index = 0;
+        $texts = array();
+
+        foreach ($DOMDocument->documentElement->childNodes as $Node)
+        {
+            if ($Node instanceof DOMText)
+            {
+                $texts [] = $this->text($Node->nodeValue);
+
+                # replaces the text of the node with a placeholder
+                $Node->nodeValue = '\x1A'.$index ++;
+            }
+        }
+
+        $markup = $DOMDocument->saveXML($DOMDocument->documentElement);
+
+        foreach ($texts as $index => $text)
+        {
+            $markup = str_replace('\x1A'.$index, $text, $markup);
+        }
+
+        $Block['element'] = $markup;
 
         return $Block;
     }
@@ -317,6 +365,7 @@ class ParsedownExtra extends Parsedown
             }
 
             $text = $Data['text'];
+            $text = $this->line($text);
 
             foreach (range(1, $Data['count']) as $number)
             {

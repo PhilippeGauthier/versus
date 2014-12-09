@@ -342,6 +342,7 @@ class Plugin_pages extends Plugin
             'sort_by'       => $this->fetchParam('sort_by', 'order_key'),
             'sort_dir'      => $this->fetchParam('sort_dir')
         );
+        $other['sort'] = $this->fetchParam('sort', $other['sort_by'] . ' ' . $other['sort_dir'], null, false, null);
 
         return $other + $supplements + $filters + $folders;
     }
@@ -383,7 +384,7 @@ class Plugin_pages extends Plugin
             $content_set->supplement(array('total_found' => $total_entries) + $settings);
 
             // sort
-            $content_set->sort($settings['sort_by'], $settings['sort_dir']);
+            $content_set->multisort($settings['sort']);
 
             // store content as blink content for future use
             $this->blink->set($content_hash, $content_set->extract());

@@ -68,6 +68,15 @@ class Parsedown
         return $this;
     }
 
+    private $markupEscaped;
+
+    function setMarkupEscaped($markupEscaped)
+    {
+        $this->markupEscaped = $markupEscaped;
+
+        return $this;
+    }
+
     #
     # Lines
     #
@@ -281,7 +290,7 @@ class Parsedown
 
             $Block = array(
                 'element' => array(
-                    'name' => 'h'.$level,
+                    'name' => 'h' . min(6, $level),
                     'text' => $text,
                     'handler' => 'line',
                 ),
@@ -352,6 +361,11 @@ class Parsedown
 
     protected function identifyComment($Line)
     {
+        if ($this->markupEscaped)
+        {
+            return;
+        }
+
         if (isset($Line['text'][3]) and $Line['text'][3] === '-' and $Line['text'][2] === '-' and $Line['text'][1] === '!')
         {
             $Block = array(
@@ -621,7 +635,12 @@ class Parsedown
 
     protected function identifyMarkup($Line)
     {
-        if (preg_match('/^<(\w[\w\d]*)(?:[ ][^>\/]*)?(\/?)[ ]*>/', $Line['text'], $matches))
+        if ($this->markupEscaped)
+        {
+            return;
+        }
+
+        if (preg_match('/^<(\w[\w\d]*)(?:[ ][^>]*)?(\/?)[ ]*>/', $Line['text'], $matches))
         {
             if (in_array($matches[1], $this->textLevelElements))
             {
@@ -1146,6 +1165,11 @@ class Parsedown
 
     protected function identifyTag($Excerpt)
     {
+        if ($this->markupEscaped)
+        {
+            return;
+        }
+
         if (strpos($Excerpt['text'], '>') !== false and preg_match('/^<\/?\w.*?>/', $Excerpt['text'], $matches))
         {
             return array(

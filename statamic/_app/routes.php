@@ -575,7 +575,8 @@ $app->map('/(:segments+)', function ($segments = array()) use ($app) {
     }
     
     // append the response code
-    $data['_http_status'] = $response_code;
+    $data['_http_status']  = $response_code;
+    $data['_response']     = $response_code;
 
     // and go!
     $app->render(null, $data, $response_code);
@@ -670,7 +671,8 @@ $app->map('/(:segments+)', function ($segments = array()) use ($app) {
     }
 
     // append the response code
-    $data['_http_status'] = $response_code;
+    $data['_http_status']  = $response_code;
+    $data['_response']     = $response_code;
 
     // and go!
     $app->render(null, $data, $response_code);

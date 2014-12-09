@@ -228,6 +228,132 @@ class Plugin_member extends Plugin
 
     }
 
+    public function forgot_password_form()
+    {
+        // parse parameters and vars
+        $attr_string          = '';
+        $site_root            = Config::getSiteRoot();
+        $return               = $this->fetchParam('return', URL::getCurrent(), null, false, false);
+        $reset_return         = $this->fetchParam('reset_return', null, null, false, false);
+        $allow_request_return = $this->fetchParam('allow_request_return', false, null, true, false);
+        $logged_in_redirect   = $this->fetchParam('logged_in_redirect', $return, null, false, false);
+        $attr                 = $this->fetchParam('attr', false);
+
+        // check that email template(s) exist
+        if ( 
+            ! Theme::getTemplate($this->fetchConfig('reset_password_html_email', false, null, false, false)) 
+            && ! Theme::getTemplate($this->fetchConfig('reset_password_text_email', false, null, false, false))
+        ) {
+            throw new Exception('Your reset password email template(s) must exist and contain a {{ reset_url }}.');
+        }
+
+        // grab request return
+        $get_return      = filter_input(INPUT_GET, 'return', FILTER_SANITIZE_URL);
+        $post_return     = filter_input(INPUT_POST, 'return', FILTER_SANITIZE_URL);
+        $request_return  = Helper::pick($post_return, $get_return);
+        
+        // is user already logged in? forward as needed
+        if (Auth::isLoggedIn()) {
+            URL::redirect($logged_in_redirect, 302);
+        }
+        
+        // if we're letting return values to be set in URL and one exists, grab it
+        if ($allow_request_return && $request_return) {
+            $return = $request_return;
+        }
+        
+        // set up any data to be parsed into content 
+        $data = array(
+            'error' => $this->flash->get('forgot_password_error', ''),
+            'email_sent' => $this->flash->get('forgot_password_sent')
+        );
+
+        // set up attributes
+        if ($attr) {
+            $attributes_array = Helper::explodeOptions($attr, true);
+            
+            foreach ($attributes_array as $key => $value) {
+                $attr_string .= ' ' . $key . '="' . $value . '"';
+            }
+        }
+
+        // set up form HTML
+        $html  = '<form method="post" action="' . Path::tidy($site_root . "/TRIGGER/member/forgot_password") . '" ' . $attr_string . '>';
+        $html .= '<input type="hidden" name="return" value="' . $return . '">';
+        if ($reset_return) {
+            $html .= '<input type="hidden" name="reset_return" value="' . $reset_return . '">';
+        }
+        $html .= '<input type="hidden" name="token" value="' . $this->tokens->create() . '">';
+        $html .= Parse::template($this->content, $data);
+        $html .= '</form>';
+        
+        // return that HTML
+        return $html;
+    }
+
+    public function reset_password_form()
+    {
+        $data = array();
+        $errors = array();
+
+        // parse parameters and vars
+        $attr_string          = '';
+        $site_root            = Config::getSiteRoot();
+        $logged_in_redirect   = $this->fetchParam('logged_in_redirect', $this->fetchConfig('member_home', $site_root), null, false, false);
+        $attr                 = $this->fetchParam('attr', false);
+        $hash                 = filter_input(INPUT_GET, 'H', FILTER_SANITIZE_URL);
+
+        // is user already logged in? forward as needed
+        if (Auth::isLoggedIn()) {
+            URL::redirect($logged_in_redirect, 302);
+        }        
+
+        // no hash in URL?
+        if (!$hash) {
+            $errors[] = Localization::fetch('reset_password_url_invalid');
+            $data['url_invalid'] = true;
+        }
+
+        if (count($errors) == 0) {
+            // cache file doesn't exist or is too old
+            if (
+                ! $this->cache->exists($hash) 
+                || $this->cache->getAge($hash) > $this->fetchConfig('reset_password_age_limit') * 60
+            ) {
+                $errors[] = Localization::fetch('reset_password_url_expired');
+                $data['expired'] = true;
+            }
+
+            // flash errors
+            if ($flash_error = $this->flash->get('reset_password_error')) {
+                $errors[] = $flash_error;
+            }
+        }
+
+        // set up attributes
+        if ($attr) {
+            $attributes_array = Helper::explodeOptions($attr, true);
+            
+            foreach ($attributes_array as $key => $value) {
+                $attr_string .= ' ' . $key . '="' . $value . '"';
+            }
+        }
+
+        // errors
+        $data['errors'] = $errors;
+
+        // set up form HTML
+        $html  = '<form method="post" action="' . Path::tidy($site_root . "/TRIGGER/member/reset_password") . '" ' . $attr_string . '>';
+        $html .= '<input type="hidden" name="token" value="' . $this->tokens->create() . '">';
+        $html .= '<input type="hidden" name="hash" value="' . $hash . '">';
+        $html .= Parse::template($this->content, $data);
+        $html .= '</form>';
+
+        
+        // return that HTML
+        return $html;
+    }
+
     public function profile()
     {
         // parse parameters

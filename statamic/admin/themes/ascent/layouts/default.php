@@ -86,7 +86,7 @@
           <?php if (CP_Helper::show_page('account', true)): ?>
           <li>
             <a href="<?php echo $app->urlFor("member")."?name={$name}"; ?>">
-              <img src="<?php echo $current_user->getGravatar(26) ?>" height="26" width="26" class="avatar" />
+              <img src="<?php echo $current_user->getGravatar(52) ?>" height="26" width="26" class="avatar" />
               <span class="name"><?php echo Localization::fetch('account') ?></span>
             </a>
           </li>

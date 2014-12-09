@@ -543,6 +543,106 @@ class ContentSet
     /**
      * Sorts the current content by $field and $direction
      *
+     * @param string  $fields  Fields to sort on
+     * @return void
+     */
+    public function multisort($fields="order_key")
+    {
+        $hash = Debug::markStart('content', 'sorting');
+
+        // no content, abort
+        if (!count($this->content)) {
+            return;
+        }
+        
+        // determine type of things being sorted
+        reset($this->content);
+        $sample = $this->content[key($this->content)];
+        $is_date_based = false;
+
+        // if we're sorting by order_key and it's date-based order, default sorting is 'desc'
+        if ($sample['_order_key'] && $sample['datestamp']) {
+            $is_date_based = true;
+        }
+        
+        // determine fields
+        $chunks = explode(',', $fields);
+        foreach ($chunks as &$chunk) {
+            $chunk = explode(' ', trim($chunk));
+            
+            if (count($chunk) === 1) {
+                $chunk[1] = ($is_date_based && $chunk[0] === "order_key") ? 'desc' : 'asc';
+            }
+        }
+
+        // sort by field
+        usort($this->content, function($item_1, $item_2) use ($chunks) {
+            foreach ($chunks as $chunk) {
+                $field = $chunk[0];
+                $direction = $chunk[1];
+                
+                // grab values, translating some user-facing names into internal ones
+                switch ($field) {
+                    case "order_key":
+                        $value_1 = $item_1['_order_key'];
+                        $value_2 = $item_2['_order_key'];
+                        break;
+
+                    case "number":
+                        $value_1 = $item_1['_order_key'];
+                        $value_2 = $item_2['_order_key'];
+                        break;
+
+                    case "datestamp":
+                        $value_1 = $item_1['datestamp'];
+                        $value_2 = $item_2['datestamp'];
+                        break;
+
+                    case "date":
+                        $value_1 = $item_1['datestamp'];
+                        $value_2 = $item_2['datestamp'];
+                        break;
+
+                    case "folder":
+                        $value_1 = $item_1['_folder'];
+                        $value_2 = $item_2['_folder'];
+                        break;
+
+                    case "distance":
+                        $value_1 = $item_1['distance_km'];
+                        $value_2 = $item_2['distance_km'];
+                        break;
+                    
+                    case "random":
+                        return rand(-1, 1);
+                        break;
+
+                    // not a special case, grab the field values if they exist
+                    default:
+                        $value_1 = (isset($item_1[$field])) ? $item_1[$field] : null;
+                        $value_2 = (isset($item_2[$field])) ? $item_2[$field] : null;
+                        break;
+                }
+
+                // compare the two values
+                // ----------------------------------------------------------------
+                $result = Helper::compareValues($value_1, $value_2);
+                
+                if ($result !== 0) {
+                    return ($direction === 'desc') ? $result * -1 : $result;
+                }
+            }
+            
+            return 0;
+        });
+
+        Debug::markEnd($hash);
+    }
+
+
+    /**
+     * Sorts the current content by $field and $direction
+     *
      * @param string  $field  Field to sort on
      * @param string  $direction  Direction to sort
      * @return void
@@ -793,7 +893,7 @@ class ContentSet
 
             // locate
             if ($context['locate_with']) {
-                $location_data = (isset($data[$context['locate_with']])) ? $data[$context['locate_with']] : null;
+                $location_data = array_get($data, $context['locate_with']);
 
                 // check that location data is fully set
                 if (is_array($location_data) && isset($location_data['latitude']) && $location_data['latitude'] && isset($location_data['longitude']) && $location_data['longitude']) {

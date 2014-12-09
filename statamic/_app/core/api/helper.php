@@ -385,4 +385,68 @@ class Helper
 
         return lcfirst(str_replace(' ', '', $value));
     }
+    
+
+    /**
+     * Is a given $ip_address within any of the given $ip_ranges?
+     *
+     * @param string  $ip_address  IP Address to check
+     * @param mixed  $ip_ranges   One or more IP ranges to check
+     * @return boolean
+     */
+    public static function isIPInRange($ip_address, $ip_ranges)
+    {
+        if (!is_array($ip_ranges)) {
+            $ip_ranges = array($ip_ranges);
+        }
+
+        foreach ($ip_ranges as $ip_range) {
+            if (strpos($ip_range, '/')) {
+                // this is a CIDR range
+                list($range, $netmask) = explode('/', $ip_range, 2);
+
+                $range  = (float) sprintf("%u", ip2long($range));
+                $ip     = (float) sprintf("%u", ip2long($ip_address));
+
+                // NOT the wildcard value
+                $wildcard  = pow(2, (32 - $netmask)) - 1;
+                $netmask   = ~$wildcard;
+
+                // check by ANDing the origin IP and the range address
+                $result = (($ip & $netmask) == ($range & $netmask));
+
+                if ($result) {
+                    // found a good one, return true and break out
+                    return true;
+                }
+            } else {
+                if (strpos($ip_range, '-')) {
+                    // this is a start and end range
+                    list($lower, $upper)  = explode('-', $ip_range, 2);
+                } elseif (strpos($ip_range, '*')) {
+                    $lower  = str_replace('*', 0, $ip_range);
+                    $upper  = str_replace('*', 255, $ip_range);
+                } else {
+                    $lower  = $ip_range;
+                    $upper  = $ip_range;
+                }
+
+                // convert to long
+                $lower  = (float) sprintf("%u", ip2long($lower));
+                $upper  = (float) sprintf("%u", ip2long($upper));
+                $ip     = (float) sprintf("%u", ip2long($ip_address));
+
+                // compare
+                $result = (($ip >= $lower) && ($ip <= $upper));
+
+                if ($result) {
+                    // found a good one, return true and break out
+                    return true;
+                }
+            }
+        }
+
+        // didn't find any matches, must be false
+        return false;
+    }
 }

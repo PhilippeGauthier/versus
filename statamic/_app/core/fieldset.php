@@ -77,8 +77,8 @@ class statamic_fieldset
         throw new Exception('Field names may not contain dashes. Please use underscores.');
       }
 
-      if (is_array($val)) {
-        Statamic_Fieldset::checkForDashes($val);
+      if (is_array($val) && isset($val['fields'])) {
+        Statamic_Fieldset::checkForDashes($val['fields']);
       }
     }
   }

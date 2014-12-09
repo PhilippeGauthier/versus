@@ -16,6 +16,7 @@ $orange:   #9e5200;
 $red:      #bf1d2d;
 $yellow:   #debb42;
 $blue:     #2066d0;
+$green:    #3daa5e;
 $lightTan: #edede7;
 $dark:     #61787e;
 
@@ -38,11 +39,16 @@ $linkActiveColor: $orange;
 @import 'grid';
 @import 'fonts';
 @import 'mixins';
+@import 'replicator';
+@import 'table';
+@import 'file';
 @import 'metrics';
 @import 'third-party';
   @import 'vendor/picker/default';
   @import 'vendor/picker/default.date';
   @import 'vendor/picker/default.time';
+  @import 'vendor/redactor/redactor';
+  @import 'vendor/redactor/override';
 
 body {
   background: $lightTan;
@@ -85,7 +91,6 @@ h1, h2, h3, h4, h5, h6 {
 *:focus, {
   outline: none;
 }
-
 
 ///////////////////
 // PAGE: LOGIN
@@ -836,7 +841,7 @@ table.log {
     &.specifically {
       width: 2%;
       padding-left: 3px;
-	white-space: nowrap;
+      white-space: nowrap;
     }
     &.when {
       width: 90px;
@@ -958,7 +963,20 @@ table.log {
 }
 
 
-#publish-submit {margin-bottom: 50px;}
+#publish-submit {margin-bottom: 25px;}
+#publish-submit-continue {margin-bottom: 50px;}
+
+.capitalize {
+  float: right;
+  margin-top: -1em;
+  font-size: 13px;
+
+  .ss-icon {
+    display: inline-block;
+    vertical-align: top;
+    margin: -1px 0 0 0;
+  }
+}
 
 .field {
   position: relative;
@@ -1030,7 +1048,7 @@ table.log {
   }
 }
 
-.block-action {
+.take-action .block-action {
   margin-right: 25px;
   position: relative;
   top: -1px;
@@ -1152,68 +1170,6 @@ code textarea {
 
 .input-hidden {
   display:none;
-}
-
-.file-field-container {
-  @extend .clearfix;
-  @include border-radius(3px);
-  @include border-box;
-  background: $inputBackground;
-  position: relative;
-  display: block;
-  border: 1px solid rgba(0,0,0,.15);
-  box-shadow: inset 0px 1px 2px rgba(0,0,0,.1);
-  padding: 0;
-  width: 100%;
-  input {
-    line-height: 16px;
-  }
-
-  &.file-exists {
-    .btn-file-browse { display: none; }
-  }
-
-  img {
-    float:left;
-    max-height:50px;
-    max-width:50%;
-  }
-  p {
-    margin:0 0 0 10px;
-    float:left;
-    line-height:50px;
-  }
-  .btn {
-    float:right;
-    font-size: 14px;
-    margin:10px 10px 0 0;
-    line-height:25px;
-    padding:2px 15px;
-  }
-  .btn-file-browse {
-    position: absolute;
-    top: 13px;
-    right: 10px;
-    margin: 0;
-    padding: 5px;
-    line-height: 1;
-    cursor: pointer;
-
-    .ss-icon {
-      margin: 0;
-      padding: 0;
-    }
-  }
-  select {
-    width: 90%;
-  }
-}
-
-.grid .cell-grid .cell-file .btn-file-browse {
-  .ss-icon {
-    top: 2px;
-    font-size: 16px;
-  }
 }
 
 .count-placeholder {
@@ -1359,6 +1315,7 @@ code textarea {
         top:0px;
         position: relative;
         line-height:18px;
+        opacity: .6;
       }
       &:hover {
         // @include gradient(#f4f4f4, #e9e9e9);
@@ -1368,7 +1325,7 @@ code textarea {
       }
     }
     th.row-count {font-size:18px;}
-    .action .icon, .ss-icon {font-size:26px; opacity:.6}
+    .action .icon {font-size:26px; opacity:.6}
   }
 }
 .grid-add-row {
@@ -1826,6 +1783,8 @@ code textarea {
     float: left;
     height: 20em;
     border: 1px solid #ccc;
+    position: relative;
+    z-index: 10; // magic number to prevent zoom buttons from overlapping redactor fullscreen mode
   }
 
   .entry {
@@ -1999,66 +1958,23 @@ code textarea {
 // ----------------------------------------------------------------------------
 
 .markituploader {
-  
+
   .modal {
-    width: 360px;
-    margin-left: -180px;
+    width: 450px;
+    margin-left: -225px;
   }
 
-  &.draggable {
-    .miu-dropzone { display: block; }
-    .miu-file { display: none; }
+  .alt {
+    margin-top: 20px;
   }
 
-  label {
-    padding-bottom: 0.4em;
-    display: block;
-  }
-
-  input {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  .drop-area {
     width: 100%;
-    border: 1px solid #ddd;
-    font-size: 1.15em;
-    padding: 0.3em 0.4em;
   }
+
+  .max-files-reached {
+    .drop-area { width: 40%; }
+    padding-left: 40%;
+  }
+
 }
-
-.miu-file {
-  margin-bottom: 20px;
-}
-
-.miu-dropzone {
-  background: $lightTan;
-  border: 2px dashed darken($lightTan, 20);
-  text-align: center;
-  padding: 30px 0 25px;
-  display: none;
-
-  &.in {
-    border-color: darken($lightTan, 40);
-  }
-  &.hover {
-    background: darken($lightTan, 5);
-    color: white;
-  }
-  &.done {
-    border: 2px solid #d6e9c6;
-    background: #dff0d8;
-    padding: 20px;
-    b, .ss-icon { color: #3c763d; }
-    .ss-icon { display: block; }
-  }
-
-  b { color: darken($lightTan, 20); }
-
-  .ss-icon {
-    font-size: 25px;
-    display: inline-block;
-    vertical-align: middle;
-    color: darken($lightTan, 20);
-  }
-}
-

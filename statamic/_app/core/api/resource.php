@@ -17,6 +17,7 @@ class Resource
     const TASKS      = 8;
     const MODIFIER   = 16;
     const API        = 32;
+    const CORE       = 64;
     
     
     /**
@@ -85,6 +86,19 @@ class Resource
     
     
     /**
+     * Attempts to load core
+     * 
+     * @param string  $name  Name of core to load
+     * @return Core
+     * @throws Exception
+     */
+    public static function loadCore($name)
+    {        
+        return self::loadAddonResource(self::CORE, $name);
+    }
+    
+    
+    /**
      * Attempts to load API
      * 
      * @param string  $name  Name of API to load
@@ -133,6 +147,10 @@ class Resource
             self::API => array(
                 'abbreviation' => 'api',
                 'name' => 'API'
+            ),
+            self::CORE => array(
+                'abbreviation' => 'core',
+                'name' => 'Core'
             )
         );
         
@@ -148,7 +166,7 @@ class Resource
 
         // loop through folders looking for addon
         foreach ($folders as $folder) {
-            if (Folder::exists(BASE_PATH.'/'.$folder.$addon) && File::exists(BASE_PATH.'/'.$folder.$addon.'/'.$abbr.'.'.$addon.'.php')) {
+            if (File::exists(BASE_PATH.'/'.$folder.$addon.'/'.$abbr.'.'.$addon.'.php')) {
                 $file = $folder.$addon.'/'.$abbr.'.'.$addon.'.php';
                 break;
             }

@@ -112,6 +112,7 @@ class Fieldtype_suggest extends Fieldtype
 
             // now filter that down to just what we want
             $taxonomy_set->filter(array(
+                "min_count" => 1,
                 "folders"   => array($folder)
             ));
 
@@ -164,8 +165,25 @@ class Fieldtype_suggest extends Fieldtype
         | needed if allow blank is true.
         |
         */
+       
+        if ($max_items === null && $multiple === false) {
+            $max_items = 1;
+        }
 
-        $html = "<div id='$this->field_id'><select name='{$this->fieldname}{$multiple_array_holder}' tabindex='{$this->tabindex}' $multiple_string $placeholder_string class='suggest'>\n";
+        $options = json_encode(array(
+            'sortField'      => 'text',
+            'maxItems'      => $max_items,
+            'delimiter'      => ',',
+            'create'         => array_get($this->field_config, 'create', false),
+            'persist'        => array_get($this->field_config, 'persist', true),
+            'hideSelected'   => array_get($this->field_config, 'hide_selected', true),
+            'sortDirection'  => array_get($this->field_config, 'sort_dir', 'asc'),
+            'plugins'        => array('drag_drop'),
+            'dropdownParent' => 'body'
+        ));
+
+        $html = "<div id='$this->field_id' class='suggest-field-container' data-config='$options'>";
+        $html .= "<select name='{$this->fieldname}{$multiple_array_holder}' tabindex='{$this->tabindex}' $multiple_string $placeholder_string class='suggest'>\n";
 
         $is_indexed = (array_values($suggestions) === $suggestions);
 
@@ -195,61 +213,7 @@ class Fieldtype_suggest extends Fieldtype
         $html .= "</select>";
         $html .= "<div class='count-placeholder'></div></div>";
 
-        /*
-        |--------------------------------------------------------------------------
-        | The JavaScript
-        |--------------------------------------------------------------------------
-        |
-        | Set the config options, instantiate Selectize, and so forth.
-        |
-        */
-
-        if ($max_items === null && $multiple === false) {
-            $max_items = 1;
-        }
-
-        $options = json_encode(array(
-            'sortField'      => 'text',
-            'maxItems'      => $max_items,
-            'delimiter'      => ',',
-            'create'         => array_get($this->field_config, 'create', false),
-            'persist'        => array_get($this->field_config, 'persist', true),
-            'hideSelected'   => array_get($this->field_config, 'hide_selected', true),
-            'sortDirection'  => array_get($this->field_config, 'sort_dir', 'asc'),
-            'plugins'        => array('drag_drop'),
-            'dropdownParent' => 'body'
-        ));
-
-        $html .= "
-        <script>
-        $(function() {
-
-            var selectize = $('#$this->field_id select'),
-                options = $options;
-
-            // @TODO: Rewrite in KO to avoid scoping issues in Grid fields
-            // if (max_items != null) {
-            //    var count = (value === null) ? 0 : value.length,
-            //        value = selectize.val(),
-            //        max_items = $max_items;
-            //        remaining = max_items - count,
-            //        placeholder = $('#$this->field_id .count-placeholder');
-            //     $.extend(options, {
-            //             'onChange': function(value) {
-            //                 count = (value === null) ? 0 : value.length;
-            //                 remaining = max_items - count;
-            //                 placeholder.text(remaining + ' remaining');
-            //             }
-            //         }
-            //     );
-            //     placeholder.text(remaining + ' remaining');
-            // }
-
-            $(selectize).selectize($options);
-        });
-
-        </script>
-        ";
+        $html .= "<script>$('#{$this->field_id}').statamicSuggest();</script>";
 
         return $html;
     }

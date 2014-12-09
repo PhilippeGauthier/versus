@@ -189,7 +189,8 @@ function autoload_statamic($class) {
         'Modifier'  => 'mod',
         'Hooks'     => 'hooks',
         'Tasks'     => 'tasks',
-        'API'       => 'api'
+        'API'       => 'api',
+        'Core'      => 'core'
     );
     
     // loop through known locations looking for files

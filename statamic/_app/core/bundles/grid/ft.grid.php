@@ -115,47 +115,11 @@ class Fieldtype_grid extends Fieldtype
 
     public function process()
     {
-        if (isset($_FILES['page']['name']['yaml'][$this->fieldname])) {
-
-            $grid_field = $_FILES['page']['name']['yaml'][$this->fieldname];
-
-            foreach ($grid_field as $index => $fields) {
-                foreach ($fields as $field => $value) {
-                    if (array_get($this->settings['fields'][$field], 'type') === 'file') {
-                        if ($value != '') {
-                            $file_values = array(
-                                'name'     => $_FILES['page']['name']['yaml'][$this->fieldname][$index][$field],
-                                'type'     => $_FILES['page']['type']['yaml'][$this->fieldname][$index][$field],
-                                'tmp_name' => $_FILES['page']['tmp_name']['yaml'][$this->fieldname][$index][$field],
-                                'error'    => $_FILES['page']['error']['yaml'][$this->fieldname][$index][$field],
-                                'size'     => $_FILES['page']['size']['yaml'][$this->fieldname][$index][$field]
-                            );
-
-                            $this->field_data[$index][$field] = Fieldtype::process_field_data('file', $file_values, $this->settings['fields'][$field]);
-
-                        } else {
-                            if (isset($this->field_data[$index]["{$field}_remove"])) {
-                                $this->field_data[$index][$field] = '';
-                            } else {
-                                $this->field_data[$index][$field] = isset($this->field_data[$index][$field]) ? $this->field_data[$index][$field] : '';
-                            }
-                        }
-
-                        // unset the remove column
-                        if (isset($this->field_data[$index]["{$field}_remove"])) {
-                            unset($this->field_data[$index]["{$field}_remove"]);
-                        }
-                    }
-                }
-            }
-        }
-
         foreach ($this->field_data as $row => $column) {
             foreach ($column as $field => $data) {
-                $the_field_type = array_get($this->settings['fields'][$field], 'type', 'text');
-                if ($the_field_type !== 'file') {
-                    $this->field_data[$row][$field] = Fieldtype::process_field_data($the_field_type, $data);
-                }
+                $settings = $this->settings['fields'][$field];
+                $the_field_type = array_get($settings, 'type', 'text');
+                $this->field_data[$row][$field] = Fieldtype::process_field_data($the_field_type, $data, $settings);
             }
         }
 

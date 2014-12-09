@@ -1,9 +1,7 @@
 <?php
-
-use Symfony\Component\Finder\Finder as Finder;
-
-class Fieldtype_File extends Fieldtype
+class Fieldtype_file extends Fieldtype
 {
+
 	public function render()
 	{
 		// Let's make sure they set an upload destination
@@ -11,82 +9,75 @@ class Fieldtype_File extends Fieldtype
 			throw new Exception("You need to set a destination for your File field.");
 		}
 
-		if ($this->field_data) {
+		// Normalize the destination
+		$this->destination = trim(array_get($this->field_config, 'destination'), '/') . '/';
 
-			$file = Path::toAsset($this->field_data);
+		// Allow a string or an array, but we want an array
+		$has_data = ($this->field_data != '');
+		$this->field_data = Helper::ensureArray($this->field_data);
 
-			$html  = "<div class='file-field-container file-exists'>";
-			$html .= "<div>";
+		// Clean up {{ _site_root }} and lack of leading slash existence
+		foreach ($this->field_data as $i => $file) {
+			$this->field_data[$i] = URL::tidy('/' . str_replace('{{ _site_root }}', '', $file));
+		}
 
-			if (File::isImage(Path::fromAsset($this->field_data, true))) {
-				$html .= "<img src='{$file}' height='58'>";
+		// Whether or not to allow the browse existing files functionality
+		$allow_browse = array_get($this->field_config, 'browse', true);
+
+		// Resizing config
+		if ($resize = array_get($this->field_config, 'resize')) {
+			$resize['resize'] = true;
+			$resize = http_build_query($resize);
+		}
+
+		// If we're in a subdirectory, prepend it to all the filenames
+		if (($site_root = Config::getSiteRoot()) != '/') {
+			foreach ($this->field_data as $i => $file) {
+				$this->field_data[$i] = URL::assemble($site_root, $file);
 			}
-
-			$html .= "<p>".basename($this->field_data)."</p>";
-			$html .= "<a class='btn btn-small btn-remove-file' href='#'>".Localization::fetch('remove')."</a>";
-			$html .= "</div>";
-			$html .= $this->makeFileSelect($file);
-
-		} else {
-
-			$html = "<div class='file-field-container'>";
-			$html .= "<div class='upload-file'>";
-			$html .= "<p><input type='file' name='{$this->fieldname}' tabindex='{$this->tabindex}' value='' /></p>";
-			$html .= $this->makeFileSelect();
-			$html .= "</div>";
-
 		}
 
-		$html .= "</div>";
+		// Send data to the view
+		$vars = array(
+			'field_id'     => $this->field_id,
+			'field_name'   => $this->fieldname,
+			'tabindex'     => $this->tabindex,
+			'has_data'     => $has_data,
+			'field_data'   => $this->field_data,
+			'field_config' => $this->field_config,
+			'destination'  => $this->destination,
+			'allow_browse' => $allow_browse,
+			'server_files' => ($allow_browse) ? json_encode($this->tasks->generateModal($this->field_config, $this->destination)) : null,
+			'file_thumb'   => URL::assemble(Config::getSiteRoot(), Config::get('admin_path'), 'themes', Config::get('admin_theme'), '/img/file.png'),
+			'resize'       => $resize
+		);
+		$template = File::get($this->getAddonLocation() . 'views/fieldtype.html');
 
-		return $html;
+		return Parse::template($template, $vars);
 	}
 
-	private function makeFileSelect($selected_file = null)
-	{
-		$html = "<span class='btn btn-file-browse'><span class='ss-icon'>openfolder</span></span>";
-		$html .= "<p><select name='{$this->fieldname}' style='display:none'>";
-		$html .= "<option value=''>Select a file...</option>";
-
-		$path = Path::assemble(BASE_PATH, array_get($this->field_config, 'destination'));
-
-		$finder = new Finder();
-
-		// Set folder location
-		$finder->in($path);
-
-		// Limit by depth
-		$finder->depth = array_get($this->field_config, 'depth', '<1');
-
-		// Limit by file extension
-		foreach (array_get($this->field_config, array('allowed', 'types'), array()) as $ext) {
-			$finder->name("*.{$ext}");
-		}
-
-		// Fetch matches
-		$matches = $finder->files()->followLinks();
-
-		// Build HTML options
-		foreach ($matches as $file) {
-
-			$filename = Path::toAsset($file->getPathname(), false);
-			$display_name = ltrim(str_replace($path, '', $file->getPathname()), '/');
-			$selected = ($selected_file === $filename) ? 'selected' : '';
-
-			$html .= "<option value='{$filename}' {$selected}>" . $display_name . "</option>";
-		}
-
-
-		$html .= '</select></p>';
-
-		return $html;
-	}
 
 	public function process()
 	{
-		if ($this->field_data['tmp_name'] !== '') {
-			return File::upload($this->field_data, $this->settings['destination'], true);
+		$data = json_decode($this->field_data);
+
+		// Normalize paths if we are running in a subdirectory
+		if (($site_root = Config::getSiteRoot()) != '/') {
+			foreach ($data as $i => $file) {
+				$data[$i] = preg_replace('#^' . $site_root . '#', '/', $file);
+			}
 		}
+
+		// Turn an array with one key into a string
+		if (count($data) == 1){
+			$data = $data[0];
+		}
+		// Turn an empty array into an empty string
+		elseif (count($data) == 0) {
+			$data = '';
+		}
+
+		return $data;
 	}
 
 }

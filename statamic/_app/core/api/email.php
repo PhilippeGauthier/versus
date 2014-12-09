@@ -140,11 +140,11 @@ class Email
                 | idea known to man, so this is really a lackluster fallback.
                 |
                 */
-
+            try {
                 $email = new PHPMailer(true);
 
                 // SMTP
-                if (array_get($attributes, 'smtp', false)) {
+                if ($attributes['smtp'] = array_get($attributes, 'smtp', Config::get('smtp'))) {
                     
                     $email->isSMTP();
 
@@ -178,44 +178,83 @@ class Email
 
                 // PHP MAIL
                 } else {
-                    $email->IsMAIL();
+                    $email->isMail();
                 }
 
                 $email->CharSet = 'UTF-8';
-                $email->AddAddress($attributes['to']);
-                $email->From     = $attributes['from'];
-                $email->FromName = $attributes['from'];
+
+                $from_parts = self::explodeEmailString($attributes['from']);
+                $email->setFrom($from_parts['email'], $from_parts['name']);
+
+                $to = Helper::ensureArray($attributes['to']);
+                foreach ($to as $to_addr) {
+                    $to_parts = self::explodeEmailString($to_addr);
+                    $email->addAddress($to_parts['email'], $to_parts['name']);
+                }
+
                 $email->Subject  = $attributes['subject'];
 
                 if (isset($attributes['html'])) {
-                    $email->Body = $attributes['html'];
-                    $email->IsHTML(true);
+                    $email->msgHTML($attributes['html']);
 
                     if (isset($attributes['text'])) {
                         $email->AltBody = $attributes['text'];
                     }
 
                 } elseif (isset($attributes['text'])) {
-                    $email->Body = $attributes['text'];
-                    $email->IsHTML(false);
+                    $email->msgHTML($attributes['text']);
                 }
 
                 if (isset($attributes['cc'])) {
-                    $email->AddCC($attributes['cc']);
+                    $cc = Helper::ensureArray($attributes['cc']);
+                    foreach ($cc as $cc_addr) {
+                        $cc_parts = self::explodeEmailString($cc_addr);
+                        $email->addCC($cc_parts['email'], $cc_parts['name']);
+                    }                    
                 }
 
                 if (isset($attributes['bcc'])) {
-                    $email->AddBCC($attributes['bcc']);
+                    $bcc = Helper::ensureArray($attributes['bcc']);
+                    foreach ($bcc as $bcc_addr) {
+                        $bcc_parts = self::explodeEmailString($bcc_addr);
+                        $email->addBCC($bcc_parts['email'], $bcc_parts['name']);
+                    }      
                 }
 
-                if ($email->Send()) {
+                $email->send();
 
-                    return true;
+                } catch (phpmailerException $e) {
+                    echo $e->errorMessage(); //error messages from PHPMailer
+                    Log::error($e->errorMessage(), 'core', 'email');
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                    Log::error($e->getMessage(), 'core', 'email');
                 }
+
             }
         }
 
         return false;
+    }
+
+
+    /**
+     * Takes an email string and outputs an email / name array
+     * 
+     * @param  string $email  Email / Name string (eg. "email@domain.com John Smith")
+     * @return array
+     */
+    private static function explodeEmailString($email)
+    {
+        if (preg_match('/^(.*)\s\<(.*)\>/', $email, $matches)) {
+            $name = $matches[1];
+            $email = $matches[2];
+        }
+
+        return array(
+            'email' => $email,
+            'name'  => isset($name) ? $name : null
+        );
     }
 
 

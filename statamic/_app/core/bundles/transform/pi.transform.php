@@ -28,19 +28,44 @@ class Plugin_transform extends Plugin
         | Transform just needs the path to an image to get started. If it exists,
         | the fun begins.
         |
+        | The way to do this changes depending on whether its an internal or
+        | external file.
+        |
         */
 
         $image_src = $this->fetchParam('src', null, false, false, false);
-        
-        // Set full system path
-        $image_path = Path::standardize(Path::fromAsset($image_src));
 
-        // Check if image exists before doing anything.
-        if ( ! File::isImage($image_path)) {
+        // External URL
+        if ($is_external = URL::isExternalUrl($image_src)) {
 
-            Log::error("Could not find requested image to transform: " . $image_path, "core", "Transform");
+            $image_path = $image_src;
 
-            return;
+            // Check if file is an image before doing anything.
+            // @TODO: Maybe check that the file exists.
+            $img_info = pathinfo($image_src);
+            $is_image = in_array($img_info['extension'], array('jpg', 'jpeg', 'png', 'gif'));
+
+            if ( ! $is_image) {
+                Log::error("Requested file is not an image: " . $image_path, "core", "Transform");
+
+                return;
+            }
+
+        }
+
+        // Internal URL
+        else {
+
+            // Set full system path
+            $image_path = Path::standardize(Path::fromAsset($image_src));
+
+            // Check if image exists before doing anything.
+            if ( ! File::isImage($image_path)) {
+                Log::error("Could not find requested image to transform: " . $image_path, "core", "Transform");
+
+                return;
+            }
+
         }
 
 
@@ -98,6 +123,7 @@ class Plugin_transform extends Plugin
         $blur      = $this->fetchParam('blur', false, 'is_numeric');
         $pixelate  = $this->fetchParam('pixelate', false, 'is_numeric');
         $greyscale = $this->fetchParam(array('greyscale', 'grayscale'), false, false, true);
+        $watermark = $this->fetchParam('watermark', false, false, false, false);
 
 
         /*
@@ -112,7 +138,7 @@ class Plugin_transform extends Plugin
         */
 
         // Late modified time of original image
-        $last_modified = File::getLastModified($image_path);
+        $last_modified = ($is_external) ? false : File::getLastModified($image_path);
 
         // Find .jpg, .png, etc
         $extension = File::getExtension($image_path);
@@ -248,6 +274,19 @@ class Plugin_transform extends Plugin
 
         if ($pixelate) {
             $image->pixelate($pixelate);
+        }
+
+        // Positioning options via ordered pipe settings:
+        // source|position|x offset|y offset
+        if ($watermark) {
+            $watermark_options = Helper::explodeOptions($watermark);
+
+            $source = Path::tidy(BASE_PATH . '/' . array_get($watermark_options, 0, null));
+            $anchor = array_get($watermark_options, 1, null);
+            $pos_x  = array_get($watermark_options, 2, 0);
+            $pos_y  = array_get($watermark_options, 3, 0);
+
+            $image->insert($source, $pos_x, $pos_y, $anchor);
         }
 
 

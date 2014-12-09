@@ -352,7 +352,10 @@ class _Cache
                     // set up base variables
                     $parent = null;
 
-                    $order_key = ltrim($item['path'], $home);
+                    // Trim off home and any /page.md ending so that all URLs are treated
+                    // equally regardless of page type.
+                    $order_key = rtrim(ltrim($item['path'], $home), '/page.md');
+
                     $sub_order_key = $item['data']['_order_key'];
 
                     // does this have a parent (and if so, what is it?)

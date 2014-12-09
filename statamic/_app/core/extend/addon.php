@@ -45,6 +45,13 @@ abstract class Addon
      */
     protected $cache;
 
+
+    /**
+     * Contextual storage object for this add-on
+     * @protected ContextualStorage
+     */
+    protected $storage;
+
     /**
      * Contextual flash object for this add-on
      * @protected ContextualFlash
@@ -68,6 +75,12 @@ abstract class Addon
      * @protected Tasks
      */
     protected $tasks;
+
+    /**
+     * Related core functionality if it exists
+     * @protected Core
+     */
+    protected $core;
 
     /**
      * Name of Addon
@@ -100,10 +113,22 @@ abstract class Addon
     protected $config;
 
     /**
+     * Config cache
+     * @protected
+     */
+    protected static $config_caches = array();
+
+    /**
      * Should we skip loading tasks? Only for the Tasks object
      * @protected boolean
      */
     protected $skip_tasks = false;
+
+    /**
+     * Should we skip loading core? Only for the Core object
+     * @protected boolean
+     */
+    protected $skip_core = false;
 
     /**
      * Array of add-on information for caching purposes
@@ -125,19 +150,21 @@ abstract class Addon
         $this->addon_location = BASE_PATH . '/' . self::find($this->addon_name);
         $this->config         = $this->getConfig();
         $this->tasks          = (!$this->skip_tasks) ? $this->getTasks() : null;
+        $this->core           = (!$this->skip_core) ? $this->getCore() : null;
 
         // contextual objects
-        $this->log        = ContextualLog::createObject($this);
-        $this->cache      = ContextualCache::createObject($this);     // save data in file, longest cache available
-        $this->cookies    = ContextualCookies::createObject($this);   // save data in cookie
-        $this->session    = ContextualSession::createObject($this);   // save data in session
-        $this->flash      = ContextualFlash::createObject($this);     // save data in flash
-        $this->blink      = ContextualBlink::createObject($this);     // save data until page loads, shortest cache available
-        $this->tokens     = ContextualTokens::createObject($this);    // create and check tokens for form submission
-        $this->css        = ContextualCSS::createObject($this);
-        $this->js         = ContextualJS::createObject($this);
-        $this->assets     = ContextualAssets::createObject($this);
-        $this->addon      = ContextualInteroperability::createObject($this);
+        $this->log            = ContextualLog::createObject($this);
+        $this->storage        = ContextualStorage::createObject($this);   // save data in long-term file storage, longest storage available
+        $this->cache          = ContextualCache::createObject($this);     // save data in volatile file storage
+        $this->cookies        = ContextualCookies::createObject($this);   // save data in cookie
+        $this->session        = ContextualSession::createObject($this);   // save data in session
+        $this->flash          = ContextualFlash::createObject($this);     // save data in flash
+        $this->blink          = ContextualBlink::createObject($this);     // save data until page loads, shortest cache available
+        $this->tokens         = ContextualTokens::createObject($this);    // create and check tokens for form submission
+        $this->css            = ContextualCSS::createObject($this);
+        $this->js             = ContextualJS::createObject($this);
+        $this->assets         = ContextualAssets::createObject($this);
+        $this->addon          = ContextualInteroperability::createObject($this);
     }
 
 
@@ -174,28 +201,32 @@ abstract class Addon
         if ($this->addon_type == "Tasks") {
             return null;
         }
-
-        // check that a task file exists
-        $tasks_object_path = null;
-        foreach (Config::getAddOnLocations() as $location) {
-            $file = BASE_PATH . '/' . $location . $this->addon_name . '/tasks.' . $this->addon_name . '.php';
-
-            if (File::exists($file)) {
-                $tasks_object_path = $file;
-                break;
-            }
+        
+        try {
+            return Resource::loadTasks($this->addon_name);            
+        } catch (ResourceNotFoundException $e) {
+            return null;
         }
-                
-        // did we find a tasks object?
-        if (!$tasks_object_path) {
+    }
+
+
+    /**
+     * Retrieves the Core object for this add-on
+     * 
+     * @return Core|null
+     */
+    private function getCore()
+    {
+        // only do this for non-Core objects
+        if ($this->addon_type == "Core") {
             return null;
         }
 
-        // make sure that the tasks file is loaded
-        require_once $tasks_object_path;
-
-        $class_name = "Tasks_" . $this->addon_name;
-        return new $class_name();
+        try {
+            return Resource::loadCore($this->addon_name);
+        } catch (ResourceNotFoundException $e) {
+            return null;
+        }
     }
 
 
@@ -256,6 +287,16 @@ abstract class Addon
      */
     public function getConfig()
     {
+        // config caching
+        if (empty(self::$config_caches[$this->addon_name])) {
+            self::$config_caches[$this->addon_name] = array();
+        }
+        
+        if (!empty(self::$config_caches[$this->addon_name]['_core'])) {
+            return self::$config_caches[$this->addon_name]['_core'];
+        }
+        
+        
         $config = array();
         $environment = strtolower(Environment::get());
         $to_parse = '';
@@ -287,6 +328,9 @@ abstract class Addon
         if ($to_parse) {
             $config = YAML::parse($to_parse);
         }
+
+        // cache for later
+        self::$config_caches[$this->addon_name]['_core'] = $config;
 
         return $config;
     }
@@ -1259,16 +1303,16 @@ class ContextualCache extends ContextualObject
      * @param string  $folder  Folder to apply wipe to with namespaced cache
      * @return void
      */
-    public function purgeOlderThan($seconds, $folder="")
-    {	    
+    public function purgeOlderThan($seconds, $folder = "")
+    {
         $this->isValidFilename($folder);
 
-        $path  = $this->contextualize($folder . "/");
-	    
-	  if (!Folder::exists($path)) {
-		  return;
-	  }
-	    
+        $path = $this->contextualize($folder . "/");
+
+        if (!Folder::exists($path)) {
+            return;
+        }
+
         $finder = new Finder();
         $files  = $finder->files()
             ->in($path)
@@ -1351,6 +1395,371 @@ class ContextualCache extends ContextualObject
     public static function createObject(Addon $context)
     {
         return new ContextualCache($context);
+    }
+}
+
+
+/**
+ * ContextualStorage
+ * Supports storage file manipulation and maintenance via an Addon context
+ */
+class ContextualStorage extends ContextualObject
+{
+    /**
+     * Contextual path to storage folder
+     * @private string
+     */
+    private $path;
+
+
+    /**
+     * Initializes object
+     *
+     * @param Addon  $context  Context object
+     * @return ContextualStorage
+     */
+    public function __construct(Addon $context)
+    {
+        $this->path = BASE_PATH . '/_storage/_add-ons/' . $context->getAddonName() . '/';
+        parent::__construct($context);
+    }
+
+
+    /**
+     * Verifies that the storage folder is there, otherwise tries to make it
+     * 
+     * @throws FatalException
+     * @return void
+     */
+    private function verifyStorageFolder()
+    {
+        $folder = BASE_PATH . '/_storage/';
+        
+        if (Folder::exists($folder)) {
+            // all set
+            return;
+        }
+
+        // we're not even going to try to create the _storage folder
+        // for people, because in the cases where it can be created but
+        // PHP's umask values are too strict, we could end up with an
+        // unwritable folder that the user can't alter -- instead, we're
+        // telling people it broke and how to fix it
+
+        throw new FatalException("An add-on is attempting to use the `_storage` directory, but it doesn't exist and it couldn't be created. Please create a `_storage` directory in your installation's root folder, and be sure that the server can read from and write to it.");
+    }
+
+
+    /**
+     * Checks to see if a given $filename exists within this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to check for
+     * @return boolean
+     */
+    public function exists($filename)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        return File::exists($this->contextualize($filename));
+    }
+
+
+    /**
+     * Gets a file from this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to get
+     * @param mixed  $default  Default value to return if no file is found
+     * @return mixed
+     */
+    public function get($filename, $default=null)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        return File::get($this->contextualize($filename), $default);
+    }
+
+
+    /**
+     * Gets a file from this plugin's namespaced storage and parses it as YAML
+     *
+     * @param string  $filename  Name of file to get
+     * @param mixed  $default  Default value to return if no file is found, or file is not YAML-parsable
+     * @return mixed
+     */
+    public function getYAML($filename, $default=null)
+    {
+        $this->verifyStorageFolder();
+        $data = $this->get($filename);
+
+        if (!is_null($data)) {
+            return YAML::parse($data);
+        }
+
+        return $default;
+    }
+
+
+    /**
+     * Puts a file to this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to put
+     * @param mixed  $content  Content to write to file
+     * @return void
+     */
+    public function put($filename, $content)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        File::put($this->contextualize($filename), $content);
+    }
+
+
+    /**
+     * Parses the given $content array and puts a file to this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to put
+     * @param array  $content  Array to parse and write to file
+     * @return void
+     */
+    public function putYAML($filename, Array $content)
+    {
+        $this->verifyStorageFolder();
+        $this->put($filename, YAML::dump($content));
+    }
+
+
+    /**
+     * Appends content to the bottom of a file in this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to use
+     * @param mixed  $content  Content to append to file
+     * @return boolean
+     */
+    public function append($filename, $content)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        return File::append($this->contextualize($filename), $content);
+    }
+
+
+    /**
+     * Prepends content to the start of a file in this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to use
+     * @param mixed  $content  Content to prepend to file
+     * @return boolean
+     */
+    public function prepend($filename, $content)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        return File::prepend($this->contextualize($filename), $content);
+    }
+
+
+    /**
+     * Moves a file from one location to another within this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to move
+     * @param string  $new_filename  New file name to move it to
+     * @return boolean
+     */
+    public function move($filename, $new_filename)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        $this->isValidFilename($new_filename);
+        return File::move($this->contextualize($filename), $this->contextualize($new_filename));
+    }
+
+
+    /**
+     * Copies a file from one location to another within this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to copy
+     * @param string  $new_filename  New file name to copy it to
+     * @return void
+     */
+    public function copy($filename, $new_filename)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        $this->isValidFilename($new_filename);
+        File::copy($this->contextualize($filename), $this->contextualize($new_filename));
+    }
+
+
+    /**
+     * Deletes a file from this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to delete
+     * @return boolean
+     */
+    public function delete($filename)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        return File::delete($this->contextualize($filename));
+    }
+
+
+    /**
+     * Destroys all content within this plugin's namespaced storage
+     *
+     * @param string  $folder  Folder within storage to destroy
+     * @return void
+     */
+    public function destroy($folder="")
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($folder);
+        Folder::wipe($this->contextualize($folder . "/"));
+    }
+
+
+    /**
+     * Retrieves and array of all files within this plugin's namespaced storage
+     *
+     * @param string  $folder  Folder within storage to limit to
+     * @return array
+     */
+    public function listAll($folder="")
+    {
+        $this->verifyStorageFolder();
+        $path = $this->contextualize($folder . "/");
+
+        $finder = new Finder();
+        $files  = $finder->files()
+            ->in($path)
+            ->followLinks();
+
+        $output = array();
+
+        foreach ($files as $file) {
+            array_push($output, str_replace($path, "", $file));
+        }
+
+        return $output;
+    }
+
+
+    /**
+     * Gets the age of a given file within this plugin's namespaced storage
+     *
+     * @param string  $filename  Name of file to check
+     * @return mixed
+     */
+    public function getAge($filename)
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($filename);
+        $file = $this->contextualize($filename);
+        return ($this->exists($filename)) ? time() - File::getLastModified($file) : false;
+    }
+
+
+    /**
+     * Removes all storage files older than a given age in seconds
+     *
+     * @param int  $seconds  Threshold of seconds for wiping
+     * @param string  $folder  Folder to apply wipe to with namespaced storage
+     * @return void
+     */
+    public function purgeOlderThan($seconds, $folder = "")
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($folder);
+
+        $path = $this->contextualize($folder . "/");
+
+        if (!Folder::exists($path)) {
+            return;
+        }
+
+        $finder = new Finder();
+        $files  = $finder->files()
+            ->in($path)
+            ->date("<= " . Date::format("F j, Y H:i:s", time() - $seconds))
+            ->followLinks();
+
+        foreach ($files as $file) {
+            File::delete($file);
+        }
+    }
+
+
+    /**
+     * Removes all storage files last modified before a given $date
+     *
+     * @param mixed  $date  Date to use as threshold for deletion
+     * @param string  $folder  Folder to apply wipe to with namespaced storage
+     * @return void
+     */
+    public function purgeFromBefore($date, $folder="")
+    {
+        $this->verifyStorageFolder();
+        $this->isValidFilename($folder);
+        $path = $this->contextualize($folder . "/");
+
+        if (!Folder::exists($path)) {
+            return;
+        }
+
+        $finder = new Finder();
+        $files  = $finder->files()
+            ->in($path)
+            ->date("< " . Date::format("F j, Y H:i:s", $date))
+            ->followLinks();
+
+        foreach ($files as $file) {
+            File::delete($file);
+        }
+    }
+
+
+    /**
+     * Returns the filepath for a given $filename for this plugin's namespaced storage
+     *
+     * @param string  $filename  File name to use
+     * @return string
+     */
+    private function contextualize($filename)
+    {
+        return Path::tidy($this->path . $filename);
+    }
+
+
+    /**
+     * Checks for a valid filename string
+     *
+     * @throws Exception
+     *
+     * @param string  $filename  File name to check
+     * @return boolean
+     */
+    private function isValidFilename($filename)
+    {
+        if (strpos($filename, "..") !== false) {
+            Log::error("Cannot use storage with path containing two consecutive dots (..).", $this->context->getAddonName(), $this->context->getAddonType());
+
+            // throw an exception to prevent whatever is happening from happening
+            throw new Exception("Cannot use storage with path containing two consecutive dots (..).");
+        }
+
+        return true;
+    }
+
+
+    /**
+     * Creates a new ContextualStorage object
+     *
+     * @param Addon  $context  Context object
+     * @return ContextualStorage
+     */
+    public static function createObject(Addon $context)
+    {
+        return new ContextualStorage($context);
     }
 }
 

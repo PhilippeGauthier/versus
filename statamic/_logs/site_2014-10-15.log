@@ -1,0 +1,2 @@
+FATAL|Wed, 15 Oct 2014 18:13:56 -0400|core|file|/~philippe/versus/statamic/|::1|dev|file_get_contents(/Users/philippe/Sites/versus/statamic/_cache/_app/content/content.php): failed to open stream: Permission denied on line 54.
+FATAL|Wed, 15 Oct 2014 18:14:11 -0400|core|file|/~philippe/versus/statamic/|::1|dev|file_get_contents(/Users/philippe/Sites/versus/statamic/_cache/_app/content/content.php): failed to open stream: Permission denied on line 54.

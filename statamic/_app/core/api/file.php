@@ -72,27 +72,33 @@ class File
         $fs = new Filesystem();
         
         // custom umask and file mode
-        $custom_umask  = Config::get('_umask', false);
+//        $custom_umask  = Config::get('_umask', false);
         $custom_mode   = Config::get('_mode', false);
         $old_umask     = null;
         
-        // if a custom umask was set, set it and remember the old one
-        if ($custom_umask !== false) {
-            $old_umask = umask(octdec($custom_umask));
+        // Dipper accurately recognizes octal numbers, where the others don't
+        if (Config::get('yaml_mode') !== 'quick') {
+//            $custom_umask = octdec($custom_umask);
+            $custom_mode  = octdec($custom_mode);
         }
+        
+        // if a custom umask was set, set it and remember the old one
+//        if ($custom_umask !== false) {
+//            $old_umask = umask($custom_umask);
+//        }
         
         if (File::exists($filename)) {
             $mode = intval(substr(sprintf('%o', fileperms($filename)), -4), 8);
         } elseif (is_null($mode)) {
-            $mode = ($custom_mode !== false) ? octdec($custom_mode) : 0755;
+            $mode = ($custom_mode !== false) ? $custom_mode : 0755;
         }
         
         $fs->dumpFile($filename, $content, $mode);
         
         // if a custom umask was set, replace the old value
-        if ($custom_umask !== false) {
-            umask($old_umask);
-        }
+//        if ($custom_umask !== false) {
+//            umask($old_umask);
+//        }
     }
 
 
@@ -195,13 +201,14 @@ class File
     }
 
     /**
-     * Upload a file.
-     *
-     * @param string  $file  Name of file
-     * @param string  $target  target of file
-     * @param string  $filename  Name of new file
-     * @return bool
-     **/
+     * Upload a file
+     * 
+     * @param  array   $file               The file array
+     * @param  string  $destination        Where to upload
+     * @param  boolean $add_root_variable  Whether or not to prepend {{ _site_root }}
+     * @param  mixed   $renamed_file       A custom filename
+     * @return string                      Path to uploaded asset
+     */
     public static function upload($file, $destination, $add_root_variable = false, $renamed_file = false)
     {
         Folder::make($destination);

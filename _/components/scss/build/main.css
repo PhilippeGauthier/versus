@@ -243,20 +243,6 @@ body .company-container, body .uber-wrapper {
 html, body, h1, h2, h3, h4, h5, h6, a, span, p {
   color: #d0d2d3; }
 
-/* line 9, ../_base.scss */
-html, body {
-  height: 100%;
-  max-width: 100%;
-  margin: 0;
-  background-color: black; }
-  @media (min-width: 768px) {
-    /* line 9, ../_base.scss */
-    html, body {
-      background: url("../img/background_1600x1600.png") center center no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      background-size: cover; } }
-
 /* line 22, ../_base.scss */
 html, body, p {
   font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif;
@@ -1563,20 +1549,6 @@ body .company-container, body .uber-wrapper {
 /* line 5, ../_base.scss */
 html, body, h1, h2, h3, h4, h5, h6, a, span, p {
   color: #d0d2d3; }
-
-/* line 9, ../_base.scss */
-html, body {
-  height: 100%;
-  max-width: 100%;
-  margin: 0;
-  background-color: black; }
-  @media (min-width: 768px) {
-    /* line 9, ../_base.scss */
-    html, body {
-      background: url("../img/background_1600x1600.png") center center no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      background-size: cover; } }
 
 /* line 22, ../_base.scss */
 html, body, p {

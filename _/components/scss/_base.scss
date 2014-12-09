@@ -6,18 +6,18 @@ html, body, #{headings()}, a, span, p {
 	color: $white;
 }
 
-html, body {
-	height: 100%;
-	max-width: 100%;
-	margin: 0;
-	background-color: black;
-	@include breakpoint($small) {
-		background: url('../img/background_1600x1600.png') center center no-repeat;
-		background-size: cover;
-		background-attachment: fixed;
-		background-size: cover;
-	}
-}
+// html, body {
+// 	height: 100%;
+// 	max-width: 100%;
+// 	margin: 0;
+// 	background-color: black;
+// 	@include breakpoint($small) {
+// 		background: url('../img/background_1600x1600.png') center center no-repeat;
+// 		background-size: cover;
+// 		background-attachment: fixed;
+// 		background-size: cover;
+// 	}
+// }
 
 html, body, p {
 	font-family: $base-font-family-light;

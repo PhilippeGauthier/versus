@@ -11,17 +11,30 @@
     {{ endif }}
   </title>
 
-{{ theme:css src="main.min" tag="true" }}
+
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <script type="text/javascript" charset="utf-8" src="animation_edgePreload.js"></script> 
 
   <link rel="icon" href="{{ theme:img src="favicon.ico" }}" />
 <style>
-
+html, body {
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  background-color: red;
+}
+@media (min-width: 768px) {
+  body, html {
+  background: url(_themes/main/img/background_1600x1600.png) center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+}</style>
+<style>
 .edgeLoad-EDGE-6766476 { visibility:hidden; }
 </style>
-
+{{ theme:css src="main.min" tag="true" }}
 </head>
 
     <body class="cbp-spmenu-push" data-spy="scroll" data-target=".cbp-spmenu">

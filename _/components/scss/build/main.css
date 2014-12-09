@@ -1134,7 +1134,7 @@ footer {
     -moz-transform: scale(1);
     transform: scale(1); } }
 /* Slider */
-/* line 2, ../third_party/_slick.scss */
+/* line 3, ../third_party/_slick.scss */
 .slick-slider {
   position: relative;
   display: block;
@@ -1146,10 +1146,11 @@ footer {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -ms-touch-action: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent; }
 
-/* line 4, ../third_party/_slick.scss */
+/* line 18, ../third_party/_slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -1157,76 +1158,80 @@ footer {
   margin: 0;
   padding: 0; }
 
-/* line 5, ../third_party/_slick.scss */
+/* line 24, ../third_party/_slick.scss */
 .slick-list:focus {
   outline: none; }
 
-/* line 6, ../third_party/_slick.scss */
+/* line 26, ../third_party/_slick.scss */
 .slick-loading .slick-list {
-  background: white url("../fonts/ajax-loader.gif") center center no-repeat; }
+  background: #fff url("./ajax-loader.gif") center center no-repeat; }
 
-/* line 7, ../third_party/_slick.scss */
+/* line 28, ../third_party/_slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand; }
 
-/* line 9, ../third_party/_slick.scss */
-.slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img {
+/* line 32, ../third_party/_slick.scss */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-/* line 11, ../third_party/_slick.scss */
+/* line 40, ../third_party/_slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
-  display: block;
-  zoom: 1; }
+  display: block; }
 
-/* line 12, ../third_party/_slick.scss */
+/* line 45, ../third_party/_slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table; }
 
-/* line 13, ../third_party/_slick.scss */
+/* line 48, ../third_party/_slick.scss */
 .slick-track:after {
   clear: both; }
 
-/* line 14, ../third_party/_slick.scss */
+/* line 50, ../third_party/_slick.scss */
 .slick-loading .slick-track {
   visibility: hidden; }
 
-/* line 16, ../third_party/_slick.scss */
+/* line 53, ../third_party/_slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none; }
 
-/* line 17, ../third_party/_slick.scss */
+/* line 58, ../third_party/_slick.scss */
+[dir="rtl"] .slick-slide {
+  float: right; }
+
+/* line 60, ../third_party/_slick.scss */
 .slick-slide img {
   display: block; }
 
-/* line 18, ../third_party/_slick.scss */
+/* line 62, ../third_party/_slick.scss */
 .slick-slide.slick-loading img {
   display: none; }
 
-/* line 19, ../third_party/_slick.scss */
+/* line 64, ../third_party/_slick.scss */
 .slick-slide.dragging img {
   pointer-events: none; }
 
-/* line 20, ../third_party/_slick.scss */
+/* line 66, ../third_party/_slick.scss */
 .slick-initialized .slick-slide {
   display: block; }
 
-/* line 21, ../third_party/_slick.scss */
+/* line 68, ../third_party/_slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden; }
 
-/* line 22, ../third_party/_slick.scss */
+/* line 70, ../third_party/_slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
@@ -1235,13 +1240,14 @@ footer {
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url("../fonts/slick.eot");
-  src: url("../fonts/slick.eot?#iefix") format("embedded-opentype"), url("../fonts/slick.woff") format("woff"), url("../fonts/slick.ttf") format("truetype"), url("../fonts/slick.svg#slick") format("svg");
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Arrows */
-/* line 27, ../third_party/_slick.scss */
-.slick-prev, .slick-next {
+/* line 83, ../third_party/_slick.scss */
+.slick-prev,
+.slick-next {
   position: absolute;
   display: block;
   height: 20px;
@@ -1257,21 +1263,26 @@ footer {
   border: none;
   outline: none; }
 
-/* line 28, ../third_party/_slick.scss */
-.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+/* line 99, ../third_party/_slick.scss */
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
   outline: none;
   background: transparent;
   color: transparent; }
 
-/* line 29, ../third_party/_slick.scss */
-.slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before {
+/* line 105, ../third_party/_slick.scss */
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
   opacity: 1; }
 
-/* line 30, ../third_party/_slick.scss */
-.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+/* line 109, ../third_party/_slick.scss */
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
   opacity: 0.25; }
 
-/* line 32, ../third_party/_slick.scss */
+/* line 113, ../third_party/_slick.scss */
 .slick-prev:before, .slick-next:before {
   font-family: "slick";
   font-size: 20px;
@@ -1281,28 +1292,46 @@ footer {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 34, ../third_party/_slick.scss */
+/* line 122, ../third_party/_slick.scss */
 .slick-prev {
   left: -25px; }
 
-/* line 35, ../third_party/_slick.scss */
-.slick-prev:before {
-  content: "\2190"; }
+/* line 124, ../third_party/_slick.scss */
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px; }
 
-/* line 37, ../third_party/_slick.scss */
+/* line 127, ../third_party/_slick.scss */
+.slick-prev:before {
+  content: "←"; }
+
+/* line 129, ../third_party/_slick.scss */
+[dir="rtl"] .slick-prev:before {
+  content: "→"; }
+
+/* line 132, ../third_party/_slick.scss */
 .slick-next {
   right: -25px; }
 
-/* line 38, ../third_party/_slick.scss */
+/* line 134, ../third_party/_slick.scss */
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto; }
+
+/* line 137, ../third_party/_slick.scss */
 .slick-next:before {
-  content: "\2192"; }
+  content: "→"; }
+
+/* line 139, ../third_party/_slick.scss */
+[dir="rtl"] .slick-next:before {
+  content: "←"; }
 
 /* Dots */
-/* line 41, ../third_party/_slick.scss */
+/* line 143, ../third_party/_slick.scss */
 .slick-slider {
   margin-bottom: 30px; }
 
-/* line 43, ../third_party/_slick.scss */
+/* line 146, ../third_party/_slick.scss */
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -1312,7 +1341,7 @@ footer {
   padding: 0;
   width: 100%; }
 
-/* line 44, ../third_party/_slick.scss */
+/* line 154, ../third_party/_slick.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -1322,7 +1351,7 @@ footer {
   padding: 0;
   cursor: pointer; }
 
-/* line 45, ../third_party/_slick.scss */
+/* line 162, ../third_party/_slick.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -1336,20 +1365,20 @@ footer {
   padding: 5px;
   cursor: pointer; }
 
-/* line 46, ../third_party/_slick.scss */
+/* line 174, ../third_party/_slick.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none; }
 
-/* line 47, ../third_party/_slick.scss */
+/* line 176, ../third_party/_slick.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1; }
 
-/* line 48, ../third_party/_slick.scss */
+/* line 178, ../third_party/_slick.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
   left: 0;
-  content: "\2022";
+  content: "•";
   width: 20px;
   height: 20px;
   font-family: "slick";
@@ -1361,7 +1390,7 @@ footer {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 49, ../third_party/_slick.scss */
+/* line 193, ../third_party/_slick.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75; }

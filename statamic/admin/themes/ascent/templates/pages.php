@@ -66,7 +66,7 @@
           <?php if (array_get($page, 'has_entries', false)): ?>
             <div class="control-entries">
               <span class="ss-icon">textfile</span>
-              <span class="muted"><?php echo $page['entries_label'] ?>:</span>
+              
               <a href="<?php print $app->urlFor('entries')."?path={$base}"; ?>">
                 <?php echo Localization::fetch('list')?>
               </a>

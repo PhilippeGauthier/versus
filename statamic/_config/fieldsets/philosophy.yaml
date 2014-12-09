@@ -4,11 +4,13 @@ fields:
   gif1: 
     type: file
     display: Gif Number 1
+    allowed: [gif, png, jpeg, jpg]
     destination: assets/img
 
   gif2: 
     type: file
     display: Gif Number 2
+    allowed: [gif, png, jpeg, jpg]
     destination: assets/img
 
   mainTitle:

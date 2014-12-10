@@ -2706,27 +2706,27 @@ li:hover .sprite.connect {
   opacity: 0;
   -webkit-transition: 0.75s;
   transition: 0.75s; }
-  /* line 87, ../partials/_case-studies.scss */
+  /* line 88, ../partials/_case-studies.scss */
   .case-study-wrapper .case-study-text p {
     margin: 0;
     padding: 10px 0; }
-  /* line 92, ../partials/_case-studies.scss */
+  /* line 93, ../partials/_case-studies.scss */
   .case-study-wrapper .case-study-text.active {
     -webkit-transition-delay: .75s;
     transition-delay: .75s;
     opacity: 1; }
-/* line 97, ../partials/_case-studies.scss */
+/* line 98, ../partials/_case-studies.scss */
 .case-study-wrapper .case-study-image {
   -webkit-transition: 1.5s;
   transition: 1.5s; }
-/* line 100, ../partials/_case-studies.scss */
+/* line 101, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-dots li.slick-active button:before {
   color: white; }
-/* line 104, ../partials/_case-studies.scss */
+/* line 105, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-dots li button:before {
   color: white; }
 
-/* line 109, ../partials/_case-studies.scss */
+/* line 110, ../partials/_case-studies.scss */
 .case-study-close {
   cursor: pointer;
   -webkit-transition: 0.25s;
@@ -2741,7 +2741,7 @@ li:hover .sprite.connect {
   vertical-align: middle;
   line-height: 35px;
   font-size: 28px; }
-  /* line 122, ../partials/_case-studies.scss */
+  /* line 123, ../partials/_case-studies.scss */
   .case-study-close.visible {
     -webkit-transition: 0.25s;
     transition: 0.25s;

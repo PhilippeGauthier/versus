@@ -80,7 +80,7 @@
             <h1>{{ headerCaption }}</h1>
           </div>
           {{ if photo|not_empty }}
-          <div class="case-study-image" style="background-image: url( {{ path src="{{ photo }}" }} );"></div>
+          <div class="case-study-image" style="background-image: url( {{ photo }} );"></div>
           {{ endif }}
           {{ if caption|not_empty }}
           <div class="case-study-image"><p class="caption">{{ caption }}</p></div>

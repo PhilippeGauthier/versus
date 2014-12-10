@@ -3687,16 +3687,21 @@ $('.case-study-wrapper').each(function(){
   var caseStudyImage = $(this).find('.case-study-image');
   var caseStudyDesktop = $(this).find('.case-study-desktop');
   var caseStudyMobile = $(this).find('.case-study-mobile');
+  var caseStudyContent = $(this).find('.case-study-content').first();
+  var caseStudyContentText = $(caseStudyContent).find('.case-study-text');
   var previewText = $(this).find('.preview-text');
   var close = $(this).prev('.case-study-close');  
-  var $height = caseStudyText.height();
-
-  $(caseStudyText).height(0);
+  var $height = caseStudyContentText.height();
+  console.log($height);
+  $(caseStudyText).css("height","0");
   
   $(this).click(function(){
     $this.addClass('active');
-    caseStudyText.height("auto");
-    // caseStudyText.css("min-height",$height);
+    // caseStudyText.height("auto");
+    caseStudyText.css("min-height",$height);
+    // caseStudyContentText.animate({
+    //   height: $height;
+    // },500);
     caseStudyImage.addClass('active');
     previewText.removeClass('active');
     setTimeout(function(){
@@ -3716,7 +3721,7 @@ $('.case-study-wrapper').each(function(){
 
     $(caseStudyText).removeClass('active');
     setTimeout(function(){
-      $(caseStudyText).height(0);
+      caseStudyText.css("min-height",0);
     }, 200);
     setTimeout(function(){
       $(close).removeClass('visible');
@@ -3755,13 +3760,13 @@ setTimeout(function(){
 
 // Google Analytics
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49261908-4', 'auto');
-  ga('send', 'pageview');
+ ga('create', 'UA-49261908-2', 'auto');
+ ga('send', 'pageview');
 
 
 

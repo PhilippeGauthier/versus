@@ -167,16 +167,21 @@ $('.case-study-wrapper').each(function(){
   var caseStudyImage = $(this).find('.case-study-image');
   var caseStudyDesktop = $(this).find('.case-study-desktop');
   var caseStudyMobile = $(this).find('.case-study-mobile');
+  var caseStudyContent = $(this).find('.case-study-content').first();
+  var caseStudyContentText = $(caseStudyContent).find('.case-study-text');
   var previewText = $(this).find('.preview-text');
   var close = $(this).prev('.case-study-close');  
-  var $height = caseStudyText.height();
-
-  $(caseStudyText).height(0);
+  var $height = caseStudyContentText.height();
+  console.log($height);
+  $(caseStudyText).css("height","0");
   
   $(this).click(function(){
     $this.addClass('active');
-    caseStudyText.height("auto");
-    // caseStudyText.css("min-height",$height);
+    // caseStudyText.height("auto");
+    caseStudyText.css("min-height",$height);
+    // caseStudyContentText.animate({
+    //   height: $height;
+    // },500);
     caseStudyImage.addClass('active');
     previewText.removeClass('active');
     setTimeout(function(){
@@ -196,7 +201,7 @@ $('.case-study-wrapper').each(function(){
 
     $(caseStudyText).removeClass('active');
     setTimeout(function(){
-      $(caseStudyText).height(0);
+      caseStudyText.css("min-height",0);
     }, 200);
     setTimeout(function(){
       $(close).removeClass('visible');

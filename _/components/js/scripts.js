@@ -163,6 +163,11 @@ $('body').scrollspy({ target: '.cbp-spmenu', offset: 100 });
 $('.case-study-wrapper').each(function(){
 
   var $this = $(this);
+var maxHeight = Math.max.apply(null, $(this).find('.case-study-text').map(function ()
+{
+    return $(this).height();
+}).get());
+console.log(maxHeight);
   var caseStudyText = $(this).find('.case-study-text');
   var caseStudyImage = $(this).find('.case-study-image');
   var caseStudyDesktop = $(this).find('.case-study-desktop');
@@ -171,14 +176,14 @@ $('.case-study-wrapper').each(function(){
   var caseStudyContentText = $(caseStudyContent).find('.case-study-text');
   var previewText = $(this).find('.preview-text');
   var close = $(this).prev('.case-study-close');  
-  var $height = caseStudyContentText.height();
-  console.log($height);
+  var $height = caseStudyText.height();
+  // console.log($height);
   $(caseStudyText).css("height","0");
   
   $(this).click(function(){
     $this.addClass('active');
-    // caseStudyText.height("auto");
-    caseStudyText.css("min-height",$height);
+    caseStudyText.css("min-height",maxHeight);
+    // caseStudyContentText.css("min-height",maxHeight);
     // caseStudyContentText.animate({
     //   height: $height;
     // },500);

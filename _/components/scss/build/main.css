@@ -1371,7 +1371,7 @@ footer {
 
 /* line 176, ../third_party/_slick.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
-  opacity: 1; }
+  opacity: 0; }
 
 /* line 178, ../third_party/_slick.scss */
 .slick-dots li button:before {
@@ -1394,6 +1394,91 @@ footer {
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75; }
+
+/* line 1, ../third_party/_page_loader.scss */
+.container {
+  display: none; }
+
+/* line 5, ../third_party/_page_loader.scss */
+.container.show {
+  display: block; }
+
+/* line 9, ../third_party/_page_loader.scss */
+.pageload-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  visibility: hidden; }
+
+/* line 18, ../third_party/_page_loader.scss */
+.pageload-overlay.show {
+  visibility: visible; }
+
+/* line 22, ../third_party/_page_loader.scss */
+.pageload-overlay svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; }
+
+/* line 29, ../third_party/_page_loader.scss */
+.pageload-overlay svg path {
+  fill: #fff; }
+
+/* line 33, ../third_party/_page_loader.scss */
+.pageload-overlay::after,
+.pageload-overlay::before {
+  content: '';
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  -webkit-transition: opacity 0.15s, visibility 0s 0.15s;
+  transition: opacity 0.15s, visibility 0s 0.15s; }
+
+/* line 50, ../third_party/_page_loader.scss */
+.pageload-overlay::after {
+  background: #6cc88a;
+  -webkit-transform: translateX(-20px);
+  transform: translateX(-20px);
+  -webkit-animation: moveRight 0.6s linear infinite alternate;
+  animation: moveRight 0.6s linear infinite alternate; }
+
+/* line 58, ../third_party/_page_loader.scss */
+.pageload-overlay::before {
+  background: #4fc3f7;
+  -webkit-transform: translateX(20px);
+  transform: translateX(20px);
+  -webkit-animation: moveLeft 0.6s linear infinite alternate;
+  animation: moveLeft 0.6s linear infinite alternate; }
+
+@-webkit-keyframes moveRight {
+  to {
+    -webkit-transform: translateX(20px); } }
+@keyframes moveRight {
+  to {
+    transform: translateX(20px); } }
+@-webkit-keyframes moveLeft {
+  to {
+    -webkit-transform: translateX(-20px); } }
+@keyframes moveLeft {
+  to {
+    transform: translateX(-20px); } }
+/* line 82, ../third_party/_page_loader.scss */
+.pageload-loading.pageload-overlay::after,
+.pageload-loading.pageload-overlay::before {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s; }
 
 /* line 14, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/language/susy/_box-sizing.scss */
 *, *:before, *:after {
@@ -2590,16 +2675,6 @@ li:hover .sprite.connect {
     /* line 43, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
       bottom: 280px; } }
-/* line 63, ../partials/_case-studies.scss */
-.case-study-wrapper .slick-prev {
-  left: -35px; }
-  @media (min-width: 768px) {
-    /* line 63, ../partials/_case-studies.scss */
-    .case-study-wrapper .slick-prev {
-      left: -45px; } }
-  /* line 68, ../partials/_case-studies.scss */
-  .case-study-wrapper .slick-prev:before {
-    content: url("../img/prev.svg"); }
 /* line 72, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-next {
   right: -35px; }
@@ -2641,7 +2716,7 @@ li:hover .sprite.connect {
 .case-study-wrapper .slick-dots li button:before {
   color: white; }
 
-/* line 110, ../partials/_case-studies.scss */
+/* line 112, ../partials/_case-studies.scss */
 .case-study-close {
   cursor: pointer;
   -moz-transition: 0.25s;
@@ -2658,7 +2733,7 @@ li:hover .sprite.connect {
   vertical-align: middle;
   line-height: 35px;
   font-size: 28px; }
-  /* line 123, ../partials/_case-studies.scss */
+  /* line 125, ../partials/_case-studies.scss */
   .case-study-close.visible {
     -moz-transition: 0.25s;
     -o-transition: 0.25s;

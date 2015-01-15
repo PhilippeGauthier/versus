@@ -8,5 +8,5 @@ fields:
 
   icon: 
     type: file
-    display: Icon
+    display: Icons
     destination: assets/img

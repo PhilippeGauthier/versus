@@ -320,6 +320,13 @@ p {
       line-height: 23pt;
       margin-bottom: 20px; } }
 
+/* line 83, ../_base.scss */
+#cover {
+  background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
 /* line 3, ../modules/_work_examples.scss */
 .work-example.mobile .company-container {
   height: 360px; }
@@ -1725,6 +1732,13 @@ p {
       font-size: 18pt;
       line-height: 23pt;
       margin-bottom: 20px; } }
+
+/* line 83, ../_base.scss */
+#cover {
+  background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
 
 /* line 1, ../partials/_nav.scss */
 .main {

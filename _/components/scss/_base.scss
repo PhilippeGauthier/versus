@@ -16,6 +16,7 @@ html, body {
 		background-size: cover;
 		background-attachment: fixed;
 		background-size: cover;
+		transform: translate3d(0,0,0);
 	}
 }
 
@@ -78,10 +79,15 @@ p {
 		line-height: 23pt;
 		margin-bottom: 20px;
 	}
-	// &:first-of-type {
-	// 	@include leader;
-	// }
-	// &:last-of-type {
-	// 	@include padding-trailer;
-	// }
 }
+
+#cover {
+    background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+

@@ -12,13 +12,9 @@
     {{ endif }}
   </title>
 
-
-
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <script type="text/javascript" charset="utf-8" src="animation_edgePreload.js"></script> 
-  <script src="{{ theme:js src="snap.svg-min" }}"></script>
-
-  <link rel="icon" href="{{ theme:img src="favicon.ico" }}" />
+<link rel="icon" href="{{ theme:img src="favicon.ico" }}" />
 <style>
 html, body {
   height: 100%;
@@ -33,33 +29,19 @@ html, body {
   background-size: cover;
   }
 }</style>
-<style>
-.edgeLoad-EDGE-6766476 { visibility:hidden; }
-</style>
+<style>.edgeLoad-EDGE-6766476 { visibility:hidden; }</style>
 {{ theme:css src="main.min" tag="true" }}
 </head>
 
-    <body class="cbp-spmenu-push" data-spy="scroll" data-target=".cbp-spmenu">
+  <body class="cbp-spmenu-push" data-spy="scroll" data-target=".cbp-spmenu">
 
-<div id="pagewrap" class="pagewrap">{{ theme:partial src="nav" }}
+  {{ theme:partial src="nav" }}
   
   {{ layout_content }}
-<div class="container show">
-    <a class="pageload-link" href="#page-2">Show Page Loader</a>
-    
-      <div id="loader" class="pageload-overlay" data-opening="M20,15 50,30 50,30 30,30 Z;M0,0 80,0 50,30 20,45 Z;M0,0 80,0 60,45 0,60 Z;M0,0 80,0 80,60 0,60 Z" data-closing="M0,0 80,0 60,45 0,60 Z;M0,0 80,0 50,30 20,45 Z;M20,15 50,30 50,30 30,30 Z;M30,30 50,30 50,30 30,30 Z">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
-          <path d="M30,30 50,30 50,30 30,30 Z"/>
-        </svg>
-      </div><!-- /pageload-overlay --></div>
-</div>
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="{{ theme:js src="main.min" }}"></script>
-<script>
-  // $(window).load(function() {
-  //   alert("ready");
-  // })
-</script>
+  <script src="{{ theme:js src="main" }}"></script>
+
 </body>
 </html>

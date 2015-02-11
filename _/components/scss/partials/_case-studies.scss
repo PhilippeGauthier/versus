@@ -61,13 +61,13 @@
 		}
 	}
 	.slick-prev {
-		// left: -35px;
-		// @include breakpoint($small) {
-		// 	left: -45px;
-		// }
-		// &:before {
-		// 	content: url("../img/prev.svg");
-		// }
+		left: -35px;
+		@include breakpoint($small) {
+			left: -45px;
+		}
+		&:before {
+			content: url("../img/prev.svg");
+		}
 	}
 	.slick-next {
 		right: -35px;

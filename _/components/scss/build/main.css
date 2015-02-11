@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,38 +20,38 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1; }
 
-/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none; }
 
-/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle; }
 
-/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none; }
-  /* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+  /* line 103, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
   q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
-/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none; }
 
-/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
@@ -74,7 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: url("../fonts/the_northern_block-neusa-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/the_northern_block-neusa-semibold-webfont.woff") format("woff"), url("../fonts/the_northern_block-neusa-semibold-webfont.ttf") format("truetype"), url("../fonts/the_northern_block-neusa-semibold-webfont.svg#neusasemibold") format("svg");
   font-weight: normal;
   font-style: normal; }
-/* line 14, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/language/susy/_box-sizing.scss */
+/* line 21, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/susy-2.2.2/sass/susy/language/susy/_box-sizing.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -122,7 +122,7 @@ section {
   margin-left: auto;
   margin-right: auto;
   margin-left: 7px; }
-  /* line 12, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  /* line 12, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/susy-2.2.2/sass/susy/output/support/_clearfix.scss */
   section:after {
     content: " ";
     display: block;
@@ -255,27 +255,28 @@ html, body {
       background: url("../img/background_1600x1600.png") center center no-repeat;
       background-size: cover;
       background-attachment: fixed;
-      background-size: cover; } }
+      background-size: cover;
+      transform: translate3d(0, 0, 0); } }
 
-/* line 22, ../_base.scss */
+/* line 23, ../_base.scss */
 html, body, p {
   font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 22, ../_base.scss */
+    /* line 23, ../_base.scss */
     html, body, p {
       font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
 
-/* line 30, ../_base.scss */
+/* line 31, ../_base.scss */
 img {
   max-width: 100%;
   height: auto; }
 
-/* line 35, ../_base.scss */
+/* line 36, ../_base.scss */
 h1, h2, h3, h4, h5, h6, strong {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 40, ../_base.scss */
+/* line 41, ../_base.scss */
 h1 {
   font-size: 36pt;
   color: #6800eb;
@@ -283,44 +284,44 @@ h1 {
   margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
-    /* line 40, ../_base.scss */
+    /* line 41, ../_base.scss */
     h1 {
       font-size: 42pt;
       margin: 15px 0 40px; } }
 
-/* line 53, ../_base.scss */
+/* line 54, ../_base.scss */
 h2 {
   font-size: 24pt; }
   @media (min-width: 768px) {
-    /* line 53, ../_base.scss */
+    /* line 54, ../_base.scss */
     h2 {
       font-size: 42pt; } }
 
-/* line 60, ../_base.scss */
+/* line 61, ../_base.scss */
 h3 {
   font-size: 18pt;
   margin-bottom: 20px;
   line-height: 23pt; }
   @media (min-width: 768px) {
-    /* line 60, ../_base.scss */
+    /* line 61, ../_base.scss */
     h3 {
       line-height: 27pt;
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 72, ../_base.scss */
+/* line 73, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 72, ../_base.scss */
+    /* line 73, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
       margin-bottom: 20px; } }
 
-/* line 83, ../_base.scss */
+/* line 84, ../_base.scss */
 #cover {
   background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
   position: absolute;
@@ -915,12 +916,6 @@ footer {
 #imagelightbox-nav {
   display: block; }
 
-/*!
- * baguetteBox.js
- * @author  feimosi
- * @version 0.7.0
- * @url https://github.com/feimosi/baguetteBox.js
- */
 /* line 8, ../third_party/_baguetteBox.scss */
 #baguetteBox-overlay {
   display: none;
@@ -1487,7 +1482,7 @@ footer {
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s; }
 
-/* line 14, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/language/susy/_box-sizing.scss */
+/* line 21, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/susy-2.2.2/sass/susy/language/susy/_box-sizing.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1535,7 +1530,7 @@ section {
   margin-left: auto;
   margin-right: auto;
   margin-left: 7px; }
-  /* line 12, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  /* line 12, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/susy-2.2.2/sass/susy/output/support/_clearfix.scss */
   section:after {
     content: " ";
     display: block;
@@ -1668,27 +1663,28 @@ html, body {
       background: url("../img/background_1600x1600.png") center center no-repeat;
       background-size: cover;
       background-attachment: fixed;
-      background-size: cover; } }
+      background-size: cover;
+      transform: translate3d(0, 0, 0); } }
 
-/* line 22, ../_base.scss */
+/* line 23, ../_base.scss */
 html, body, p {
   font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 22, ../_base.scss */
+    /* line 23, ../_base.scss */
     html, body, p {
       font-family: "hurme-light", “Helvetica Neue”, Helvetica, Arial, sans-serif; } }
 
-/* line 30, ../_base.scss */
+/* line 31, ../_base.scss */
 img {
   max-width: 100%;
   height: auto; }
 
-/* line 35, ../_base.scss */
+/* line 36, ../_base.scss */
 h1, h2, h3, h4, h5, h6, strong {
   font-family: "hurme-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
 
-/* line 40, ../_base.scss */
+/* line 41, ../_base.scss */
 h1 {
   font-size: 36pt;
   color: #6800eb;
@@ -1696,44 +1692,44 @@ h1 {
   margin: 20px 0;
   font-family: "neusa-semi-bold", Georgia, Cambria, "Times New Roman", Times, serif; }
   @media (min-width: 768px) {
-    /* line 40, ../_base.scss */
+    /* line 41, ../_base.scss */
     h1 {
       font-size: 42pt;
       margin: 15px 0 40px; } }
 
-/* line 53, ../_base.scss */
+/* line 54, ../_base.scss */
 h2 {
   font-size: 24pt; }
   @media (min-width: 768px) {
-    /* line 53, ../_base.scss */
+    /* line 54, ../_base.scss */
     h2 {
       font-size: 42pt; } }
 
-/* line 60, ../_base.scss */
+/* line 61, ../_base.scss */
 h3 {
   font-size: 18pt;
   margin-bottom: 20px;
   line-height: 23pt; }
   @media (min-width: 768px) {
-    /* line 60, ../_base.scss */
+    /* line 61, ../_base.scss */
     h3 {
       line-height: 27pt;
       font-size: 20pt;
       margin-bottom: 40px; } }
 
-/* line 72, ../_base.scss */
+/* line 73, ../_base.scss */
 p {
   font-size: 14pt;
   line-height: 20pt;
   letter-spacing: .03rem; }
   @media (min-width: 768px) {
-    /* line 72, ../_base.scss */
+    /* line 73, ../_base.scss */
     p {
       font-size: 18pt;
       line-height: 23pt;
       margin-bottom: 20px; } }
 
-/* line 83, ../_base.scss */
+/* line 84, ../_base.scss */
 #cover {
   background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
   position: absolute;
@@ -1747,7 +1743,7 @@ p {
   margin-right: auto;
   float: right;
   position: fixed; }
-  /* line 12, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  /* line 12, ../../../../../../.rvm/gems/ruby-2.2.0@global/gems/susy-2.2.2/sass/susy/output/support/_clearfix.scss */
   .main:after {
     content: " ";
     display: block;
@@ -2689,6 +2685,16 @@ li:hover .sprite.connect {
     /* line 43, ../partials/_case-studies.scss */
     .case-study-wrapper .slick-prev, .case-study-wrapper .slick-next {
       bottom: 280px; } }
+/* line 63, ../partials/_case-studies.scss */
+.case-study-wrapper .slick-prev {
+  left: -35px; }
+  @media (min-width: 768px) {
+    /* line 63, ../partials/_case-studies.scss */
+    .case-study-wrapper .slick-prev {
+      left: -45px; } }
+  /* line 68, ../partials/_case-studies.scss */
+  .case-study-wrapper .slick-prev:before {
+    content: url("../img/prev.svg"); }
 /* line 72, ../partials/_case-studies.scss */
 .case-study-wrapper .slick-next {
   right: -35px; }

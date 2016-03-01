@@ -278,8 +278,9 @@ class Statamic
 
         // current path
         // note: not using API because it's not ready yet
-        $uri     = $_SERVER['REQUEST_URI'];
-        $query   = $_SERVER['QUERY_STRING'];
+        $uri     = array_get($_SERVER, 'REQUEST_URI');
+        $query   = array_get($_SERVER, 'QUERY_STRING');
+
         $current = ($query) ? str_replace("?" . $query, "", $uri) : $uri;
 
         // loop through configured vanity URLs
@@ -939,8 +940,9 @@ class Statamic
 
         $taxonomy_url = false;
         if (Taxonomy::isTaxonomyURL($current_url)) {
-            list($taxonomy_type, $taxonomy_name) = Taxonomy::getCriteria($current_url);
-            $taxonomy_url = self::remove_taxonomy_from_path($current_url, $taxonomy_type, $taxonomy_name);
+            $taxonomy = Taxonomy::getCriteria($current_url);
+
+            $taxonomy_url = self::remove_taxonomy_from_path($current_url, $taxonomy['type'], $taxonomy['slug']);
         }
 
         $directory = '/' . $directory . '/'; #ensure proper slashing

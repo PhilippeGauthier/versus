@@ -126,11 +126,12 @@ class _Upload
   
         // Resizing configuration
         if ($resize = Request::get('resize')) {
-            $width   = Request::get('width', null);
-            $height  = Request::get('height', null);
-            $ratio   = Request::get('ratio', true);
-            $upsize  = Request::get('upsize', false);
-            $quality = Request::get('quality', '75'); 
+            $width         = Request::get('width', null);
+            $height        = Request::get('height', null);
+            $ratio         = Request::get('ratio', true);
+            $upsize        = Request::get('upsize', false);
+            $keep_original = Request::get('keep_original', true);
+            $quality       = Request::get('quality', Config::get('transform_quality'));
         }
   
         // If $files[$id][0] exists, it means there's an array of images.
@@ -150,15 +151,24 @@ class _Upload
     
             // Resize
             if ($resize) {
-                $image = \Intervention\Image\Image::make(Path::assemble(BASE_PATH, $path));
-                $resize_folder = Path::assemble($image->dirname, 'resized');
-                if ( ! Folder::exists($resize_folder)) {
-                    Folder::make($resize_folder);
+                $original_image_path = Path::assemble(BASE_PATH, $path);
+                $image = \Intervention\Image\Image::make($original_image_path);
+
+                if ($keep_original) {
+                    $resize_folder = Path::assemble($image->dirname, 'resized');
+                    
+                    if ( ! Folder::exists($resize_folder)) {
+                        Folder::make($resize_folder);
+                    }
+
+                    $resize_path = Path::assemble($resize_folder, $image->basename);
+                    $path = Path::toAsset($resize_path);
+                    $name = basename($path);
+                    $image->resize($width, $height, $ratio, $upsize)->save($resize_path, $quality);
+                } else {
+                    $image->resize($width, $height, $ratio, $upsize)->save($original_image_path, $quality);
                 }
-                $resize_path = Path::assemble($resize_folder, $image->basename);
-                $path = Path::toAsset($resize_path);
-                $name = basename($path);
-                $image->resize($width, $height, $ratio, $upsize)->save($resize_path, $quality);
+
             }
   
             $results[] = compact('path', 'name');

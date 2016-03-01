@@ -8,7 +8,7 @@
  * @author  Fred LeBlanc <fred@statamic.com>
  *
  * @copyright  2012-2014
- * @link       http://statamic.com/docs/core-template-tags/entries
+ * @link       http://statamic.com/learn/documentation/tags/entries
  * @license    http://statamic.com/license-agreement
  */
 class Plugin_entries extends Plugin
@@ -57,7 +57,16 @@ class Plugin_entries extends Plugin
         // total them up
         $total = 0;
         foreach ($content_set->get(false, false) as $content) {
-            if (!isset($content[$field]) || !is_numeric($content[$field])) {
+            if (!isset($content[$field])) {
+                continue;
+            }
+
+            // contains a comma? *might* be a number... strip them out.
+            if (strpos($content[$field], ',')) {
+                $content[$field] = str_replace(',', '', $content[$field]);
+            }
+
+            if (!is_numeric($content[$field])) {
                 continue;
             }
             
@@ -109,7 +118,10 @@ class Plugin_entries extends Plugin
             return Parse::template($this->content, array('no_results' => true));
         }
 
-        return Parse::tagLoop($this->content, $content_set->get(), false, $this->context);
+        // should content get parsed?
+        $include_content = $this->fetchParam('include_content', true, false, true);
+
+        return Parse::tagLoop($this->content, $content_set->get($include_content), true, $this->context);
     }
 
 
@@ -132,21 +144,7 @@ class Plugin_entries extends Plugin
         // count the content available
         $count = $content_set->count();
 
-        $pagination_variable = Config::getPaginationVariable();
-        $page                = Request::get($pagination_variable, 1);
-
-        $data                       = array();
-        $data['total_items']        = (int) max(0, $count);
-        $data['items_per_page']     = (int) max(1, $limit);
-        $data['total_pages']        = (int) ceil($count / $limit);
-        $data['current_page']       = (int) min(max(1, $page), max(1, $page));
-        $data['current_first_item'] = (int) min((($page - 1) * $limit) + 1, $count);
-        $data['current_last_item']  = (int) min($data['current_first_item'] + $limit - 1, $count);
-        $data['previous_page']      = ($data['current_page'] > 1) ? "?{$pagination_variable}=" . ($data['current_page'] - 1) : FALSE;
-        $data['next_page']          = ($data['current_page'] < $data['total_pages']) ? "?{$pagination_variable}=" . ($data['current_page'] + 1) : FALSE;
-        $data['first_page']         = ($data['current_page'] === 1) ? FALSE : "?{$pagination_variable}=1";
-        $data['last_page']          = ($data['current_page'] >= $data['total_pages']) ? FALSE : "?{$pagination_variable}=" . $data['total_pages'];
-        $data['offset']             = (int) (($data['current_page'] - 1) * $limit);
+        $data = Helper::createPaginationData($count, $limit);
 
         return Parse::template($this->content, $data);
     }
@@ -189,7 +187,7 @@ class Plugin_entries extends Plugin
         }
 
         // get the content
-        $content = $content_set->get(preg_match(Pattern::USING_CONTENT, $this->content));
+        $content = $content_set->get(preg_match(Pattern::USING_CONTENT, $this->content), false);
 
         // set up iterator variables
         $current_found = false;
@@ -269,7 +267,7 @@ class Plugin_entries extends Plugin
         }
 
         // get the content
-        $content = $content_set->get(preg_match(Pattern::USING_CONTENT, $this->content));
+        $content = $content_set->get(preg_match(Pattern::USING_CONTENT, $this->content), false);
 
         // set up iterator variables
         $previous_data = null;
@@ -339,11 +337,10 @@ class Plugin_entries extends Plugin
         $folders = $this->fetchParam('folder', ltrim($this->fetchParam('from', URL::getCurrent()), "/"));
 
         if ($this->fetchParam('taxonomy', false, null, true, null)) {
-            $taxonomy_parts  = Taxonomy::getCriteria(URL::getCurrent());
-            $taxonomy_type   = $taxonomy_parts[0];
-            $taxonomy_slug   = Config::get('_taxonomy_slugify') ? Slug::humanize($taxonomy_parts[1]) : urldecode($taxonomy_parts[1]);
+            $taxonomy  = Taxonomy::getCriteria(URL::getCurrent());
+            $taxonomy_slug   = Config::get('_taxonomy_slugify') ? Slug::humanize($taxonomy['slug']) : urldecode($taxonomy['slug']);
 
-            $content_set = ContentService::getContentByTaxonomyValue($taxonomy_type, $taxonomy_slug, $folders);
+            $content_set = ContentService::getContentByTaxonomyValue($taxonomy['type'], $taxonomy_slug, $folders);
         } else {
             $content_set = ContentService::getContentByFolders($folders);
         }
@@ -475,8 +472,15 @@ class Plugin_entries extends Plugin
      */
     private function parseCommonParameters()
     {
+        $current_folder = URL::getCurrent();
+        
+        // Strip taxonomy segments because they don't reflect physical folder locations
+        if (Taxonomy::isTaxonomyUrl($current_folder)) {
+            $current_folder = URL::stripTaxonomy($current_folder);
+        }
+        
         // determine folder
-        $folders = array('folders' => $this->fetchParam('folder', $this->fetchParam('folders', ltrim($this->fetchParam('from', URL::getCurrent()), "/"))));
+        $folders = array('folders' => $this->fetchParam(array('folder', 'folders', 'from'), $current_folder));
 
         // determine filters
         $filters = array(
@@ -526,11 +530,10 @@ class Plugin_entries extends Plugin
         } else {
             // no blink content exists, get data the hard way
             if ($settings['taxonomy']) {
-                $taxonomy_parts  = Taxonomy::getCriteria(URL::getCurrent());
-                $taxonomy_type   = $taxonomy_parts[0];
-                $taxonomy_slug   = Config::get('_taxonomy_slugify') ? Slug::humanize($taxonomy_parts[1]) : urldecode($taxonomy_parts[1]);
+                $taxonomy  = Taxonomy::getCriteria(URL::getCurrent());
+                $taxonomy_slug   = Config::get('_taxonomy_slugify') ? Slug::humanize($taxonomy['slug']) : urldecode($taxonomy['slug']);
 
-                $content_set = ContentService::getContentByTaxonomyValue($taxonomy_type, $taxonomy_slug, $settings['folders']);
+                $content_set = ContentService::getContentByTaxonomyValue($taxonomy['type'], $taxonomy_slug, $settings['folders']);
             } else {
                 $content_set = ContentService::getContentByFolders($settings['folders']);
             }
@@ -545,12 +548,22 @@ class Plugin_entries extends Plugin
             $content_set->supplement(array('total_found' => $total_entries) + $settings);
 
             // sort
-            $content_set->multisort($settings['sort']);            
+            $content_set->multisort($settings['sort']);
+
+            // additional post-sort supplement
+            $additional_supplementation = array();
             
-            // post-sort supplement
-            $content_set->supplement(array(
-                'group_by_date' => trim($this->fetchParam("group_by_date", null, null, false, false))
-            ), true);
+            if ($date_offset = $this->fetchParam('date_offset', null, null, false, false)) {
+                $additional_supplementation[] = $date_offset;
+            }
+
+            if ($group_by_date = trim($this->fetchParam("group_by_date", null, null, false, false))) {
+                $additional_supplementation[] = $group_by_date;   
+            }
+
+            if ( ! empty($additional_supplementation)) {
+                $content_set->supplement($additional_supplementation, true);
+            }
 
             // store content as blink content for future use
             $this->blink->set($content_hash, $content_set->extract());

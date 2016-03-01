@@ -548,19 +548,20 @@ class Parser
                         // field to sort by
                         if (isset($parameters['sort_by'])) {
                             $sort_field = $parameters['sort_by'];
+                            $test_item = array_get($values, 0);
 
                             if ($sort_field == 'random') {
                                 shuffle($values);
-                            } elseif (array_values($values) === $values) {
-                                sort($values);
-                            } else {
-
+                            
+                            } elseif ($test_item && array_get($test_item, $sort_field)) {
                                 usort($values, function($a, $b) use ($sort_field) {
                                     $a_value = array_get($a, $sort_field, null);
                                     $b_value = array_get($b, $sort_field, null);
 
                                     return \Helper::compareValues($a_value, $b_value);
                                 });
+                            } elseif (array_values($values) === $values) {
+                                sort($values);
                             }
                         }
 

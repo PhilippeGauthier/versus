@@ -15,18 +15,18 @@ class Plugin_member extends Plugin
         $get_return      = filter_input(INPUT_GET, 'return', FILTER_SANITIZE_URL);
         $post_return     = filter_input(INPUT_POST, 'return', FILTER_SANITIZE_URL);
         $request_return  = Helper::pick($post_return, $get_return);
-        
+
         // is user already logged in? forward as needed
         if (Auth::isLoggedIn()) {
             URL::redirect($logged_in_redirect, 302);
         }
-        
+
         // if we're letting return values to be set in URL and one exists, grab it
         if ($allow_request_return && $request_return) {
             $return = $request_return;
         }
-        
-        // set up any data to be parsed into content 
+
+        // set up any data to be parsed into content
         $data = array(
             'error' => $this->flash->get('login_error', ''),
             'old_values' => array_map('htmlspecialchars', $this->flash->get('old_values', array()))
@@ -35,7 +35,7 @@ class Plugin_member extends Plugin
         // set up attributes
         if ($attr) {
             $attributes_array = Helper::explodeOptions($attr, true);
-            
+
             foreach ($attributes_array as $key => $value) {
                 $attr_string .= ' ' . $key . '="' . $value . '"';
             }
@@ -47,25 +47,25 @@ class Plugin_member extends Plugin
         $html .= '<input type="hidden" name="token" value="' . $this->tokens->create() . '">';
         $html .= Parse::template($this->content, $data);
         $html .= '</form>';
-        
+
         // return that HTML
         return $html;
     }
-    
-    
+
+
     public function logout_url()
     {
         $return = $this->fetchParam('return', URL::getCurrent());
         return URL::assemble(Config::getSiteRoot(), "TRIGGER", 'member', "logout?return={$return}");
     }
-    
-    
+
+
     public function logout()
     {
         URL::redirect($this->logout_url());
     }
-    
-    
+
+
     public function register_form()
     {
         if (Auth::isLoggedIn()) {
@@ -97,7 +97,7 @@ class Plugin_member extends Plugin
             $item = htmlspecialchars($item);
         });
 
-        // set up any data to be parsed into content 
+        // set up any data to be parsed into content
         $data = array(
             'error' => $this->flash->get('register_error', ''),
             'success' => $this->flash->get('register_success', ''),
@@ -126,22 +126,22 @@ class Plugin_member extends Plugin
         // return that HTML
         return $html;
     }
-    
-    
+
+
     public function profile_form()
     {
         if (!Auth::isLoggedIn()) {
             // not logged in
             return false;
         }
-        
+
         $attr_string  = '';
         $member       = Auth::getCurrentMember();
         $site_root    = Config::getSiteRoot();
-        $username     = $this->fetchParam('username', $member->get('username'));
+        $username     = $this->fetchParam('username', $member->get('username'), null, false, false);
         $return       = $this->fetchParam('return', URL::getCurrent(), null, false, false);
         $attr         = $this->fetchParam('attr', false);
-        
+
         // get old values
         $old_values   = $this->flash->get('update_profile_old_values', array()) + Member::getProfile($username);
 
@@ -149,7 +149,7 @@ class Plugin_member extends Plugin
             $item = htmlspecialchars($item);
         });
 
-        // set up any data to be parsed into content 
+        // set up any data to be parsed into content
         $data = array(
             'error' => $this->flash->get('update_profile_error', ''),
             'success' => $this->flash->get('update_profile_success', ''),
@@ -165,7 +165,7 @@ class Plugin_member extends Plugin
                 $attr_string .= ' ' . $key . '="' . $value . '"';
             }
         }
-        
+
         // set username in flash
         $this->flash->set('update_username', $username);
 
@@ -173,26 +173,26 @@ class Plugin_member extends Plugin
         $html  = '<form method="post" action="' . Path::tidy($site_root . "/TRIGGER/member/update_profile") . '" ' . $attr_string . '>';
         $html .= '<input type="hidden" name="return" value="' . $return . '">';
         $html .= '<input type="hidden" name="token" value="' . $this->tokens->create() . '">';
-        
+
         // are we editing someone other than the current user?
         // security note, the hook for this form will check that the current
         // user has permissions to edit this user's information
         if ($username !== $member->get('username')) {
             $html .= '<input type="hidden" name="username" value="' . $username . '">';
         }
-        
+
         $html .= Parse::template($this->content, $data);
         $html .= '</form>';
 
         // return that HTML
         return $html;
     }
-    
+
     public function login()
     {
         // deprecation warning
         $this->log->warn("Use of `login` is deprecated. Use `login_form` instead.");
-        
+
         $site_root = Config::getSiteRoot();
 
         $return = $this->fetchParam('return', $site_root);
@@ -240,8 +240,8 @@ class Plugin_member extends Plugin
         $attr                 = $this->fetchParam('attr', false);
 
         // check that email template(s) exist
-        if ( 
-            ! Theme::getTemplate($this->fetchConfig('reset_password_html_email', false, null, false, false)) 
+        if (
+            ! Theme::getTemplate($this->fetchConfig('reset_password_html_email', false, null, false, false))
             && ! Theme::getTemplate($this->fetchConfig('reset_password_text_email', false, null, false, false))
         ) {
             throw new Exception('Your reset password email template(s) must exist and contain a {{ reset_url }}.');
@@ -251,18 +251,18 @@ class Plugin_member extends Plugin
         $get_return      = filter_input(INPUT_GET, 'return', FILTER_SANITIZE_URL);
         $post_return     = filter_input(INPUT_POST, 'return', FILTER_SANITIZE_URL);
         $request_return  = Helper::pick($post_return, $get_return);
-        
+
         // is user already logged in? forward as needed
         if (Auth::isLoggedIn()) {
             URL::redirect($logged_in_redirect, 302);
         }
-        
+
         // if we're letting return values to be set in URL and one exists, grab it
         if ($allow_request_return && $request_return) {
             $return = $request_return;
         }
-        
-        // set up any data to be parsed into content 
+
+        // set up any data to be parsed into content
         $data = array(
             'error' => $this->flash->get('forgot_password_error', ''),
             'email_sent' => $this->flash->get('forgot_password_sent')
@@ -271,7 +271,7 @@ class Plugin_member extends Plugin
         // set up attributes
         if ($attr) {
             $attributes_array = Helper::explodeOptions($attr, true);
-            
+
             foreach ($attributes_array as $key => $value) {
                 $attr_string .= ' ' . $key . '="' . $value . '"';
             }
@@ -286,7 +286,7 @@ class Plugin_member extends Plugin
         $html .= '<input type="hidden" name="token" value="' . $this->tokens->create() . '">';
         $html .= Parse::template($this->content, $data);
         $html .= '</form>';
-        
+
         // return that HTML
         return $html;
     }
@@ -306,7 +306,7 @@ class Plugin_member extends Plugin
         // is user already logged in? forward as needed
         if (Auth::isLoggedIn()) {
             URL::redirect($logged_in_redirect, 302);
-        }        
+        }
 
         // no hash in URL?
         if (!$hash) {
@@ -317,7 +317,7 @@ class Plugin_member extends Plugin
         if (count($errors) == 0) {
             // cache file doesn't exist or is too old
             if (
-                ! $this->cache->exists($hash) 
+                ! $this->cache->exists($hash)
                 || $this->cache->getAge($hash) > $this->fetchConfig('reset_password_age_limit') * 60
             ) {
                 $errors[] = Localization::fetch('reset_password_url_expired');
@@ -333,7 +333,7 @@ class Plugin_member extends Plugin
         // set up attributes
         if ($attr) {
             $attributes_array = Helper::explodeOptions($attr, true);
-            
+
             foreach ($attributes_array as $key => $value) {
                 $attr_string .= ' ' . $key . '="' . $value . '"';
             }
@@ -349,7 +349,7 @@ class Plugin_member extends Plugin
         $html .= Parse::template($this->content, $data);
         $html .= '</form>';
 
-        
+
         // return that HTML
         return $html;
     }
@@ -365,7 +365,7 @@ class Plugin_member extends Plugin
         } elseif ($uid) {  // uid
             return Member::getProfileByUID($uid);
         }
-        
+
         // neither of those? try the current user
         $user = Auth::getCurrentMember();
 
@@ -377,14 +377,14 @@ class Plugin_member extends Plugin
         }
     }
 
-    
+
     public function listing()
     {
         if (Config::get('disable_member_cache')) {
             $this->log->error("Cannot use `member:listing` when `_disable_member_cache` is `true`.");
             return Parse::template($this->content, array('no_results' => true));
         }
-        
+
         // grab common parameters
         $settings = $this->parseCommonParameters();
 
@@ -442,21 +442,7 @@ class Plugin_member extends Plugin
         // count the content available
         $count = $member_set->count();
 
-        $pagination_variable  = Config::getPaginationVariable();
-        $page                 = Request::get($pagination_variable, 1);
-
-        $data                       = array();
-        $data['total_items']        = (int) max(0, $count);
-        $data['items_per_page']     = (int) max(1, $limit);
-        $data['total_pages']        = (int) ceil($count / $limit);
-        $data['current_page']       = (int) min(max(1, $page), max(1, $page));
-        $data['current_first_item'] = (int) min((($page - 1) * $limit) + 1, $count);
-        $data['current_last_item']  = (int) min($data['current_first_item'] + $limit - 1, $count);
-        $data['previous_page']      = ($data['current_page'] > 1) ? "?{$pagination_variable}=" . ($data['current_page'] - 1) : false;
-        $data['next_page']          = ($data['current_page'] < $data['total_pages']) ? "?{$pagination_variable}=" . ($data['current_page'] + 1) : false;
-        $data['first_page']         = ($data['current_page'] === 1) ? false : "?{$pagination_variable}=1";
-        $data['last_page']          = ($data['current_page'] >= $data['total_pages']) ? false : "?{$pagination_variable}=" . $data['total_pages'];
-        $data['offset']             = (int) (($data['current_page'] - 1) * $limit);
+        $data = Helper::createPaginationData($count, $limit);
 
         return Parse::template($this->content, $data);
     }

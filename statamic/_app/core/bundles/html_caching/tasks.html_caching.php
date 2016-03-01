@@ -18,7 +18,7 @@ class Tasks_html_caching extends Tasks
         }
 
         // check that the URL being requested is a content file
-        $data      = ContentService::getContent($this->removeQueryString($url));
+        $data      = ContentService::getContent($this->getCleanUri($url));
 
         // not a content file, not enabled
         if (!$data) {
@@ -160,7 +160,9 @@ class Tasks_html_caching extends Tasks
 
 
     /**
-     * Strips out the query string from a URL
+     * Strips out the query string (except for pagination) from a URL
+     *
+     * eg. /blog?page=2&foo=bar will become /blog?page=2
      * 
      * @param string  $url  URL to remove query strings from
      * @return string
@@ -168,9 +170,29 @@ class Tasks_html_caching extends Tasks
     protected function removeQueryString($url)
     {
         if (strpos($url, '?') !== false) {
-            $url = substr($url, 0, strpos($url, '?'));
+	        $split = explode('?', $url);
+	        parse_str($split[1], $params);
+	        $url = $split[0] . '?page=' . $params['page'];
         }
-        
+
         return $url;
     }
+
+
+	/**
+	 * Completely removes the query string from a URL
+	 *
+	 * eg. /blog?page=2&foo=bar will become /blog
+	 *
+	 * @param string  $url  URL to remove query strings from
+	 * @return string
+	 */
+	protected function getCleanUri($url)
+	{
+		if (strpos($url, '?') !== false) {
+			$url = substr($url, 0, strpos($url, '?'));
+		}
+
+		return $url;
+	}
 }

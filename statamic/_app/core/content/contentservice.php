@@ -17,12 +17,13 @@ class ContentService
     /**
      * Loads the content cache into the local cache variable if not done yet
      *
+     * @param boolean  $force  Force this to load?
      * @return void
      * @throws Exception
      */
-    public static function loadCache()
+    public static function loadCache($force=false)
     {
-        if (self::$cache_loaded) {
+        if (!$force && self::$cache_loaded) {
             return;
         }
 
@@ -369,8 +370,16 @@ class ContentService
      */
     public static function getContentByURL($url)
     {
-        $content = ContentService::getContent($url);
-        $content = (count($content)) ? array($content) : $content;
+        if (is_array($url)) {
+            $content = array();
+            foreach ($url as $single_url) {
+                $content[] = ContentService::getContent($single_url);
+            }
+        } else {
+            $content = ContentService::getContent($url);
+            $content = (count($content)) ? array($content) : $content;
+        }
+
         return new ContentSet($content);
     }
 

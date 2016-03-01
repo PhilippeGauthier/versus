@@ -1,6 +1,8 @@
 <?php
 class Fieldtype_replicator extends Fieldtype
 {
+	private $buttons;
+	private $set_types;
 
 	/**
 	 * Render the field
@@ -9,15 +11,34 @@ class Fieldtype_replicator extends Fieldtype
 	 */
 	public function render()
 	{
+		$this->set_types = $this->setTypes();
+		$this->buttons = $this->getButtonsPartial();
+
 		$vars = array(
-			'set_types'     => $this->setTypes(),
+			'set_types'     => $this->set_types,
 			'set_templates' => $this->setTemplates(),
 			'sets'          => $this->existingSets(),
-			'field_id'      => $this->field_id
+			'field_id'      => $this->field_id,
+			'buttons'       => $this->buttons
 		);
 
 		$template = File::get($this->getAddonLocation() . 'views/fieldtype.html');
 		
+		return Parse::template($template, $vars);
+	}
+
+
+	/**
+	 * Get buttons
+	 * 
+	 * @return string
+	 */
+	private function getButtonsPartial()
+	{
+		$template = File::get($this->getAddonLocation() . 'views/partials/buttons.html');
+		
+		$vars = array('set_types' => $this->set_types);
+
 		return Parse::template($template, $vars);
 	}
 
@@ -31,9 +52,11 @@ class Fieldtype_replicator extends Fieldtype
 	{
 		foreach ($this->field_config['sets'] as $set_name => $set) {
 			$this->set_types[] = array(
-				'display'    => array_get($set, 'display', Slug::prettify($set_name)),
-				'name'       => $set_name,
-				'fieldtypes' => $this->fieldtypeTemplates($set_name, $set['fields'])
+				'display'      => array_get($set, 'display', Slug::prettify($set_name)),
+				'instructions' => array_get($set, 'instructions'),
+				'name'         => $set_name,
+				'field_name'   => $this->fieldname,
+				'fieldtypes'   => $this->fieldtypeTemplates($set_name, array_get($set, 'fields', array()))
 			);
 		}
 
@@ -51,12 +74,14 @@ class Fieldtype_replicator extends Fieldtype
 		$template = File::get($this->getAddonLocation() . 'views/templates.html');
 		
 		foreach ($this->set_types as $set) {
+			$set['buttons'] = $this->buttons;
+
 			$templates[] = array(
 				'type' => $set['name'],
 				'html' => Parse::template($template, $set)
 			);
 		}
-		
+
 		return json_encode($templates);
 	}
 
@@ -77,9 +102,11 @@ class Fieldtype_replicator extends Fieldtype
 				unset($data['type']);
 				$set = $this->field_config['sets'][$set_name];
 				$sets[] = array(
-					'display'    => array_get($set, 'display', Slug::prettify($set_name)),
-					'name'       => $set_name,
-					'fieldtypes' => $this->fieldtypes($i, $set, $data)
+					'display'      => array_get($set, 'display', Slug::prettify($set_name)),
+					'instructions' => array_get($set, 'instructions'),
+					'name'         => $set_name,
+					'field_name'   => $this->fieldname,
+					'fieldtypes'   => $this->fieldtypes($i, $set, $data)
 				);
 				$i++;
 			}
@@ -98,10 +125,14 @@ class Fieldtype_replicator extends Fieldtype
 	 */
 	private function fieldtypeTemplates($set_name, $fields)
 	{
+		$fieldtypes = array();
+
 		foreach ($fields as $field_name => $field) {
 			$key = "[yaml][{$this->field}][%%replicator_index%%]";
 			$id = $field_name . '_%%replicator_index%%';
-			$type = array_get($field, 'type', 'text');
+			
+			$type  = array_get($field, 'type', 'text');
+			$value = array_get($field, 'default');
 
 			$field['display'] = array_get($field, 'display', Slug::prettify($field_name));
 
@@ -112,7 +143,7 @@ class Fieldtype_replicator extends Fieldtype
 			$fieldtypes[] = array(
 				'type' => $type,
 				'field_name' => $key,
-				'fieldtype' => Fieldtype::render_fieldtype($type, $field_name, $field, null, null, $key, $id)
+				'fieldtype' => Fieldtype::render_fieldtype($type, $field_name, $field, $value, null, $key, $id)
 			);
 		}
 
@@ -130,22 +161,26 @@ class Fieldtype_replicator extends Fieldtype
 	 */
 	private function fieldtypes($i, $set, $data)
 	{
-		foreach($set['fields'] as $field_name => $field) {
+		$set_fields = array_get($set, 'fields', array());
+		$fieldtypes = array();
+
+		foreach($set_fields as $field_name => $field) {
 			$key = "[yaml][{$this->field}][$i]";
 			$id = $field_name .'_'. $i;
 			$field_data = array_get($data, $field_name);
+			$field_type = array_get($field, 'type', 'text');
 			
 			$field_config = $set['fields'][$field_name];
 			$field_config['display'] = array_get($field_config, 'display', Slug::prettify($field_name));
 
-			if ($field['type'] == 'grid') {
+			if ($field_type == 'grid') {
 				$field_name = "{$this->field}][$i][$field_name";
 			}
 
 			$fieldtypes[] = array(
-				'type' => $field['type'],
+				'type' => $field_type,
 				'field_name' => $key,
-				'fieldtype' => Fieldtype::render_fieldtype($field['type'], $field_name, $field_config, $field_data, null, $key, $id)
+				'fieldtype' => Fieldtype::render_fieldtype($field_type, $field_name, $field_config, $field_data, null, $key, $id)
 			);
 		}
 
@@ -163,7 +198,7 @@ class Fieldtype_replicator extends Fieldtype
 		// Process fieldtypes		
 		foreach ($this->field_data as $set_index => $set_data) {
 			$set_name = $set_data['type'];
-			$set_fields = $this->settings['sets'][$set_name]['fields'];
+			$set_fields = array_get($this->settings['sets'][$set_name], 'fields', array());
 			unset($set_data['type']);
 			foreach ($set_data as $set_field_name => $set_field_data) {
 				$set_field_settings = $set_fields[$set_field_name];

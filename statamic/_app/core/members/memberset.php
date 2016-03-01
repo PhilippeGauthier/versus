@@ -405,11 +405,13 @@ class MemberSet
         $i = 1;
 
         // loop through the content adding contextual data
-        foreach ($this->members as $username => $item) {
-            $this->members[$username]['first']         = ($i === 1);
-            $this->members[$username]['last']          = ($i === $count);
-            $this->members[$username]['count']         = $i;
-            $this->members[$username]['total_results'] = $count;
+        foreach ($this->members as $member => $item) {
+            $username = $item['username'];
+
+            $this->members[$member]['first']         = ($i === 1);
+            $this->members[$member]['last']          = ($i === $count);
+            $this->members[$member]['count']         = $i;
+            $this->members[$member]['total_results'] = $count;
             
             $file = sprintf(Config::getConfigPath() . '/users/%s.yaml', $username);
 
@@ -418,8 +420,8 @@ class MemberSet
                 $raw_file = substr(File::get($file), 3);
                 $divide = strpos($raw_file, "\n---");
 
-                $this->members[$username]['biography_raw']  = trim(substr($raw_file, $divide + 4));
-                $this->members[$username]['biography']      = Content::parse($this->members[$username]['biography_raw'], $item);
+                $this->members[$member]['biography_raw']  = trim(substr($raw_file, $divide + 4));
+                $this->members[$member]['biography']      = Content::parse($this->members[$member]['biography_raw'], $item);
             }
 
             $i++;

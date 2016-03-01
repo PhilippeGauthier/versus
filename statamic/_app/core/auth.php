@@ -28,6 +28,7 @@ class Auth
         
         // if no Member object, or checkPassword fails, return false
         if (!$user || !$user->checkPassword($password)) {
+            Hook::run('auth', 'login_failed', 'call', null, $user);
             return false;
         }
         

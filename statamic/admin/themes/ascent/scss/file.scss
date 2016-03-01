@@ -58,10 +58,15 @@
 
   }
 
-  &.max-files-reached .drop-area {
-    .helper-text { display: none; }
-    .max-text { display: block; }
-    .choose-existing-file { display: none; }
+  &.single-file {
+	  .drop-area {
+		  width: 100%;
+	  }
+  }
+
+  &.max-files-reached {
+    padding-left: 0;
+    .drop-area { display: none; }
   }
 
   .choose-existing-file {
@@ -168,9 +173,13 @@
 //
 // GRID
 //
+.grid tbody tr td.cell-file {
+  padding: 0;
+}
 .cell-file .file-field-container {
   padding-left: 0;
   min-height: 0;
+  border: 0;
 
   .drop-area {
     position: relative;
@@ -272,28 +281,67 @@
 //
 .existing-file-selector {
 
+  .modal {
+    width: 575px;
+  }
+
   p { margin-top: 0; }
 
-  table { width: 100%; }
-  td { 
-    border-top: 1px solid lighten($borderColor, 10%);
-    vertical-align: middle;
+  .files {
+    text-align: justify;
+    font-size: .1px;
+
+    &:after {
+      display: inline-block;
+      width: 100%;
+    }
   }
-  tr:first-child td { border-top: 0; }
-  
-  a { color: $linkColor; }
 
-  .filename { padding: 15px 0; }
-
-  .action { 
-    width: 1px;
-    white-space: nowrap;
-    font-size: 20px;
-    padding-top: 6px;
-
-    .ss-icon { line-height: 1; }
-
-    a:first-child { color: #ccc; }
+  .file, .placeholder {
+    display: inline-block;
+    vertical-align: top;
+    width: 125px;
   }
+
+  .file {
+    margin: 0 0 15px 0;
+    position: relative;
+  }
+
+  img {
+    @include border-radius(3px);
+  }
+
+  .filename {
+    margin-top: 3px;
+    font-size: 13px;
+
+    a { color: $textColor; }
+  }
+
+  .action {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      background: rgba(black, .5);
+      color: white;
+      padding: 7px 5px 3px;
+      font-size: 13px;
+      line-height: 1;
+      border-radius: 3px;
+      margin: 0 2.5px;
+      cursor: pointer;
+
+      .ss-icon { margin: 0; }
+    }
+  }
+
+  .file:hover .action { display: block; }
 
 }

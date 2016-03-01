@@ -18,33 +18,49 @@ class Fieldtype_grid extends Fieldtype
 
         $max_rows_attr = ($max_rows) ? " data-max-rows='$max_rows'" : '';
         $min_rows_attr = ($min_rows) ? " data-min-rows='$min_rows'" : '';
-        $starting_rows = array_get($this->field_config, 'starting_rows');
+        $starting_rows = array_get($this->field_config, 'starting_rows', 1);
 
         // create header row
         // -------------------------------------------------------------------------
-        $html = "<thead>\n<tr>\n";
+        $html = "<thead><tr>";
         $html .= "<th class='row-count'></th>";
 
         // Set Width
         foreach ($this->field_config['fields'] as $key => $cell_field_config) {
             $width = array_get($cell_field_config, 'width', 'auto');
-            $html .= "<th style='width:{$width}'>" . array_get($cell_field_config, 'display', Slug::prettify($key)) . "</th>\n";
+            $html .= "<th style='width:{$width}'>";
+                $html .= array_get($cell_field_config, 'display', Slug::prettify($key));
+
+                $instructions = array_get($cell_field_config, 'instructions');
+                
+                if ($instructions) {
+                    if (is_array($instructions)) {
+                        $instructions = htmlspecialchars(array_get($instructions, 'above')) 
+                            . '<br />' 
+                            . array_get($instructions, 'below');
+                    } else {
+                        $instructions = htmlspecialchars($instructions);
+                    }
+
+                    $html .= "<small>" . $instructions . "</small>";
+                }
+
+            $html .= "</th>";
         }
 
-        $html .= "</tr>\n</thead>\n";
+        $html .= "</tr></thead>";
 
 
         // create grid rows
         // -------------------------------------------------------------------------
-        $html .= "<tbody>\n";
+        $html .= "<tbody>";
 
         # rows to render
-        if ($starting_rows && $starting_rows > $min_rows) {
+        $rows_to_render = 0;
+        if ($starting_rows !== 0 && $starting_rows > $min_rows) {
             $rows_to_render = $starting_rows;
-        } elseif ($min_rows) {
+        } elseif ($min_rows > 0) {
             $rows_to_render = $min_rows;
-        } else {
-            $rows_to_render = 1;
         }
 
         # render the rows
@@ -105,6 +121,11 @@ class Fieldtype_grid extends Fieldtype
             $celltype = array_get($cell_field_config, 'type', 'text');
             $default  = array_get($cell_field_config, 'default', '');
             $name     = $this->field . '][' . $index . '][' . $cell_field_name;
+
+            // This makes the config a little different from "real" fields
+            // If a fieldtype is leveraging caching, one of these fields will throw it off.
+            // Making this a bit more unique will prevent that.
+            $cell_field_config['grid_placeholder_row'] = true;
 
             $row .= "<td class='cell-{$celltype}' data-default='{$default}'>" . Fieldtype::render_fieldtype($celltype, $name, $cell_field_config, $default, null, '[yaml]', 'rename_me') . "</td>";
         }

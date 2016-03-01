@@ -37,7 +37,7 @@ class Cache
         );
         
         foreach ($caches as $key => $cache) {
-            if (!File::exists($cache) || !strlen(File::get($cache))) {
+            if (!File::exists($cache) || filesize($cache) == 0) {
                 return false;
             }
         }

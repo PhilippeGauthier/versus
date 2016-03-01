@@ -5,8 +5,8 @@ roles:
   - admin
 email: philippe@philippe.io
 password: ""
-_uid: 0D1n5J5328d327c67b8HNB1XMkD
-password_hash: $2a$08$5ophI9019ecliuxsoTXXk.4rBJ6IW4F5WrMLzUtjqir71Vc5iHVXK
+_uid: gGNg8H56d4ec0aaa29fxmqnRSfD
+password_hash: $2a$08$537HPSQXsjwzBL7WxiyAXeT3x5gp/Q9x2Q4nKZxQLkwMExw3ZQZdi
 ---
 Have no fears, your password, while plain text to start, will be encrypted upon first login. If ever you need to manually reset a password you can wipe out the password fields and start anew.
 

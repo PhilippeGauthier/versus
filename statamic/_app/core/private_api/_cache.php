@@ -128,6 +128,9 @@ class _Cache
 
         // create a master list of files that need updating
         $changed_files = array_unique(array_merge($new_files, $updated));
+        
+        // store a list of changed URLs
+        $changed_urls = array();
 
         // add to the cache if files have been updated
         if (count($changed_files)) {
@@ -269,6 +272,8 @@ class _Cache
                     'path'   => $local_path,
                     'file'   => $slug_with_extension
                 );
+                
+                $changed_urls[$data['url']] = true;
             }
         }
 
@@ -283,9 +288,12 @@ class _Cache
 
                 $files_changed = true;
 
-                // remove from url cache
+                // get URL
                 $url = (isset($cache['content'][$folder][$path]['url'])) ? $cache['content'][$folder][$path]['url'] : null;
-                if (!is_null($url)) {
+                
+                // only remove from URLs list if not in changed URLs list
+                if (!isset($changed_urls[$url]) && !is_null($url)) {
+                    // remove from url cache
                     unset($cache['urls'][$url]);
                 }
 
@@ -354,7 +362,8 @@ class _Cache
 
                     // Trim off home and any /page.md ending so that all URLs are treated
                     // equally regardless of page type.
-                    $order_key = rtrim(ltrim($item['path'], $home), '/page.md');
+
+                    $order_key = str_replace('/page.md', '', str_replace($home, '', $item['path']));
 
                     $sub_order_key = $item['data']['_order_key'];
 
@@ -549,7 +558,7 @@ class _Cache
             Debug::markEnd($member_hash);
         }
 
-        File::put($time_file, $now);
+        File::put($time_file, $now - 1);
         return true;
     }
 

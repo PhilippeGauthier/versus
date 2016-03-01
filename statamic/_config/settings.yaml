@@ -13,11 +13,11 @@
 ###########################################################################################
 
 # Enter your license key
-_license_key: 9d70d6ae-f3ce-44a0-b61a-20c1bd7418de
+_license_key:
 
 _language: en
 
-# Change if you are running Statamic in a subdirectory
+# Only set this if Statamic could not correctly guess your site's root
 _site_root: /
 
 # Name of your site
@@ -27,7 +27,7 @@ _site_name: hellyesvs.com
 _content_root: _content
 
 # Used for permalinks
-_site_url: /
+_site_url: hellyesvs.com
 
 # Folder name of your desired theme
 _theme: main
@@ -36,10 +36,10 @@ _theme: main
 _entry_timestamps: false
 
 # Global formatting for {{ date }} variables
-_date_format: 'F j, Y'
+_date_format: 'F jS, Y'
 
 # Global formatting for time variables
-_time_format: 'g:i.s a'
+_time_format: 'g:ia'
 
 # Timezone
 _timezone: America/New_York
@@ -48,6 +48,14 @@ _timezone: America/New_York
 _taxonomy:
   - categories
   - tags
+  - key_features
+  - property_location
+  - property_type
+  - ownership_type
+  - services
+  - authors
+  - author
+  - agents
 
 # Turns your slugs into pretty urls (spaces become "-" instead of %20)
 _taxonomy_slugify: false
@@ -56,7 +64,7 @@ _taxonomy_slugify: false
 _taxonomy_case_sensitive: false
 
 # Converts the display of taxonomies to lowercase
-_taxonomy_force_lowercase: true
+_taxonomy_force_lowercase: false
 
 # Choose your content parsing syntax
 # Your available options:
@@ -86,7 +94,7 @@ _allow_php: false
 _yaml_mode: loose
 
 # Choose the markdown parser to use (standard | parsedown)
-_markdown_parser: parsedown
+_markdown_parser: standard
 
 # Choose whether you want your content (e.g. Markdown, Textile...) or your tags parsed first
 _parse_order:
@@ -98,6 +106,8 @@ _fix_out_of_range_pagination: true
 
 # Experimental: Set http/browser cache length. Plain English is perfect. 1 hour, 1 day, 1 week, etc
 _http_cache_expires: false
+
+_enable_static_pipeline: false
 
 # Skip caching member files, will disable the use of member:listing but will allow for many, many more members
 _disable_member_cache: false
@@ -115,10 +125,14 @@ _environments:
   dev:
     - 'http://localhost*'
     - '*.dev'
+    - '*.statamic'
     - '*.localip'
   staging:
     - 'staging.*.com'
     - 'staging.*.io'
+    - 'clients.*.com'
+    - 'clients.*.io'
+    - '104.131.23.73'
   live:
     - '*.com'
     - '*.io'
@@ -175,6 +189,8 @@ _admin_nav:
   help:      true
   view_site: true
   logout:    true
+  globals:   true
+  raven:     true
 
 # When you log in, where would you like to start?
 _admin_start_page: pages
@@ -191,6 +207,11 @@ _enable_delete_page: true
 # Whether or not to prepend the {{ _site_root }} variable to uploads
 _prepend_site_root_to_uploads: true
 
+# What should be used for handling content revisions (if anything at all)
+# _revisions: local_revisions
+
+# Allow deleting files through the File field
+_allow_file_field_deletions: false
 
 ###########################################################################################
 #

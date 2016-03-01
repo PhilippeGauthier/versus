@@ -93,7 +93,11 @@ class File
             $mode = ($custom_mode !== false) ? $custom_mode : 0755;
         }
         
-        $fs->dumpFile($filename, $content, $mode);
+        try {
+            $fs->dumpFile($filename, $content, $mode);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
         
         // if a custom umask was set, replace the old value
 //        if ($custom_umask !== false) {
@@ -197,7 +201,7 @@ class File
      * @return boolean
      */
     public static function inBasePath($path) {
-        return stripos($path, BASE_PATH);
+        return stripos($path, BASE_PATH) !== false;
     }
 
     /**

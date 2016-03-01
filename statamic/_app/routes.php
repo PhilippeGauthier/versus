@@ -359,19 +359,25 @@ $app->map('/(:segments+)', function ($segments = array()) use ($app) {
 
     // url is taxonomy-based
     } elseif (Taxonomy::isTaxonomyURL($path)) {
-        list($type, $slug) = Taxonomy::getCriteria($path);
+        $taxonomy = Taxonomy::getCriteria($path);
 
         // create data array
         $data = array_merge(Config::getAll(), array(
             'homepage'       => Config::getSiteRoot(),
             'raw_url'        => Request::getResourceURI(),
             'page_url'       => Request::getResourceURI(),
-            'taxonomy_slug'  => urldecode($slug),
-            'taxonomy_name'  => Taxonomy::getTaxonomyName($type, $slug)
+            'taxonomy_slug'  => $taxonomy['slug'],
+            'taxonomy_name'  => Taxonomy::getTaxonomyName($taxonomy['type'], $taxonomy['slug'])
         ));
 
         $template_list[] = "taxonomies";
-        $template_list[] = $type;
+        $template_list[] = $taxonomy['type'];
+
+        if ( ! $taxonomy['slug']) {
+            $template_list[] = "taxonomy-index";
+            $template_list[] = $taxonomy['type'] . "-index";
+        }
+
         $content_found = true;
     }
 

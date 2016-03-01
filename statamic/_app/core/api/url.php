@@ -225,4 +225,27 @@ class URL
     {
         return Path::tidy(Config::getSiteRoot() . $url);
     }
+
+    /**
+     * Strip taxonomy segments from the URL
+     * 
+     * @param string  $url  URL to prepend
+     * @return string
+     */
+    public static function stripTaxonomy($url)
+    {
+        $taxonomies = Config::getTaxonomies();
+        $segments = explode('/', ltrim($url, '/'));
+        
+        array_pop($segments);
+        array_pop($segments);
+
+        return implode($segments, '/');
+    }
+
+    public static function fromPath($path)
+    {
+        $url = Path::clean(Url::assemble($path));
+        return preg_replace('/\/page$/', '', $url);
+    }
 }

@@ -10,16 +10,16 @@ class Fieldtype_redactor extends Fieldtype {
         // File options
         if ($file_dir = array_get($this->field_config, 'file_dir', false)) {
           $file_dir = trim(array_get($this->field_config, 'file_dir'), '/') . '/';
-          $options['fileUpload'] = '/TRIGGER/redactor/upload?path=' . $file_dir;
-          $options['fileManagerJson'] = '/TRIGGER/redactor/fetch_files?path=' . $file_dir;
+          $options['fileUpload'] = Config::getSiteRoot() . 'TRIGGER/redactor/upload?path=' . $file_dir;
+          $options['fileManagerJson'] = Config::getSiteRoot() . 'TRIGGER/redactor/fetch_files?path=' . $file_dir;
           $options['plugins'][] = 'filemanager';
         }
 
         // Image options
         if ($image_dir = array_get($this->field_config, 'image_dir', false)) {
           $image_dir = trim(array_get($this->field_config, 'image_dir'), '/') . '/';
-          $options['imageUpload'] = '/TRIGGER/redactor/upload?path=' . $image_dir;
-          $options['imageManagerJson'] = '/TRIGGER/redactor/fetch_images?path=' . $image_dir;
+          $options['imageUpload'] = Config::getSiteRoot() . 'TRIGGER/redactor/upload?path=' . $image_dir;
+          $options['imageManagerJson'] = Config::getSiteRoot() . 'TRIGGER/redactor/fetch_images?path=' . $image_dir;
           $options['plugins'][] = 'imagemanager';
 
           if ($resize = array_get($this->field_config, 'resize')) {

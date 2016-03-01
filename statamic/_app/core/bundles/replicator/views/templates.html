@@ -1,12 +1,12 @@
 	<div class="replicator-set set-{{ name }}">
-		<div class="replicator-set-buttons">
-			<span class="ss-icon replicator-set-delete" data-confirm-message="{{ Localization fetch='are_you_sure' }}">delete</span>
-			<span class="ss-icon replicator-set-move">move</span>
+		<input type="hidden" name="{{ field_name }}[%%replicator_index%%][type]" value="{{ name }}" />
+		{{ buttons }}
+		<div class="replicator-set-label">
+			<div class="label">{{ display }}</div>
+			{{ if instructions }}<div class="instructions">{{ instructions }}</div>{{ /if }}
 		</div>
-		<div class="replicator-set-label">{{ display }}</div>
 		{{ fieldtypes }}
 			<div class="input-block input-{{ type }}">
-				<input type="hidden" name="page{{ field_name }}[type]" value="{{ name }}" />
 				{{ fieldtype }}
 			</div>
 		{{ /fieldtypes }}

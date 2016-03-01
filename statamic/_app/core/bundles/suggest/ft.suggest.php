@@ -50,6 +50,41 @@ class Fieldtype_suggest extends Fieldtype
 
         /*
         |--------------------------------------------------------------------------
+        | Array from a page
+        |--------------------------------------------------------------------------
+        |
+        | Fetch an array from another page. Like hardcoding the options, but it's
+        | managed through the content.
+        |
+        */
+
+        if (isset($this->field_config['array'])) {
+
+            $config = $this->field_config['array'];
+
+            $url = array_get($config, 'from');
+            $field = array_get($config, 'field');
+
+            $content = ContentService::getContentByURL($url)->extract();
+            $content = $content[0];
+            $values = array_get($content, $field);
+
+            // Grid-style, associative array?
+            if (is_array(reset($values))) {
+                $key = array_get($config, 'key');
+                $vs = array();
+                foreach ($values as $k => $v) {
+                    $vs[] = array_get($v, $key);
+                }
+                $values = $vs;
+            }
+
+            $suggestions = array_merge($suggestions, $values);
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
         | Entries & Pages
         |--------------------------------------------------------------------------
         |
@@ -119,12 +154,14 @@ class Fieldtype_suggest extends Fieldtype
             $taxonomy_set->contextualize($folder);
             $taxonomies = $taxonomy_set->get();
 
+            $taxonomy_opts = array();
 
-            foreach ($taxonomies as $key => $value) {
-                $taxonomies[$key] = $value['name'];
+            foreach ($taxonomies as $taxonomy) {
+                $taxonomy = $taxonomy['name'];
+                $taxonomy_opts[$taxonomy] = $taxonomy;
             }
 
-            $suggestions = array_merge($suggestions, $taxonomies);
+            $suggestions = array_merge($suggestions, $taxonomy_opts);
         }
 
         /*
@@ -145,7 +182,8 @@ class Fieldtype_suggest extends Fieldtype
 
             $member_set = MemberService::getMembers();
             $member_set->filter(array(
-                'role'   => array_get($config, 'role')
+                'role'   => array_get($config, 'role'),
+                'conditions'  => trim(array_get($config, 'conditions'))
             ));
             $members = $member_set->get();
 
@@ -165,7 +203,7 @@ class Fieldtype_suggest extends Fieldtype
         | needed if allow blank is true.
         |
         */
-       
+
         if ($max_items === null && $multiple === false) {
             $max_items = 1;
         }
@@ -182,8 +220,10 @@ class Fieldtype_suggest extends Fieldtype
             'dropdownParent' => 'body'
         ));
 
+        $required_str = ($this->is_required) ? 'required' : '';
+
         $html = "<div id='$this->field_id' class='suggest-field-container' data-config='$options'>";
-        $html .= "<select name='{$this->fieldname}{$multiple_array_holder}' tabindex='{$this->tabindex}' $multiple_string $placeholder_string class='suggest'>\n";
+        $html .= "<select {$required_str} name='{$this->fieldname}{$multiple_array_holder}' tabindex='{$this->tabindex}' $multiple_string $placeholder_string class='suggest'>\n";
 
         $is_indexed = (array_values($suggestions) === $suggestions);
 
@@ -202,7 +242,7 @@ class Fieldtype_suggest extends Fieldtype
             $value = $is_indexed ? $label : $value; #allows setting custom values and labels
 
             if ($multiple && is_array($field_data) ) {
-                $selected = in_array($value, $field_data) ? " selected " : '';
+                $selected = in_array($value, $field_data, true) ? " selected " : '';
             } else {
                 $selected = $field_data == $value ? " selected " : '';
             }
@@ -229,7 +269,7 @@ class Fieldtype_suggest extends Fieldtype
         // If we're forcing lowercase taxonomies (which we are by default), save them as lower too
         if (array_get($settings, 'taxonomy', false) && Config::get('taxonomy_force_lowercase', false)) {
             $this->field_data = Helper::ensureArray($this->field_data);
-            
+
             foreach ($this->field_data as $key => $value) {
                 $this->field_data[$key] = strtolower($value);
             }

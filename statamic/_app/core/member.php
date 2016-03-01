@@ -253,7 +253,7 @@ class Member
         if (!$this->hasRole($role)) {
             $roles = $this->get('roles');
             $roles[] = $role;
-            $this->set('roles', $roles);
+            $this->set('roles', array_values($roles));
         }
     }
 

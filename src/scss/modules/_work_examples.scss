@@ -1,0 +1,211 @@
+
+.work-example.mobile {
+	.company-container {
+		height: 360px;
+		&.active {
+			height: 460px;
+		}
+	}
+}
+
+.work-example {
+	&.desktop {
+		.uber-wrapper {
+			cursor: default;
+		}
+		display: none;
+		@include breakpoint($small) {
+			display: block;
+		}
+		.company-container, .case-study-wrapper {
+			&:hover,&:focus  {
+				cursor: pointer;
+				border: 8px solid $purple;
+				.company-image, .case-study-image {
+					filter: grayscale(0) brightness(1);
+				}
+			}	
+		}
+		.case-study-wrapper.active {
+			border: 8px solid transparent;
+			&:hover, &:active {
+				cursor: default !important;
+			}
+		}
+	}
+	&.mobile {
+		display: block;
+		.slick-next {
+			right: -35px;
+		}
+		.slick-prev {
+			left: -35px;
+		}
+		.slick-dots li {
+			margin: 0;
+		}
+		.case-study-wrapper .preview-text {
+			z-index: -10;
+			&.active {
+				z-index: 10;
+			}
+
+		}
+		.case-study-close {
+			color: white;
+			position: absolute;
+			z-index: 1001;
+			bottom: 30px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			margin-right: auto;
+		}
+		@include breakpoint($small) {
+			display: none;
+		}
+	}
+	position: relative;
+	h2,h3 {
+		text-transform: uppercase;
+	}
+
+}
+
+
+.company-container, .case-study-image {
+	margin: 0 auto;
+	height: 360px;
+	cursor: pointer;
+	position: relative;
+	z-index: 10001;
+
+}
+
+.company-container {
+	&.active {
+		height: 500px;
+	}
+	@include breakpoint($small) {
+		&.active {
+			height: 265px;
+		}
+	}
+	@include breakpoint($medium) {
+
+		&.active {
+			height: 438px;
+		}
+	}
+	@include breakpoint($large) {
+		height: 400px;
+		&.active {
+			height: 578px;
+		}
+	}	
+}
+
+.case-study-image {
+	&.active {
+		cursor: default;
+		height: 400px;
+		p {
+			text-shadow: none;
+		}
+	}
+	@include breakpoint($small) {
+		&.active {
+			height: 265px;
+		}
+	}
+	@include breakpoint($medium) {
+
+		&.active {
+			height: 438px;
+		}
+	}
+	@include breakpoint($large) {
+		height: 400px;
+		&.active {
+			height: 578px;
+		}
+	}	
+}
+
+.company-container, .case-study-wrapper {
+	display: block;
+	position: relative;
+	margin-bottom: 40px;
+	border: 8px solid transparent;
+	h1 {
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	p {
+		color: white;
+		font-size: 14pt;
+		line-height: 16pt;
+		@include breakpoint($small) {
+			line-height: 20pt;
+		}
+	}
+	.slick-dots {
+		bottom: -25px;
+	}
+	transition: all .5s;
+
+}
+
+.company-container.active, {
+	cursor: pointer;
+	border: 8px solid $purple;
+	.company-image {
+		filter: grayscale(0) brightness(1);
+	}
+}
+
+.case-study-image, .company-image {
+	transition: all .5s;
+	filter: grayscale(1) brightness(.6);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.case-study-image.active {
+	filter: grayscale(0) brightness(1);
+}
+
+.preview-text {
+	z-index: 1000;
+	max-width: 80%;
+	@include text-flex;
+	@include absolute-pos;
+	h1 {
+		color: white;
+		text-transform: uppercase;
+	}
+	h1,h3,p {
+		text-shadow: 1px .5px 0.5px rgba(0,0,0,.8);
+		margin: 10px auto;
+		padding: 0;
+	}
+	h3 {
+		font-family: $base-font-family;
+		display: none;
+	}
+	@include breakpoint($small) {
+		h3 {
+			display: block;
+		}
+		
+	}
+	&.active {
+		z-index: 10;
+	}
+	.text {
+		display: none;
+	}
+}

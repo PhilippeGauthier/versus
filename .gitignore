@@ -35,11 +35,14 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 
-.htaccess
-statamic/_cache
-statamic/_cache/**/*
+node_modules/
+bower_compontents/
 
-statamic/_content
-statamic/_content/**/*
-statamic/assets
-statamic/assets/**/*
+.htaccess
+wwwroot/_cache
+wwwroot/_cache/**/*
+
+wwwroot/_content
+wwwroot/_content/**/*
+wwwroot/assets
+wwwroot/assets/**/*

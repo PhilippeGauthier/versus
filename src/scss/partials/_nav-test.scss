@@ -1,0 +1,11 @@
+.nav {
+  height: 100%;
+  // position: fixed;
+  // top: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  li {
+    flex: 1 1 auto;
+  }
+}

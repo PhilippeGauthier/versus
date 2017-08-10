@@ -1,30 +1,35 @@
 {
-  "devDependencies": {
-    "browser-sync": "^0.9.1",
-    "gulp": "^3.6.0",
-    "gulp-autoprefixer": "^0.0.7",
-    "gulp-cache": "^0.1.1",
-    "gulp-csso": "^0.2.6",
-    "gulp-flatten": "^0.0.2",
-    "gulp-if": "^1.2.1",
-    "gulp-imagemin": "^0.6.0",
-    "gulp-jshint": "^1.5.3",
-    "gulp-compass": "^1.2.0",
-    "gulp-load-plugins": "^0.5.0",
-    "gulp-minify-html": "^0.1.3",
-    "gulp-ruby-sass": "^0.5.0",
-    "gulp-size": "^0.4.0",
-    "gulp-uglify": "^0.3.0",
-    "gulp-uncss": "^0.4.4",
-    "gulp-useref": "^0.4.3",
-    "jshint-stylish": "^0.2.0",
-    "opn": "^0.1.1",
-    "psi": "0.0.3",
-    "rimraf": "^2.2.8",
-    "run-sequence": "^0.3.6",
-    "gulp-replace": "^0.3.0"
+  "name": "versus",
+  "version": "1.0.0",
+  "description": "Apache setup",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.0.0",
+    "imagemin-gifsicle": "^5.1.0",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.1",
+    "tiny-lr": "^1.0.5"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  }
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "compass": "^0.1.1",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-replace": "^0.4.3",
+    "susy": "^2.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilippeGauthier/versus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilippeGauthier/versus/issues"
+  },
+  "homepage": "https://github.com/PhilippeGauthier/versus#readme"
 }

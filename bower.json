@@ -1,0 +1,23 @@
+{
+  "name": "versus",
+  "description": "Apache setup",
+  "main": "gulpfile.js",
+  "authors": [
+    "Philippe Gauthier <philippe@philippe.io>"
+  ],
+  "dependencies": {
+    "susy": "2.1.2"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/PhilippeGauthier/versus",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1"
+  }
+}

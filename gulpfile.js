@@ -1,90 +1,136 @@
-var gulp = require('gulp'),
-    compass = require('gulp-compass'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    lr = require('tiny-lr'),
-    server = lr();
 
-var paths = {
-  styles: {
-    src:  '_/components/scss/*.scss',
-    dest: '_/components/scss/scss/build/'
-  }
+var gulp  = require('gulp'),
+    gutil = require('gulp-util'),
+    htmlreplace = require('gulp-html-replace'),
+    sourcemaps = require("gulp-sourcemaps"),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cleanCss = require('gulp-clean-css'),
+    rename = require("gulp-rename"),
+    uglify = require('gulp-uglify'),
+    gulp_concat = require('gulp-concat'),
+    rev = require('gulp-rev'),
+    revReplace = require('gulp-rev-replace'),
+    livereload = require('gulp-livereload'),
+    reload_page = livereload.changed
+
+var path = {
+    HTML: './src/html',
+    HTML_COPY: 'wwwroot/_themes/main/layouts',
+    SCSS: './src/scss/**/*.scss',
+    SCSS_ENTRY: './src/scss/main.scss',
+    BOOTSTRAP: 'bower_components/bootstrap/scss/**/*.scss',
+    SCSS_BUILD: 'wwwroot/_themes/main/css/',
+    CSS_MINIFIED_OUT: 'main.min.css',
+    JS: './src/js/**/*.js',
+    JS_ENTRY: './src/js/',
+    JS_BUILD: 'build/js/',
+    JS_BOOTSTRAP: 'bower_components/jquery/dist/jquery.min.js',
+    JS_PUBLIC: 'wwwroot/_themes/main/js',
+    JS_MINIFIED_OUT: 'main.min.js',
+    THEME: 'wwwroot/_themes/main',
+    DEST: 'wwwroot/_themes/'
 };
 
-gulp.task('compass', function () {
-  return gulp.src(paths.styles.src)
-    .pipe(compass({
-      errLogToConsole: true,
-      config_file: 'config.rb',
-      css: '_/components/scss/build/',
-      sass: '_/components/scss/'
+gulp.task('copy', function(){
+  gulp.src(path.HTML + '/default.html')
+    .pipe(gulp.dest(path.HTML_COPY));
+});
+
+gulp.task('copyJS', function(){
+  gulp.src(path.HTML + '/default.html')
+    .pipe(gulp.dest(path.HTML_COPY));
+});
+
+gulp.task('replaceHTML', function(){
+  
+  gulp.src(path.HTML + '/default.html')
+    .pipe(htmlreplace({
+      'js': {
+        src: null,
+        tpl: '<script src="{{ theme:js src="main.min.js" }}"></script>'
+      },
+      'css': {
+        src: null,
+        tpl: '<link rel="stylesheet" href="{{ theme:css src="main.min.css" }}" />'
+      }
     }))
-    .on('error', function(err) {
-        // Would like to catch the error here
-    })
-    .pipe(gulp.dest('_/components/scss/build/'));
+    .pipe(gulp.dest(path.HTML_COPY));
 });
 
-gulp.task('styles', function() {
-  return gulp.src('_/components/scss/build/main.css')
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('statamic/_themes/main/css'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
-    .pipe(gulp.dest('statamic/_themes/main/css'))
-    .pipe(livereload(server))
+gulp.task('sass', function () {
+  gulp.src(path.SCSS_ENTRY)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: ['node_modules/susy/sass']
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 3 versions'],
+        cascade: true
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(path.SCSS_BUILD));
 });
 
-gulp.task('scripts', function() {
-  return gulp.src(['_/components/js/scrollspy.js','_/components/js/imagelightbox.js','_/components/js/_slick.js','_/components/js/waypoints.js','_/components/js/jquery.scrollme.js','_/components/js/waypoints.sticky.js','_/components/js/scripts.js' ])
-    // .pipe(jshint())
-    // .pipe(jshint.reporter('default'))
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('statamic/_themes/main/js'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
-    .pipe(gulp.dest('statamic/_themes/main/js'))
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Scripts task complete' }));
+gulp.task('minify-css', function() {
+  return gulp.src([path.SCSS_BUILD + '/main.css'])
+    .pipe(cleanCss())
+    
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(path.SCSS_BUILD))
 });
 
-gulp.task('images', function() {
-  return gulp.src('_/assets/img/*')
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('statamic/_themes/main/img'))
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Images task complete' }));
+gulp.task('revision', function() {
+  return gulp.src([path.SCSS_BUILD + '/main.min.css'])
+    .pipe(rev())
+    .pipe(gulp.dest(path.SCSS_BUILD))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(path.SCSS_BUILD));
 });
 
-gulp.task('clean', function() {
-  return gulp.src(['statamic/_themes/main/css', 'statamic/_themes/main/js', 'statamic/_themes/main/img'], {read: false})
-    .pipe(clean());
+gulp.task("revreplace", ["revision"], function(){
+  var manifest = gulp.src("./" + path.SCSS_BUILD + "/rev-manifest.json");
+  return gulp.src([path.HTML_COPY + '/default.html'])
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest(path.HTML_COPY));
 });
 
-// Watch Files For Changes
+
+
+
+gulp.task('js', function(){
+    return gulp.src([
+            path.JS_ENTRY + 'third_party/*.js',
+            path.JS_ENTRY + 'components/*.js',
+            path.JS_ENTRY + 'custom.js'])
+        .pipe(gulp_concat('main.js').on('error', gutil.log))
+        .pipe(gulp.dest(path.JS_PUBLIC).on('error', gutil.log))
+        .pipe(rename('main.min.js').on('error', gutil.log))
+        .pipe(uglify().on('error', gutil.log))
+        .pipe(gulp.dest(path.JS_PUBLIC).on('error', gutil.log));
+});
+
+gulp.task('rename-js', function() {
+  return gulp.src(path.JS_BUILD + 'main.js')
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest(path.JS_PUBLIC))
+});
+
 gulp.task('watch', function() {
-    server.listen(35729, function (err) {
-        if (err) {
-          return console.log(err)
-        };
-        gulp.watch(['_/components/scss/*.scss', '_/components/scss/**/*.scss'], ['compass']);
-        gulp.watch('_/components/scss/build/*.css', ['styles']);
-        gulp.watch('_/components/js/*.js', ['scripts']);
-        gulp.watch('_/assets/img/*', ['images']);
-    });
+  livereload.listen();
+  gulp.watch(path.HTML + '/default.html', ['copy']);
+  gulp.watch([path.SCSS, path.BOOTSTRAP], ['sass']);
+  gulp.watch(path.JS, ['js']);
+  gulp.watch([path.THEME + '/**/*.html'], reload_page);
+  gulp.watch([path.THEME + '/**/*.js']).on('change', livereload.changed);  
+  gulp.watch([path.THEME + '/**/*.css']).on('change', livereload.changed);
 });
 
-gulp.task('default', ['watch'], function() {
-    gulp.start('compass', 'styles', 'scripts');
-});
+gulp.task('default', ['copy','watch']);
+
+gulp.task('production', ['replaceHTML','minify-css','revision','revreplace','js']);
+
+

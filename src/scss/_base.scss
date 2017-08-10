@@ -1,0 +1,92 @@
+
+
+// @include establish-baseline();
+
+html, body, a, span, p {
+	color: $white;
+}
+
+html, body {
+	height: 100%;
+	max-width: 100%;
+	margin: 0;
+	background-color: black;
+	@include breakpoint($small) {
+		background: url('../img/background_1600x1600.png') center center no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+}
+
+html, body, p {
+	font-family: $base-font-family-light;
+	@include breakpoint($small) {
+		font-family: $base-font-family;
+	}
+	letter-spacing: .03rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#{headings()}, strong {
+	font-family: $subHeadline-font;
+}
+
+
+h1 {
+	font-size: 36pt;
+	color: $purple;
+	letter-spacing: -1px;
+	// text-transform: uppercase;
+	margin: 20px 0;
+	font-family: $headline-font;
+	@include breakpoint($small) {
+		font-size: 42pt;
+		margin: 15px 0 40px;
+	}
+}
+
+h2 {
+	font-size: 24pt;
+	@include breakpoint($small) {
+		font-size: 42pt;
+	}
+}
+
+h3 {
+	font-size: 18pt;
+	margin-bottom: 20px;
+	line-height: 23pt;
+	@include breakpoint($small) {
+		line-height: 27pt;
+		font-size: 20pt;
+		margin-bottom: 40px;
+	}
+}
+
+
+p {
+	font-size: 14pt;
+	line-height: 20pt;
+	letter-spacing: .03rem;
+	@include breakpoint($small) {
+		font-size: 18pt;
+		line-height: 23pt;
+		margin-bottom: 20px;
+	}
+}
+
+#cover {
+    background: url("http://www.aveva.com/Images/ajax-loader.gif") no-repeat scroll center center black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+

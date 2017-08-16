@@ -6,7 +6,7 @@
 
 .cbp-spmenu-push {
 	top: 0;
-	
+	position: relative;
 	margin: 0 auto;
 	@include breakpoint($medium) {
 		float: none;
@@ -444,7 +444,7 @@ li.menu-item {
 #home-sweet-home {
 	display: none;
 	@include breakpoint($medium) {
-		display: block;
+		display: flex;
 	}
 }
 

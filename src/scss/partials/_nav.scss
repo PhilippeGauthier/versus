@@ -137,10 +137,44 @@ ul.nav {
 li.menu-item {
 	flex: 1 1 auto;
 	flex-basis: 100%;
-	display: block;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
 	// height: 100%;
 	width: 100%;
 	position: relative;
+	a {
+		flex: 1 1 auto;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		text-decoration: none;
+		.separator {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			.descriptor {
+				padding-left: 20px;
+				width: 140px;
+				text-align: left;
+				display: inline-block;
+				font-size: 13pt;
+				@include breakpoint ($medium) {
+					padding-left: 20px;
+					font-size: 17pt;
+				}
+			}
+			.icon {
+				padding-right: 20px;
+				padding-left: 20px;
+				width: 120px;
+				display: inline-block;
+			}
+		}
+	}
 	&:after {
 		height: 1px;
 	    display: block;
@@ -188,44 +222,6 @@ li.menu-item {
 			    content: '';
 			}
 		}
-
-	}
-	a {
-		height: 100px;
-		width: 100%;
-		position: absolute;
-		text-decoration: none;
-		margin: auto;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		.separator {
-			position: relative;
-			height: 100%;
-			width: 100%;
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: center;
-			.descriptor {
-				padding-left: 20px;
-				width: 140px;
-				text-align: left;
-				display: inline-block;
-				font-size: 13pt;
-				@include breakpoint ($medium) {
-					padding-left: 20px;
-					font-size: 17pt;
-				}
-			}
-			.icon {
-				padding-right: 20px;
-				padding-left: 20px;
-				width: 120px;
-				display: inline-block;
-			}
-		}
-
 
 	}
 

@@ -47,6 +47,15 @@ html, body {
   <!-- build:js --> 
   <script src="{{ theme:js}}"></script>
   <!-- endbuild -->
-
+<script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        $('#first-span').addClass('animated fadeIn');
+      }, 1500);
+      setTimeout(function() {
+        $('#second-span').addClass('animated fadeIn');
+      }, 3500);
+  });
+</script>
 </body>
 </html>

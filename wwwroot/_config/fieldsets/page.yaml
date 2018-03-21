@@ -5,5 +5,29 @@ fields:
   content:
     display: SEO Header
     type: redactor
+  intro_image_1:
+    type: file
+    display: Intro Image 1
+    destination: assets/img
+    show_thumbnail: true
+  delay_1:
+    display: Delay of Fade In (1 second = 1000)
+    type: text
+  intro_image_2:
+    type: file
+    display: Intro Image 2
+    destination: assets/img
+    show_thumbnail: true
+  delay_2:
+    display: Delay of Fade In (1 second = 1000)
+    type: text
+  intro_image_3:
+    type: file
+    display: Intro Image 3
+    destination: assets/img
+    show_thumbnail: true
+  delay_3:
+    display: Delay of Fade In (1 second = 1000)
+    type: text
 
 

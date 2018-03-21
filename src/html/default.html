@@ -50,11 +50,14 @@ html, body {
 <script>
     $(document).ready(function() {
       setTimeout(function() {
-        $('#first-span').addClass('animated fadeIn');
-      }, 1500);
+        $('#first').addClass('animated fadeIn');
+      }, {{ delay_1 or "1000"}});
       setTimeout(function() {
-        $('#second-span').addClass('animated fadeIn');
-      }, 3500);
+        $('#second').addClass('animated fadeIn');
+      }, 2250);
+      setTimeout(function() {
+        $('#third').addClass('animated fadeIn');
+      }, 5000);
   });
 </script>
 </body>

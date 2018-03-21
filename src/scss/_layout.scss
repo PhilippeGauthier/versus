@@ -172,17 +172,11 @@ body {
 #opener {
 	display: flex;
 	justify-content: center;
-	flex-flow: center;
+	flex-flow: column nowrap;
 	align-content: center;
 	align-items: center;
-	h1 {
-		display: inline-block;
-		text-transform: uppercase;
-		font-weight: 900;
-		font-size: 60pt;
-		line-height: 50pt;
-	}
-	span {
-		// display: inline;
+	img {
+		display: inline;
+
 	}
 }

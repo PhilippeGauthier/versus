@@ -11,3 +11,5 @@ ERROR|Wed, 21 Mar 2018 13:52:02 -0400|page|content|/_themes/main/css/ajax-loader
 ERROR|Wed, 21 Mar 2018 13:52:48 -0400|visitor|content|/cp|127.0.0.1||404 - Page not found. Visitor came directly to this page and may have typed the URL incorrectly.
 INFO|Wed, 21 Mar 2018 13:52:59 -0400|site|favicon|/favicon.ico|127.0.0.1||The site favicon could not be found.
 ERROR|Wed, 21 Mar 2018 14:02:12 -0400|page|content|/_themes/main/css/ajax-loader.gif|127.0.0.1||404 - Page not found. There is a bad link on <a href="/_themes/main/css/main.css">/_themes/main/css/main.css</a>.
+ERROR|Wed, 21 Mar 2018 14:03:33 -0400|page|content|/_themes/main/css/ajax-loader.gif|127.0.0.1||404 - Page not found. There is a bad link on <a href="/_themes/main/css/main.css">/_themes/main/css/main.css</a>.
+ERROR|Wed, 21 Mar 2018 14:04:13 -0400|page|content|/_themes/main/css/ajax-loader.gif|127.0.0.1||404 - Page not found. There is a bad link on <a href="/_themes/main/css/main.css">/_themes/main/css/main.css</a>.

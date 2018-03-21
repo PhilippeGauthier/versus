@@ -51,13 +51,13 @@ html, body {
     $(document).ready(function() {
       setTimeout(function() {
         $('#first').addClass('animated fadeIn');
-      }, {{ delay_1 or "1000"}});
+      }, {{ delay_1 }});
       setTimeout(function() {
         $('#second').addClass('animated fadeIn');
-      }, 2250);
+      }, {{ delay_2 }});
       setTimeout(function() {
         $('#third').addClass('animated fadeIn');
-      }, 5000);
+      }, {{ delay_3 }});
   });
 </script>
 </body>

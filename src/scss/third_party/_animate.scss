@@ -13,6 +13,10 @@
   animation-duration: 3s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  &.fast {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s; 
+  }
 }
 
 .animated.infinite {
